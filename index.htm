@@ -3,8 +3,8 @@
 <html lang="en" class="gr__yangzhang_dev"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="./Yang Zhang _ Sensing research at CMU_files/bootstrap.min.css">
-    <link rel="stylesheet" href="./Yang Zhang _ Sensing research at CMU_files/all.min.css">
+    <link rel="stylesheet" href="./file/bootstrap.min.css">
+    <link rel="stylesheet" href="./file/all.min.css">
     <!--<base href="https://yangzhang.dev/">--><base href=".">
     <title>Shuai Ma | Applying for Ph.d. offer in HCI</title>
     <style>
@@ -152,11 +152,10 @@
         
 		
     </style>
-    <link rel="apple-touch-icon" sizes="180x180" href="https://moon.feitsui.com/img/zhangyang/180x180.png">
-    <link rel="icon" sizes="192x192" href="https://moon.feitsui.com/img/zhangyang/192x192.png" type="image/png">
+
 	
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script type="text/javascript" async="" src="./Yang Zhang _ Sensing research at CMU_files/analytics.js"></script><script async="" src="./Yang Zhang _ Sensing research at CMU_files/js"></script>
+	<script type="text/javascript" async="" src="./file/analytics.js"></script><script async="" src="./file/js"></script>
 	<script>
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
@@ -170,8 +169,12 @@
 <body data-gr-c-s-loaded="true">
     <header class="container">
         <h1 class="float-md-left mb-0">
-            <a href="https://yangzhang.dev/">Shuai Ma</a>
+            <a href="https://shuaima.top/">Shuai Ma</a>
         </h1>
+        <ul class="list-inline float-md-right social-icons">
+            <li class="list-inline-item"><a href="CV_ShuaiMa.pdf">CV/Resume</a></li>
+            <li class="list-inline-item"><a href="mailto:mashuai171@mails.ucas.ac.cn">Email</a></li>
+        </ul>
         <div class="clearfix"></div>
         <hr>
     </header>
@@ -190,11 +193,11 @@
 					He publishes at <a href="https://dl.acm.org/event.cfm?id=RE151">CHI</a> (ACM CHI Conference on Human Factors in Computing Systems) and <a href="https://dl.acm.org/event.cfm?id=RE172">UIST</a> (ACM Symposium on User Interface Software and Technology), and has received 1 Honorable Mention Awards (5%).
                 </p>
                 <p>
-                    Shuai is applying for a Ph.d. offer in HCI.
+                    Shuai will graduate in 2020 Summer and he is applying for a Ph.d. offer in HCI.
                 </p>
             </div>
             <div class="col-lg-3 col-md-4">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/me_portrait.jpg" width="350">
+                <img src="./file/me_portrait.jpg" width="350">
             </div>
         </div>
 
@@ -205,11 +208,114 @@
             <div class="col-lg-8 mb-2">
                 <h2>Research</h2>
 
+                <div class="alert alert-secondary">
+                    <h3>Personalization/User Modeling and Interaction Machine/Deep Learning</h3>
+                    <div>
+                        Every user has his difference from others. In many subjective tasks, users have significant difference and preference. To help users do a task, a general model is usually built using ML or DL methods. However, these models are trained by data from all kinds of users, which is not suitable for a specific user. So, modeling users' personality or preference can be important. How to make a general model suitable for a specific user is an interesting research question.
+                    </div>
+                </div>
 
                 <div class="row research-project">
 
                     <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/pre-screen.png" width="200">
+                        <img src="./file/research/smarteye.png" width="200">
+                    </div>
+                    <div class="col-md-8">
+                        <h6>
+                            SmartEye: Assisting Instant Photo Taking via Integrating User Preference with Deep View Proposal Network
+                        </h6>
+                        <p class="text-muted">
+                            Shuai Ma, Zijun Wei, Feng Tian<sup>*</sup>, Xiangmin Fan, Jianming Zhang, Xiaohui Shen, Zhe Lin, Jin Huang, Radomír Měch, Dimitris Samaras, Hongan Wang (CHI 2019)
+                            <a class="info" href="paper/SmartEye.pdf">[PDF]</a>
+                        </p>
+                        <p class="strong">
+                            <img src="./file/hm.png" width="20"> Honorable Mention Award
+                        </p>
+                        <p>
+                            Taking a high-quality photo needs composition skill which non-expert users lack. We present SmartEye, a novel mobile system to help users take photos with good compositions in-situ. SmartEye integrates the View Proposal Network (VPN), a deep learning based model that outputs composition suggestions in real time, and a novel, interactively updated module (P-Module) that adjusts the VPN outputs to account for personalized composition preferences.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="dash">
+
+                <div class="row research-project">
+
+                    <div class="col-md-4">
+                        <img src="./file/research/pbayes.png" width="200">
+                    </div>
+                    <div class="col-md-8">
+                        <h6>
+                            User Adaptive Modeling in 2D Moving Target Selection 
+                        </h6>
+                        <p class="text-muted">
+                        </p>
+                        <p>
+                            Our previous work has proposed a method to help 2D moving target selection. However, it used a general model trained by all users' data collected. When a new users use our tool, it may be not suitable for him. So we designed a personalized user modeling method to adapt the general model to a specific user.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="dash">
+
+                <div class="alert alert-secondary">
+                    <h3>Human-computer interaction in Healthcare</h3>
+                    <div>
+                        Many early stages of disease are difficult to detect, but some symptoms can be sensitively captured by sensors. So we developed some methods of human-computer interaction to capture users' limb movement through mobile phones, Kinect and other devices, and collect a large number of data of normal users and patients, so as to achieve assistant diagnosis of diseases.
+                    </div>
+                </div>
+
+                <div class="row research-project">
+
+                    <div class="col-md-4">
+                        <img src="./file/research/pd.png" width="200">
+                    </div>
+                    <div class="col-md-8">
+                        <h6>
+                            Implicit Detection of Motor Impairment in Parkinson’s Disease from Everyday Smartphone Interactions 
+                        </h6>
+                        <p class="text-muted">
+                            Jing Gao, Feng Tian<sup>*</sup>, Junjun Fan, Dakuo Wang, Xiangmin Fan, Yicheng Zhu, Shuai Ma, Jin Huang, Hongan Wang (CHI 2018 Poster)
+                            <a class="info" href="paper/pd.pdf">[PDF]</a>
+                        </p>
+                        <p>
+                            In this work, we explored the feasibility and accuracy of detecting motor impairment in Parkinson’s disease (PD) via implicitly sensing and analyzing users’ everyday interactions with their smartphones. Through a 42 subjects study, our approach achieved an overall accuracy of 88.1% (90.0%/86.4% sensitivity/specificity) in discriminating PD subjects from age-matched healthy controls. 
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="dash">
+
+                <div class="row research-project">
+
+                    <div class="col-md-4">
+                        <img src="./file/research/gait.png" width="200">
+                    </div>
+                    <div class="col-md-8">
+                        <h6>
+                            Identifying Gait Abnormality in Nervous System Diseases with a Single Click
+                        </h6>
+                        <p class="text-muted">
+                        </p>
+                        <p>
+                            Gait abnormality is one of the major symptoms of nervous system diseases such as Parkinson’s disease. In clinic, assessments tools usually requires patients to complete a long and tedious testing process under the supervision of a doctor, which is a tremendous pressure for both patients and hospitals.We propose a novel system, which integrates identity recognition algorithm, behavior recognition algorithm, and built-in gait detection model to accelerate the clinical diagnosis process.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="dash">
+
+                <div class="alert alert-secondary">
+                    <h3>Video Interaction</h3>
+                    <div>
+                        To further utilize the video resources, we developed some interaction methods for video viewing, video editting, MOOC learning, etc.
+                    </div>
+                </div>
+
+                <div class="row research-project">
+
+                    <div class="col-md-4">
+                        <img src="./file/research/pre-screen.png" width="200">
                     </div>
                     <div class="col-md-8">
                         <h6>
@@ -217,9 +323,8 @@
                         </h6>
                         <p class="text-muted">
                             Qian Zhu and Shuai Ma<sup>*</sup> (UIST 2019 Poster)
-							<a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
+                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
+                            <a class="info" href="paper/pre-screen.pdf">[PDF]</a>
                         </p>
 
                         <p>
@@ -232,7 +337,7 @@
 
                 <div class="row research-project">
                     <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/reminder.png" width="200">
+                        <img src="./file/research/reminder.png" width="200">
                     </div>
                     <div class="col-md-8">
                         <h6>
@@ -240,8 +345,7 @@
                         </h6>
                         <p class="text-muted">
                             Qian Zhu and Shuai Ma<sup>*</sup> (UIST 2019 Poster)
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3173847">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Wall/Wall.pdf">[PDF]</a>
+                            <a class="info" href="paper/reminder.pdf">[PDF]</a>
                         </p>
                             In MOOC learning, learners can easily get distracted as there is no real teacher monitoring them. We present Reminder, a tool to monitor learners' attention and help them review the missed content in lecture. The attention monitoring function only rely on a front-camera in pc, tablet, pad or phone. Reminder provides a multi-scale attention score viewing method from which users can easily know which part they have missed.
                         <p>
@@ -255,132 +359,14 @@
                 <div class="row research-project">
 
                     <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/smarteye.png" width="200">
-                    </div>
-                    <div class="col-md-8">
-                        <h6>
-                            SmartEye: Assisting Instant Photo Taking via Integrating User Preference with Deep View Proposal Network
-                        </h6>
-                        <p class="text-muted">
-                            Shuai Ma, Zijun Wei, Feng Tian<sup>*</sup>, Xiangmin Fan, Jianming Zhang, Xiaohui Shen, Zhe Lin, Jin Huang, Radomír Měch, Dimitris Samaras, Hongan Wang (CHI 2019)
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
-                        </p>
-                        <p class="strong">
-                            <img src="./Yang Zhang _ Sensing research at CMU_files/hm.png" width="20"> Honorable Mention Award
-                        </p>
-                        <p>
-                            Taking a high-quality photo needs composition skill which non-expert users lack. a novel mobile system to help users take photos with good compositions in-situ. SmartEye integrates the View Proposal Network (VPN), a deep learning based model that outputs composition suggestions in real time, and a novel, interactively updated module (P-Module) that adjusts the VPN outputs to account for personalized composition preferences.
-                        </p>
-                    </div>
-                </div>
-
-                <hr class="dash">
-
-                <div class="row research-project">
-
-                    <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/pd.png" width="200">
-                    </div>
-                    <div class="col-md-8">
-                        <h6>
-                            Implicit Detection of Motor Impairment in Parkinson’s Disease from Everyday Smartphone Interactions 
-                        </h6>
-                        <p class="text-muted">
-                            Jing Gao, Feng Tian<sup>*</sup>, Junjun Fan, Dakuo Wang, Xiangmin Fan, Yicheng Zhu, Shuai Ma, Jin Huang, Hongan Wang (CHI 2018 Poster)
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
-                        </p>
-                        <p>
-                            In this work, we explored the feasibility and accuracy of detecting motor impairment in Parkinson’s disease (PD) via implicitly sensing and analyzing users’ everyday interactions with their smartphones. Through a 42 subjects study, our approach achieved an overall accuracy of 88.1% (90.0%/86.4% sensitivity/specificity) in discriminating PD subjects from age-matched healthy controls. 
-                        </p>
-                    </div>
-                </div>
-
-                <hr class="dash">
-
-                <div class="row research-project">
-
-                    <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/mirroru.png" width="200">
-                    </div>
-                    <div class="col-md-8">
-                        <h6>
-                            mirrorU: Scaffolding Emotional Reflection via In-Situ Assessment and Interactive Feedback
-                        </h6>
-                        <p class="text-muted">
-                            Liuping Wang, Xiangmin Fan<sup>*</sup>, Feng Tian, Lingjia Deng, Shuai Ma, Jin Huang, Hongan Wang (CHI 2018 Poster)
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
-                        </p>
-                        <p>
-                            We present mirrorU, a mobile system that supports users to reflect on and write about their daily emotional experience. While prior work has focused primarily on providing memory triggers or affective cues, mirrorU provides in-situ assessment and interactive feedback to scaffold reflective writing. 
-                        </p>
-                    </div>
-                </div>
-
-                <hr class="dash">
-
-                <div class="row research-project">
-
-                    <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/furniture.png" width="200">
-                    </div>
-                    <div class="col-md-8">
-                        <h6>
-                            Upcycle-Chic: A Software Tool for Ideating Furniture Upcycling Design
-                        </h6>
-                        <p class="text-muted">
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
-                        </p>
-                        <p>
-                            We present Upcycle-Chic, a design and visualization environment that allows a user to view possible upcycling solutions for a given piece of old furniture and explore varying design variations. These possible solutions are generated based on design strategies drawn from over 1000 examples on web and books shared by professionals and hobbyist furniture makers.
-                        </p>
-                    </div>
-                </div>
-
-                <hr class="dash">
-
-                <div class="row research-project">
-
-                    <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/gait.png" width="200">
-                    </div>
-                    <div class="col-md-8">
-                        <h6>
-                            Identifying Gait Abnormality in Nervous System Diseases with a Single Click}{Title for citation
-                        </h6>
-                        <p class="text-muted">
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
-                        </p>
-                        <p>
-                            Gait abnormality is one of the major symptoms of nervous system diseases such as Parkinson’s disease. In clinic, assessments tools usually requires patients to complete a long and tedious testing process under the supervision of a doctor, which is a tremendous pressure for both patients and hospitals.We propose a novel system, which integrates identity recognition algorithm, behavior recognition algorithm, and built-in gait detection model to accelerate the clinical diagnosis process.
-                        </p>
-                    </div>
-                </div>
-
-                <hr class="dash">
-
-                <div class="row research-project">
-
-                    <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/co-lighter.png" width="200">
+                        <img src="./file/research/co-lighter.png" width="200">
                     </div>
                     <div class="col-md-8">
                         <h6>
                             Co-Lighter: Promoting Video Watching by Crowd Suggestion on Specific Content
                         </h6>
                         <p class="text-muted">
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
+                            <a class="info" href="paper/colighter.pdf">[PDF]</a>
                         </p>
                         <p>
                             We first conduct a preliminary survey among 114 participants to investigate the limits in current video watching modes. Then, based on the survey results, we present Co-Lighter, a novel tool for video viewing and comment. Co-Lighter supports viewers to watch videos and share feelings about video content in a collaborative way. 
@@ -393,16 +379,14 @@
                 <div class="row research-project">
 
                     <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/e-storytelling.png" width="200">
+                        <img src="./file/research/e-storytelling.png" width="200">
                     </div>
                     <div class="col-md-8">
                         <h6>
                             E-StorySpace: Explore Movie Story with Emotion in Space
                         </h6>
                         <p class="text-muted">
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
+                            <a class="info" href="paper/espace.pdf">[PDF]</a>
                         </p>
                         <p>
                             E-StorySpace is a spatial visualization for understanding and exploring story in movies. We first automatically extracted a series of elements of a story such as scenes, characters and dialogues with movie script processing algorithm. And we extracted multi-modal emotional features of a movie by deep neural network. Then we organized these elements of a story into feature vectors and clustered them at different levels in 2D space. So we got the spatial distribution of story content that can help users to explore and compare different parts of a story that they are interested in. 
@@ -412,19 +396,100 @@
 
                 <hr class="dash">
 
+                
+
+                <div class="alert alert-secondary">
+                    <h3>Interaction Technique for Daily Life</h3>
+                    <div>
+                        Interaction is everywhere in our daily life. What can it do to create a better life?
+                    </div>
+                </div>
+
                 <div class="row research-project">
 
                     <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/preg.png" width="200">
+                        <img src="./file/research/mirroru.png" width="200">
+                    </div>
+                    <div class="col-md-8">
+                        <h6>
+                            mirrorU: Scaffolding Emotional Reflection via In-Situ Assessment and Interactive Feedback
+                        </h6>
+                        <p class="text-muted">
+                            Liuping Wang, Xiangmin Fan<sup>*</sup>, Feng Tian, Lingjia Deng, Shuai Ma, Jin Huang, Hongan Wang (CHI 2018 Poster)
+                            <a class="info" href="paper/mirrorU.pdf">[PDF]</a>
+                        </p>
+                        <p>
+                            We present mirrorU, a mobile system that supports users to reflect on and write about their daily emotional experience. While prior work has focused primarily on providing memory triggers or affective cues, mirrorU provides in-situ assessment and interactive feedback to scaffold reflective writing. 
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="dash">
+
+                <div class="alert alert-secondary">
+                    <h3>Interaction Technique for Touch and Design</h3>
+                    <div>
+                        We proposed some systems for design and gesture recognition.
+                    </div>
+                </div>
+
+                <div class="row research-project">
+
+                    <div class="col-md-4">
+                        <img src="./file/research/furniture.png" width="200">
+                    </div>
+                    <div class="col-md-8">
+                        <h6>
+                            Upcycle-Chic: A Software Tool for Ideating Furniture Upcycling Design
+                        </h6>
+                        <p class="text-muted">
+                            <a class="info" href="paper/upcycle.pdf">[PDF]</a>
+                        </p>
+                        <p>
+                            We present Upcycle-Chic, a design and visualization environment that allows a user to view possible upcycling solutions for a given piece of old furniture and explore varying design variations. These possible solutions are generated based on design strategies drawn from over 1000 examples on web and books shared by professionals and hobbyist furniture makers.
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="dash">
+
+                <div class="row research-project">
+
+                    <div class="col-md-4">
+                        <img src="./file/research/recognizer.png" width="200">
+                    </div>
+                    <div class="col-md-8">
+                        <h6>
+                            Chronos: Improving Recognizers’ Performance by Leveraging Gesture Continuity and Designers’ Involvement
+                        </h6>
+                        <p class="text-muted">
+                            <a class="info" href="paper/recognizer.pdf">[PDF]</a>
+                        </p>
+                        <p>
+                            We presents Chronos, an algorithm framework that improves the performance of gesture recognizers by 1) extracting the continuity information from gesture sequences and, 2) enabling designers to optimize the decision-making rewards. The framework is implemented by integrating dynamic Bayesian network (DBN) with a partially observable Markov decision process (POMDP).
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="dash">
+
+                <div class="alert alert-secondary">
+                    <h3>Human Engagement and Trust with AI</h3>
+                    <div>
+                        When collaborate with AI, how will users feel and do they trust AI? To investigate these questions, we did some interesting research.
+                    </div>
+                </div>
+
+                <div class="row research-project">
+
+                    <div class="col-md-4">
+                        <img src="./file/research/preg.png" width="200">
                     </div>
                     <div class="col-md-8">
                         <h6>
                             Investigating Pregnent Women' Engagement When Getting Emotion Support from a Chatbot
                         </h6>
                         <p class="text-muted">
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
                         </p>
                         <p>
                             Pregnant women are seeking for emotional support in forums. How would they feel if they were replied by a chatbot? We are investigating users’ engagement when getting emotional support in a pregnant related forum where users don’t know whether the com-ments are replied by a real user or a chatbot. To support the chatbot, we built a seq-to-seq model to generate diverse comments based on posts
@@ -434,45 +499,9 @@
 
                 <hr class="dash">
 
-                <div class="row research-project">
+                
 
-                    <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/pbayes.png" width="200">
-                    </div>
-                    <div class="col-md-8">
-                        <h6>
-                            User Adaptive Modeling in 2D Moving Target Selection 
-                        </h6>
-                        <p class="text-muted">
-                            <a class="info" href="https://youtu.be/51XaZDki6yg">[Video]</a>
-                            <a class="info" href="https://dl.acm.org/citation.cfm?id=3242608">[DOI]</a>
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
-                        </p>
-                        <p>
-                            Our previous work has proposed a method to help 2D moving target selection. However, it used a general model trained by all users' data collected. When a new users use our tool, it may be not suitable for him. So we designed a personalized user modeling method to adapt the general model to a specific user.
-                        </p>
-                    </div>
-                </div>
-
-                <hr class="dash">
-
-                <div class="row research-project">
-
-                    <div class="col-md-4">
-                        <img src="./Yang Zhang _ Sensing research at CMU_files/research/recognizer.png" width="200">
-                    </div>
-                    <div class="col-md-8">
-                        <h6>
-                            Chronos: Improving Recognizers’ Performance by Leveraging Gesture Continuity and Designers’ Involvement
-                        </h6>
-                        <p class="text-muted">
-                            <a class="info" href="https://yangzhang.dev/research/Vibrosight/Vibrosight.pdf">[PDF]</a>
-                        </p>
-                        <p>
-                            We presents Chronos, an algorithm framework that improves the performance of gesture recognizers by 1) extracting the continuity information from gesture sequences and, 2) enabling designers to optimize the decision-making rewards. The framework is implemented by integrating dynamic Bayesian network (DBN) with a partially observable Markov decision process (POMDP).
-                        </p>
-                    </div>
-                </div>
+                
 
 
             </div>
@@ -481,8 +510,9 @@
             <div class="col-lg-4 mb-2">
                 <h2>Latest News</h2>
                 <ul class="news">
-					<li>Aug 2 Two poster abstracts got conditionally accepted at UIST 2019.</li>
-					<li>May 9 Give a talk at CHI 2019 conference.</li>
+                    <li>Aug 12 New semester started.</li>
+					<li>Aug 2  Two poster abstracts got conditionally accepted at UIST 2019.</li>
+					<li>May 9  Gave a talk at CHI 2019 conference.</li>
 					<li>Mar 15 One paper got CHI Honorable Mention Award!</li>
 					
                 </ul>
@@ -499,51 +529,51 @@
         <div class="row fun-projects">
             <div class="col-lg-2 col-md-3 col-6 mb-3">
 				<a href="https://github.com/yangz3/DOTA2-Player-Survival-Rate-Analysis">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/1.jpg"></a>
+                <img src="./file/life/1.jpg"></a>
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/2.jpg">
+                <img src="./file/life/2.jpg">
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
-                <img src="./Yang Zhang _ Sensing research at CMU_files//life/3.jpg">
+                <img src="./file//life/3.jpg">
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/4.jpg">
+                <img src="./file/life/4.jpg">
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/5.jpg">
+                <img src="./file/life/5.jpg">
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/6.jpg">
+                <img src="./file/life/6.jpg">
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
 				<a href="https://youtu.be/5Fge4-N5Avo">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/7.jpg"></a>
+                <img src="./file/life/7.jpg"></a>
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
 				<a href="https://youtu.be/H70mu4YS5oo">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/8.jpg"></a>
+                <img src="./file/life/8.jpg"></a>
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
                 <a href="https://youtu.be/H70mu4YS5oo">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/9.jpg"></a>
+                <img src="./file/life/9.jpg"></a>
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
                 <a href="https://youtu.be/5Fge4-N5Avo">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/10.jpg"></a>
+                <img src="./file/life/10.jpg"></a>
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
                 <a href="https://youtu.be/H70mu4YS5oo">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/11.jpg"></a>
+                <img src="./file/life/11.jpg"></a>
             </div>
             <div class="col-lg-2 col-md-3 col-6 mb-3">
                 <a href="https://youtu.be/H70mu4YS5oo">
-                <img src="./Yang Zhang _ Sensing research at CMU_files/life/12.jpg"></a>
+                <img src="./file/life/12.jpg"></a>
             </div>
         </div>
     </div>
 
-<script src="./Yang Zhang _ Sensing research at CMU_files/jquery.min.js"></script>
+<script src="./file/jquery.min.js"></script>
 <script>
     $('#toggle-more-news').click(function () {
         $('#news-more').toggle();
