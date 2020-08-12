@@ -1,5 +1,7 @@
-# Eng-user-study
-Robot engagement user study
+# LearningEngagement
+This is the repo of the user study webpages of our project - LearningEngagement
 
-# Url
-mingfeisun.github.io/eng-user-study
+# Contact
+Mingfei Sun mingfeisun.github.io
+
+Shuai Ma mashuaiwudi.github.io
