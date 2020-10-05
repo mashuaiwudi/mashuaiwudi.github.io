@@ -494,7 +494,8 @@ $("#next-1-1").click(function(){
 	document.getElementById('learning1_watchbutton1').style.display = 'none';
 	document.getElementById('learning1_watchbutton2').style.display = 'block';
 	document.getElementById('learning1_iteration_question_1').style.display = 'none';
-	alert("YEAH");
+	//alert("YEAH");
+	submitData_ms();
 });
 
 $("#next-1-2").click(function(){
