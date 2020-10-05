@@ -758,7 +758,7 @@ $("#next-1-final").click(function(){
 		console.log(objData[0]);
 		//缺少存储json数据的代码，后面也是一样
 	}
-	submitData_ms();
+	//submitData_ms();
 	//开始第二个动作
 	$(".nav-tabs a[href='#newdemo2']").tab('show');
 	$("html, body").animate({ scrollTop: 0 }, "slow");
