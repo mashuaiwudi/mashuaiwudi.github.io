@@ -392,7 +392,8 @@ function submitData_ms(){
 		if (xhr.readyState === 4 && xhr.status === 200) {
 			document.getElementById('user_id').innerHTML = xhr.responseText;
 			console.log(xhr.responseText);
-			alert("Your response has been saved successfully!");
+			//alert("Your response has been saved successfully!");
+			$("#learning_finishModal").modal('show');
 	    }
 	};
 
@@ -493,6 +494,7 @@ $("#next-1-1").click(function(){
 	document.getElementById('learning1_watchbutton1').style.display = 'none';
 	document.getElementById('learning1_watchbutton2').style.display = 'block';
 	document.getElementById('learning1_iteration_question_1').style.display = 'none';
+	alert("YEAH");
 });
 
 $("#next-1-2").click(function(){
@@ -1351,7 +1353,7 @@ $("#next-4-final").click(function(){
 	//提交数据
 	submitData_ms();
 	//进入最后的模块
-	$("#learning_finishModal").modal('show');
+	
 
 
 
