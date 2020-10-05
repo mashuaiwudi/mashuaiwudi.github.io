@@ -54,26 +54,292 @@ for (var i = 0; i < id_vid_real.length; i++) {
 Math.random();
 Math.random();
 
+// from 1 to 16, randomly pick one
 var currMode = combn_code[Math.floor(Math.random() * combn_code.length)];
 var currSport = combn_code[Math.floor(Math.random() * combn_code.length)];
 
+// the key is to get currMode and currSport
+
+
+var containerlist = [['container1-1', 'container1-2', 'container1-3', 'container1-4', 'container1-5'],
+['container2-1', 'container2-2', 'container2-3', 'container2-4', 'container2-5'],
+['container3-1', 'container3-2', 'container3-3', 'container3-4', 'container3-5'],
+['container4-1', 'container4-2', 'container4-3', 'container4-4', 'container4-5']]
+
+var firstviewlist = [['firstview1-1', 'firstview1-2', 'firstview1-3', 'firstview1-4', 'firstview1-5'],
+['firstview2-1', 'firstview2-2', 'firstview2-3', 'firstview2-4', 'firstview2-5'],
+['firstview3-1', 'firstview3-2', 'firstview3-3', 'firstview3-4', 'firstview3-5'],
+['firstview4-1', 'firstview4-2', 'firstview4-3', 'firstview4-4', 'firstview4-5']]
+
+
+
+var action1_mode1_360 = ['16789952955f76dfc844d7c', '5178423355f76dfd1e41e0', '14087162625f76dfd3d4b3f', '8523801385f76dfd5977ce', '13526979965f76dfd834e6c']
+var action1_mode2_360 = ['1946666725f76dfd9c7b80', '14892600085f76dfdb5d54c', '19079395755f76dfde22e53', '18733412285f76dfe0025be', '4179342845f76dfe1e6a9b']
+var action1_mode3_360 = ['20020609745f76dfe39d161', '20020609745f76dfe39d161', '20020609745f76dfe39d161', '20020609745f76dfe39d161', '20020609745f76dfe39d161']
+var action1_mode4_360 = ['18239986585f76dfe57ee35', '18239986585f76dfe57ee35', '18239986585f76dfe57ee35', '18239986585f76dfe57ee35', '18239986585f76dfe57ee35']
+var action2_mode1_360 = ['2064360495f76e33339dbf', '210014255f76e33bdd1be', '4743370615f76e33d13b62', '3380493755f76e33e54618', '21140173695f76e33febb98']
+var action2_mode2_360 = ['16442284325f76e34110517', '18405184785f76e3425171c', '12267739635f76e34514dc1', '19240615345f76e34d88f5a', '6744169385f76e3513d692']
+var action2_mode3_360 = ['4872018535f76e354404f8', '4872018535f76e354404f8', '4872018535f76e354404f8', '4872018535f76e354404f8', '4872018535f76e354404f8']
+var action2_mode4_360 = ['13668854975f76e35641f09', '13668854975f76e35641f09', '13668854975f76e35641f09', '13668854975f76e35641f09', '13668854975f76e35641f09']
+var action3_mode1_360 = ['1806984765f76e746a6fd4', '18195536225f76e7527a675', '5481519435f76e753dd1ef', '5481519435f76e75552458', '5481519435f76e757403cd']
+var action3_mode2_360 = ['20860129535f76e75926d00', '6652186495f76e75a67f53', '11606418825f76e75beaf73', '11606418825f76e75d2941a', '9778543215f76e75eda79e']
+var action3_mode3_360 = ['16804750335f76e76096478', '16804750335f76e76096478', '16804750335f76e76096478', '16804750335f76e76096478', '16804750335f76e76096478']
+var action3_mode4_360 = ['13043714315f76e76273794', '13043714315f76e76273794', '13043714315f76e76273794', '13043714315f76e76273794', '13043714315f76e76273794']
+var action4_mode1_360 = ['2668530885f76ea0b523fd', '7837683585f76ea0edf089', '4106935995f76ea1053bd2', '5106028735f76ea125100e', '13952699495f76ea13cb1fa']
+var action4_mode2_360 = ['972478265f76ea1552765', '18624759105f76ea16d0270', '18624759105f76ea18964eb', '6136090115f76ea1a7270c', '6136090115f76ea1c53712']
+var action4_mode3_360 = ['6136090115f76ea1e383ef', '6136090115f76ea1e383ef', '6136090115f76ea1e383ef', '6136090115f76ea1e383ef', '6136090115f76ea1e383ef']
+var action4_mode4_360 = ['18168566375f76ea1f90c96', '18168566375f76ea1f90c96', '18168566375f76ea1f90c96', '18168566375f76ea1f90c96', '18168566375f76ea1f90c96']
+var resources360 = [[action1_mode1_360, action1_mode2_360, action1_mode3_360, action1_mode4_360],
+[action2_mode1_360, action2_mode2_360, action2_mode3_360, action2_mode4_360],
+[action3_mode1_360, action3_mode2_360, action3_mode3_360, action3_mode4_360],
+[action4_mode1_360, action4_mode2_360, action4_mode3_360, action4_mode4_360]]
+
+
+var action1_mode1_firstview = ['first-dagu-mode1-1', 'first-dagu-mode1-2', 'first-dagu-mode1-3', 'first-dagu-mode1-4', 'first-dagu-mode1-5']
+var action1_mode2_firstview = ['first-dagu-mode2-1', 'first-dagu-mode2-2', 'first-dagu-mode2-3', 'first-dagu-mode2-4', 'first-dagu-mode2-5']
+var action1_mode3_firstview = ['first-dagu-mode3', 'first-dagu-mode3', 'first-dagu-mode3', 'first-dagu-mode3', 'first-dagu-mode3']
+var action1_mode4_firstview = ['first-dagu-mode4', 'first-dagu-mode4', 'first-dagu-mode4', 'first-dagu-mode4', 'first-dagu-mode4']
+var action2_mode1_firstview = ['first-gangqin-mode1-1', 'first-gangqin-mode1-2', 'first-gangqin-mode1-3', 'first-gangqin-mode1-4', 'first-gangqin-mode1-5']
+var action2_mode2_firstview = ['first-gangqin-mode2-1', 'first-gangqin-mode2-2', 'first-gangqin-mode2-3', 'first-gangqin-mode2-4', 'first-gangqin-mode2-5']
+var action2_mode3_firstview = ['first-gangqin-mode3', 'first-gangqin-mode3', 'first-gangqin-mode3', 'first-gangqin-mode3', 'first-gangqin-mode3']
+var action2_mode4_firstview = ['first-gangqin-mode4', 'first-gangqin-mode4', 'first-gangqin-mode4', 'first-gangqin-mode4', 'first-gangqin-mode4']
+var action3_mode1_firstview = ['first-quanji-mode1-1', 'first-quanji-mode1-2', 'first-quanji-mode1-3', 'first-quanji-mode1-4', 'first-quanji-mode1-5']
+var action3_mode2_firstview = ['first-quanji-mode2-1', 'first-quanji-mode2-2', 'first-quanji-mode2-3', 'first-quanji-mode2-4', 'first-quanji-mode2-5']
+var action3_mode3_firstview = ['first-quanji-mode3', 'first-quanji-mode3', 'first-quanji-mode3', 'first-quanji-mode3', 'first-quanji-mode3']
+var action3_mode4_firstview = ['first-quanji-mode4', 'first-quanji-mode4', 'first-quanji-mode4', 'first-quanji-mode4', 'first-quanji-mode4']
+var action4_mode1_firstview = ['first-woshou-mode1-1', 'first-woshou-mode1-2', 'first-woshou-mode1-3', 'first-woshou-mode1-4', 'first-woshou-mode1-5']
+var action4_mode2_firstview = ['first-woshou-mode2-1', 'first-woshou-mode2-2', 'first-woshou-mode2-3', 'first-woshou-mode2-4', 'first-woshou-mode2-5']
+var action4_mode3_firstview = ['first-woshou-mode3', 'first-woshou-mode3', 'first-woshou-mode3', 'first-woshou-mode3', 'first-woshou-mode3']
+var action4_mode4_firstview = ['first-woshou-mode4', 'first-woshou-mode4', 'first-woshou-mode4', 'first-woshou-mode4', 'first-woshou-mode4']
+var resourcesfirstview = [[action1_mode1_firstview, action1_mode2_firstview, action1_mode3_firstview, action1_mode4_firstview],
+[action2_mode1_firstview, action2_mode2_firstview, action2_mode3_firstview, action2_mode4_firstview],
+[action3_mode1_firstview, action3_mode2_firstview, action3_mode3_firstview, action3_mode4_firstview],
+[action4_mode1_firstview, action4_mode2_firstview, action4_mode3_firstview, action4_mode4_firstview]]
+
+
+var selected20keys = new Array();　//创建一个数组
 for (var i = 0; i < html_vid_real.length; i++){
-	vid_name_real = "video_" + currSport[i] + ".mp4";
-	vid_name_sim = "sim_" + currSport[i] + "_" + currMode[i] + ".mp4";
+	vid_name_real = "videos/realaction_" + currSport[i] + ".mp4";
+	//vid_name_sim = "sim_" + currSport[i] + "_" + currMode[i] + ".mp4";
 
-	var htmlSource1 = document.createElement("source");
-	htmlSource1.setAttribute("src", vid_name_real);
-	htmlSource1.setAttribute("type", "video/mp4");
-	html_vid_real[i].appendChild(htmlSource1);
-
-	var htmlSource2 = document.createElement("source");
-	htmlSource2.setAttribute("src", vid_name_sim);
-	htmlSource2.setAttribute("type", "video/mp4");
-	html_vid_sim[i].appendChild(htmlSource2);
 
 	document.getElementById(id_thumbnail[i]).src = "member-" + currSport[i] + ".png";
 	document.getElementById(id_thumbnail_[i]).src = "member-" + currSport[i] + ".png";
 	document.getElementById(id_thumbnailtest[i]).src = "member-" + currSport[i] + ".png";
+
+
+	//一开始的真人演示视频可以继续这么搞
+	var htmlSource = document.createElement("source");
+	htmlSource.setAttribute("src", vid_name_real);
+	htmlSource.setAttribute("type", "video/mp4");
+	html_vid_real[i].appendChild(htmlSource);
+
+	console.log(html_vid_real[i])
+
+
+	//但是后面的360视频以及第一人称视频不要以添加source的方式来了
+	//var htmlSource2 = document.createElement("source");
+	//htmlSource2.setAttribute("src", vid_name_sim);
+	//htmlSource2.setAttribute("type", "video/mp4");
+	//html_vid_sim[i].appendChild(htmlSource2);
+	/*
+	var containername1 = containerlist[i][0]
+	var containername2 = containerlist[i][1]
+	var containername3 = containerlist[i][2]
+	var containername4 = containerlist[i][3]
+	var containername5 = containerlist[i][4]
+
+	var firstviewname1 = firstviewlist[i][0]
+	var firstviewname2 = firstviewlist[i][1]
+	var firstviewname3 = firstviewlist[i][2]
+	var firstviewname4 = firstviewlist[i][3]
+	var firstviewname5 = firstviewlist[i][4]
+
+	//随机得到一种动作下的一种模式的5个360视频
+	var video360_1 = resources360[currSport[i]][currMode[i]][0]
+	var video360_2 = resources360[currSport[i]][currMode[i]][1]
+	var video360_3 = resources360[currSport[i]][currMode[i]][2]
+	var video360_4 = resources360[currSport[i]][currMode[i]][3]
+	var video360_5 = resources360[currSport[i]][currMode[i]][4]
+
+	//随机得到一种动作下的一种模式的5个第一人称视频
+	var videofirst_1 = resourcesfirstview[currSport[i]][currMode[i]][0]
+	var videofirst_2 = resourcesfirstview[currSport[i]][currMode[i]][1]
+	var videofirst_3 = resourcesfirstview[currSport[i]][currMode[i]][2]
+	var videofirst_4 = resourcesfirstview[currSport[i]][currMode[i]][3]
+	var videofirst_5 = resourcesfirstview[currSport[i]][currMode[i]][4]
+	*/
+	//把播放视频的html元素与视频绑定起来
+
+	var cur_selected5keys = new Array();
+	for(var j = 0; j < containerlist[i].length; j++){
+		
+		//containername = containerlist[i][j]
+		firstviewname = document.getElementById(firstviewlist[i][j])
+
+		console.log(firstviewname)
+
+		console.log(currSport[i])
+		console.log(currMode[i])
+
+		video360 = resources360[currSport[i]-1][currMode[i]-1][j]
+		console.log(video360)
+		videofirst = 'videos/' + resourcesfirstview[currSport[i]-1][currMode[i]-1][j] + ".webm"
+		console.log(videofirst)
+		//首先绑定360视频
+		//其实所谓的绑定360视频，就是确定好了视频的key是什么，1-1，1-2，。。。，4-5，这20个播放框分别用什么key（从80个key里面挑出来），从但是并不真的init
+		//play2VR.init(document.querySelector('#' + containername), video360);
+		cur_selected5keys.push(video360)
+		
+		//然后绑定第一人称视频
+		var htmlSource = document.createElement("source");
+		htmlSource.setAttribute("src", videofirst);
+		htmlSource.setAttribute("type", "video/webm");
+		firstviewname.appendChild(htmlSource);
+	}
+	selected20keys.push(cur_selected5keys)
+	
+
+	/*
+	//首先绑定360视频
+	play2VR.init(document.querySelector(containername1), video360_1);
+	play2VR.init(document.querySelector(containername2), video360_1);
+	play2VR.init(document.querySelector(containername3), video360_1);
+	play2VR.init(document.querySelector(containername4), video360_1);
+	play2VR.init(document.querySelector(containername5), video360_1);
+	//其次绑定第一人称视频
+	var htmlSource1 = document.createElement("source");
+	htmlSource1.setAttribute("src", videofirst_1);
+	htmlSource1.setAttribute("type", "video/webm");
+	firstviewname1.appendChild(htmlSource1);
+
+	var htmlSource2 = document.createElement("source");
+	htmlSource2.setAttribute("src", videofirst_1);
+	htmlSource2.setAttribute("type", "video/webm");
+	firstviewname1.appendChild(htmlSource2);
+
+	var htmlSource3 = document.createElement("source");
+	htmlSource3.setAttribute("src", videofirst_1);
+	htmlSource3.setAttribute("type", "video/webm");
+	firstviewname1.appendChild(htmlSource3);
+
+	var htmlSource4 = document.createElement("source");
+	htmlSource4.setAttribute("src", videofirst_1);
+	htmlSource4.setAttribute("type", "video/webm");
+	firstviewname1.appendChild(htmlSource1);
+
+	var htmlSource1 = document.createElement("source");
+	htmlSource1.setAttribute("src", videofirst_1);
+	htmlSource1.setAttribute("type", "video/webm");
+	firstviewname1.appendChild(htmlSource1);
+
+	*/
+
+
+	
+
 	
 }
+
+
+
+$("#init1_1").click(function(){
+	play2VR.init(document.querySelector('#container1-1'), selected20keys[0][0]);
+	setTimeout("videojs('firstview1-1').play()",2000);
+});
+
+$("#init1_2").click(function(){
+	play2VR.init(document.querySelector('#container1-2'), selected20keys[0][1]);
+	setTimeout("videojs('firstview1-2').play()",2000);
+});
+
+$("#init1_3").click(function(){
+	play2VR.init(document.querySelector('#container1-3'), selected20keys[0][2]);
+	setTimeout("videojs('firstview1-3').play()",2000);
+});
+
+$("#init1_4").click(function(){
+	play2VR.init(document.querySelector('#container1-4'), selected20keys[0][3]);
+	setTimeout("videojs('firstview1-4').play()",2000);
+});
+
+$("#init1_5").click(function(){
+	play2VR.init(document.querySelector('#container1-5'), selected20keys[0][4]);
+	setTimeout("videojs('firstview1-5').play()",2000);
+});
+
+$("#init2_1").click(function(){
+	play2VR.init(document.querySelector('#container2-1'), selected20keys[1][0]);
+	setTimeout("videojs('firstview2-1').play()",2000);
+});
+
+$("#init2_2").click(function(){
+	play2VR.init(document.querySelector('#container2-2'), selected20keys[1][1]);
+	setTimeout("videojs('firstview2-2').play()",2000);
+});
+
+$("#init2_3").click(function(){
+	play2VR.init(document.querySelector('#container2-3'), selected20keys[1][2]);
+	setTimeout("videojs('firstview2-3').play()",2000);
+});
+
+$("#init2_4").click(function(){
+	play2VR.init(document.querySelector('#container2-4'), selected20keys[1][3]);
+	setTimeout("videojs('firstview2-4').play()",2000);
+});
+
+$("#init2_5").click(function(){
+	play2VR.init(document.querySelector('#container2-5'), selected20keys[1][4]);
+	setTimeout("videojs('firstview2-5').play()",2000);
+});
+
+$("#init3_1").click(function(){
+	play2VR.init(document.querySelector('#container3-1'), selected20keys[2][0]);
+	setTimeout("videojs('firstview3-1').play()",2000);
+});
+
+$("#init3_2").click(function(){
+	play2VR.init(document.querySelector('#container3-2'), selected20keys[2][1]);
+	setTimeout("videojs('firstview3-2').play()",2000);
+});
+
+$("#init3_3").click(function(){
+	play2VR.init(document.querySelector('#container3-3'), selected20keys[2][2]);
+	setTimeout("videojs('firstview3-3').play()",2000);
+});
+
+$("#init3_4").click(function(){
+	play2VR.init(document.querySelector('#container3-4'), selected20keys[2][3]);
+	setTimeout("videojs('firstview3-4').play()",2000);
+});
+
+$("#init3_5").click(function(){
+	play2VR.init(document.querySelector('#container3-5'), selected20keys[2][4]);
+	setTimeout("videojs('firstview3-5').play()",2000);
+});
+
+$("#init4_1").click(function(){
+	play2VR.init(document.querySelector('#container4-1'), selected20keys[3][0]);
+	setTimeout("videojs('firstview4-1').play()",2000);
+});
+
+$("#init4_2").click(function(){
+	play2VR.init(document.querySelector('#container4-2'), selected20keys[3][1]);
+	setTimeout("videojs('firstview4-2').play()",2000);
+});
+
+$("#init4_3").click(function(){
+	play2VR.init(document.querySelector('#container4-3'), selected20keys[3][2]);
+	setTimeout("videojs('firstview4-3').play()",2000);
+});
+
+$("#init4_4").click(function(){
+	play2VR.init(document.querySelector('#container4-4'), selected20keys[3][3]);
+	setTimeout("videojs('firstview4-4').play()",2000);
+});
+
+$("#init4_5").click(function(){
+	play2VR.init(document.querySelector('#container4-5'), selected20keys[3][4]);
+	setTimeout("videojs('firstview4-5').play()",2000);
+});
 
