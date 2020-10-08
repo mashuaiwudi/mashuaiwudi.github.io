@@ -3,23 +3,43 @@
 <head> 
 <meta charset="utf-8"> 
 <title>菜鸟教程(runoob.com)</title> 
+<script language="javascript" type="text/javascript" src="./player/UtoVRPlayerGuide.js"></script>
 </head>
 <body>
 
-<video width="320" height="240" controls>
-  <source src="videos/realaction_1.mp4"  type="video/mp4">
-  您的浏览器不支持 HTML5 video 标签。
-</video>
+  <iframe id="pano"></iframe>
 
-
-
-
-
-<video play2VR="8318337875f6b90d1bd93d" controls>
-    <source src="http://v2.play2vr.com/shuaivr-1701/m3u8_fhd/8318337875f6b90d1bd93d.m3u8" type="application/x-mpegURL">
-    <source src="http://v2.play2vr.com/shuaivr-1701/mp4_fhd/8318337875f6b90d1bd93d.mp4" type="video/mp4">
-    </video>
-    <script src="//v2.play2vr.com/js/play2VRTrack.js"></script>
 
 </body>
+
+<script language="javascript" type="text/javascript">
+    /*播放器参数配置*/
+    var params = {
+    container:document.getElementById("pano"), //播放器容器Dom对象
+    name:"SceneViewer", //播放器名称
+    dragDirectionMode:true, //播放器拖动模式
+    width:800, //播放器的width
+    height:500, //播放器的height
+    /*fullScreenMode:true,//全屏模式 ===>如果是配置了该参数，将忽略width和height的配置，播放器将取当前窗口的尺寸作为播放器的初始尺寸*/
+    scenesArr:[
+    {sceneId:"test1k", sceneFilePath:"videos/360-dagu-mode1-1.avi", sceneType:"Video", initPan:0, initFov:100}
+    ],
+
+    errorCallBack: function (e){
+
+    },
+
+    fsCallBack: function (status, playObj){
+      window.parent.states && window.parent.states(status, playObj);
+    }
+    };
+    //sceneFilePath:为全景视频的路径配置，sceneType：场景类型配置
+
+    /*根据页面配置参数，实例化播放器*/
+    window.onload = function () {
+    initLoad(params);
+    };
+</script>
+
+
 </html>

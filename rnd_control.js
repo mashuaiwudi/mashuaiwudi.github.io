@@ -123,9 +123,9 @@ for (var i = 0; i < html_vid_real.length; i++){
 	//vid_name_sim = "sim_" + currSport[i] + "_" + currMode[i] + ".mp4";
 
 
-	document.getElementById(id_thumbnail[i]).src = "member-" + currSport[i] + ".png";
-	document.getElementById(id_thumbnail_[i]).src = "member-" + currSport[i] + ".png";
-	document.getElementById(id_thumbnailtest[i]).src = "member-" + currSport[i] + ".png";
+	document.getElementById(id_thumbnail[i]).src = "Newmember-" + currSport[i] + ".png";
+	document.getElementById(id_thumbnail_[i]).src = "Newmember-" + currSport[i] + ".png";
+	document.getElementById(id_thumbnailtest[i]).src = "Newmember-" + currSport[i] + ".png";
 
 
 	//一开始的真人演示视频可以继续这么搞
