@@ -5,6 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <!--meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"--> 
   
   <link href="video-js.css" rel="stylesheet">
@@ -21,13 +22,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+
   <!--script src="http://vjs.zencdn.net/6.8.0/video.js"></script-->
   <!--script src="video.js"></script-->
 
   <!-- required libraries -->
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/three.min.js"></script>
- 
+<!--为了实时拍照的js-->
+<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script> 
 <!-- Valiant360 plugin -->
 <script src="js/jquery.valiant360.min.js"></script>
  
@@ -100,7 +103,7 @@
 
         <h3>Robots learn a skill</h3>
         <p style="font-size:16px;">
-          Now assuming you have a challenging task -- teach four robots four kinds of skills, hand-shaking, boxing, playing piano, playing drum. Suppose you recruit professional coaches to help teach and train robots remotely. Your task is to rate their performances during the learning process, and evaluate whether they are good learners. 
+          Now assuming you have a challenging task -- teach four robots four kinds of skills, hand-shaking, boxing, playing piano, Washing a window. Suppose you recruit professional coaches to help teach and train robots remotely. Your task is to rate their performances during the learning process, and evaluate whether they are good learners. 
         </p>
         <p style="font-size:16px;">
           Here are the 4 robots you need to teach. They look the same, but they may have different learning abilities. You need to teach each robot a different skill. The teaching order is <b>random</b>. And the robot will also be <b>randomly</b> assigned to you. 
@@ -142,18 +145,36 @@
         </div>
 
         <p style="font-size:16px;">
-        For each member (the robot), it needs to learn one skill in two steps. First of all, a professional coach will demonstrate offline how to do that skill (<b> Check video below: Step 1 Demonstration </b>). Second, after the demonstration, the robot will be trained by an coach avatar in an online environment ( <b>Check video below: Step 2 Learning </b>). After the second step, you need to rate the robot's learning performance as well as its learning ability.
+        For each member (the robot), it needs to learn one skill in <b>THREE</b> steps.
+        </p>
+        <p style="font-size:16px; color: deepskyblue;">
+          Step 1: A professional coach will demonstrate offline how to do that skill (<b> Check video below: Step 1 - Watching Coach's Demonstration </b>).
+        </p>
+        <p style="font-size:16px; color:darkseagreen;">
+          Step 2: You learn the skill and demonstrate to the robot (your skeleton will be extracted and your action will be recorded) (<b> Check video below: Step 2 - Showing Your Demonstration </b>).
+        </p>
+        <p style="font-size:16px; color:orange;">
+          Step 3: After your demonstration, the robot will be trained by your virtual skeleton in an online simulated environment (<b> Check video below: Step 3 - Robot Learning from Demonstration </b>).
+        </p>
+        <p style="font-size:16px;">
+          After the third step, you need to rate the robot's learning performance as well as its learning ability.
         </p>
 
+
         <div class="row">
-          <div class="col-md-6">
-            <video id="vid_teaching" class="video-js" preload="auto" width="564" height="400" poster="teaching.jpg" data-setup='{"controls": true}'>
-              <source src="Newteaching.mp4" type='video/mp4'>
+          <div class="col-md-4">
+            <video id="vid_teaching" class="video-js" preload="auto" width="350" height="480" poster="coverV1.png" data-setup='{"controls": true}'>
+              <source src="Newteaching_drive.mp4" type='video/mp4'>
             </video>
           </div>
-          <div class="col-md-6">
-            <video id="vid_learning" class="video-js" preload="auto" width="564" height="400" poster="learning.jpg" data-setup='{"controls": true}'>
-              <source src="Newlearning.webm" type='video/webm'>
+          <div class="col-md-4">
+            <video id="vid_teaching" class="video-js" preload="auto" width="350" height="480" poster="coverV2.png" data-setup='{"controls": true}'>
+              <source src="step2.mp4" type='video/mp4'>
+            </video>
+          </div>
+          <div class="col-md-4">
+            <video id="vid_learning" class="video-js" preload="auto" width="350" height="480" poster="coverV3.png" data-setup='{"controls": true}'>
+              <source src="Newlearning_drive.webm" type='video/webm'>
             </video>
           </div>
           <!--
@@ -254,7 +275,7 @@
         <p style="font-size:16px;">
           Click to watch the coach demonstration to see what the skill the robot needs to learn.
         </p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
+        <button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
 
         <p></p>
         <form id="learning1_panel_man" class="container-fluid list-group-item list-group-item-success" style="display: none;">
@@ -271,7 +292,7 @@
           </div>
           <div class="col-xs-3 form-check">
             <input class="form-check-input" type="radio" name="man" value="3" id="radio1-3">
-            <label class="form-check-label" for="radio1-3">Playing drum
+            <label class="form-check-label" for="radio1-3">Washing a window
             </label>
           </div>
           <div class="col-xs-3 form-check">
@@ -282,22 +303,35 @@
         </form>
 
       </div>
-      <h3>Step 2: Robot learning</h3>
+
+      <h3>Step 2: Your demonstration</h3>
+      <div class="well">
+        <p style="font-size:16px;">
+          Click to show your demonstration. Your body movement will be recorded by the webcam of your devices. Please allow the webpage to get permission for the camera.
+        </p>
+        <!--data-target="#user_real_demonstration1"-->
+        <button type="button" id="opencamera1" class="btn btn-primary" data-toggle="modal" > Demonstrate</button>
+        <!--div>
+          <img width="175" height="300" src="skeletondemo.gif">
+        </div-->  
+        <p></p>
+        
+
+      </div>
+
+
+
+      <h3>Step 3: Robot learning</h3>
       <div class="well">
         <p style="font-size:16px;">
           Now click to watch the robot learn the above skill in a simulator. Please pay attention to the robot behaviors. The learning process contains <b>5</b> iterations.
         </p> 
 
-        <button id="learning1_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration1_sim1" > Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration2_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration3_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration4_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration5_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton6" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration6_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton7" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration7_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton8" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration8_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton9" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration9_sim1"> Watch the robot learn the skill </button>
-        <button id="learning1_watchbutton10" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_iteration10_sim1"> Watch the robot learn the skill </button>
+        <button id="learning1_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning1_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning1_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning1_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning1_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
 
         <p style="font-size:16px;">
           Please rate the robot learning performances. You can re-watch the learning process.
@@ -312,7 +346,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q1. The robot was paying attention to the coach's demonstration.
+                      Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -356,7 +390,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q2. The robot was following the coach's demonstration.
+                      Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -400,7 +434,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q3. How much was the robot engaged in learning the skill?
+                      Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -444,7 +478,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -488,7 +522,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4>  
-                      Q5. To what extent do you think the robot has mastered the skill?.
+                      Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -541,7 +575,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -585,7 +619,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -629,7 +663,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -673,7 +707,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -717,7 +751,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -765,7 +799,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -809,7 +843,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -853,7 +887,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -897,7 +931,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -941,7 +975,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -991,7 +1025,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1035,7 +1069,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1079,7 +1113,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1123,7 +1157,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1167,7 +1201,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1217,7 +1251,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1261,7 +1295,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1305,7 +1339,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1349,7 +1383,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -1393,7 +1427,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3085,14 +3119,14 @@
 
         <form id="learning1_iteration_question_final" style="display: none;">
           <ul class="list-group list-group-flush">
-            <h3>After watching 5 iterations, please answer some questions</h3>
+            <h3>After watching 5 iterations, please answer some questions 很好，你已经完成了教这个机器人，请再回答几个问题</h3>
             
 
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.
+                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.机器人在学习过程中的行为是可以理解的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3136,7 +3170,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q2. The robot shows its intelligence in learning.
+                    Q2. The robot shows its intelligence in learning.机器人是具有智能的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3180,7 +3214,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. Based on the robot's reactions, the coach's demonstration is appropriate for robots to learn.
+                    Q3. Based on the robot's reactions, the your demonstration is appropriate for robots to learn.基于机器人的反应，你发现你的示范动作是适合机器人学习的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3224,7 +3258,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. The robot is gradually learning from the coach's demonstration.
+                    Q4. The robot is gradually learning from the your demonstration.机器人逐渐的从你的展示动作中学习到了东西
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3268,7 +3302,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q5. If given further demonstration, the robot will learn much better.
+                    Q5. If given further demonstration, the robot will learn much better.如果给机器人进一步的示范，机器人将学的更好一些
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3312,7 +3346,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q6. Do you want to continue to teach the robot?
+                    Q6. Do you want to continue to teach the robot?你想继续教机器人吗？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3354,7 +3388,198 @@
             </li>
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
-                <label for="comments-1"><h4> Any comments on this robot's behavior? </h4></label>
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q7. Have you ever reflected on whether your demonstration works?你有没有反思过自己的demonstration是否有效？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q8. Have you changed your demonstration according to the robot's reaction? If so, do you think your adjustment will help?你有没有根据机器人的反应改变你的教法，如果有的话你觉得自己的调整有帮助吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, will help" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Yes, will help
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, but not helpful" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Yes, but not helpful
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="No" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">No, I have not changed
+                  </label>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q9. Do you feel tired when teaching the robot?教这个机器人令你感到疲惫吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q10. Do you want to continue to teach the robot?你还想继续教机器人吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you want, why?如果你想继续教它，为什么？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">I want to teach the robot until it performs perfect.我想教到它的动作完美了为止
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">I want to teach this robot some new skill.我想教给这个机器人一些新的动作
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q11. Do you think this robot has further improvement possibility?你觉得机器人还有进步空间吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes, it can still improve.是的，还能继续进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No, it can not improve any more.不，机器人无法进步了
+                  </label>
+                </div>
+                
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you think the robot can not improve, why?如果你认为机器人无法进步了，为什么
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot have learned very well.机器人学的已经很好了
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="no progress" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot didn't improve in the past learning.机器人在刚才的学习中没有进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">The robot is so stupid that it can't learn at all.机器人太蠢了，根本没有学习能力
+                  </label>
+                </div>
+              </div>
+            </li>
+
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <label for="comments-1"><h4> Any comments on this robot's behavior? 请给出一些你的意见或建议 </h4></label>
                 <textarea class="form-control" rows="2" id="comments-1" name="comments"></textarea>
               </div>
             </li>
@@ -3407,7 +3632,7 @@
         <p style="font-size:16px;">
           Click to watch the coach demonstration to see what the skill the robot needs to learn.
         </p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning2_div_watch" onclick='videojs("learning2_vid_real").play();'> Watch</button>
+        <button id="demonwatch-2" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning2_div_watch" onclick='videojs("learning2_vid_real").play();'> Watch</button>
 
         <p></p>
         <form id="learning2_panel_man" class="container-fluid list-group-item list-group-item-success" style="display: none;">
@@ -3424,7 +3649,7 @@
           </div>
           <div class="col-xs-3 form-check">
             <input class="form-check-input" type="radio" name="man" value="3" id="radio1-3">
-            <label class="form-check-label" for="radio1-3">Playing drum
+            <label class="form-check-label" for="radio1-3">Washing a window
             </label>
           </div>
           <div class="col-xs-3 form-check">
@@ -3435,16 +3660,32 @@
         </form>
 
       </div>
-      <h3>Step 2: Robot learning</h3>
+
+      <h3>Step 2: Your demonstration</h3>
+      <div class="well">
+        <p style="font-size:16px;">
+          Click to show your demonstration. Your body movement will be recorded by the webcam of your devices. Please allow the webpage to get permission for the camera.
+        </p>
+        <button type="button" id="opencamera2" class="btn btn-primary" data-toggle="modal"> Demonstrate</button>
+        <!--div>
+          <img width="175" height="300" src="skeletondemo.gif">
+        </div-->  
+        <p></p>
+        
+
+      </div>
+
+
+      <h3>Step 3: Robot learning</h3>
       <div class="well">
         <p style="font-size:16px;">
           Now click to watch the robot learn the above skill in a simulator. Please pay attention to the robot behaviors. The learning process contains <b>5</b> iterations.
         </p> 
-        <button id="learning2_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning2_iteration1_sim1" > Watch the robot learn the skill </button>
-        <button id="learning2_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning2_iteration2_sim1"> Watch the robot learn the skill </button>
-        <button id="learning2_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning2_iteration3_sim1"> Watch the robot learn the skill </button>
-        <button id="learning2_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning2_iteration4_sim1"> Watch the robot learn the skill </button>
-        <button id="learning2_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning2_iteration5_sim1"> Watch the robot learn the skill </button>
+        <button id="learning2_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning2_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning2_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning2_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning2_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
 
 
 
@@ -3463,7 +3704,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q1. The robot was paying attention to the coach's demonstration.
+                      Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -3507,7 +3748,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q2. The robot was following the coach's demonstration.
+                      Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -3551,7 +3792,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q3. How much was the robot engaged in learning the skill?
+                      Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -3595,7 +3836,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -3639,7 +3880,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4>  
-                      Q5. To what extent do you think the robot has mastered the skill?.
+                      Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -3692,7 +3933,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3736,7 +3977,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3780,7 +4021,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3824,7 +4065,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3868,7 +4109,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3916,7 +4157,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -3960,7 +4201,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4004,7 +4245,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4048,7 +4289,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4092,7 +4333,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4142,7 +4383,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4186,7 +4427,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4230,7 +4471,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4274,7 +4515,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4318,7 +4559,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4368,7 +4609,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4412,7 +4653,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4456,7 +4697,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4500,7 +4741,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4544,7 +4785,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4593,14 +4834,14 @@
         <form id="learning2_iteration_question_final" style="display: none;">
           <ul class="list-group list-group-flush">
 
-            <h3>After watching 5 iterations, please answer some questions</h3>
-
+            <h3>After watching 5 iterations, please answer some questions 很好，你已经完成了教这个机器人，请再回答几个问题</h3>
+            
 
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.
+                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.机器人在学习过程中的行为是可以理解的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4644,7 +4885,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q2. The robot shows its intelligence in learning.
+                    Q2. The robot shows its intelligence in learning.机器人是具有智能的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4688,7 +4929,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. Based on the robot's reactions, the coach's demonstration is appropriate for robots to learn.
+                    Q3. Based on the robot's reactions, the your demonstration is appropriate for robots to learn.基于机器人的反应，你发现你的示范动作是适合机器人学习的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4732,7 +4973,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. The robot is gradually learning from the coach's demonstration.
+                    Q4. The robot is gradually learning from the your demonstration.机器人逐渐的从你的展示动作中学习到了东西
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4776,7 +5017,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q5. If given further demonstration, the robot will learn much better.
+                    Q5. If given further demonstration, the robot will learn much better.如果给机器人进一步的示范，机器人将学的更好一些
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4820,7 +5061,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q6. Do you want to continue to teach the robot?
+                    Q6. Do you want to continue to teach the robot?你想继续教机器人吗？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -4862,7 +5103,198 @@
             </li>
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
-                <label for="comments-1"><h4> Any comments on this robot's behavior? </h4></label>
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q7. Have you ever reflected on whether your demonstration works?你有没有反思过自己的demonstration是否有效？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q8. Have you changed your demonstration according to the robot's reaction? If so, do you think your adjustment will help?你有没有根据机器人的反应改变你的教法，如果有的话你觉得自己的调整有帮助吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, will help" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Yes, will help
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, but not helpful" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Yes, but not helpful
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="No" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">No, I have not changed
+                  </label>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q9. Do you feel tired when teaching the robot?教这个机器人令你感到疲惫吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q10. Do you want to continue to teach the robot?你还想继续教机器人吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you want, why?如果你想继续教它，为什么？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">I want to teach the robot until it performs perfect.我想教到它的动作完美了为止
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">I want to teach this robot some new skill.我想教给这个机器人一些新的动作
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q11. Do you think this robot has further improvement possibility?你觉得机器人还有进步空间吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes, it can still improve.是的，还能继续进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No, it can not improve any more.不，机器人无法进步了
+                  </label>
+                </div>
+                
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you think the robot can not improve, why?如果你认为机器人无法进步了，为什么
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot have learned very well.机器人学的已经很好了
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="no progress" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot didn't improve in the past learning.机器人在刚才的学习中没有进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">The robot is so stupid that it can't learn at all.机器人太蠢了，根本没有学习能力
+                  </label>
+                </div>
+              </div>
+            </li>
+
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <label for="comments-1"><h4> Any comments on this robot's behavior? 请给出一些你的意见或建议 </h4></label>
                 <textarea class="form-control" rows="2" id="comments-1" name="comments"></textarea>
               </div>
             </li>
@@ -4952,7 +5384,7 @@
         <p style="font-size:16px;">
           Click to watch the coach demonstration to see what the skill the robot needs to learn.
         </p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning3_div_watch" onclick='videojs("learning3_vid_real").play();'> Watch</button>
+        <button id="demonwatch-3" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning3_div_watch" onclick='videojs("learning3_vid_real").play();'> Watch</button>
 
         <p></p>
         <form id="learning3_panel_man" class="container-fluid list-group-item list-group-item-success" style="display: none;">
@@ -4969,7 +5401,7 @@
           </div>
           <div class="col-xs-3 form-check">
             <input class="form-check-input" type="radio" name="man" value="3" id="radio1-3">
-            <label class="form-check-label" for="radio1-3">Playing drum
+            <label class="form-check-label" for="radio1-3">Washing a window
             </label>
           </div>
           <div class="col-xs-3 form-check">
@@ -4980,16 +5412,32 @@
         </form>
 
       </div>
-      <h3>Step 2: Robot learning</h3>
+
+      <h3>Step 2: Your demonstration</h3>
+      <div class="well">
+        <p style="font-size:16px;">
+          Click to show your demonstration. Your body movement will be recorded by the webcam of your devices. Please allow the webpage to get permission for the camera.
+        </p>
+        <button type="button" id="opencamera3" class="btn btn-primary" data-toggle="modal"> Demonstrate</button>
+        <!--div>
+          <img width="175" height="300" src="skeletondemo.gif">
+        </div-->  
+        <p></p>
+        
+
+      </div>
+
+
+      <h3>Step 3: Robot learning</h3>
       <div class="well">
         <p style="font-size:16px;">
           Now click to watch the robot learn the above skill in a simulator. Please pay attention to the robot behaviors. The learning process contains <b>5</b> iterations.
         </p> 
-        <button id="learning3_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning3_iteration1_sim1" > Watch the robot learn the skill </button>
-        <button id="learning3_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning3_iteration2_sim1"> Watch the robot learn the skill </button>
-        <button id="learning3_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning3_iteration3_sim1"> Watch the robot learn the skill </button>
-        <button id="learning3_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning3_iteration4_sim1"> Watch the robot learn the skill </button>
-        <button id="learning3_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning3_iteration5_sim1"> Watch the robot learn the skill </button>
+        <button id="learning3_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning3_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning3_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning3_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning3_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
 
 
 
@@ -5007,7 +5455,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q1. The robot was paying attention to the coach's demonstration.
+                      Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -5051,7 +5499,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q2. The robot was following the coach's demonstration.
+                      Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -5095,7 +5543,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q3. How much was the robot engaged in learning the skill?
+                      Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -5139,7 +5587,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -5183,7 +5631,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4>  
-                      Q5. To what extent do you think the robot has mastered the skill?.
+                      Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -5236,7 +5684,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5280,7 +5728,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5324,7 +5772,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5368,7 +5816,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5412,7 +5860,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5460,7 +5908,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5504,7 +5952,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5548,7 +5996,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5592,7 +6040,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5636,7 +6084,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5686,7 +6134,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5730,7 +6178,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5774,7 +6222,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5818,7 +6266,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5862,7 +6310,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5912,7 +6360,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -5956,7 +6404,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6000,7 +6448,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6044,7 +6492,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6088,7 +6536,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6141,14 +6589,14 @@
         <form id="learning3_iteration_question_final" style="display: none;">
           <ul class="list-group list-group-flush">
             <h4>Post-task Questionnaire</h4>
-            <h3>After watching 5 iterations, please answer some questions</h3>
-
+            <h3>After watching 5 iterations, please answer some questions 很好，你已经完成了教这个机器人，请再回答几个问题</h3>
+            
 
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.
+                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.机器人在学习过程中的行为是可以理解的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6192,7 +6640,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q2. The robot shows its intelligence in learning.
+                    Q2. The robot shows its intelligence in learning.机器人是具有智能的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6236,7 +6684,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. Based on the robot's reactions, the coach's demonstration is appropriate for robots to learn.
+                    Q3. Based on the robot's reactions, the your demonstration is appropriate for robots to learn.基于机器人的反应，你发现你的示范动作是适合机器人学习的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6280,7 +6728,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. The robot is gradually learning from the coach's demonstration.
+                    Q4. The robot is gradually learning from the your demonstration.机器人逐渐的从你的展示动作中学习到了东西
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6324,7 +6772,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q5. If given further demonstration, the robot will learn much better.
+                    Q5. If given further demonstration, the robot will learn much better.如果给机器人进一步的示范，机器人将学的更好一些
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6368,7 +6816,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q6. Do you want to continue to teach the robot?
+                    Q6. Do you want to continue to teach the robot?你想继续教机器人吗？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6410,7 +6858,198 @@
             </li>
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
-                <label for="comments-1"><h4> Any comments on this robot's behavior? </h4></label>
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q7. Have you ever reflected on whether your demonstration works?你有没有反思过自己的demonstration是否有效？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q8. Have you changed your demonstration according to the robot's reaction? If so, do you think your adjustment will help?你有没有根据机器人的反应改变你的教法，如果有的话你觉得自己的调整有帮助吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, will help" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Yes, will help
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, but not helpful" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Yes, but not helpful
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="No" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">No, I have not changed
+                  </label>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q9. Do you feel tired when teaching the robot?教这个机器人令你感到疲惫吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q10. Do you want to continue to teach the robot?你还想继续教机器人吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you want, why?如果你想继续教它，为什么？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">I want to teach the robot until it performs perfect.我想教到它的动作完美了为止
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">I want to teach this robot some new skill.我想教给这个机器人一些新的动作
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q11. Do you think this robot has further improvement possibility?你觉得机器人还有进步空间吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes, it can still improve.是的，还能继续进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No, it can not improve any more.不，机器人无法进步了
+                  </label>
+                </div>
+                
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you think the robot can not improve, why?如果你认为机器人无法进步了，为什么
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot have learned very well.机器人学的已经很好了
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="no progress" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot didn't improve in the past learning.机器人在刚才的学习中没有进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">The robot is so stupid that it can't learn at all.机器人太蠢了，根本没有学习能力
+                  </label>
+                </div>
+              </div>
+            </li>
+
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <label for="comments-1"><h4> Any comments on this robot's behavior? 请给出一些你的意见或建议 </h4></label>
                 <textarea class="form-control" rows="2" id="comments-1" name="comments"></textarea>
               </div>
             </li>
@@ -6500,7 +7139,7 @@
         <p style="font-size:16px;">
           Click to watch the coach demonstration to see what the skill the robot needs to learn.
         </p>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning4_div_watch" onclick='videojs("learning4_vid_real").play();'> Watch</button>
+        <button id="demonwatch-4" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning4_div_watch" onclick='videojs("learning4_vid_real").play();'> Watch</button>
 
         <p></p>
         <form id="learning4_panel_man" class="container-fluid list-group-item list-group-item-success" style="display: none;">
@@ -6517,7 +7156,7 @@
           </div>
           <div class="col-xs-3 form-check">
             <input class="form-check-input" type="radio" name="man" value="3" id="radio1-3">
-            <label class="form-check-label" for="radio1-3">Playing drum
+            <label class="form-check-label" for="radio1-3">Washing a window
             </label>
           </div>
           <div class="col-xs-3 form-check">
@@ -6528,16 +7167,31 @@
         </form>
 
       </div>
-      <h3>Step 2: Robot learning</h3>
+
+      <h3>Step 2: Your demonstration</h3>
+      <div class="well">
+        <p style="font-size:16px;">
+          Click to show your demonstration. Your body movement will be recorded by the webcam of your devices. Please allow the webpage to get permission for the camera.
+        </p>
+        <button type="button" id="opencamera4" class="btn btn-primary" data-toggle="modal"> Demonstrate</button>
+        <!--div>
+          <img width="175" height="300" src="skeletondemo.gif">
+        </div-->  
+        <p></p>
+        
+
+      </div>
+
+      <h3>Step 3: Robot learning</h3>
       <div class="well">
         <p style="font-size:16px;">
           Now click to watch the robot learn the above skill in a simulator. Please pay attention to the robot behaviors. The learning process contains <b>5</b> iterations.
         </p> 
-        <button id="learning4_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning4_iteration1_sim1" > Watch the robot learn the skill </button>
-        <button id="learning4_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning4_iteration2_sim1"> Watch the robot learn the skill </button>
-        <button id="learning4_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning4_iteration3_sim1"> Watch the robot learn the skill </button>
-        <button id="learning4_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning4_iteration4_sim1"> Watch the robot learn the skill </button>
-        <button id="learning4_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning4_iteration5_sim1"> Watch the robot learn the skill </button>
+        <button id="learning4_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning4_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning4_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning4_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
+        <button id="learning4_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Watch the robot learn the skill </button>
 
 
 
@@ -6555,7 +7209,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q1. The robot was paying attention to the coach's demonstration.
+                      Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -6599,7 +7253,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q2. The robot was following the coach's demonstration.
+                      Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -6643,7 +7297,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q3. How much was the robot engaged in learning the skill?
+                      Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -6687,7 +7341,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4> 
-                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                      Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -6731,7 +7385,7 @@
                 <div class="form-group">
                   <div style="display: inline-block;">
                     <h4>  
-                      Q5. To what extent do you think the robot has mastered the skill?.
+                      Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                     </h4>
                   </div>
                   <div class="form-check form-check-inline">
@@ -6785,7 +7439,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6829,7 +7483,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6873,7 +7527,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6917,7 +7571,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -6961,7 +7615,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7009,7 +7663,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7053,7 +7707,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7097,7 +7751,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7141,7 +7795,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7185,7 +7839,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7235,7 +7889,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7279,7 +7933,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7323,7 +7977,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7367,7 +8021,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7411,7 +8065,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7461,7 +8115,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q1. The robot was paying attention to the coach's demonstration.
+                    Q1. The robot was paying attention to the coach's demonstration.机器人正在注意你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7505,7 +8159,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q2. The robot was following the coach's demonstration.
+                    Q2. The robot was following the coach's demonstration.机器人在跟随你的演示动作
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7549,7 +8203,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. How much was the robot engaged in learning the skill?
+                    Q3. How much was the robot engaged in learning the skill?机器人有多么投入的在学习？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7593,7 +8247,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?
+                    Q4. What's the likelihood that the robot will master this skill as demonstrated by the coach through the above learning?机器人最终掌握这个技能的可能性有多大？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7631,17 +8285,13 @@
                   <label class="form-check-label" for="radio1-4-7">Very unlikely
                   </label>
                 </div>
-                <!--<div class="form-group">
-                  <label for="why-1"><h4> Why do you have such feelings? </h4></label>
-                  <textarea class="form-control" rows="2" id="why-1" name="why"></textarea>
-                </div>-->
               </div>
             </li>
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q5. To what extent do you think the robot has mastered the skill?.
+                    Q5. To what extent do you think the robot has mastered the skill?.机器人目前掌握的怎么样了？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7692,14 +8342,14 @@
         <form id="learning4_iteration_question_final" style="display: none;">
           <ul class="list-group list-group-flush">
             <h4>Post-task Questionnaire</h4>
-            <h3>After watching 5 iterations, please answer some questions</h3>
-
+            <h3>After watching 5 iterations, please answer some questions 很好，你已经完成了教这个机器人，请再回答几个问题</h3>
+            
 
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.
+                    Q1. The robot's behaviors in the learning process are acceptable/reasonable/understandable.机器人在学习过程中的行为是可以理解的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7743,7 +8393,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4>  
-                    Q2. The robot shows its intelligence in learning.
+                    Q2. The robot shows its intelligence in learning.机器人是具有智能的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7787,7 +8437,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q3. Based on the robot's reactions, the coach's demonstration is appropriate for robots to learn.
+                    Q3. Based on the robot's reactions, the your demonstration is appropriate for robots to learn.基于机器人的反应，你发现你的示范动作是适合机器人学习的
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7831,7 +8481,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q4. The robot is gradually learning from the coach's demonstration.
+                    Q4. The robot is gradually learning from the your demonstration.机器人逐渐的从你的展示动作中学习到了东西
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7875,7 +8525,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q5. If given further demonstration, the robot will learn much better.
+                    Q5. If given further demonstration, the robot will learn much better.如果给机器人进一步的示范，机器人将学的更好一些
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7919,7 +8569,7 @@
               <div class="form-group">
                 <div style="display: inline-block;">
                   <h4> 
-                    Q6. Do you want to continue to teach the robot?
+                    Q6. Do you want to continue to teach the robot?你想继续教机器人吗？
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
@@ -7961,7 +8611,198 @@
             </li>
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
-                <label for="comments-1"><h4> Any comments on this robot's behavior? </h4></label>
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q7. Have you ever reflected on whether your demonstration works?你有没有反思过自己的demonstration是否有效？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="reflect" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q8. Have you changed your demonstration according to the robot's reaction? If so, do you think your adjustment will help?你有没有根据机器人的反应改变你的教法，如果有的话你觉得自己的调整有帮助吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, will help" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Yes, will help
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="Yes, but not helpful" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Yes, but not helpful
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="adjust" value="No" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">No, I have not changed
+                  </label>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q9. Do you feel tired when teaching the robot?教这个机器人令你感到疲惫吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tired" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q10. Do you want to continue to teach the robot?你还想继续教机器人吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="1" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Strongly agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="2" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">Agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="3" id="radio1-7-3">
+                  <label class="form-check-label" for="radio1-7-3">Somewhat agree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="4" id="radio1-7-4">
+                  <label class="form-check-label" for="radio1-7-4">Neither agree nor disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="5" id="radio1-7-5">
+                  <label class="form-check-label" for="radio1-7-5">Somewhat disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="6" id="radio1-7-6">
+                  <label class="form-check-label" for="radio1-7-6">Disagree
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="7" id="radio1-7-7">
+                  <label class="form-check-label" for="radio1-7-7">Strongly disagree
+                  </label>
+                </div>
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you want, why?如果你想继续教它，为什么？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">I want to teach the robot until it performs perfect.我想教到它的动作完美了为止
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="continue_teach" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">I want to teach this robot some new skill.我想教给这个机器人一些新的动作
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    Q11. Do you think this robot has further improvement possibility?你觉得机器人还有进步空间吗？
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="Yes" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">Yes, it can still improve.是的，还能继续进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="No" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">No, it can not improve any more.不，机器人无法进步了
+                  </label>
+                </div>
+                
+                <div style="display: inline-block;">
+                  <h4> 
+                    If you think the robot can not improve, why?如果你认为机器人无法进步了，为什么
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="until perfect" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot have learned very well.机器人学的已经很好了
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="no progress" id="radio1-7-1">
+                  <label class="form-check-label" for="radio1-7-1">The robot didn't improve in the past learning.机器人在刚才的学习中没有进步
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="improve_space" value="want to teach new skill" id="radio1-7-2">
+                  <label class="form-check-label" for="radio1-7-2">The robot is so stupid that it can't learn at all.机器人太蠢了，根本没有学习能力
+                  </label>
+                </div>
+              </div>
+            </li>
+
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <label for="comments-1"><h4> Any comments on this robot's behavior? 请给出一些你的意见或建议 </h4></label>
                 <textarea class="form-control" rows="2" id="comments-1" name="comments"></textarea>
               </div>
             </li>
@@ -10102,6 +10943,279 @@
 
 
 
+    <!--先让用户在摄像头前重复一遍动作-->
+
+
+
+
+
+
+
+
+<!--
+    <div class="box">
+      <video id="camerastream222" class="video-js" preload="auto" width="1000" height="800" poster="teaching.jpg">
+      </video>
+      <button class='shot'>拍照</button>
+      <button id="hahaha">打开摄像头</button>
+      <canvas id='canvas'></canvas>
+      <img src=''>
+    </div>
+    
+    <script type="text/javascript">
+    $("#hahaha").click(function(){
+    // 视频大小
+    var constraints = {audio: false, video: {width: 1000,height: 800}};
+    // 开启视频
+    navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+    console.log('getUserMedia:', mediaStream)
+    //var video = document.querySelector('video');
+    var video = document.getElementById("camerastream222");
+    video.srcObject = mediaStream;
+    video.onloadedmetadata = function(e) {
+      console.log("1111111111");
+      video.play();
+      console.log("2222222222");
+    };
+    });
+  });
+
+    /*
+      // 视频大小
+      var constraints = {audio: false, video: {width: 1000,height: 800}};
+      // 开启视频
+      navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+        console.log('getUserMedia:', mediaStream)
+        //var video = document.querySelector('video');
+        var video = document.getElementById("camerastream222");
+        video.srcObject = mediaStream;
+        video.onloadedmetadata = function(e) {
+          video.play();
+        };
+        
+        // 使用canvas进行拍照
+        //var canvas = document.getElementById('canvas')
+        //$('button').on('click', function () {
+        //  canvas.getContext('2d').drawImage(video, 0, 0, 200, 250);
+        //  $('img').css('src', canvas.toDataURL("image/png"))
+        //})
+        
+      //}).catch(function(err) {
+       // console.log(err.name + ": " + err.message);
+      });
+  */
+    </script>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="camera_box" style="display: none;" class="box">
+      <!--video src=""></video-->
+      <video id="camerastream" class="video-js" preload="auto" width="1000" height="800" poster="teaching.jpg">
+      </video>
+      <button id="letstake">拍照</button>
+      <canvas id='canvas'></canvas>
+      <img src=''>
+    </div>
+
+
+    <div class="modal" id="user_real_demonstration1" align="center" tabindex="-1" role="dialog" aria-labelledby="modal-sim-1" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="modal-sim-1">Show your demonstration</h2>
+            <h4 class="modal-title" id="modal-sim-1">Please stand about 2-3 meters away from your equipment so that your body is approximately in the shape of a human figure. When you press the below <b>Begin Demonstration</b> button, you will have 10 seconds to adjust your position. After the countdown is over, the recording begins. When you finish the demo and return to the device, press the <b>Finish demonstration</b> button, and the system will automatically remove the last irrelevant segment.</h4>
+            <center><button id="end_user_demonstration1" type="button" class="btn btn-primary" style="display: none;" data-dismiss="modal">Finish Demonstration</button></center>
+            <center><button id="start_user_demonstration1" type="button" class="btn btn-primary">Begin Demonstration</button></center>
+
+          </div>
+          <div class="modal-body" align="center">
+            <div class="container-fluid">
+
+
+              <h1 class="modal-title" id="daojishi1"></h1>
+              <div style="position:relative; width: 600px; height: 600px;">
+
+                  <div width="600" height="600" style="position:absolute;left:0;top:0;right:0;bottom:0"z-index: 1> 
+                    <video id="user_camerastream1" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill">
+                    </video>
+                  </div>
+
+
+                  <div style="position:absolute">
+                    <img width="600" height="600" src="human_shape2.png">
+                  </div>
+
+              </div>
+            </div>     
+          </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="finishrecord1" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="recordagain1" class="btn btn-primary">Record Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal" id="user_real_demonstration2" align="center" tabindex="-1" role="dialog" aria-labelledby="modal-sim-1" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="modal-sim-1">Show your demonstration</h2>
+            <h4 class="modal-title" id="modal-sim-1">Please stand about 2-3 meters away from your equipment so that your body is approximately in the shape of a human figure. When you press the below <b>Begin Demonstration</b> button, you will have 10 seconds to adjust your position. After the countdown is over, the recording begins. When you finish the demo and return to the device, press the <b>Finish demonstration</b> button, and the system will automatically remove the last irrelevant segment.</h4>
+            <center><button id="end_user_demonstration2" type="button" class="btn btn-primary" style="display: none;" data-dismiss="modal">Finish Demonstration</button></center>
+            <center><button id="start_user_demonstration2" type="button" class="btn btn-primary">Begin Demonstration</button></center>
+
+          </div>
+          <div class="modal-body" align="center">
+            <div class="container-fluid">
+
+
+              <h1 class="modal-title" id="daojishi2"></h1>
+              <div style="position:relative; width: 600px; height: 600px;">
+
+                  <div width="600" height="600" style="position:absolute;left:0;top:0;right:0;bottom:0"z-index: 1> 
+                    <video id="user_camerastream2" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill">
+                    </video>
+                  </div>
+
+
+                  <div style="position:absolute">
+                    <img width="600" height="600" src="human_shape2.png">
+                  </div>
+
+              </div>
+            </div>     
+          </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="finishrecord2" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="recordagain2" class="btn btn-primary">Record Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal" id="user_real_demonstration3" align="center" tabindex="-1" role="dialog" aria-labelledby="modal-sim-1" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="modal-sim-1">Show your demonstration</h2>
+            <h4 class="modal-title" id="modal-sim-1">Please stand about 2-3 meters away from your equipment so that your body is approximately in the shape of a human figure. When you press the below <b>Begin Demonstration</b> button, you will have 10 seconds to adjust your position. After the countdown is over, the recording begins. When you finish the demo and return to the device, press the <b>Finish demonstration</b> button, and the system will automatically remove the last irrelevant segment.</h4>
+            <center><button id="end_user_demonstration3" type="button" class="btn btn-primary" style="display: none;" data-dismiss="modal">Finish Demonstration</button></center>
+            <center><button id="start_user_demonstration3" type="button" class="btn btn-primary">Begin Demonstration</button></center>
+
+          </div>
+          <div class="modal-body" align="center">
+            <div class="container-fluid">
+
+
+              <h1 class="modal-title" id="daojishi3"></h1>
+              <div style="position:relative; width: 600px; height: 600px;">
+
+                  <div width="600" height="600" style="position:absolute;left:0;top:0;right:0;bottom:0"z-index: 1> 
+                    <video id="user_camerastream3" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill">
+                    </video>
+                  </div>
+
+
+                  <div style="position:absolute">
+                    <img width="600" height="600" src="human_shape2.png">
+                  </div>
+
+              </div>
+            </div>     
+          </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="finishrecord3" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="recordagain3" class="btn btn-primary">Record Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal" id="user_real_demonstration4" align="center" tabindex="-1" role="dialog" aria-labelledby="modal-sim-1" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="modal-sim-1">Show your demonstration</h2>
+            <h4 class="modal-title" id="modal-sim-1">Please stand about 2-3 meters away from your equipment so that your body is approximately in the shape of a human figure. When you press the below <b>Begin Demonstration</b> button, you will have 10 seconds to adjust your position. After the countdown is over, the recording begins. When you finish the demo and return to the device, press the <b>Finish demonstration</b> button, and the system will automatically remove the last irrelevant segment.</h4>
+            <center><button id="end_user_demonstration4" type="button" class="btn btn-primary" style="display: none;" data-dismiss="modal">Finish Demonstration</button></center>
+            <center><button id="start_user_demonstration4" type="button" class="btn btn-primary">Begin Demonstration</button></center>
+
+          </div>
+          <div class="modal-body" align="center">
+            <div class="container-fluid">
+
+
+              <h1 class="modal-title" id="daojishi4"></h1>
+              <div style="position:relative; width: 600px; height: 600px;">
+
+                  <div width="600" height="600" style="position:absolute;left:0;top:0;right:0;bottom:0"z-index: 1> 
+                    <video id="user_camerastream4" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill">
+                    </video>
+                  </div>
+
+
+                  <div style="position:absolute">
+                    <img width="600" height="600" src="human_shape2.png">
+                  </div>
+
+              </div>
+            </div>     
+          </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="finishrecord4" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="recordagain4" class="btn btn-primary">Record Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <!--/////第一个LfD-->
@@ -10125,15 +11239,15 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview1-1" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview1-1" class="video-js" preload="auto" style="width:1536px; height:864px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
-                <div id="container1-1" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
+                <div id="container1-1" style="background-image:url('./360cover.png'); width:600px; height:400px; "></div>
                 <script src="//v2.play2vr.com/js/play2VR.js"></script>
               </div>
 
@@ -10143,8 +11257,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning1_iteration_question_1').style.display = 'block'; play2VR.dispose();">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-1').play()">Watch again</button>
+            <button type="button" id="close_demon1-1" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain1-1" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-1').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10171,12 +11285,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview1-2" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview1-2" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container1-2" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10187,8 +11301,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning1_iteration_question_2').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-2').play()">Watch again</button>
+            <button type="button" id="close_demon1-2" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain1-2" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-2').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10214,12 +11328,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview1-3" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview1-3" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container1-3" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10230,8 +11344,8 @@
 
 
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning1_iteration_question_3').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-3').play()">Watch again</button>
+            <button type="button" id="close_demon1-3" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain1-3" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-3').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10258,12 +11372,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview1-4" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview1-4" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container1-4" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10272,8 +11386,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning1_iteration_question_4').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-4').play()">Watch again</button>
+            <button type="button" id="close_demon1-4" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain1-4" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-4').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10298,12 +11412,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview1-5" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview1-5" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container1-5" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10312,8 +11426,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning1_iteration_question_5').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-5').play()">Watch again</button>
+            <button type="button" id="close_demon1-5" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain1-5" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-5').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10341,12 +11455,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview2-1" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview2-1" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container2-1" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10358,8 +11472,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning2_iteration_question_1').style.display = 'block'; play2VR.dispose();">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-1').play()">Watch again</button>
+            <button type="button" id="close_demon2-1" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain2-1" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-1').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10386,12 +11500,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview2-2" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview2-2" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container2-2" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10402,8 +11516,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning2_iteration_question_2').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-2').play()">Watch again</button>
+            <button type="button" id="close_demon2-2" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain2-2" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-2').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10429,12 +11543,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview2-3" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview2-3" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container2-3" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10445,8 +11559,8 @@
 
 
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning2_iteration_question_3').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-3').play()">Watch again</button>
+            <button type="button" id="close_demon2-3" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain2-3" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-3').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10473,12 +11587,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview2-4" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview2-4" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container2-4" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10487,8 +11601,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning2_iteration_question_4').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-4').play()">Watch again</button>
+            <button type="button" id="close_demon2-4" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain2-4" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-4').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10513,12 +11627,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview2-5" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview2-5" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container2-5" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10527,8 +11641,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning2_iteration_question_5').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-5').play()">Watch again</button>
+            <button type="button" id="close_demon2-5" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain2-5" class="btn btn-primary" onclick="play2VR.play();videojs('firstview2-5').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10556,12 +11670,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview3-1" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview3-1" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container3-1" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10573,8 +11687,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning3_iteration_question_1').style.display = 'block'; play2VR.dispose();">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-1').play()">Watch again</button>
+            <button type="button" id="close_demon3-1" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain3-1" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-1').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10601,12 +11715,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview3-2" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview3-2" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container3-2" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10618,8 +11732,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning3_iteration_question_2').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-2').play()">Watch again</button>
+            <button type="button" id="close_demon3-2" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain3-2" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-2').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10645,12 +11759,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview3-3" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview3-3" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container3-3" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10661,8 +11775,8 @@
 
 
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning3_iteration_question_3').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-3').play()">Watch again</button>
+            <button type="button" id="close_demon3-3" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain3-3" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-3').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10689,12 +11803,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview3-4" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview3-4" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container3-4" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10703,8 +11817,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning3_iteration_question_4').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-4').play()">Watch again</button>
+            <button type="button" id="close_demon3-4" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain3-4" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-4').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10729,12 +11843,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview3-5" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview3-5" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container3-5" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10743,8 +11857,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning3_iteration_question_5').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-5').play()">Watch again</button>
+            <button type="button" id="close_demon3-5" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain3-5" class="btn btn-primary" onclick="play2VR.play();videojs('firstview3-5').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10774,12 +11888,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview4-1" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview4-1" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container4-1" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10791,8 +11905,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning4_iteration_question_1').style.display = 'block'; play2VR.dispose();">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-1').play()">Watch again</button>
+            <button type="button" id="close_demon4-1" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain4-1" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-1').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10819,12 +11933,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview4-2" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview4-2" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container4-2" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10836,8 +11950,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning4_iteration_question_2').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-2').play()">Watch again</button>
+            <button type="button" id="close_demon4-2" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain4-2" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-2').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10863,12 +11977,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview4-3" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview4-3" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container4-3" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10880,8 +11994,8 @@
 
 
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning4_iteration_question_3').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-3').play()">Watch again</button>
+            <button type="button" id="close_demon4-3" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain4-3" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-3').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10908,12 +12022,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview4-4" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview4-4" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container4-4" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10922,8 +12036,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning4_iteration_question_4').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-4').play()">Watch again</button>
+            <button type="button" id="close_demon4-4" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain4-4" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-4').play()">Watch again</button>
           </div>
         </div>
       </div>
@@ -10948,12 +12062,12 @@
             </div-->
             <div class="row">
               <div class="col-md-7">
-                <div style="width: 1582px; height: 836px;">
+
                 <!--1582, 836-->
-                <video id="firstview4-5" class="video-js" preload="auto" style="width:100%; height:100%; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
+                <video id="firstview4-5" class="video-js" preload="auto" style="width:1582px; height:836px; object-fit: fill" poster="firstcover.png" data-setup='{"controls": true}'>
                   <!--source src="A_action1_ite1.webm" type='video/webm'-->
                 </video>
-                </div>
+
               </div>
               <div class="col-md-5">
                 <div id="container4-5" style="background-image:url('./360cover.png'); width:770px; height:400px; "></div>
@@ -10962,8 +12076,10 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning4_iteration_question_5').style.display = 'block';">Close</button>
-            <button type="button" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-5').play()">Watch again</button>
+            <!--button type="button" id="close_demon4-5" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('learning4_iteration_question_5').style.display = 'block';">Close</button-->
+            
+            <button type="button" id="close_demon4-5" class="btn btn-secondary">Close</button>
+            <button type="button" id="learnagain4-5" class="btn btn-primary" onclick="play2VR.play();videojs('firstview4-5').play()">Watch again</button>
           </div>
         </div>
       </div>

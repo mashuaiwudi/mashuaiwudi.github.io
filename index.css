@@ -121,3 +121,9 @@ div.scrollmenu a {
 div.scrollmenu a:hover {
   background-color: #777;
 }
+
+
+div.top{margin:50px;padding:20px;width:200px;height:200px;border:2px dashed #ebbcbe;}
+div.top div{width:100px;height:100px;padding:10px;color:white;}
+div.a{background:red;}
+div.b{background:green;position:absolute;top:100px;left:100px;z-index:999;}

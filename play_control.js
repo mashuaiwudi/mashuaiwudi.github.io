@@ -204,6 +204,7 @@ var data_question_4_overall = null;
 
 
 $("#pager-0").click(function(){
+
 	var objData = $("#form_info").serializeArray();
 	if(!checkFormInfo(objData)){
 		return;
@@ -216,7 +217,7 @@ $("#pager-0").click(function(){
 	$('#popupPage-1').modal('show');
 	setTimeout(function() {
 	    $('#popupPage-1').modal('hide');
-	}, 2000);
+	}, 1000);
 });
 
 $("#pager-1").click(function(){
@@ -399,6 +400,7 @@ function submitData(){
 
 
 
+
 function submitData_ms(){
 	var xhr = new XMLHttpRequest();
 	//var url = "http://165.227.108.67/mingfei/submit.php"
@@ -446,7 +448,118 @@ function submitData_ms(){
 			"question4_3": question4_3,
 			"question4_4": question4_4,
 			"question4_5": question4_5,
-			"question4_final": question4_final
+			"question4_final": question4_final,
+
+
+			"demonwatch1_clicktime": demonwatch1_clicktime,
+			"demonwatch2_clicktime": demonwatch2_clicktime,
+			"demonwatch3_clicktime": demonwatch3_clicktime,
+			"demonwatch4_clicktime": demonwatch4_clicktime,
+			"opencamera1_clicktime": opencamera1_clicktime,
+			"opencamera2_clicktime": opencamera2_clicktime,
+			"opencamera3_clicktime": opencamera3_clicktime,
+			"opencamera4_clicktime": opencamera4_clicktime,
+			"start_user_demonstration1_clicktime": start_user_demonstration1_clicktime,
+			"start_user_demonstration2_clicktime": start_user_demonstration2_clicktime,
+			"start_user_demonstration3_clicktime": start_user_demonstration3_clicktime,
+			"start_user_demonstration4_clicktime": start_user_demonstration4_clicktime,
+			"end_user_demonstration1_clicktime": end_user_demonstration1_clicktime,
+			"end_user_demonstration2_clicktime": end_user_demonstration2_clicktime,
+			"end_user_demonstration3_clicktime": end_user_demonstration3_clicktime,
+			"end_user_demonstration4_clicktime": end_user_demonstration4_clicktime,
+			"finishrecord1_clicktime": finishrecord1_clicktime,
+			"finishrecord2_clicktime": finishrecord2_clicktime,
+			"finishrecord3_clicktime": finishrecord3_clicktime,
+			"finishrecord4_clicktime": finishrecord4_clicktime,
+			"recordagain1_clicktime": recordagain1_clicktime,
+			"recordagain2_clicktime": recordagain2_clicktime,
+			"recordagain3_clicktime": recordagain3_clicktime,
+			"recordagain4_clicktime": recordagain4_clicktime,
+
+
+			"learning1_watchbutton1_clicktime": learning1_watchbutton1_clicktime,
+			"learning1_watchbutton2_clicktime": learning1_watchbutton2_clicktime,
+			"learning1_watchbutton3_clicktime": learning1_watchbutton3_clicktime,
+			"learning1_watchbutton4_clicktime": learning1_watchbutton4_clicktime,
+			"learning1_watchbutton5_clicktime": learning1_watchbutton5_clicktime,
+			"learning2_watchbutton1_clicktime": learning2_watchbutton1_clicktime,
+			"learning2_watchbutton2_clicktime": learning2_watchbutton2_clicktime,
+			"learning2_watchbutton3_clicktime": learning2_watchbutton3_clicktime,
+			"learning2_watchbutton4_clicktime": learning2_watchbutton4_clicktime,
+			"learning2_watchbutton5_clicktime": learning2_watchbutton5_clicktime,
+			"learning3_watchbutton1_clicktime": learning3_watchbutton1_clicktime,
+			"learning3_watchbutton2_clicktime": learning3_watchbutton2_clicktime,
+			"learning3_watchbutton3_clicktime": learning3_watchbutton3_clicktime,
+			"learning3_watchbutton4_clicktime": learning3_watchbutton4_clicktime,
+			"learning3_watchbutton5_clicktime": learning3_watchbutton5_clicktime,
+			"learning4_watchbutton1_clicktime": learning4_watchbutton1_clicktime,
+			"learning4_watchbutton2_clicktime": learning4_watchbutton2_clicktime,
+			"learning4_watchbutton3_clicktime": learning4_watchbutton3_clicktime,
+			"learning4_watchbutton4_clicktime": learning4_watchbutton4_clicktime,
+			"learning4_watchbutton5_clicktime": learning4_watchbutton5_clicktime,
+
+			"init1_1_clicktime": init1_1_clicktime,
+			"init1_2_clicktime": init1_2_clicktime,
+			"init1_3_clicktime": init1_3_clicktime,
+			"init1_4_clicktime": init1_4_clicktime,
+			"init1_5_clicktime": init1_5_clicktime,
+			"init2_1_clicktime": init2_1_clicktime,
+			"init2_2_clicktime": init2_2_clicktime,
+			"init2_3_clicktime": init2_3_clicktime,
+			"init2_4_clicktime": init2_4_clicktime,
+			"init2_5_clicktime": init2_5_clicktime,
+			"init3_1_clicktime": init3_1_clicktime,
+			"init3_2_clicktime": init3_2_clicktime,
+			"init3_3_clicktime": init3_3_clicktime,
+			"init3_4_clicktime": init3_4_clicktime,
+			"init3_5_clicktime": init3_5_clicktime,
+			"init4_1_clicktime": init4_1_clicktime,
+			"init4_2_clicktime": init4_2_clicktime,
+			"init4_3_clicktime": init4_3_clicktime,
+			"init4_4_clicktime": init4_4_clicktime,
+			"init4_5_clicktime": init4_5_clicktime,
+
+			"close_demon1_1_clicktime": close_demon1_1_clicktime,
+			"close_demon1_2_clicktime": close_demon1_2_clicktime,
+			"close_demon1_3_clicktime": close_demon1_3_clicktime,
+			"close_demon1_4_clicktime": close_demon1_4_clicktime,
+			"close_demon1_5_clicktime": close_demon1_5_clicktime,
+			"close_demon2_1_clicktime": close_demon2_1_clicktime,
+			"close_demon2_2_clicktime": close_demon2_2_clicktime,
+			"close_demon2_3_clicktime": close_demon2_3_clicktime,
+			"close_demon2_4_clicktime": close_demon2_4_clicktime,
+			"close_demon2_5_clicktime": close_demon2_5_clicktime,
+			"close_demon3_1_clicktime": close_demon3_1_clicktime,
+			"close_demon3_2_clicktime": close_demon3_2_clicktime,
+			"close_demon3_3_clicktime": close_demon3_3_clicktime,
+			"close_demon3_4_clicktime": close_demon3_4_clicktime,
+			"close_demon3_5_clicktime": close_demon3_5_clicktime,
+			"close_demon4_1_clicktime": close_demon4_1_clicktime,
+			"close_demon4_2_clicktime": close_demon4_2_clicktime,
+			"close_demon4_3_clicktime": close_demon4_3_clicktime,
+			"close_demon4_4_clicktime": close_demon4_4_clicktime,
+			"close_demon4_5_clicktime": close_demon4_5_clicktime,
+
+			"learnagain1_1_clicktime": learnagain1_1_clicktime,
+			"learnagain1_2_clicktime": learnagain1_2_clicktime,
+			"learnagain1_3_clicktime": learnagain1_3_clicktime,
+			"learnagain1_4_clicktime": learnagain1_4_clicktime,
+			"learnagain1_5_clicktime": learnagain1_5_clicktime,
+			"learnagain2_1_clicktime": learnagain2_1_clicktime,
+			"learnagain2_2_clicktime": learnagain2_2_clicktime,
+			"learnagain2_3_clicktime": learnagain2_3_clicktime,
+			"learnagain2_4_clicktime": learnagain2_4_clicktime,
+			"learnagain2_5_clicktime": learnagain2_5_clicktime,
+			"learnagain3_1_clicktime": learnagain3_1_clicktime,
+			"learnagain3_2_clicktime": learnagain3_2_clicktime,
+			"learnagain3_3_clicktime": learnagain3_3_clicktime,
+			"learnagain3_4_clicktime": learnagain3_4_clicktime,
+			"learnagain3_5_clicktime": learnagain3_5_clicktime,
+			"learnagain4_1_clicktime": learnagain4_1_clicktime,
+			"learnagain4_2_clicktime": learnagain4_2_clicktime,
+			"learnagain4_3_clicktime": learnagain4_3_clicktime,
+			"learnagain4_4_clicktime": learnagain4_4_clicktime,
+			"learnagain4_5_clicktime": learnagain4_5_clicktime,
 		}
 
 	var dataJson = JSON.stringify(data);
@@ -492,6 +605,7 @@ var question1_final = null;
 
 
 $("#next-1-1").click(function(){
+	get_clicklog();
 	var objData = $("#learning1_iteration_question_1").serializeArray();
 	console.log(objData);
 	if(!checkIterationFormInfo(objData)){
@@ -798,7 +912,7 @@ $("#next-1-final").click(function(){
 	$('#popupPage-2').modal('show');
 	setTimeout(function() {
 	    $('#popupPage-2').modal('hide');
-	}, 2000);
+	}, 1000);
 	document.getElementById('progressbar2').style.width = '25%';
 	document.getElementById('progressbar2').textContent = '25%';
 });
@@ -1044,7 +1158,7 @@ $("#next-2-final").click(function(){
 	$('#popupPage-3').modal('show');
 	setTimeout(function() {
 	    $('#popupPage-3').modal('hide');
-	}, 2000);
+	}, 1000);
 	document.getElementById('progressbar3').style.width = '50%';
 	document.getElementById('progressbar3').textContent = '50%';
 });
@@ -1235,7 +1349,7 @@ $("#next-3-final").click(function(){
 	$('#popupPage-4').modal('show');
 	setTimeout(function() {
 	    $('#popupPage-4').modal('hide');
-	}, 2000);
+	}, 1000);
 	document.getElementById('progressbar4').style.width = '75%';
 	document.getElementById('progressbar4').textContent = '75%';
 });
@@ -1392,6 +1506,7 @@ $("#next-4-5").click(function(){
 
 
 
+
 $("#next-4-final").click(function(){
 	var objDataMan = $("#learning4_panel_man").serializeArray();
 	if (!checkFormSportType(objDataMan)) {
@@ -1435,13 +1550,530 @@ $("#next-4-final").click(function(){
 	//$('#popupPage-4').modal('show');
 	//setTimeout(function() {
 	//    $('#popupPage-4').modal('hide');
-	//}, 2000);
+	//}, 1000);
+});
+
+var mediaStreamTrack;
+var interval;
+
+//=========================================
+//=========================================
+//=========================================
+//=========================================
+var opencamera1_clicktime = 0;
+$("#opencamera1").click(function(){
+	if(demonwatch1_clicktime > 0){
+		
+		//document.getElementById('user_real_demonstration1').style.display = 'block';
+		$('#user_real_demonstration1').modal('show');
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream1");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera1_clicktime += 1;
+	}else{
+		alert("Please first watch the coach demonstration in Step 1 !");
+	}
+	
+});
+
+var sec = 10;                  //设置倒计时时间为30秒
+var sec2 = 30;
+function countDown1() {        //倒计时的方法
+	sec2--;
+	if(sec > 0 && sec2 > 0) {
+		document.getElementById('daojishi1').textContent = "Will start recording in " + sec-- + " seconds";
+	}
+	if(sec <= 0 && sec2 > 5){
+		document.getElementById('daojishi1').textContent = "Recording...";
+	}
+	if(sec2 <= 5 && sec2 > 0){
+		document.getElementById('daojishi1').textContent = "Will stop recording in " + sec2 + " seconds";
+	}
+	if(sec2 <= 0){
+		document.getElementById('daojishi1').textContent = "Recorded";
+
+		var video = document.getElementById("user_camerastream1");
+		video.pause();
+		//localstream.getTracks()[0].stop();
+		var track = mediaStreamTrack.getTracks()[0];
+		track.stop();
+		document.getElementById('daojishi1').textContent = "Recorded";
+		sec = 10;
+		sec2 = 30;
+		document.getElementById('start_user_demonstration1').style.display = 'block';
+		document.getElementById('end_user_demonstration1').style.display = 'none';
+		clearInterval(interval); // 清除定时器
+		end_user_demonstration1_clicktime += 1;
+	}
+}
+
+var start_user_demonstration1_clicktime = 0;
+$("#start_user_demonstration1").click(function(){
+	document.getElementById('start_user_demonstration1').style.display = 'none';
+	document.getElementById('end_user_demonstration1').style.display = 'block';
+
+	interval = setInterval('countDown1()',1000);    //一般秒设置为参数为1000
+	start_user_demonstration1_clicktime += 1;
+
+
+});
+var end_user_demonstration1_clicktime = 0;
+$("#end_user_demonstration1").click(function(){
+	var video = document.getElementById("user_camerastream1");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi1').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration1').style.display = 'block';
+	document.getElementById('end_user_demonstration1').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	end_user_demonstration1_clicktime += 1;
+});
+
+
+
+var finishrecord1_clicktime = 0;
+$("#finishrecord1").click(function(){
+	var video = document.getElementById("user_camerastream1");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi1').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration1').style.display = 'block';
+	document.getElementById('end_user_demonstration1').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	finishrecord1_clicktime += 1;
+	$('#user_real_demonstration1').modal('hide');
+});
+
+var recordagain1_clicktime = 0;
+$("#recordagain1").click(function(){
+	if(start_user_demonstration1_clicktime > 0){
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream1");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera1_clicktime += 1;
+		document.getElementById('start_user_demonstration1').style.display = 'none';
+		document.getElementById('end_user_demonstration1').style.display = 'block';
+
+		interval = setInterval('countDown1()',1000);    //一般秒设置为参数为1000
+		recordagain1_clicktime += 1;
+	}else{
+		alert("Please click the Begin Demonstration button tot record first!");
+	}
+	
+});
+
+//=========================================
+//=========================================
+//=========================================
+//=========================================
+var opencamera2_clicktime = 0;
+$("#opencamera2").click(function(){
+	if (demonwatch2_clicktime > 0){
+		$('#user_real_demonstration2').modal('show');
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream2");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera2_clicktime += 1;
+	}else{
+		alert("Please first watch the coach demonstration in Step 1 !");
+	}
+	
+});
+
+
+function countDown2() {        //倒计时的方法
+	sec2--;
+	if(sec > 0 && sec2 > 0) {
+		document.getElementById('daojishi2').textContent = "Will start recording in " + sec-- + " seconds";
+	}
+	if(sec <= 0 && sec2 > 5){
+		document.getElementById('daojishi2').textContent = "Recording...";
+	}
+	if(sec2 <= 5 && sec2 > 0){
+		document.getElementById('daojishi2').textContent = "Will stop recording in " + sec2 + " seconds";
+	}
+	if(sec2 <= 0){
+		document.getElementById('daojishi2').textContent = "Recorded";
+	}
+}
+
+var start_user_demonstration2_clicktime = 0;
+$("#start_user_demonstration2").click(function(){
+	document.getElementById('start_user_demonstration2').style.display = 'none';
+	document.getElementById('end_user_demonstration2').style.display = 'block';
+
+	interval = setInterval('countDown2()',1000);    //一般秒设置为参数为1000
+	start_user_demonstration2_clicktime += 1;
+
+});
+
+var end_user_demonstration2_clicktime = 0;
+$("#end_user_demonstration2").click(function(){
+	var video = document.getElementById("user_camerastream2");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi2').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration2').style.display = 'block';
+	document.getElementById('end_user_demonstration2').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	end_user_demonstration2_clicktime += 1;
+});
+
+
+
+var finishrecord2_clicktime = 0;
+$("#finishrecord2").click(function(){
+	var video = document.getElementById("user_camerastream2");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi2').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration2').style.display = 'block';
+	document.getElementById('end_user_demonstration2').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	finishrecord2_clicktime += 1;
+	$('#user_real_demonstration2').modal('hide');
+});
+
+var recordagain2_clicktime = 0;
+$("#recordagain2").click(function(){
+	if(start_user_demonstration2_clicktime > 0){
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream2");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera2_clicktime += 1;
+		document.getElementById('start_user_demonstration2').style.display = 'none';
+		document.getElementById('end_user_demonstration2').style.display = 'block';
+
+		interval = setInterval('countDown2()',1000);    //一般秒设置为参数为1000
+		recordagain2_clicktime += 1;
+	}else{
+		alert("Please click the Begin Demonstration button tot record first!");
+	}
+	
 });
 
 
 
 
+//=========================================
+//=========================================
+//=========================================
+//=========================================
+var opencamera3_clicktime = 0;
+$("#opencamera3").click(function(){
+	if (demonwatch3_clicktime > 0){
+		$('#user_real_demonstration3').modal('show');
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream3");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera3_clicktime += 1;
+	}else{
+		alert("Please first watch the coach demonstration in Step 1 !");
+	}
+});
 
+
+
+function countDown3() {        //倒计时的方法
+	sec2--;
+	if(sec > 0 && sec2 > 0) {
+		document.getElementById('daojishi3').textContent = "Will start recording in " + sec-- + " seconds";
+	}
+	if(sec <= 0 && sec2 > 5){
+		document.getElementById('daojishi3').textContent = "Recording...";
+	}
+	if(sec2 <= 5 && sec2 > 0){
+		document.getElementById('daojishi3').textContent = "Will stop recording in " + sec2 + " seconds";
+	}
+	if(sec2 <= 0){
+		document.getElementById('daojishi3').textContent = "Recorded";
+	}
+}
+
+var start_user_demonstration3_clicktime = 0;
+$("#start_user_demonstration3").click(function(){
+	document.getElementById('start_user_demonstration3').style.display = 'none';
+	document.getElementById('end_user_demonstration3').style.display = 'block';
+
+	interval = setInterval('countDown3()',1000);    //一般秒设置为参数为1000
+	start_user_demonstration3_clicktime += 1;
+
+});
+
+var end_user_demonstration3_clicktime = 0;
+$("#end_user_demonstration3").click(function(){
+	var video = document.getElementById("user_camerastream3");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi3').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration3').style.display = 'block';
+	document.getElementById('end_user_demonstration3').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	end_user_demonstration3_clicktime += 1;
+});
+
+
+
+var finishrecord3_clicktime = 0;
+$("#finishrecord3").click(function(){
+	var video = document.getElementById("user_camerastream3");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi3').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration3').style.display = 'block';
+	document.getElementById('end_user_demonstration3').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	finishrecord3_clicktime += 1;
+	$('#user_real_demonstration3').modal('hide');
+});
+
+var recordagain3_clicktime = 0;
+$("#recordagain3").click(function(){
+	if(start_user_demonstration3_clicktime > 0){
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream3");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera3_clicktime += 1;
+		document.getElementById('start_user_demonstration3').style.display = 'none';
+		document.getElementById('end_user_demonstration3').style.display = 'block';
+
+		interval = setInterval('countDown3()',1000);    //一般秒设置为参数为1000
+		recordagain3_clicktime += 1;
+	}else{
+		alert("Please click the Begin Demonstration button tot record first!");
+	}
+	
+});
+
+
+//=========================================
+//=========================================
+//=========================================
+//=========================================
+
+var opencamera4_clicktime = 0;
+$("#opencamera4").click(function(){
+	if (demonwatch4_clicktime > 0){
+		$('#user_real_demonstration4').modal('show');
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream4");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera4_clicktime += 1;
+	}else{
+		alert("Please first watch the coach demonstration in Step 1 !");
+	}
+});
+
+
+
+function countDown4() {        //倒计时的方法
+	sec2--;
+	if(sec > 0 && sec2 > 0) {
+		document.getElementById('daojishi4').textContent = "Will start recording in " + sec-- + " seconds";
+	}
+	if(sec <= 0 && sec2 > 5){
+		document.getElementById('daojishi4').textContent = "Recording...";
+	}
+	if(sec2 <= 5 && sec2 > 0){
+		document.getElementById('daojishi4').textContent = "Will stop recording in " + sec2 + " seconds";
+	}
+	if(sec2 <= 0){
+		document.getElementById('daojishi4').textContent = "Recorded";
+	}
+}
+
+var start_user_demonstration4_clicktime = 0;
+$("#start_user_demonstration4").click(function(){
+	document.getElementById('start_user_demonstration4').style.display = 'none';
+	document.getElementById('end_user_demonstration4').style.display = 'block';
+
+	interval = setInterval('countDown4()',1000);    //一般秒设置为参数为1000
+	start_user_demonstration4_clicktime += 1;
+
+});
+
+
+var end_user_demonstration4_clicktime = 0;
+$("#end_user_demonstration4").click(function(){
+	var video = document.getElementById("user_camerastream4");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi4').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration4').style.display = 'block';
+	document.getElementById('end_user_demonstration4').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	end_user_demonstration4_clicktime += 1;
+});
+
+
+
+var finishrecord4_clicktime = 0;
+$("#finishrecord4").click(function(){
+	var video = document.getElementById("user_camerastream4");
+	video.pause();
+	//localstream.getTracks()[0].stop();
+	var track = mediaStreamTrack.getTracks()[0];
+	track.stop();
+	document.getElementById('daojishi4').textContent = "Recorded";
+	sec = 10;
+	sec2 = 30;
+	//document.getElementById('start_user_demonstration4').style.display = 'block';
+	document.getElementById('end_user_demonstration4').style.display = 'none';
+	clearInterval(interval); // 清除定时器
+	finishrecord4_clicktime += 1;
+	$('#user_real_demonstration4').modal('hide');
+});
+
+
+var recordagain4_clicktime = 0;
+$("#recordagain4").click(function(){
+	if(start_user_demonstration4_clicktime > 0){
+		// 视频大小
+		var constraints = {audio: false, video: {width: 600,height: 600}};
+		// 开启视频
+		navigator.mediaDevices.getUserMedia(constraints).then(function(mediaStream) {
+			console.log('getUserMedia:', mediaStream)
+			mediaStreamTrack = mediaStream;
+			//var video = document.querySelector('video');
+			var video = document.getElementById("user_camerastream4");
+			video.srcObject = mediaStream;
+			console.log("000000000");
+			video.onloadedmetadata = function(e) {
+				console.log("11111111");
+				video.play();
+				console.log("22222222");
+			};
+		});
+		opencamera4_clicktime += 1;
+		document.getElementById('start_user_demonstration4').style.display = 'none';
+		document.getElementById('end_user_demonstration4').style.display = 'block';
+
+		interval = setInterval('countDown4()',1000);    //一般秒设置为参数为1000
+		recordagain4_clicktime += 1;
+	}else{
+		alert("Please click the Begin Demonstration button tot record first!");
+	}
+	
+});
 
 
 
@@ -1558,4 +2190,768 @@ $("#init4_5").click(function(){
 //}
 
 
-$('.valiant').Valiant360('play');
+//$('.valiant').Valiant360('play');
+
+
+var height = document.documentElement.clientHeight;
+//alert(height);
+var width = document.documentElement.clientWidth;
+//alert(width);
+
+height_ratio = height/937;
+//alert(height_ratio)
+
+
+width_ratio = width/1903;
+//alert(width_ratio)
+
+var choose_ratio;
+if (height_ratio < width_ratio){
+	choose_ratio = height_ratio;
+}else{
+	choose_ratio = width_ratio;
+}
+
+
+firstview_adjusted_height = 864*choose_ratio;
+fullangle_adjusted_height = 400*choose_ratio;
+//alert(firstview_adjusted_height);
+
+
+firstview_adjusted_width = 1536*choose_ratio;
+fullangle_adjusted_width = 600*choose_ratio;
+
+
+
+document.getElementById('firstview1-1').style.height = firstview_adjusted_height+ "px";
+document.getElementById('firstview1-1').style.width = firstview_adjusted_width+ "px";
+document.getElementById('container1-1').style.height = fullangle_adjusted_height+ "px";
+document.getElementById('container1-1').style.width = fullangle_adjusted_width+ "px";
+for (var i = 1; i < 5; i++) {
+	for (var j = 1; j < 6; j++){
+		var firstview_name = "firstview" + i + "-" + j;
+		var fullangle_name = "container" + i + "-" + j;
+		document.getElementById(firstview_name).style.height = firstview_adjusted_height+ "px";
+		document.getElementById(firstview_name).style.width = firstview_adjusted_width+ "px";
+		document.getElementById(fullangle_name).style.height = fullangle_adjusted_height+ "px";
+		document.getElementById(fullangle_name).style.width = fullangle_adjusted_width+ "px";
+	}
+}
+
+
+
+var demonwatch1_clicktime = 0;
+$("#demonwatch-1").click(function(){
+	demonwatch1_clicktime += 1;
+});
+
+var demonwatch2_clicktime = 0;
+$("#demonwatch-2").click(function(){
+	demonwatch2_clicktime += 1;
+});
+
+var demonwatch3_clicktime = 0;
+$("#demonwatch-3").click(function(){
+	demonwatch3_clicktime += 1;
+});
+
+var demonwatch4_clicktime = 0;
+$("#demonwatch-4").click(function(){
+	demonwatch4_clicktime += 1;
+});
+
+
+var learning1_watchbutton1_clicktime = 0;
+$("#learning1_watchbutton1").click(function(){
+	if (start_user_demonstration1_clicktime > 0){
+		//$('#identifier').modal('show')
+		//document.getElementById('learning1_iteration1_sim1').style.display = 'block';
+		$('#learning1_iteration1_sim1').modal('show');
+		learning1_watchbutton1_clicktime += 1;
+	}else{
+		alert("Please first show your demonstration in Step 2 !");
+	}
+});
+
+var learning1_watchbutton2_clicktime = 0;
+$("#learning1_watchbutton2").click(function(){
+	$('#learning1_iteration2_sim1').modal('show');
+	learning1_watchbutton2_clicktime += 1;
+});
+
+var learning1_watchbutton3_clicktime = 0;
+$("#learning1_watchbutton3").click(function(){
+	$('#learning1_iteration3_sim1').modal('show');
+	learning1_watchbutton3_clicktime += 1;
+});
+
+var learning1_watchbutton4_clicktime = 0;
+$("#learning1_watchbutton4").click(function(){
+	$('#learning1_iteration4_sim1').modal('show');
+	learning1_watchbutton4_clicktime += 1;
+});
+
+var learning1_watchbutton5_clicktime = 0;
+$("#learning1_watchbutton5").click(function(){
+	$('#learning1_iteration5_sim1').modal('show');
+	learning1_watchbutton5_clicktime += 1;
+});
+
+var learning2_watchbutton1_clicktime = 0;
+$("#learning2_watchbutton1").click(function(){
+	if (start_user_demonstration2_clicktime > 0){
+		$('#learning2_iteration1_sim1').modal('show');
+		learning2_watchbutton1_clicktime += 1;
+	}else{
+		alert("Please first show your demonstration in Step 2 !");
+	}	
+});
+
+var learning2_watchbutton2_clicktime = 0;
+$("#learning2_watchbutton2").click(function(){
+	$('#learning2_iteration2_sim1').modal('show');
+	learning2_watchbutton2_clicktime += 1;
+});
+
+var learning2_watchbutton3_clicktime = 0;
+$("#learning2_watchbutton3").click(function(){
+	$('#learning2_iteration3_sim1').modal('show');
+	learning2_watchbutton3_clicktime += 1;
+});
+
+var learning2_watchbutton4_clicktime = 0;
+$("#learning2_watchbutton4").click(function(){
+	$('#learning2_iteration4_sim1').modal('show');
+	learning2_watchbutton4_clicktime += 1;
+});
+
+var learning2_watchbutton5_clicktime = 0;
+$("#learning2_watchbutton5").click(function(){
+	$('#learning2_iteration5_sim1').modal('show');
+	learning2_watchbutton5_clicktime += 1;
+});
+
+var learning3_watchbutton1_clicktime = 0;
+$("#learning3_watchbutton1").click(function(){
+	if (start_user_demonstration3_clicktime > 0){
+		$('#learning3_iteration1_sim1').modal('show');
+		learning3_watchbutton1_clicktime += 1;
+	}else{
+		alert("Please first show your demonstration in Step 2 !");
+	}
+});
+
+var learning3_watchbutton2_clicktime = 0;
+$("#learning3_watchbutton2").click(function(){
+	$('#learning3_iteration2_sim1').modal('show');
+	learning3_watchbutton2_clicktime += 1;
+});
+
+var learning3_watchbutton3_clicktime = 0;
+$("#learning3_watchbutton3").click(function(){
+	$('#learning3_iteration3_sim1').modal('show');
+	learning3_watchbutton3_clicktime += 1;
+});
+
+var learning3_watchbutton4_clicktime = 0;
+$("#learning3_watchbutton4").click(function(){
+	$('#learning3_iteration4_sim1').modal('show');
+	learning3_watchbutton4_clicktime += 1;
+});
+
+var learning3_watchbutton5_clicktime = 0;
+$("#learning3_watchbutton5").click(function(){
+	$('#learning3_iteration5_sim1').modal('show');
+	learning3_watchbutton5_clicktime += 1;
+});
+
+var learning4_watchbutton1_clicktime = 0;
+$("#learning4_watchbutton1").click(function(){
+	if (start_user_demonstration4_clicktime > 0){
+		$('#learning4_iteration1_sim1').modal('show');
+		learning4_watchbutton1_clicktime += 1;
+	}else{
+		alert("Please first show your demonstration in Step 2 !");
+	}
+});
+
+var learning4_watchbutton2_clicktime = 0;
+$("#learning4_watchbutton2").click(function(){
+	$('#learning4_iteration2_sim1').modal('show');
+	learning4_watchbutton2_clicktime += 1;
+});
+
+var learning4_watchbutton3_clicktime = 0;
+$("#learning4_watchbutton3").click(function(){
+	$('#learning4_iteration3_sim1').modal('show');
+	learning4_watchbutton3_clicktime += 1;
+});
+
+var learning4_watchbutton4_clicktime = 0;
+$("#learning4_watchbutton4").click(function(){
+	$('#learning4_iteration4_sim1').modal('show');
+	learning4_watchbutton4_clicktime += 1;
+});
+
+var learning4_watchbutton5_clicktime = 0;
+$("#learning4_watchbutton5").click(function(){
+	$('#learning4_iteration5_sim1').modal('show');
+	learning4_watchbutton5_clicktime += 1;
+});
+
+var init1_1_clicktime = 0;
+$("#init1_1").click(function(){
+	init1_1_clicktime += 1;		
+});
+
+var init1_2_clicktime = 0;
+$("#init1_2").click(function(){
+	init1_2_clicktime += 1;
+});
+
+var init1_3_clicktime = 0;
+$("#init1_3").click(function(){
+	init1_3_clicktime += 1;
+});
+
+var init1_4_clicktime = 0;
+$("#init1_4").click(function(){
+	init1_4_clicktime += 1;
+});
+
+var init1_5_clicktime = 0;
+$("#init1_5").click(function(){
+	init1_5_clicktime += 1;
+});
+
+var init2_1_clicktime = 0;
+$("#init2_1").click(function(){
+	init2_1_clicktime += 1;
+});
+
+var init2_2_clicktime = 0;
+$("#init2_2").click(function(){
+	init2_2_clicktime += 1;
+});
+
+var init2_3_clicktime = 0;
+$("#init2_3").click(function(){
+	init2_3_clicktime += 1;
+});
+
+var init2_4_clicktime = 0;
+$("#init2_4").click(function(){
+	init2_4_clicktime += 1;
+});
+
+var init2_5_clicktime = 0;
+$("#init2_5").click(function(){
+	init2_5_clicktime += 1;
+});
+
+var init3_1_clicktime = 0;
+$("#init3_1").click(function(){
+	init3_1_clicktime += 1;
+});
+
+var init3_2_clicktime = 0;
+$("#init3_2").click(function(){
+	init3_2_clicktime += 1;
+});
+
+var init3_3_clicktime = 0;
+$("#init3_3").click(function(){
+	init3_3_clicktime += 1;
+});
+
+var init3_4_clicktime = 0;
+$("#init3_4").click(function(){
+	init3_4_clicktime += 1;
+});
+
+var init3_5_clicktime = 0;
+$("#init3_5").click(function(){
+	init3_5_clicktime += 1;
+});
+
+var init4_1_clicktime = 0;
+$("#init4_1").click(function(){
+	init4_1_clicktime += 1;
+});
+
+var init4_2_clicktime = 0;
+$("#init4_2").click(function(){
+	init4_2_clicktime += 1;
+});
+
+var init4_3_clicktime = 0;
+$("#init4_3").click(function(){
+	init4_3_clicktime += 1;
+});
+
+var init4_4_clicktime = 0;
+$("#init4_4").click(function(){
+	init4_4_clicktime += 1;
+});
+
+var init4_5_clicktime = 0;
+$("#init4_5").click(function(){
+	init4_5_clicktime += 1;
+});
+
+var init4_5_clicktime = 0;
+$("#init4_5").click(function(){
+	init4_5_clicktime += 1;
+});
+
+var close_demon1_1_clicktime =0;
+$("#close_demon1-1").click(function(){
+	if (init1_1_clicktime > 0){
+		document.getElementById('learning1_iteration_question_1').style.display = 'block';
+		$('#learning1_iteration1_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon1_1_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}	
+});
+
+var close_demon1_2_clicktime =0;
+$("#close_demon1-2").click(function(){
+	if (init1_2_clicktime > 0){
+		document.getElementById('learning1_iteration_question_2').style.display = 'block';
+		$('#learning1_iteration2_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon1_2_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon1_3_clicktime =0;
+$("#close_demon1-3").click(function(){
+	if (init1_3_clicktime > 0){
+		document.getElementById('learning1_iteration_question_3').style.display = 'block';
+		$('#learning1_iteration3_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon1_3_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon1_4_clicktime =0;
+$("#close_demon1-4").click(function(){
+	if (init1_4_clicktime > 0){
+		document.getElementById('learning1_iteration_question_4').style.display = 'block';
+		$('#learning1_iteration4_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon1_4_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon1_5_clicktime =0;
+$("#close_demon1-5").click(function(){
+	if (init1_5_clicktime > 0){
+		document.getElementById('learning1_iteration_question_5').style.display = 'block';
+		$('#learning1_iteration5_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon1_5_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon2_1_clicktime =0;
+$("#close_demon2-1").click(function(){
+	if (init2_1_clicktime > 0){
+		document.getElementById('learning2_iteration_question_1').style.display = 'block';
+		$('#learning2_iteration1_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon2_1_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon2_2_clicktime =0;
+$("#close_demon2-2").click(function(){
+	if (init2_2_clicktime > 0){
+		document.getElementById('learning2_iteration_question_2').style.display = 'block';
+		$('#learning2_iteration2_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon2_2_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon2_3_clicktime =0;
+$("#close_demon2-3").click(function(){
+	if (init2_3_clicktime > 0){
+		document.getElementById('learning2_iteration_question_3').style.display = 'block';
+		$('#learning2_iteration3_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon2_3_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon2_4_clicktime =0;
+$("#close_demon2-4").click(function(){
+	if (init2_4_clicktime > 0){
+		document.getElementById('learning2_iteration_question_4').style.display = 'block';
+		$('#learning2_iteration4_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon2_4_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon2_5_clicktime =0;
+$("#close_demon2-5").click(function(){
+	if (init2_5_clicktime > 0){
+		document.getElementById('learning2_iteration_question_5').style.display = 'block';
+		$('#learning2_iteration5_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon2_5_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon3_1_clicktime =0;
+$("#close_demon3-1").click(function(){
+	if (init3_1_clicktime > 0){
+		document.getElementById('learning3_iteration_question_1').style.display = 'block';
+		$('#learning3_iteration1_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon3_1_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon3_2_clicktime =0;
+$("#close_demon3-2").click(function(){
+	if (init3_2_clicktime > 0){
+		document.getElementById('learning3_iteration_question_2').style.display = 'block';
+		$('#learning3_iteration2_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon3_2_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon3_3_clicktime =0;
+$("#close_demon3-3").click(function(){
+	if (init3_3_clicktime > 0){
+		document.getElementById('learning3_iteration_question_3').style.display = 'block';
+		$('#learning3_iteration3_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon3_3_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon3_4_clicktime =0;
+$("#close_demon3-4").click(function(){
+	if (init3_4_clicktime > 0){
+		document.getElementById('learning3_iteration_question_4').style.display = 'block';
+		$('#learning3_iteration4_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon3_4_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon3_5_clicktime =0;
+$("#close_demon3-5").click(function(){
+	if (init3_5_clicktime > 0){
+		document.getElementById('learning3_iteration_question_5').style.display = 'block';
+		$('#learning3_iteration5_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon3_5_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon4_1_clicktime =0;
+$("#close_demon4-1").click(function(){
+	if (init4_1_clicktime > 0){
+		document.getElementById('learning4_iteration_question_1').style.display = 'block';
+		$('#learning4_iteration1_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon4_1_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon4_2_clicktime =0;
+$("#close_demon4-2").click(function(){
+	if (init4_2_clicktime > 0){
+		document.getElementById('learning4_iteration_question_2').style.display = 'block';
+		$('#learning4_iteration2_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon4_2_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon4_3_clicktime =0;
+$("#close_demon4-3").click(function(){
+	if (init4_3_clicktime > 0){
+		document.getElementById('learning4_iteration_question_3').style.display = 'block';
+		$('#learning4_iteration3_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon4_3_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon4_4_clicktime =0;
+$("#close_demon4-4").click(function(){
+	if (init4_4_clicktime > 0){
+		document.getElementById('learning4_iteration_question_4').style.display = 'block';
+		$('#learning4_iteration4_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon4_4_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+var close_demon4_5_clicktime =0;
+$("#close_demon4-5").click(function(){
+	if (init4_5_clicktime > 0){
+		document.getElementById('learning4_iteration_question_5').style.display = 'block';
+		$('#learning4_iteration5_sim1').modal('hide');
+		play2VR.dispose();
+		close_demon4_5_clicktime += 1;
+	}else{
+		alert("Please first watch Robot Learning from Demonstration in Step 3 !");
+	}
+});
+
+
+
+var learnagain1_1_clicktime =0;
+$("#learnagain1-1").click(function(){
+	learnagain1_1_clicktime += 1;
+});
+
+var learnagain1_2_clicktime =0;
+$("#learnagain1-2").click(function(){
+	learnagain1_2_clicktime += 1;
+});
+
+var learnagain1_3_clicktime =0;
+$("#learnagain1-3").click(function(){
+	learnagain1_3_clicktime += 1;
+});
+
+var learnagain1_4_clicktime =0;
+$("#learnagain1-4").click(function(){
+	learnagain1_4_clicktime += 1;
+});
+
+var learnagain1_5_clicktime =0;
+$("#learnagain1-5").click(function(){
+	learnagain1_5_clicktime += 1;
+});
+
+var learnagain2_1_clicktime =0;
+$("#learnagain2-1").click(function(){
+	learnagain2_1_clicktime += 1;
+});
+
+var learnagain2_2_clicktime =0;
+$("#learnagain2-2").click(function(){
+	learnagain2_2_clicktime += 1;
+});
+
+var learnagain2_3_clicktime =0;
+$("#learnagain2-3").click(function(){
+	learnagain2_3_clicktime += 1;
+});
+
+var learnagain2_4_clicktime =0;
+$("#learnagain2-4").click(function(){
+	learnagain2_4_clicktime += 1;
+});
+
+var learnagain2_5_clicktime =0;
+$("#learnagain2-5").click(function(){
+	learnagain2_5_clicktime += 1;
+});
+
+var learnagain3_1_clicktime =0;
+$("#learnagain3-1").click(function(){
+	learnagain3_1_clicktime += 1;
+});
+
+var learnagain3_2_clicktime =0;
+$("#learnagain3-2").click(function(){
+	learnagain3_2_clicktime += 1;
+});
+
+var learnagain3_3_clicktime =0;
+$("#learnagain3-3").click(function(){
+	learnagain3_3_clicktime += 1;
+});
+
+var learnagain3_4_clicktime =0;
+$("#learnagain3-4").click(function(){
+	learnagain3_4_clicktime += 1;
+});
+
+var learnagain3_5_clicktime =0;
+$("#learnagain3-5").click(function(){
+	learnagain3_5_clicktime += 1;
+});
+
+var learnagain4_1_clicktime =0;
+$("#learnagain4-1").click(function(){
+	learnagain4_1_clicktime += 1;
+});
+
+var learnagain4_2_clicktime =0;
+$("#learnagain4-2").click(function(){
+	learnagain4_2_clicktime += 1;
+});
+
+var learnagain4_3_clicktime =0;
+$("#learnagain4-3").click(function(){
+	learnagain4_3_clicktime += 1;
+});
+
+var learnagain4_4_clicktime =0;
+$("#learnagain4-4").click(function(){
+	learnagain4_4_clicktime += 1;
+});
+
+var learnagain4_5_clicktime =0;
+$("#learnagain4-5").click(function(){
+	learnagain4_5_clicktime += 1;
+});
+
+function get_clicklog(){
+	
+click_data = {"demonwatch1_clicktime": demonwatch1_clicktime,
+"demonwatch2_clicktime": demonwatch1_clicktime,
+"demonwatch3_clicktime": demonwatch3_clicktime,
+"demonwatch4_clicktime": demonwatch4_clicktime,
+"opencamera1_clicktime": opencamera1_clicktime,
+"opencamera2_clicktime": opencamera2_clicktime,
+"opencamera3_clicktime": opencamera3_clicktime,
+"opencamera4_clicktime": opencamera4_clicktime,
+"start_user_demonstration1_clicktime": start_user_demonstration1_clicktime,
+"start_user_demonstration2_clicktime": start_user_demonstration2_clicktime,
+"start_user_demonstration3_clicktime": start_user_demonstration3_clicktime,
+"start_user_demonstration4_clicktime": start_user_demonstration4_clicktime,
+"end_user_demonstration1_clicktime": end_user_demonstration1_clicktime,
+"end_user_demonstration2_clicktime": end_user_demonstration2_clicktime,
+"end_user_demonstration3_clicktime": end_user_demonstration3_clicktime,
+"end_user_demonstration4_clicktime": end_user_demonstration4_clicktime,
+"finishrecord1_clicktime": finishrecord1_clicktime,
+"finishrecord2_clicktime": finishrecord2_clicktime,
+"finishrecord3_clicktime": finishrecord3_clicktime,
+"finishrecord4_clicktime": finishrecord4_clicktime,
+"learning1_watchbutton1_clicktime": learning1_watchbutton1_clicktime,
+"learning1_watchbutton2_clicktime": learning1_watchbutton2_clicktime,
+"learning1_watchbutton3_clicktime": learning1_watchbutton3_clicktime,
+"learning1_watchbutton4_clicktime": learning1_watchbutton4_clicktime,
+"learning1_watchbutton5_clicktime": learning1_watchbutton5_clicktime,
+"learning2_watchbutton1_clicktime": learning2_watchbutton1_clicktime,
+"learning2_watchbutton2_clicktime": learning2_watchbutton2_clicktime,
+"learning2_watchbutton3_clicktime": learning2_watchbutton3_clicktime,
+"learning2_watchbutton4_clicktime": learning2_watchbutton4_clicktime,
+"learning2_watchbutton5_clicktime": learning2_watchbutton5_clicktime,
+"learning3_watchbutton1_clicktime": learning3_watchbutton1_clicktime,
+"learning3_watchbutton2_clicktime": learning3_watchbutton2_clicktime,
+"learning3_watchbutton3_clicktime": learning3_watchbutton3_clicktime,
+"learning3_watchbutton4_clicktime": learning3_watchbutton4_clicktime,
+"learning3_watchbutton5_clicktime": learning3_watchbutton5_clicktime,
+"learning4_watchbutton1_clicktime": learning4_watchbutton1_clicktime,
+"learning4_watchbutton2_clicktime": learning4_watchbutton2_clicktime,
+"learning4_watchbutton3_clicktime": learning4_watchbutton3_clicktime,
+"learning4_watchbutton4_clicktime": learning4_watchbutton4_clicktime,
+"learning4_watchbutton5_clicktime": learning4_watchbutton5_clicktime,
+
+"init1_1_clicktime": init1_1_clicktime,
+"init1_2_clicktime": init1_2_clicktime,
+"init1_3_clicktime": init1_3_clicktime,
+"init1_4_clicktime": init1_4_clicktime,
+"init1_5_clicktime": init1_5_clicktime,
+"init2_1_clicktime": init2_1_clicktime,
+"init2_2_clicktime": init2_2_clicktime,
+"init2_3_clicktime": init2_3_clicktime,
+"init2_4_clicktime": init2_4_clicktime,
+"init2_5_clicktime": init2_5_clicktime,
+"init3_1_clicktime": init3_1_clicktime,
+"init3_2_clicktime": init3_2_clicktime,
+"init3_3_clicktime": init3_3_clicktime,
+"init3_4_clicktime": init3_4_clicktime,
+"init3_5_clicktime": init3_5_clicktime,
+"init4_1_clicktime": init4_1_clicktime,
+"init4_2_clicktime": init4_2_clicktime,
+"init4_3_clicktime": init4_3_clicktime,
+"init4_4_clicktime": init4_4_clicktime,
+"init4_5_clicktime": init4_5_clicktime,
+
+"close_demon1_1_clicktime": close_demon1_1_clicktime,
+"close_demon1_2_clicktime": close_demon1_2_clicktime,
+"close_demon1_3_clicktime": close_demon1_3_clicktime,
+"close_demon1_4_clicktime": close_demon1_4_clicktime,
+"close_demon1_5_clicktime": close_demon1_5_clicktime,
+"close_demon2_1_clicktime": close_demon2_1_clicktime,
+"close_demon2_2_clicktime": close_demon2_2_clicktime,
+"close_demon2_3_clicktime": close_demon2_3_clicktime,
+"close_demon2_4_clicktime": close_demon2_4_clicktime,
+"close_demon2_5_clicktime": close_demon2_5_clicktime,
+"close_demon3_1_clicktime": close_demon3_1_clicktime,
+"close_demon3_2_clicktime": close_demon3_2_clicktime,
+"close_demon3_3_clicktime": close_demon3_3_clicktime,
+"close_demon3_4_clicktime": close_demon3_4_clicktime,
+"close_demon3_5_clicktime": close_demon3_5_clicktime,
+"close_demon4_1_clicktime": close_demon4_1_clicktime,
+"close_demon4_2_clicktime": close_demon4_2_clicktime,
+"close_demon4_3_clicktime": close_demon4_3_clicktime,
+"close_demon4_4_clicktime": close_demon4_4_clicktime,
+"close_demon4_5_clicktime": close_demon4_5_clicktime,
+
+"learnagain1_1_clicktime": learnagain1_1_clicktime,
+"learnagain1_2_clicktime": learnagain1_2_clicktime,
+"learnagain1_3_clicktime": learnagain1_3_clicktime,
+"learnagain1_4_clicktime": learnagain1_4_clicktime,
+"learnagain1_5_clicktime": learnagain1_5_clicktime,
+"learnagain2_1_clicktime": learnagain2_1_clicktime,
+"learnagain2_2_clicktime": learnagain2_2_clicktime,
+"learnagain2_3_clicktime": learnagain2_3_clicktime,
+"learnagain2_4_clicktime": learnagain2_4_clicktime,
+"learnagain2_5_clicktime": learnagain2_5_clicktime,
+"learnagain3_1_clicktime": learnagain3_1_clicktime,
+"learnagain3_2_clicktime": learnagain3_2_clicktime,
+"learnagain3_3_clicktime": learnagain3_3_clicktime,
+"learnagain3_4_clicktime": learnagain3_4_clicktime,
+"learnagain3_5_clicktime": learnagain3_5_clicktime,
+"learnagain4_1_clicktime": learnagain4_1_clicktime,
+"learnagain4_2_clicktime": learnagain4_2_clicktime,
+"learnagain4_3_clicktime": learnagain4_3_clicktime,
+"learnagain4_4_clicktime": learnagain4_4_clicktime,
+"learnagain4_5_clicktime": learnagain4_5_clicktime,
+}
+
+console.log(click_data);
+}

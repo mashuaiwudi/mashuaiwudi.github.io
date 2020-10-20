@@ -73,44 +73,47 @@ var firstviewlist = [['firstview1-1', 'firstview1-2', 'firstview1-3', 'firstview
 
 
 
-var action1_mode1_360 = ['16789952955f76dfc844d7c', '5178423355f76dfd1e41e0', '14087162625f76dfd3d4b3f', '8523801385f76dfd5977ce', '13526979965f76dfd834e6c']
-var action1_mode2_360 = ['1946666725f76dfd9c7b80', '14892600085f76dfdb5d54c', '19079395755f76dfde22e53', '18733412285f76dfe0025be', '4179342845f76dfe1e6a9b']
-var action1_mode3_360 = ['20020609745f76dfe39d161', '20020609745f76dfe39d161', '20020609745f76dfe39d161', '20020609745f76dfe39d161', '20020609745f76dfe39d161']
-var action1_mode4_360 = ['18239986585f76dfe57ee35', '18239986585f76dfe57ee35', '18239986585f76dfe57ee35', '18239986585f76dfe57ee35', '18239986585f76dfe57ee35']
-var action2_mode1_360 = ['2064360495f76e33339dbf', '210014255f76e33bdd1be', '4743370615f76e33d13b62', '3380493755f76e33e54618', '21140173695f76e33febb98']
-var action2_mode2_360 = ['16442284325f76e34110517', '18405184785f76e3425171c', '12267739635f76e34514dc1', '19240615345f76e34d88f5a', '6744169385f76e3513d692']
-var action2_mode3_360 = ['4872018535f76e354404f8', '4872018535f76e354404f8', '4872018535f76e354404f8', '4872018535f76e354404f8', '4872018535f76e354404f8']
-var action2_mode4_360 = ['13668854975f76e35641f09', '13668854975f76e35641f09', '13668854975f76e35641f09', '13668854975f76e35641f09', '13668854975f76e35641f09']
-var action3_mode1_360 = ['1806984765f76e746a6fd4', '18195536225f76e7527a675', '5481519435f76e753dd1ef', '5481519435f76e75552458', '5481519435f76e757403cd']
-var action3_mode2_360 = ['20860129535f76e75926d00', '6652186495f76e75a67f53', '11606418825f76e75beaf73', '11606418825f76e75d2941a', '9778543215f76e75eda79e']
-var action3_mode3_360 = ['16804750335f76e76096478', '16804750335f76e76096478', '16804750335f76e76096478', '16804750335f76e76096478', '16804750335f76e76096478']
-var action3_mode4_360 = ['13043714315f76e76273794', '13043714315f76e76273794', '13043714315f76e76273794', '13043714315f76e76273794', '13043714315f76e76273794']
-var action4_mode1_360 = ['2668530885f76ea0b523fd', '7837683585f76ea0edf089', '4106935995f76ea1053bd2', '5106028735f76ea125100e', '13952699495f76ea13cb1fa']
-var action4_mode2_360 = ['972478265f76ea1552765', '18624759105f76ea16d0270', '18624759105f76ea18964eb', '6136090115f76ea1a7270c', '6136090115f76ea1c53712']
-var action4_mode3_360 = ['6136090115f76ea1e383ef', '6136090115f76ea1e383ef', '6136090115f76ea1e383ef', '6136090115f76ea1e383ef', '6136090115f76ea1e383ef']
-var action4_mode4_360 = ['18168566375f76ea1f90c96', '18168566375f76ea1f90c96', '18168566375f76ea1f90c96', '18168566375f76ea1f90c96', '18168566375f76ea1f90c96']
+var action1_mode1_360 = ['20926128475f870426d48b3', '20525552165f87045ff2139', '15269423075f87049c026c9', '629439685f8704d28b3e4', '712926975f8705077739f']
+var action1_mode2_360 = ['16623954235f87053a94e52', '869160165f87058746b88', '12459136935f8705bb345e5', '1754284085f8705f59e69c', '12997085285f87062b66c7c']
+var action1_mode3_360 = ['8946917235f87066f792bc', '8946917235f87066f792bc', '8946917235f87066f792bc', '8946917235f87066f792bc', '8946917235f87066f792bc']
+var action1_mode4_360 = ['9905934355f8706ae3d3fc', '9905934355f8706ae3d3fc', '9905934355f8706ae3d3fc', '9905934355f8706ae3d3fc', '9905934355f8706ae3d3fc']
+var action2_mode1_360 = ['19022558285f87013e54c45', '9306625755f87015cb0325', '20443433535f87018a9bc27', '15554488975f8701aa85061', '4359013615f8701c1408ff']
+var action2_mode2_360 = ['3111629605f8701d740f8d', '158148075f8701ee9390c', '3041428045f87020576025', '3041428045f87021c5c922', '15623009925f8702383cb9b']
+var action2_mode3_360 = ['1172474315f87025057224', '1172474315f87025057224', '1172474315f87025057224', '1172474315f87025057224', '1172474315f87025057224']
+var action2_mode4_360 = ['15197695805f87026984d72', '15197695805f87026984d72', '15197695805f87026984d72', '15197695805f87026984d72', '15197695805f87026984d72']
+var action3_mode1_360 = ['9076983905f8707e09d0ca', '9076983905f87080946c10', '15641350745f87082b1a809', '20874607055f870850c9e27', '12096046705f870874ab3e9']
+var action3_mode2_360 = ['19033139505f87089d8ea6c', '21468115445f8708be6a834', '11226573865f8708e4e7797', '17810406805f870901da039', '17794780095f87092868cb8']
+var action3_mode3_360 = ['16867232905f87094acb36e', '16867232905f87094acb36e', '16867232905f87094acb36e', '16867232905f87094acb36e', '16867232905f87094acb36e']
+var action3_mode4_360 = ['9341697465f87097298f7b', '9341697465f87097298f7b', '9341697465f87097298f7b', '9341697465f87097298f7b', '9341697465f87097298f7b']
+var action4_mode1_360 = ['5576139155f870ddfc71bc', '20436166105f870e21045b2', '9874218585f870e683d902', '3854146645f870eb7d7307', '4340908055f870f033d154']
+var action4_mode2_360 = ['1154230655f870f7275ca0', '1709584905f870fbc3f185', '19051169405f8710116f03c', '9234133545f871052687cd', '12160381365f8710987dc8c']
+var action4_mode3_360 = ['17731534095f8710e68237e', '17731534095f8710e68237e', '17731534095f8710e68237e', '17731534095f8710e68237e', '17731534095f8710e68237e']
+var action4_mode4_360 = ['13625726635f871137707df', '13625726635f871137707df', '13625726635f871137707df', '13625726635f871137707df', '13625726635f871137707df']
 var resources360 = [[action1_mode1_360, action1_mode2_360, action1_mode3_360, action1_mode4_360],
 [action2_mode1_360, action2_mode2_360, action2_mode3_360, action2_mode4_360],
 [action3_mode1_360, action3_mode2_360, action3_mode3_360, action3_mode4_360],
 [action4_mode1_360, action4_mode2_360, action4_mode3_360, action4_mode4_360]]
 
 
-var action1_mode1_firstview = ['first-dagu-mode1-1', 'first-dagu-mode1-2', 'first-dagu-mode1-3', 'first-dagu-mode1-4', 'first-dagu-mode1-5']
-var action1_mode2_firstview = ['first-dagu-mode2-1', 'first-dagu-mode2-2', 'first-dagu-mode2-3', 'first-dagu-mode2-4', 'first-dagu-mode2-5']
-var action1_mode3_firstview = ['first-dagu-mode3', 'first-dagu-mode3', 'first-dagu-mode3', 'first-dagu-mode3', 'first-dagu-mode3']
-var action1_mode4_firstview = ['first-dagu-mode4', 'first-dagu-mode4', 'first-dagu-mode4', 'first-dagu-mode4', 'first-dagu-mode4']
-var action2_mode1_firstview = ['first-gangqin-mode1-1', 'first-gangqin-mode1-2', 'first-gangqin-mode1-3', 'first-gangqin-mode1-4', 'first-gangqin-mode1-5']
-var action2_mode2_firstview = ['first-gangqin-mode2-1', 'first-gangqin-mode2-2', 'first-gangqin-mode2-3', 'first-gangqin-mode2-4', 'first-gangqin-mode2-5']
-var action2_mode3_firstview = ['first-gangqin-mode3', 'first-gangqin-mode3', 'first-gangqin-mode3', 'first-gangqin-mode3', 'first-gangqin-mode3']
-var action2_mode4_firstview = ['first-gangqin-mode4', 'first-gangqin-mode4', 'first-gangqin-mode4', 'first-gangqin-mode4', 'first-gangqin-mode4']
-var action3_mode1_firstview = ['first-quanji-mode1-1', 'first-quanji-mode1-2', 'first-quanji-mode1-3', 'first-quanji-mode1-4', 'first-quanji-mode1-5']
-var action3_mode2_firstview = ['first-quanji-mode2-1', 'first-quanji-mode2-2', 'first-quanji-mode2-3', 'first-quanji-mode2-4', 'first-quanji-mode2-5']
-var action3_mode3_firstview = ['first-quanji-mode3', 'first-quanji-mode3', 'first-quanji-mode3', 'first-quanji-mode3', 'first-quanji-mode3']
-var action3_mode4_firstview = ['first-quanji-mode4', 'first-quanji-mode4', 'first-quanji-mode4', 'first-quanji-mode4', 'first-quanji-mode4']
-var action4_mode1_firstview = ['first-woshou-mode1-1', 'first-woshou-mode1-2', 'first-woshou-mode1-3', 'first-woshou-mode1-4', 'first-woshou-mode1-5']
-var action4_mode2_firstview = ['first-woshou-mode2-1', 'first-woshou-mode2-2', 'first-woshou-mode2-3', 'first-woshou-mode2-4', 'first-woshou-mode2-5']
-var action4_mode3_firstview = ['first-woshou-mode3', 'first-woshou-mode3', 'first-woshou-mode3', 'first-woshou-mode3', 'first-woshou-mode3']
-var action4_mode4_firstview = ['first-woshou-mode4', 'first-woshou-mode4', 'first-woshou-mode4', 'first-woshou-mode4', 'first-woshou-mode4']
+var action1_mode1_firstview = ['newfirst-washing-mode1-1', 'newfirst-washing-mode1-2', 'newfirst-washing-mode1-3', 'newfirst-washing-mode1-4', 'newfirst-washing-mode1-5']
+var action1_mode2_firstview = ['newfirst-washing-mode2-1', 'newfirst-washing-mode2-2', 'newfirst-washing-mode2-3', 'newfirst-washing-mode2-4', 'newfirst-washing-mode2-5']
+var action1_mode3_firstview = ['newfirst-washing-mode3', 'newfirst-washing-mode3', 'newfirst-washing-mode3', 'newfirst-washing-mode3', 'newfirst-washing-mode3']
+var action1_mode4_firstview = ['newfirst-washing-mode4', 'newfirst-washing-mode4', 'newfirst-washing-mode4', 'newfirst-washing-mode4', 'newfirst-washing-mode4']
+
+var action2_mode1_firstview = ['newfirst-quanji-mode1-1', 'newfirst-quanji-mode1-2', 'newfirst-quanji-mode1-3', 'newfirst-quanji-mode1-4', 'newfirst-quanji-mode1-5']
+var action2_mode2_firstview = ['newfirst-quanji-mode2-1', 'newfirst-quanji-mode2-2', 'newfirst-quanji-mode2-3', 'newfirst-quanji-mode2-4', 'newfirst-quanji-mode2-5']
+var action2_mode3_firstview = ['newfirst-quanji-mode3', 'newfirst-quanji-mode3', 'newfirst-quanji-mode3', 'newfirst-quanji-mode3', 'newfirst-quanji-mode3']
+var action2_mode4_firstview = ['newfirst-quanji-mode4', 'newfirst-quanji-mode4', 'newfirst-quanji-mode4', 'newfirst-quanji-mode4', 'newfirst-quanji-mode4']
+
+var action3_mode1_firstview = ['newfirst-gangqin-mode1-1', 'newfirst-gangqin-mode1-2', 'newfirst-gangqin-mode1-3', 'newfirst-gangqin-mode1-4', 'newfirst-gangqin-mode1-5']
+var action3_mode2_firstview = ['newfirst-gangqin-mode2-1', 'newfirst-gangqin-mode2-2', 'newfirst-gangqin-mode2-3', 'newfirst-gangqin-mode2-4', 'newfirst-gangqin-mode2-5']
+var action3_mode3_firstview = ['newfirst-gangqin-mode3', 'newfirst-gangqin-mode3', 'newfirst-gangqin-mode3', 'newfirst-gangqin-mode3', 'newfirst-gangqin-mode3']
+var action3_mode4_firstview = ['newfirst-gangqin-mode4', 'newfirst-gangqin-mode4', 'newfirst-gangqin-mode4', 'newfirst-gangqin-mode4', 'newfirst-gangqin-mode4']
+
+var action4_mode1_firstview = ['newfirst-woshou-mode1-1', 'newfirst-woshou-mode1-2', 'newfirst-woshou-mode1-3', 'newfirst-woshou-mode1-4', 'newfirst-woshou-mode1-5']
+var action4_mode2_firstview = ['newfirst-woshou-mode2-1', 'newfirst-woshou-mode2-2', 'newfirst-woshou-mode2-3', 'newfirst-woshou-mode2-4', 'newfirst-woshou-mode2-5']
+var action4_mode3_firstview = ['newfirst-woshou-mode3', 'newfirst-woshou-mode3', 'newfirst-woshou-mode3', 'newfirst-woshou-mode3', 'newfirst-woshou-mode3']
+var action4_mode4_firstview = ['newfirst-woshou-mode4', 'newfirst-woshou-mode4', 'newfirst-woshou-mode4', 'newfirst-woshou-mode4', 'newfirst-woshou-mode4']
 var resourcesfirstview = [[action1_mode1_firstview, action1_mode2_firstview, action1_mode3_firstview, action1_mode4_firstview],
 [action2_mode1_firstview, action2_mode2_firstview, action2_mode3_firstview, action2_mode4_firstview],
 [action3_mode1_firstview, action3_mode2_firstview, action3_mode3_firstview, action3_mode4_firstview],
@@ -119,13 +122,18 @@ var resourcesfirstview = [[action1_mode1_firstview, action1_mode2_firstview, act
 
 var selected20keys = new Array();　//创建一个数组
 for (var i = 0; i < html_vid_real.length; i++){
-	vid_name_real = "videos/realaction_" + currSport[i] + ".mp4";
+	vid_name_real = "newvideo/realaction_" + currSport[i] + ".mp4";
 	//vid_name_sim = "sim_" + currSport[i] + "_" + currMode[i] + ".mp4";
 
 
-	document.getElementById(id_thumbnail[i]).src = "Newmember-" + currSport[i] + ".png";
-	document.getElementById(id_thumbnail_[i]).src = "Newmember-" + currSport[i] + ".png";
-	document.getElementById(id_thumbnailtest[i]).src = "Newmember-" + currSport[i] + ".png";
+	document.getElementById(id_thumbnail[i]).src = "pepperrobot-" + currSport[i] + ".png";
+	document.getElementById(id_thumbnail_[i]).src = "pepperrobot-" + currSport[i] + ".png";
+	document.getElementById(id_thumbnailtest[i]).src = "pepperrobot-" + currSport[i] + ".png";
+
+	
+	
+
+
 
 
 	//一开始的真人演示视频可以继续这么搞
@@ -174,8 +182,16 @@ for (var i = 0; i < html_vid_real.length; i++){
 	var cur_selected5keys = new Array();
 	for(var j = 0; j < containerlist[i].length; j++){
 		
+		containername = document.getElementById(containerlist[i][j])
+
+		containername.style.backgroundImage="url("+ "360cover-" + currSport[i] + ".png" +")";
+		
+
+
 		//containername = containerlist[i][j]
 		firstviewname = document.getElementById(firstviewlist[i][j])
+
+		firstviewname.poster = "firstcover-" + currSport[i] + ".png";
 
 		console.log(firstviewname)
 
@@ -184,7 +200,7 @@ for (var i = 0; i < html_vid_real.length; i++){
 
 		video360 = resources360[currSport[i]-1][currMode[i]-1][j]
 		console.log(video360)
-		videofirst = 'videos/' + resourcesfirstview[currSport[i]-1][currMode[i]-1][j] + ".webm"
+		videofirst = 'newvideo/' + resourcesfirstview[currSport[i]-1][currMode[i]-1][j] + ".mp4"
 		console.log(videofirst)
 		//首先绑定360视频
 		//其实所谓的绑定360视频，就是确定好了视频的key是什么，1-1，1-2，。。。，4-5，这20个播放框分别用什么key（从80个key里面挑出来），从但是并不真的init
@@ -194,7 +210,7 @@ for (var i = 0; i < html_vid_real.length; i++){
 		//然后绑定第一人称视频
 		var htmlSource = document.createElement("source");
 		htmlSource.setAttribute("src", videofirst);
-		htmlSource.setAttribute("type", "video/webm");
+		htmlSource.setAttribute("type", "video/mp4");
 		firstviewname.appendChild(htmlSource);
 	}
 	selected20keys.push(cur_selected5keys)
