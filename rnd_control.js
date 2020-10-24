@@ -200,7 +200,7 @@ for (var i = 0; i < html_vid_real.length; i++){
 
 		video360 = resources360[currSport[i]-1][currMode[i]-1][j]
 		console.log(video360)
-		videofirst = 'newvideo/' + resourcesfirstview[currSport[i]-1][currMode[i]-1][j] + ".mp4"
+		videofirst = 'newvideo/small/' + resourcesfirstview[currSport[i]-1][currMode[i]-1][j] + ".mp4"
 		console.log(videofirst)
 		//首先绑定360视频
 		//其实所谓的绑定360视频，就是确定好了视频的key是什么，1-1，1-2，。。。，4-5，这20个播放框分别用什么key（从80个key里面挑出来），从但是并不真的init
