@@ -153,7 +153,7 @@ var action2_mode2_firstview = ['First_boxing_both2-1', 'First_boxing_both2-2', '
 var action2_mode3_firstview = ['First_boxing_both1-5', 'First_boxing_both1-5', 'First_boxing_both1-5', 'First_boxing_both1-5', 'First_boxing_both1-5']
 var action2_mode4_firstview = ['First_boxing_both1-1', 'First_boxing_both1-1', 'First_boxing_both1-1', 'First_boxing_both1-1', 'First_boxing_both1-1']
 
-var action3_mode1_firstview = ['First_piano_both1-5', 'First_piano_both1-2', 'First_piano_both1-3', 'First_piano_both1-4', 'First_piano_both1-5']
+var action3_mode1_firstview = ['First_piano_both1-1', 'First_piano_both1-2', 'First_piano_both1-3', 'First_piano_both1-4', 'First_piano_both1-5']
 var action3_mode2_firstview = ['First_piano_both2-1', 'First_piano_both2-2', 'First_piano_both2-3', 'First_piano_both2-4', 'First_piano_both2-5']
 var action3_mode3_firstview = ['First_piano_both1-5', 'First_piano_both1-5', 'First_piano_both1-5', 'First_piano_both1-5', 'First_piano_both1-5']
 var action3_mode4_firstview = ['First_piano_both1-1', 'First_piano_both1-1', 'First_piano_both1-1', 'First_piano_both1-1', 'First_piano_both1-1']
