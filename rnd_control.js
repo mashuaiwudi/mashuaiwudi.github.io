@@ -93,6 +93,8 @@ var action4_mode4_360 = ['13625726635f871137707df', '13625726635f871137707df', '
 */
 //mirroring
 
+/*
+//这是旧版的，后面又调整了一下不同层级之间的差距
 //washing
 var action1_mode1_360 = ['12298509765fabe92739c18', '19305357605fabe9326938a', '10090770375fabe93e6e182', '9682556265fabe94a460c1', '18575035995fabe9565aebe']
 var action1_mode2_360 = ['3111629605f8701d740f8d', '158148075f8701ee9390c', '3041428045f87020576025', '3041428045f87021c5c922', '15623009925f8702383cb9b']
@@ -113,6 +115,28 @@ var action4_mode1_360 = ['1917212225fabed64e41d9', '5277375825fabed73e0b32', '10
 var action4_mode2_360 = ['179883095fabedb7db3d2', '10032079645fabedc800f5d', '17373211705fabedd7cb597', '609246915fabedeb12321', '15511209355fabedfe1614f']
 var action4_mode3_360 = ['3967063775fabeda99da4b', '3967063775fabeda99da4b', '3967063775fabeda99da4b', '3967063775fabeda99da4b', '3967063775fabeda99da4b']
 var action4_mode4_360 = ['1917212225fabed64e41d9', '1917212225fabed64e41d9', '1917212225fabed64e41d9', '1917212225fabed64e41d9', '1917212225fabed64e41d9']
+*/
+
+//washing
+var action1_mode1_360 = ['12298509765fabe92739c18', '19305357605fabe9326938a', '10090770375fabe93e6e182', '9682556265fabe94a460c1', '18575035995fabe9565aebe']
+var action1_mode2_360 = ['3111629605f8701d740f8d', '158148075f8701ee9390c', '3041428045f87020576025', '3041428045f87021c5c922', '15623009925f8702383cb9b']
+var action1_mode3_360 = ['18575035995fabe9565aebe', '18575035995fabe9565aebe', '18575035995fabe9565aebe', '18575035995fabe9565aebe', '18575035995fabe9565aebe']
+var action1_mode4_360 = ['12298509765fabe92739c18', '12298509765fabe92739c18', '12298509765fabe92739c18', '12298509765fabe92739c18', '12298509765fabe92739c18']
+//boxing
+var action2_mode1_360 = ['9212063755fabe735a5130', '9212063755fabe73997a2d', '1658143885fabe740921de', '7224888155fabe747919fc', '7224888155fabe74f42575']
+var action2_mode2_360 = ['17719729785fabe756a5cfa', '13002844645fabe75da6231', '16204599355fabe7649a2b5', '2766449625fabe76b1f005', '17730553015fabe771995c3']
+var action2_mode3_360 = ['7224888155fabe74f42575', '7224888155fabe74f42575', '7224888155fabe74f42575', '7224888155fabe74f42575', '7224888155fabe74f42575']
+var action2_mode4_360 = ['9212063755fabe735a5130', '9212063755fabe735a5130', '9212063755fabe735a5130', '9212063755fabe735a5130', '9212063755fabe735a5130']
+//piano
+var action3_mode1_360 = ['13723973595fabeb2d7678f', '9909447055fabeb3fb3600', '20189588195fabeb4a323e3', '5714592715fabeb5dbcf3c', '16897698555fabeb6e918fb']
+var action3_mode2_360 = ['4415663825fabeb7c9b5d7', '17902570895fabeb87da117', '15662826835fabeb9390145', '2964567995fabeb9fa215c', '19936740765fabebab598e1']
+var action3_mode3_360 = ['16897698555fabeb6e918fb', '16897698555fabeb6e918fb', '16897698555fabeb6e918fb', '16897698555fabeb6e918fb', '16897698555fabeb6e918fb']
+var action3_mode4_360 = ['13723973595fabeb2d7678f', '13723973595fabeb2d7678f', '13723973595fabeb2d7678f', '13723973595fabeb2d7678f', '13723973595fabeb2d7678f']
+//move a box
+var action4_mode1_360 = ['4362907545fb298843fd52', '17004249355fb29883714c5', '20668041295fb298829db2a', '11905305615fb29881ca676', '4967545345fb298810123c']
+var action4_mode2_360 = ['18883469975fb2987f44386', '17474866545fb2987e3c3d6', '8315619725fb2987c50da1', '6386738865fb2987b67030', '12440550735fb298797ed8a']
+var action4_mode3_360 = ['4967545345fb298810123c', '4967545345fb298810123c', '4967545345fb298810123c', '4967545345fb298810123c', '4967545345fb298810123c']
+var action4_mode4_360 = ['4362907545fb298843fd52', '4362907545fb298843fd52', '4362907545fb298843fd52', '4362907545fb298843fd52', '4362907545fb298843fd52']
 
 var resources360 = [[action1_mode1_360, action1_mode2_360, action1_mode3_360, action1_mode4_360],
 [action2_mode1_360, action2_mode2_360, action2_mode3_360, action2_mode4_360],
@@ -141,7 +165,9 @@ var action4_mode2_firstview = ['newfirst-woshou-mode2-1', 'newfirst-woshou-mode2
 var action4_mode3_firstview = ['newfirst-woshou-mode3', 'newfirst-woshou-mode3', 'newfirst-woshou-mode3', 'newfirst-woshou-mode3', 'newfirst-woshou-mode3']
 var action4_mode4_firstview = ['newfirst-woshou-mode4', 'newfirst-woshou-mode4', 'newfirst-woshou-mode4', 'newfirst-woshou-mode4', 'newfirst-woshou-mode4']
 */
-//mirroring
+
+/*
+//展示与learning goal完全不相似的engagement cue
 
 var action1_mode1_firstview = ['First_washing_both1-1', 'First_washing_both1-2', 'First_washing_both1-3', 'First_washing_both1-4', 'First_washing_both1-5']
 var action1_mode2_firstview = ['First_washing_both2-1', 'First_washing_both2-2', 'First_washing_both2-3', 'First_washing_both2-4', 'First_washing_both2-5']
@@ -162,6 +188,31 @@ var action4_mode1_firstview = ['First_handshake_both1-1', 'First_handshake_both1
 var action4_mode2_firstview = ['First_handshake_both2-1', 'First_handshake_both2-2', 'First_handshake_both2-3', 'First_handshake_both2-4', 'First_handshake_both2-5']
 var action4_mode3_firstview = ['First_handshake_both1-5', 'First_handshake_both1-5', 'First_handshake_both1-5', 'First_handshake_both1-5', 'First_handshake_both1-5']
 var action4_mode4_firstview = ['First_handshake_both1-1', 'First_handshake_both1-1', 'First_handshake_both1-1', 'First_handshake_both1-1', 'First_handshake_both1-1']
+
+*/
+
+//还是展示与learning goal完全不相似的engagement cue，不过修改了一下5次视频之间的程度差别
+
+var action1_mode1_firstview = ['washing_newlevel1-1', 'washing_newlevel1-2', 'washing_newlevel1-3', 'washing_newlevel1-4', 'washing_newlevel1-5']
+var action1_mode2_firstview = ['washing_newlevel2-1', 'washing_newlevel2-2', 'washing_newlevel2-3', 'washing_newlevel2-4', 'washing_newlevel2-5']
+var action1_mode3_firstview = ['washing_newlevel1-5', 'washing_newlevel1-5', 'washing_newlevel1-5', 'washing_newlevel1-5', 'washing_newlevel1-5']
+var action1_mode4_firstview = ['washing_newlevel1-1', 'washing_newlevel1-1', 'washing_newlevel1-1', 'washing_newlevel1-1', 'washing_newlevel1-1']
+
+var action2_mode1_firstview = ['boxing_newlevel1-1', 'boxing_newlevel1-2', 'boxing_newlevel1-3', 'boxing_newlevel1-4', 'boxing_newlevel1-5']
+var action2_mode2_firstview = ['boxing_newlevel2-1', 'boxing_newlevel2-2', 'boxing_newlevel2-3', 'boxing_newlevel2-4', 'boxing_newlevel2-5']
+var action2_mode3_firstview = ['boxing_newlevel1-5', 'boxing_newlevel1-5', 'boxing_newlevel1-5', 'boxing_newlevel1-5', 'boxing_newlevel1-5']
+var action2_mode4_firstview = ['boxing_newlevel1-1', 'boxing_newlevel1-1', 'boxing_newlevel1-1', 'boxing_newlevel1-1', 'boxing_newlevel1-1']
+
+var action3_mode1_firstview = ['piano_newlevel1-1', 'piano_newlevel1-2', 'piano_newlevel1-3', 'piano_newlevel1-4', 'piano_newlevel1-5']
+var action3_mode2_firstview = ['piano_newlevel2-1', 'piano_newlevel2-2', 'piano_newlevel2-3', 'piano_newlevel2-4', 'piano_newlevel2-5']
+var action3_mode3_firstview = ['piano_newlevel1-5', 'piano_newlevel1-5', 'piano_newlevel1-5', 'piano_newlevel1-5', 'piano_newlevel1-5']
+var action3_mode4_firstview = ['piano_newlevel1-1', 'piano_newlevel1-1', 'piano_newlevel1-1', 'piano_newlevel1-1', 'piano_newlevel1-1']
+
+var action4_mode1_firstview = ['moving_newlevel1-1', 'moving_newlevel1-2', 'moving_newlevel1-3', 'moving_newlevel1-4', 'moving_newlevel1-5']
+var action4_mode2_firstview = ['moving_newlevel2-1', 'moving_newlevel2-2', 'moving_newlevel2-3', 'moving_newlevel2-4', 'moving_newlevel2-5']
+var action4_mode3_firstview = ['moving_newlevel1-5', 'moving_newlevel1-5', 'moving_newlevel1-5', 'moving_newlevel1-5', 'moving_newlevel1-5']
+var action4_mode4_firstview = ['moving_newlevel1-1', 'moving_newlevel1-1', 'moving_newlevel1-1', 'moving_newlevel1-1', 'moving_newlevel1-1']
+
 
 var resourcesfirstview = [[action1_mode1_firstview, action1_mode2_firstview, action1_mode3_firstview, action1_mode4_firstview],
 [action2_mode1_firstview, action2_mode2_firstview, action2_mode3_firstview, action2_mode4_firstview],
@@ -249,7 +300,7 @@ for (var i = 0; i < html_vid_real.length; i++){
 
 		video360 = resources360[currSport[i]-1][currMode[i]-1][j]
 		console.log(video360)
-		videofirst = 'newvideo/both/' + resourcesfirstview[currSport[i]-1][currMode[i]-1][j] + ".mp4"
+		videofirst = 'newvideo/newlevel/' + resourcesfirstview[currSport[i]-1][currMode[i]-1][j] + ".mp4"
 		console.log(videofirst)
 		//首先绑定360视频
 		//其实所谓的绑定360视频，就是确定好了视频的key是什么，1-1，1-2，。。。，4-5，这20个播放框分别用什么key（从80个key里面挑出来），从但是并不真的init
