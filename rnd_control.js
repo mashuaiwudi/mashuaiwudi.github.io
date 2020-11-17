@@ -360,7 +360,7 @@ for (var i = 0; i < html_vid_real.length; i++){
 
 
 $("#init1_1").click(function(){
-	//play2VR.init(document.querySelector('#container1-1'), selected20keys[0][0]);
+	play2VR.init(document.querySelector('#container1-1'), selected20keys[0][0]);
 	//play2VR.init(document.querySelector('#container1-1'), '12459136935f8705bb345e5');
 	setTimeout("videojs('firstview1-1').play()",2000);
 	//play2VR.init(document.querySelector('#container1-2'), selected20keys[0][1]);
@@ -368,97 +368,97 @@ $("#init1_1").click(function(){
 });
 
 $("#init1_2").click(function(){
-	//play2VR.init(document.querySelector('#container1-2'), selected20keys[0][1]);
+	play2VR.init(document.querySelector('#container1-2'), selected20keys[0][1]);
 	setTimeout("videojs('firstview1-2').play()",2000);
 });
 
 $("#init1_3").click(function(){
-	//play2VR.init(document.querySelector('#container1-3'), selected20keys[0][2]);
+	play2VR.init(document.querySelector('#container1-3'), selected20keys[0][2]);
 	setTimeout("videojs('firstview1-3').play()",2000);
 });
 
 $("#init1_4").click(function(){
-	//play2VR.init(document.querySelector('#container1-4'), selected20keys[0][3]);
+	play2VR.init(document.querySelector('#container1-4'), selected20keys[0][3]);
 	setTimeout("videojs('firstview1-4').play()",2000);
 });
 
 $("#init1_5").click(function(){
-	//play2VR.init(document.querySelector('#container1-5'), selected20keys[0][4]);
+	play2VR.init(document.querySelector('#container1-5'), selected20keys[0][4]);
 	setTimeout("videojs('firstview1-5').play()",2000);
 });
 
 $("#init2_1").click(function(){
-	//play2VR.init(document.querySelector('#container2-1'), selected20keys[1][0]);
+	play2VR.init(document.querySelector('#container2-1'), selected20keys[1][0]);
 	setTimeout("videojs('firstview2-1').play()",2000);
 });
 
 $("#init2_2").click(function(){
-	//play2VR.init(document.querySelector('#container2-2'), selected20keys[1][1]);
+	play2VR.init(document.querySelector('#container2-2'), selected20keys[1][1]);
 	setTimeout("videojs('firstview2-2').play()",2000);
 });
 
 $("#init2_3").click(function(){
-	//play2VR.init(document.querySelector('#container2-3'), selected20keys[1][2]);
+	play2VR.init(document.querySelector('#container2-3'), selected20keys[1][2]);
 	setTimeout("videojs('firstview2-3').play()",2000);
 });
 
 $("#init2_4").click(function(){
-	//play2VR.init(document.querySelector('#container2-4'), selected20keys[1][3]);
+	play2VR.init(document.querySelector('#container2-4'), selected20keys[1][3]);
 	setTimeout("videojs('firstview2-4').play()",2000);
 });
 
 $("#init2_5").click(function(){
-	//play2VR.init(document.querySelector('#container2-5'), selected20keys[1][4]);
+	play2VR.init(document.querySelector('#container2-5'), selected20keys[1][4]);
 	setTimeout("videojs('firstview2-5').play()",2000);
 });
 
 $("#init3_1").click(function(){
-	//play2VR.init(document.querySelector('#container3-1'), selected20keys[2][0]);
+	play2VR.init(document.querySelector('#container3-1'), selected20keys[2][0]);
 	setTimeout("videojs('firstview3-1').play()",2000);
 });
 
 $("#init3_2").click(function(){
-	//play2VR.init(document.querySelector('#container3-2'), selected20keys[2][1]);
+	play2VR.init(document.querySelector('#container3-2'), selected20keys[2][1]);
 	setTimeout("videojs('firstview3-2').play()",2000);
 });
 
 $("#init3_3").click(function(){
-	//play2VR.init(document.querySelector('#container3-3'), selected20keys[2][2]);
+	play2VR.init(document.querySelector('#container3-3'), selected20keys[2][2]);
 	setTimeout("videojs('firstview3-3').play()",2000);
 });
 
 $("#init3_4").click(function(){
-	//play2VR.init(document.querySelector('#container3-4'), selected20keys[2][3]);
+	play2VR.init(document.querySelector('#container3-4'), selected20keys[2][3]);
 	setTimeout("videojs('firstview3-4').play()",2000);
 });
 
 $("#init3_5").click(function(){
-	//play2VR.init(document.querySelector('#container3-5'), selected20keys[2][4]);
+	play2VR.init(document.querySelector('#container3-5'), selected20keys[2][4]);
 	setTimeout("videojs('firstview3-5').play()",2000);
 });
 
 $("#init4_1").click(function(){
-	//play2VR.init(document.querySelector('#container4-1'), selected20keys[3][0]);
+	play2VR.init(document.querySelector('#container4-1'), selected20keys[3][0]);
 	setTimeout("videojs('firstview4-1').play()",2000);
 });
 
 $("#init4_2").click(function(){
-	//play2VR.init(document.querySelector('#container4-2'), selected20keys[3][1]);
+	play2VR.init(document.querySelector('#container4-2'), selected20keys[3][1]);
 	setTimeout("videojs('firstview4-2').play()",2000);
 });
 
 $("#init4_3").click(function(){
-	//play2VR.init(document.querySelector('#container4-3'), selected20keys[3][2]);
+	play2VR.init(document.querySelector('#container4-3'), selected20keys[3][2]);
 	setTimeout("videojs('firstview4-3').play()",2000);
 });
 
 $("#init4_4").click(function(){
-	//play2VR.init(document.querySelector('#container4-4'), selected20keys[3][3]);
+	play2VR.init(document.querySelector('#container4-4'), selected20keys[3][3]);
 	setTimeout("videojs('firstview4-4').play()",2000);
 });
 
 $("#init4_5").click(function(){
-	//play2VR.init(document.querySelector('#container4-5'), selected20keys[3][4]);
+	play2VR.init(document.querySelector('#container4-5'), selected20keys[3][4]);
 	setTimeout("videojs('firstview4-5').play()",2000);
 });
 
