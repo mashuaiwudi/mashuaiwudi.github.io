@@ -58,8 +58,8 @@ Math.random();
 var currMode = combn_code[Math.floor(Math.random() * combn_code.length)];
 var currSport = combn_code[Math.floor(Math.random() * combn_code.length)];
 
-//alert('Curr Skill:' + currSport);
-//alert('Curr Mode:' + currSport);
+alert('Curr Skill:' + currSport);
+alert('Curr Mode:' + currMode);
 
 // the key is to get currMode and currSport
 
@@ -122,7 +122,7 @@ var action4_mode4_360 = ['1917212225fabed64e41d9', '1917212225fabed64e41d9', '19
 
 //washing
 var action1_mode1_360 = ['12298509765fabe92739c18', '19305357605fabe9326938a', '10090770375fabe93e6e182', '9682556265fabe94a460c1', '18575035995fabe9565aebe']
-var action1_mode2_360 = ['3111629605f8701d740f8d', '158148075f8701ee9390c', '3041428045f87020576025', '3041428045f87021c5c922', '15623009925f8702383cb9b']
+var action1_mode2_360 = ['7339640335fabe9608fb29', '19421501245fabe96b91e96', '5009579185fabe976e68a3', '11528407475fabe981b4111', '8699629225fabe98c65561']
 var action1_mode3_360 = ['18575035995fabe9565aebe', '18575035995fabe9565aebe', '18575035995fabe9565aebe', '18575035995fabe9565aebe', '18575035995fabe9565aebe']
 var action1_mode4_360 = ['12298509765fabe92739c18', '12298509765fabe92739c18', '12298509765fabe92739c18', '12298509765fabe92739c18', '12298509765fabe92739c18']
 //boxing

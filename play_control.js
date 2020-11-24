@@ -563,7 +563,9 @@ function submitData_ms(){
 		}
 
 	var dataJson = JSON.stringify(data);
-	xhr.send(dataJson);
+	//xhr.send(dataJson);
+	var blob = new Blob([dataJson], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, user_id + ".json");
 }
 
 
@@ -630,6 +632,7 @@ $("#next-1-1").click(function(){
 	//submitData_ms();
 	document.getElementById('progressbar1').style.width = '5%';
 	document.getElementById('progressbar1').textContent = '5%';
+	submitData_ms();
 });
 
 $("#next-1-2").click(function(){
