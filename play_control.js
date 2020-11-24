@@ -632,7 +632,7 @@ $("#next-1-1").click(function(){
 	//submitData_ms();
 	document.getElementById('progressbar1').style.width = '5%';
 	document.getElementById('progressbar1').textContent = '5%';
-	submitData_ms();
+	//submitData_ms();
 });
 
 $("#next-1-2").click(function(){
