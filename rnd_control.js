@@ -58,8 +58,8 @@ Math.random();
 var currMode = combn_code[Math.floor(Math.random() * combn_code.length)];
 var currSport = combn_code[Math.floor(Math.random() * combn_code.length)];
 
-alert('Curr Skill:' + currSport);
-alert('Curr Mode:' + currSport);
+//alert('Curr Skill:' + currSport);
+//alert('Curr Mode:' + currSport);
 
 // the key is to get currMode and currSport
 
