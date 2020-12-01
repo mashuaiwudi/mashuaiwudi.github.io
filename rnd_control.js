@@ -1,3 +1,4 @@
+/*
 var combn_code = [
 		[1, 2, 3, 4],
 		[2, 3, 4, 1],
@@ -16,6 +17,12 @@ var combn_code = [
 		[2, 3, 4, 1],
 		[3, 4, 1, 2],
 	];
+*/
+var combn_code = [
+		[1, 2, 3, 4],
+		[4, 1, 2, 3],
+	];
+
 
 var id_vid_real 	= ["learning1_vid_real", "learning2_vid_real", "learning3_vid_real", "learning4_vid_real"];
 var id_vid_sim 		= ["vid_sim_1", "vid_sim_2", "vid_sim_3", "vid_sim_4"];
@@ -57,6 +64,10 @@ Math.random();
 // from 1 to 16, randomly pick one
 var currMode = combn_code[Math.floor(Math.random() * combn_code.length)];
 var currSport = combn_code[Math.floor(Math.random() * combn_code.length)];
+
+
+
+
 
 alert('Curr Skill:' + currSport);
 alert('Curr Mode:' + currMode);
