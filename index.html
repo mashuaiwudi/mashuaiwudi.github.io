@@ -72,15 +72,15 @@
             </div>
           -->
           <div class="form-group">
-            <label for="age">No: 你的实验编号</label>
+            <label for="age">No:</label>
             <input type="text" name="testnumber" class="form-control">
           </div>
           <div class="form-group">
-            <label for="age">Age: 年龄</label>
+            <label for="age">Age:</label>
             <input type="number" name="age" class="form-control" min="10" max="90" required>
           </div>
           <div class="form-group">
-            <label for="gender">Gender: 性别</label>
+            <label for="gender">Gender:</label>
             <select class="form-control" name="gender" id="gender" required>
               <option></option>
               <option>Male</option>
@@ -89,7 +89,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="experience">你有任何与机器人相关的经历吗？</label>
+            <label for="experience">Do you have any experience interacting with robot?</label>
             <select class="form-control" name="experience" id="experience" required>
               <option></option>
               <option>Yes</option>
@@ -99,18 +99,15 @@
         </form>
 
         <p style="font-size:16px;">
-          Welcome to participate in this experiment. The whole experiment consists of <b>4</b> sessions and each takes around 5min to finish. In each session, you are required to answer <strong>ALL</strong> questions. 
-          欢迎参与我们的实验。整个实验一共有 <b>4</b> 个部分，每个部分大概需要5分钟的时间来完成。
+          Welcome to participate in this experiment. The whole experiment consists of <b>4</b> sessions and each takes around 8 min to finish. In each session, you are required to answer <strong>ALL</strong> questions.
         </p>
 
-        <h3>Robots learn a skill</h3>
+        <h3>Teach the robot some skills</h3>
         <p style="font-size:16px;">
-          Now assuming you have a challenging task -- teach four robots four kinds of skills, move a box, boxing, playing piano, washing a window. Suppose you recruit professional coaches to help teach and train robots remotely. Your task is to rate their performances during the learning process, and evaluate whether they are good learners. 
-          在这个实验中你需要做的事情是————你有4个机器人，你需要教给它们4种不同的技能，有搬箱子、弹钢琴、擦窗户和拳击。
+          Now assuming you have a challenging task -- teach four robots four kinds of skills in a simulated environment, washing a window, boxing, playing the piano, moving a box.
         </p>
         <p style="font-size:16px;">
-          Here are the 4 robots you need to teach. They look the same, but they may have different learning abilities. You need to teach each robot a different skill. The teaching order is <b>random</b>. And the robot will also be <b>randomly</b> assigned to you. 
-          下面这4个机器人就是你今天的4个学生，他们长得几乎一样，但是可能会有不同的学习能力和上课专注度（就像人类学生那样）。你具体要教的技能，以及教学顺序都是随机的。
+          Here are the 4 robots you need to teach. They look similar, but they may be different during the learning process. You need to teach each robot a different skill. The teaching order is <b>random</b>. And the robot will also be <b>randomly</b> assigned to you. 
         </p>
 
         <div class="row">
@@ -151,34 +148,16 @@
         <p style="font-size:16px;">
         For each member (the robot), it needs to learn one skill in <b>THREE</b> steps.
         </p>
-        <p style="font-size:16px;">
-          你将通过3个步骤来教他们一项技能。
-          </p>
         <p style="font-size:16px; color: deepskyblue;">
-          Step 1: A professional coach will demonstrate offline how to do that skill (<b> Check video below: Step 1 - Watching Coach's Demonstration </b>).
-        </p>
-        <p style="font-size:16px; color: deepskyblue;">
-          第一步是，观看一段视频，作为老师，你要率先掌握要教的技能
+          Step 1: Watch the skill to teach (<b> Check video below: Step 1 - Watch the skill to teach </b>).
         </p>
         <p style="font-size:16px; color:darkseagreen;">
-          Step 2: You learn the skill and demonstrate to the robot (your skeleton will be extracted and your action will be recorded) (<b> Check video below: Step 2 - Showing Your Demonstration </b>).
-        </p>
-        <p style="font-size:16px; color:darkseagreen;">
-          第二步是，打开你的摄像头，在屏幕前把刚才的技能演示一遍（你的骨骼和动作会被算法提取出来并保存下来）
+          Step 2: Show your demonstration. You learn the skill and demonstrate to the robot (your skeleton will be extracted and your action will be recorded) (<b> Check video below: Step 2 - Show your demonstration </b>).
         </p>
         <p style="font-size:16px; color:orange;">
-          Step 3: After your demonstration, the robot will be trained by your virtual skeleton in an online simulated environment (<b> Check video below: Step 3 - Robot Learning from Demonstration </b>).
-          
+          Step 3: Teach the robot. After your demonstration, the robot will be trained by your virtual skeleton in a simulated environment (<b> Check video below: Step 3 - Teach the robot </b>).
         </p>
-        <p style="font-size:16px; color:orange;">
-          第三步是，你开始面对面的教你的机器人（在仿真平台中，你的骨骼代替你来教机器人）。  
-        </p>
-        <p style="font-size:16px;">
-          每一个技能，你需要教机器人5次，就像人类小孩一样，不同的机器人在学习过程中的专注程度可能不一样，在这5次学习过程中它们的专注程度也可能发生变化。
-          </p>
-        <p style="font-size:16px;">
-          在学习的时候，机器人的主要精力集中在观察你的动作上，因此它不会在观看你教学的时候展示它所学到的动作，只可能会有一些下意识的反应（眼睛、手部的摆动）。所以，需要你来通过观察它在学习过程中的反应，来预测一下它的学习进度。完成5轮教学之后，我们会要求你的机器人独立地表演一遍刚才你教给它的技能。
-          </p>
+
 
         <!--
         <p style="font-size:16px;">
@@ -260,10 +239,10 @@
       </div>
     </div>
     <div class="col-xs-9">
-      <h3>Step 1: Coach demonstration 先看一下你要教什么技能吧</h3>
+      <h3>Step 1: Watch the skill to teach</h3>
       <div class="well">
         <p style="font-size:16px;">
-          Click to watch the coach demonstration to see what the skill the robot needs to learn. 点击下面的按钮来看一下你要教给机器人什么技能吧
+          Click the Watch button to watch what the skill the robot needs to learn.
         </p>
         <button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
 
@@ -292,11 +271,10 @@
 
       </div>
 
-      <h3>Step 2: Your demonstration 现在请你来演示一遍这个技能</h3>
+      <h3>Step 2: Show your demonstration</h3>
       <div class="well">
         <p style="font-size:16px;">
-          Click to show your demonstration. Your body movement will be recorded by the webcam of your devices. Please allow the webpage to get permission for the camera.
-          开始你的教学吧！浏览器会申请你的摄像头访问权限，请授予权限。你的身体骨骼和动作将被算法实时地提取出来。
+          Click the Demonstration to show your demonstration. Your body movement will be recorded by the webcam of your devices. Please allow the webpage to get permission for access to the camera.
         </p>
         <!--data-target="#user_real_demonstration1"-->
         <button type="button" id="opencamera1" class="btn btn-primary" data-toggle="modal" > Demonstrate</button>
@@ -310,26 +288,25 @@
 
 
 
-      <h3>Step 3: Robot learning 开始面对面教你的机器人吧</h3>
+      <h3>Step 3: Teach the robot</h3>
       <div class="well">
         <p style="font-size:20px;">
-          一共需要教5轮，每一轮你都需要重新演示一遍刚才的技能，为了取得更好的教学效果，你可以选择点击第2步里的按钮，重新录制一遍你的动作，当然，如果你对自己的演示或者学生的表现比较满意，你也可以继续用之前录制的动作。
+          A total of <b>5</b> rounds of teaching are required. In each round, you can demonstrate the skill again. In order to achieve better teaching effect, you can choose to click the Demonstration button in step 2 to record your actions again. Of course, if you are satisfied with your own demonstration, you can continue to use the lastet recorded demonstration.
         </p> 
         <p style="font-size:16px;">
-          Now click to watch the robot learn the above skill in a simulator. Please pay attention to the robot behaviors. The learning process contains <b>5</b> iterations.
-          现在，到了你真的教你的机器人学生的时候了。请仔细的留意你的学生的行为。
+          Now click the Teach button to show your demonstration in a simulated environment. Please pay attention to the robot's behaviors.
         </p> 
 
-        <button id="learning1_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal"> 教学开始 </button>
-        <button id="learning1_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> 教学开始 </button>
-        <button id="learning1_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> 教学开始 </button>
-        <button id="learning1_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> 教学开始 </button>
-        <button id="learning1_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> 教学开始 </button>
+        <button id="learning1_watchbutton1" style="display: block;" type="button" class="btn btn-primary" data-toggle="modal"> Teach </button>
+        <button id="learning1_watchbutton2" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Teach </button>
+        <button id="learning1_watchbutton3" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Teach </button>
+        <button id="learning1_watchbutton4" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Teach </button>
+        <button id="learning1_watchbutton5" style="display: none;" type="button" class="btn btn-primary" data-toggle="modal"> Teach </button>
 
-        <p style="font-size:16px;">
+        <!--p style="font-size:16px;">
           Please rate the robot learning performances. You can re-watch the learning process.
           请给你的学生打分，你可以重新看一遍刚才的教学过程视频。
-        </p> 
+        </p--> 
 
 
         <!--<div id="div_iteration_question_1_1" style="display: none;">-->
@@ -10979,12 +10956,12 @@
       <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title" id="modal-sim-1">Show your demonstration 开始你的演示</h2>
-            <h4 class="modal-title" id="modal-sim-1">Please stand about 2-3 meters away from your equipment so that your body is approximately in the shape of a human figure. When you press the below <b>Begin Demonstration</b> button, you will have 10 seconds to adjust your position. After the countdown is over, the recording begins. When you finish the demo and return to the device, press the <b>Finish demonstration</b> button, and the system will automatically remove the last irrelevant segment.</h4>
-            <h4 class="modal-title" id="modal-sim-1">请往后站站，最好离摄像头2-3米远，点击开始演示按钮，会给你10秒钟的时间让你来调整姿势，之后录制会开始，演示完之后回来点击结束按钮，算法会自动切除最后与演示动作无关的部分</h4>
+            <h2 class="modal-title" id="modal-sim-1">Show your demonstration</h2>
+            <h4 class="modal-title" id="modal-sim-1">Please stand about 2-3 meters away from your device so that your body is approximately in the human-shape figure outlone. When you press the below <b>Begin Demonstration</b> button, you will have 10 seconds to adjust your position. After the countdown is over, the recording begins. When you finish the demo and return to the device, press the <b>Finish demonstration</b> button, and the system will automatically remove the last irrelevant segment.</h4>
+
             
             <center><button id="end_user_demonstration1" type="button" class="btn btn-primary" style="display: none;" data-dismiss="modal">结束演示</button></center>
-            <center><button id="start_user_demonstration1" type="button" class="btn btn-primary">开始演示</button></center>
+            <center><button id="start_user_demonstration1" type="button" class="btn btn-primary">Begin Demonstration</button></center>
 
           </div>
           <div class="modal-body" align="center">
@@ -11169,13 +11146,13 @@
       <div class="modal-dialog  modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title" id="modal-sim-1">The robot learns the skill - Iteration <b>1</b>/5    第 <b>1</b>/5 轮</h2>
-            <h4 class="modal-title" id="modal-sim-1">想象你在面对面地给你的机器人学生教授技能，我们提供给了你上课过程的第一视角和全景视角（在全景视角你可以随意拖拽画面来观察四周）</h4>
+            <h2 class="modal-title" id="modal-sim-1">Teach the robot - Round <b>1</b>/5</h2>
+            <h4 class="modal-title" id="modal-sim-1">We provide first-person view (the larger one) and 360-angle view. You can drag and drop the 360-angle view to see from multiple angles.</h4>
             
             <!--h4 class="modal-title" id="modal-sim-1">你的机器人学生可能会<b>潜意识</b>地<b>跟随/模仿</b>你的动作 （因此他的动作也许会比你慢半拍）</h4-->
-            <h4 class="modal-title" id="modal-sim-1">点下面的开始按钮进行教学</h4>
-            <h2 class="modal-title" id="modal-sim-1">留意机器人学生的课堂表现哦</h2>
-            <button id="init1_1" type="button" style="text-align:center" class="btn btn-primary" >开始</button>
+            <h4 class="modal-title" id="modal-sim-1">Click the Start button to begin the teaching.</h4>
+            <h2 class="modal-title" id="modal-sim-1">Please pay attention to the robot's behavior.</h2>
+            <button id="init1_1" type="button" style="text-align:center" class="btn btn-primary" >Start</button>
 
             
           </div>
@@ -11203,8 +11180,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" id="close_demon1-1" class="btn btn-secondary">结束</button>
-            <button type="button" id="learnagain1-1" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-1').play()">再看一遍刚才的教学过程</button>
+            <button type="button" id="close_demon1-1" class="btn btn-secondary">End</button>
+            <button type="button" id="learnagain1-1" class="btn btn-primary" onclick="play2VR.play();videojs('firstview1-1').play()">Re-Watch</button>
           </div>
         </div>
       </div>
