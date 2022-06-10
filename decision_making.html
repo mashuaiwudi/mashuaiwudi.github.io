@@ -104,7 +104,7 @@ table td{
     <ul class="nav nav-tabs" style="display: none;">
       <li class="active not-active"><a data-toggle="tab" href="#home">Home</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo1">1/20</a></li>
-      <li class="not-active"><a data-toggle="tab" href="#newdemo2">2/20</a></li>
+      <!-- <li class="not-active"><a data-toggle="tab" href="#newdemo2">2/20</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo3">3/20</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo4">4/20</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo5">5/20</a></li>
@@ -122,7 +122,7 @@ table td{
       <li class="not-active"><a data-toggle="tab" href="#newdemo17">17/20</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo18">18/20</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo19">19/20</a></li>
-      <li class="not-active"><a data-toggle="tab" href="#newdemo20">20/20</a></li>
+      <li class="not-active"><a data-toggle="tab" href="#newdemo20">20/20</a></li> -->
     </ul>
 
     <div class="tab-content">
@@ -157,11 +157,14 @@ table td{
             </select>
           </div>
           <div class="form-group">
-            <label for="experience">Do you have any experience interacting with AI?</label>
+            <label for="experience">What is your knowledge level of AI?</label>
             <select class="form-control" name="experience" id="experience" required>
               <option></option>
-              <option>Yes</option>
-              <option>No</option>
+              <option>I am an expert in AI</option>
+              <option>I am a student in AI-related area</option>
+              <option>I know some knowledge of AI</option>
+              <option>I only know some basic concepts of AI</option>
+              <option>I do not know AI knowledge</option>
             </select>
           </div>
         </form>
@@ -233,54 +236,54 @@ table td{
 
   <div class="row">
     <div class="col-xs-7">
-      <h3 align="center">1/20</h3>
+      <h3 id="progress-text" align="center">1/20</h3>
       
 
 
       <div class="main">
         <table id="tab1">
           <tr>
-            <th>WorkClass</th>
+            <th>Age(年龄)</th>
+            <td>not known</td>
+          </tr>
+          <tr>
+            <th>WorkClass(工作类型)</th>
             <td>Self-emp-inc</td>
           </tr>
           <tr>
-            <th>Education</th>
+            <th>Education(教育水平)</th>
             <td>HS-grad</td>
           </tr>
           <tr>
-            <th>Education number</th>
+            <th>Education number(受教育年数)</th>
             <td>15</td>
           </tr>
           <tr>
-            <th>Marital status</th>
+            <th>Marital status(婚姻状态)</th>
             <td>Married-civ-spouse</td>
           </tr>
           <tr>
-            <th>Occupation</th>
+            <th>Occupation(职业)</th>
             <td>Sales</td>
           </tr>
           <tr>
-            <th>Marital status</th>
-            <td>Married-civ-spouse</td>
-          </tr>
-          <tr>
-            <th>Relationship</th>
+            <th>Relationship(家庭关系)</th>
             <td>Not-in-family</td>
           </tr>
           <tr>
-            <th>Race</th>
+            <th>Race(种族)</th>
             <td>White</td>
           </tr>
           <tr>
-            <th>Gender</th>
+            <th>Gender(性别)</th>
             <td>Male</td>
           </tr>
           <tr>
-            <th>Work hours per week</th>
+            <th>Work hours per week(每周工作时长)</th>
             <td>40</td>
           </tr>
           <tr>
-            <th>Native country</th>
+            <th>Native country(国籍)</th>
             <td>United States</td>
           </tr>
         </table>
@@ -307,14 +310,14 @@ table td{
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio1-1-1">
-                  <label class="form-check-label" for="radio1-1-1">Below 50k
+                  <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio-first-decision-1">
+                  <label class="form-check-label" for="radio-first-decision-1">Below 50k
                   </label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio1-1-2">
-                  <label class="form-check-label" for="radio1-1-2">Above 50k
+                  <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio-first-decision-2">
+                  <label class="form-check-label" for="radio-first-decision-2">Above 50k
                   </label>
                 </div>
 
@@ -328,14 +331,14 @@ table td{
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstconfidence" value="0" id="radio1-2-1">
-                  <label class="form-check-label" for="radio1-2-1">I am in Low confidence
+                  <input class="form-check-input" type="radio" name="firstconfidence" value="0" id="radio-first-confidence-1">
+                  <label class="form-check-label" for="radio-first-confidence-1">I am in Low confidence
                   </label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstconfidence" value="1" id="radio1-2-2">
-                  <label class="form-check-label" for="radio1-2-2">I am in High confidence
+                  <input class="form-check-input" type="radio" name="firstconfidence" value="1" id="radio-first-confidence-2">
+                  <label class="form-check-label" for="radio-first-confidence-2">I am in High confidence
                   </label>
                 </div>
               </div>
@@ -349,14 +352,39 @@ table td{
 
       <h3>Step 2: See AI's suggestion</h3>
       <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("suggestion1").style.display="block";'>See</button>
+        <button id="see_suggestion1" type="button" class="btn btn-primary" data-dismiss="modal">See</button>
         <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
         -->
         <p></p>
-        <form id="suggestion1" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <h4> AI thinks this person's income is Below 50k</h4>
-          <h4> AI's confidence is High</h4>
-        </form>  
+        <!-- <form id="suggestion1" class="container-fluid list-group-item list-group-item-success" style="display: none;"> -->
+      <div id="suggestion1" style="display: none;">
+          <table id="human_own_prediction" border="0" width="100%">
+            <!--
+              <tr>
+                <td width="70%">January</td>
+                <td width="30%">$100</td>
+              </tr>
+            -->
+            <!-- 在 HTML 4.01 中，不赞成使用 td 元素的 width 属性；在 XHTML 1.0 Strict DTD 中，不支持 td 元素的 width 属性。所以用下面的CSS样式代替。 -->
+            <h4> Your prediction and your confidence</h4>
+              <tr>
+                <td style="width:20%"> <img src="human-icon.png" alt="Lights" style="width:60%"> </td>
+                <td style="width:40%">>50k</td>
+                <td style="width:40%">Low</td>
+              </tr>
+
+            </table>
+            <table id="AI_suggestion" border="0" width="100%">
+              <h4> AI's prediction and its confidence</h4>
+              <tr>
+                <td style="width:20%"> <img src="AI-icon2.png" alt="Lights" style="width:60%"> </td>
+                <td style="width:40%"><=50k</td>
+                <td style="width:40%">High</td>
+              </tr>
+            
+            </table>
+        </div>
+        <!-- </form>   -->
         <p></p>
         
 
@@ -366,7 +394,7 @@ table td{
 
       <h3>Step 3: Make the final decision</h3>
       <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("finaldecision1").style.display="block";'>Final decision</button>
+        <button id="makefinaldecision_button" type="button" class="btn btn-primary" data-dismiss="modal">Final decision</button>
         <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
         -->
         <p></p>
@@ -380,14 +408,14 @@ table td{
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="0" id="radio1-1-1">
-                  <label class="form-check-label" for="radio1-1-1">Below 50k
+                  <input class="form-check-input" type="radio" name="seconddecision" value="0" id="radio-final-decision-1">
+                  <label class="form-check-label" for="radio-final-decision-1">Below 50k
                   </label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="1" id="radio1-1-2">
-                  <label class="form-check-label" for="radio1-1-2">Above 50k
+                  <input class="form-check-input" type="radio" name="seconddecision" value="1" id="radio-final-decision-2">
+                  <label class="form-check-label" for="radio-final-decision-2">Above 50k
                   </label>
                 </div>
 
@@ -401,14 +429,14 @@ table td{
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="0" id="radio1-2-1">
-                  <label class="form-check-label" for="radio1-2-1">I am in Low confidence
+                  <input class="form-check-input" type="radio" name="secondconfidence" value="0" id="radio-final-confidence-1">
+                  <label class="form-check-label" for="radio-final-confidence">I am in Low confidence
                   </label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="1" id="radio1-2-2">
-                  <label class="form-check-label" for="radio1-2-2">I am in High confidence
+                  <input class="form-check-input" type="radio" name="secondconfidence" value="1" id="radio-final-confidence-2">
+                  <label class="form-check-label" for="radio-final-confidence">I am in High confidence
                   </label>
                 </div>
               </div>
@@ -432,444 +460,32 @@ table td{
     <div id="progressbar1" class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
   </div>
   For any questions, please <a href="mailto:shuaihci@gmail.com">contact us</a>.
-</div>
 
 
 
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<div id="newdemo2" class="tab-pane fade">
-
-  <div class="row">
-    <div class="col-xs-7">
-      <h3 align="center">2/20</h3>
-      
-
-
-      <div class="main">
-        <table id="tab2">
-          <tr>
-            <th>WorkClass</th>
-            <td>Self-emp-inc</td>
-          </tr>
-          <tr>
-            <th>Education</th>
-            <td>HS-grad</td>
-          </tr>
-          <tr>
-            <th>Education number</th>
-            <td>15</td>
-          </tr>
-          <tr>
-            <th>Marital status</th>
-            <td>Married-civ-spouse</td>
-          </tr>
-          <tr>
-            <th>Occupation</th>
-            <td>Sales</td>
-          </tr>
-          <tr>
-            <th>Marital status</th>
-            <td>Married-civ-spouse</td>
-          </tr>
-          <tr>
-            <th>Relationship</th>
-            <td>Not-in-family</td>
-          </tr>
-          <tr>
-            <th>Race</th>
-            <td>White</td>
-          </tr>
-          <tr>
-            <th>Gender</th>
-            <td>Male</td>
-          </tr>
-          <tr>
-            <th>Work hours per week</th>
-            <td>40</td>
-          </tr>
-          <tr>
-            <th>Native country</th>
-            <td>United States</td>
-          </tr>
-        </table>
+  <div class="modal" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="finishModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="finishModal"><strong>Well done</strong></h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-
-
-    </div>
-
-
-    <div class="col-xs-5">
-      <h3>Step 1: Make your own prediction</h3>
-      <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("firstdecision2").style.display="block";'>Your decision</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <form id="firstdecision2" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item list-group-item-info">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q1. What is your prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio1-1-1">
-                  <label class="form-check-label" for="radio1-1-1">Below 50k
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio1-1-2">
-                  <label class="form-check-label" for="radio1-1-2">Above 50k
-                  </label>
-                </div>
-
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q2. What is your confidence in your prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstconfidence" value="0" id="radio1-2-1">
-                  <label class="form-check-label" for="radio1-2-1">I am in Low confidence
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstconfidence" value="1" id="radio1-2-2">
-                  <label class="form-check-label" for="radio1-2-2">I am in High confidence
-                  </label>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-
-        </form>
-
-      </div>
-
-      <h3>Step 2: See AI's suggestion</h3>
-      <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("suggestion2").style.display="block";'>See</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <form id="suggestion2" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <h4> AI thinks this person's income is Below 50k</h4>
-          <h4> AI's confidence is High</h4>
-        </form>  
-        <p></p>
-        
-
-      </div>
-
-
-
-      <h3>Step 3: Make the final decision</h3>
-      <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("finaldecision2").style.display="block";'>Final decision</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <form id="finaldecision2" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item list-group-item-info">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q1. What is your final prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="0" id="radio1-1-1">
-                  <label class="form-check-label" for="radio1-1-1">Below 50k
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="1" id="radio1-1-2">
-                  <label class="form-check-label" for="radio1-1-2">Above 50k
-                  </label>
-                </div>
-
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q2. What is your confidence in your final prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="0" id="radio1-2-1">
-                  <label class="form-check-label" for="radio1-2-1">I am in Low confidence
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="1" id="radio1-2-2">
-                  <label class="form-check-label" for="radio1-2-2">I am in High confidence
-                  </label>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-            
-            <button id="next-task2" type="button" class="btn btn-primary" data-dismiss="modal"> Next </button>
-
-        </form>
-      </div>
-
-    </div>
-  </div>
-
-  <ul class="pager"> <li>
-    <!--a id="pager-1-prev" href="#home">Previous</a-->
-    <!--a id="pager-1" href="#demo2">Next</a-->
-  </li> </ul>
-  <div class="progress">
-    <div id="progressbar2" class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
-  </div>
-  For any questions, please <a href="mailto:shuaihci@gmail.com">contact us</a>.
-</div>
-
-
-
-
-
-
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<!-- /////////////////////////////////////// -->
-<div id="newdemo3" class="tab-pane fade">
-
-  <div class="row">
-    <div class="col-xs-7">
-      <h3 align="center">3/20</h3>
-      
-
-
-      <div class="main">
-        <table id="tab3">
-          <tr>
-            <th>WorkClass</th>
-            <td>Self-emp-inc</td>
-          </tr>
-          <tr>
-            <th>Education</th>
-            <td>HS-grad</td>
-          </tr>
-          <tr>
-            <th>Education number</th>
-            <td>15</td>
-          </tr>
-          <tr>
-            <th>Marital status</th>
-            <td>Married-civ-spouse</td>
-          </tr>
-          <tr>
-            <th>Occupation</th>
-            <td>Sales</td>
-          </tr>
-          <tr>
-            <th>Marital status</th>
-            <td>Married-civ-spouse</td>
-          </tr>
-          <tr>
-            <th>Relationship</th>
-            <td>Not-in-family</td>
-          </tr>
-          <tr>
-            <th>Race</th>
-            <td>White</td>
-          </tr>
-          <tr>
-            <th>Gender</th>
-            <td>Male</td>
-          </tr>
-          <tr>
-            <th>Work hours per week</th>
-            <td>40</td>
-          </tr>
-          <tr>
-            <th>Native country</th>
-            <td>United States</td>
-          </tr>
-        </table>
+        <div class="modal-body">
+          <p>Please copy the following code to finish the process in AMT.</p>
+          <div class="alert alert-success" role="alert" id="user_id"> </div>
+          <p class="mb-0">Thanks for your time and efforts. You can close this window right now. </p>
         </div>
-
-
-    </div>
-
-
-    <div class="col-xs-5">
-      <h3>Step 1: Make your own prediction</h3>
-      <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("firstdecision3").style.display="block";'>Your decision</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <form id="firstdecision3" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item list-group-item-info">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q1. What is your prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio1-1-1">
-                  <label class="form-check-label" for="radio1-1-1">Below 50k
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio1-1-2">
-                  <label class="form-check-label" for="radio1-1-2">Above 50k
-                  </label>
-                </div>
-
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q2. What is your confidence in your prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstconfidence" value="0" id="radio1-2-1">
-                  <label class="form-check-label" for="radio1-2-1">I am in Low confidence
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="firstconfidence" value="1" id="radio1-2-2">
-                  <label class="form-check-label" for="radio1-2-2">I am in High confidence
-                  </label>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-
-        </form>
-
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
       </div>
-
-      <h3>Step 2: See AI's suggestion</h3>
-      <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("suggestion3").style.display="block";'>See</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <form id="suggestion3" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <h4> AI thinks this person's income is Below 50k</h4>
-          <h4> AI's confidence is High</h4>
-        </form>  
-        <p></p>
-        
-
-      </div>
-
-
-
-      <h3>Step 3: Make the final decision</h3>
-      <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("finaldecision3").style.display="block";'>Final decision</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <form id="finaldecision3" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item list-group-item-info">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q1. What is your final prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="0" id="radio1-1-1">
-                  <label class="form-check-label" for="radio1-1-1">Below 50k
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="1" id="radio1-1-2">
-                  <label class="form-check-label" for="radio1-1-2">Above 50k
-                  </label>
-                </div>
-
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q2. What is your confidence in your final prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="0" id="radio1-2-1">
-                  <label class="form-check-label" for="radio1-2-1">I am in Low confidence
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="1" id="radio1-2-2">
-                  <label class="form-check-label" for="radio1-2-2">I am in High confidence
-                  </label>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-            
-            <button id="next-task3" type="button" class="btn btn-primary" data-dismiss="modal"> Next </button>
-
-        </form>
-      </div>
-
     </div>
   </div>
 
-  <ul class="pager"> <li>
-    <!--a id="pager-1-prev" href="#home">Previous</a-->
-    <!--a id="pager-1" href="#demo2">Next</a-->
-  </li> </ul>
-  <div class="progress">
-    <div id="progressbar3" class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
-  </div>
-  For any questions, please <a href="mailto:shuaihci@gmail.com">contact us</a>.
+
 </div>
-
-
-
-
 
 
   <!--script src="https://vjs.zencdn.net/7.8.4/video.js"></script-->
