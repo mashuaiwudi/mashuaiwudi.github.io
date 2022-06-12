@@ -183,6 +183,8 @@ $("#pager-0").click(function(){
 
 	document.getElementById('progress-text').textContent = current_idx + 1 + '/' + order_list.length;
 
+	current_idx += 1;
+
 });
 
 
@@ -268,7 +270,7 @@ $("#next-task").click(function(){
 	}
 	if((document.getElementById('radio-final-decision-1').checked == true || document.getElementById('radio-final-decision-2').checked == true) && (document.getElementById('radio-final-confidence-1').checked == true || document.getElementById('radio-final-confidence-2').checked == true)){
 	
-		current_idx += 1;
+
 		//保存用户的两次决策结果
 
 		
@@ -385,8 +387,9 @@ $("#next-task").click(function(){
 			console.log(percentage);
 			document.getElementById('progressbar1').style.width = percentage + '%';
 			document.getElementById('progressbar1').textContent = percentage + '%';
-			document.getElementById('progress-text').textContent = current_idx + 1 + '/' + order_list.length;
+			// document.getElementById('progress-text').textContent = current_idx + '/' + order_list.length;
 		}
+		current_idx += 1;
 	}
 
 
