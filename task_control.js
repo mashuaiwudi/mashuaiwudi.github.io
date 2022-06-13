@@ -20,7 +20,7 @@ var education_number = ["14", "9", "13", "12", "15", "10", "10", "14", "14", "13
 
 
 
-var marital_status = ["Separated(已分居的)", "Separated(已分居的)", "Separated(已分居的)", 
+var marital_status = ["Separated(已分居的)", "Divorced(离婚的)", "Widowed(丧偶的)", 
 "Married-civ-spouse(已婚的)", "Married-civ-spouse(已婚的)", "Married-civ-spouse(已婚的)", "Never-married(未婚的)", "Married-civ-spouse(已婚的)", 
 "Married-civ-spouse(已婚的)", "Never-married(未婚的)", "Never-married(未婚的)", "Never-married(未婚的)", "Never-married(未婚的)", "Never-married(未婚的)",
 "Widowed(丧偶的)", "Married-civ-spouse(已婚的)", "Widowed(丧偶的)", "Married-civ-spouse(已婚的)", "Divorced(离婚的)", "Divorced(离婚的)"];
@@ -283,13 +283,13 @@ $("#next-task").click(function(){
 		firstdecision_1 = objData1[0];
 		firstconfidence_1 = objData1[1];
 
-		aisuggestion_1 = ai_prediction[order_list[current_idx]];
-		aiconfidence_1 = ai_confidence[order_list[current_idx]];
+		aisuggestion_1 = ai_prediction[order_list[current_idx-1]];
+		aiconfidence_1 = ai_confidence[order_list[current_idx-1]];
 
 		seconddecision_1 = objData2[0];
 		secondconfidence_1 = objData2[1];
 
-		current_instance_data = [current_idx, order_list[current_idx], firstdecision_1, firstconfidence_1, {name:'ai_decision', value: aisuggestion_1}, {name:'ai_confidence', value: aiconfidence_1}, seconddecision_1, secondconfidence_1];
+		current_instance_data = [current_idx, order_list[current_idx-1], firstdecision_1, firstconfidence_1, {name:'ai_decision', value: aisuggestion_1}, {name:'ai_confidence', value: aiconfidence_1}, seconddecision_1, secondconfidence_1];
 
 		console.log(current_instance_data);
 
