@@ -2,16 +2,16 @@
 var age = ["32", "61", "67", "40", "40", "56", "30", "57", "28", "43", "25", "24", "24", "28", "53", "52", "53", "39", "57", "63"];
 
 
-var workClass = ["Private", "Private", "Private", "Self-emp-inc", 
-"Self-emp-inc", "Self-emp-inc", "Local-gov", "Local-gov", "Local-gov", "Private",
-"Private", "Private", "Private", "Local-gov", "Private", "Private", 
-"Local-gov", "Private", "Private", "Federal-gov"];
+var workClass = ["Private(个体工作)", "Private(个体工作)", "Private(个体工作)", "Self-emp-inc(自由职业者)", 
+"Self-emp-inc(自由职业者)", "Self-emp-inc(自由职业者)", "Local-gov(地方政府)", "Local-gov(地方政府)", "Local-gov(地方政府)", "Private(个体工作)",
+"Private(个体工作)", "Private(个体工作)", "Private(个体工作)", "Local-gov(地方政府)", "Private(个体工作)", "Private(个体工作)", 
+"Local-gov(地方政府)", "Private(个体工作)", "Private(个体工作)", "Federal-gov(联邦政府)"];
 
 
-var education = ["Masters", "HS-grad", "Bachelors", "Assoc-acdm", 
-"Prof-school", "Some-college", "Some-college", "Masters", "Masters", "Bachelors",
-"Bachelors", "HS-grad", "Bachelors", "Bachelors", "Masters", "Some-college", "Masters",
-"Prof-school", "Masters", "Doctorate"];
+var education = ["Masters(硕士)", "HS-grad(高中毕业)", "Bachelors(本科)", "Assoc-acdm(副学士)", 
+"Prof-school(专业学校)", "Some-college(大学辍学)", "Some-college(大学辍学)", "Masters(硕士)", "Masters(硕士)", "Bachelors(本科)",
+"Bachelors(本科)", "HS-grad(高中毕业)", "Bachelors(本科)", "Bachelors(本科)", "Masters(硕士)", "Some-college(大学辍学)", "Masters(硕士)",
+"Prof-school(专业学校)", "Masters(硕士)", "Doctorate(博士)"];
 
 
 
@@ -20,42 +20,42 @@ var education_number = ["14", "9", "13", "12", "15", "10", "10", "14", "14", "13
 
 
 
-var marital_status = ["Separated", "Divorced", "Widowed", 
-"Married-civ-spouse", "Married-civ-spouse", "Married-civ-spouse", "Never-married", "Married-civ-spouse", 
-"Married-civ-spouse", "Never-married", "Never-married", "Never-married", "Never-married", "Never-married",
-"Widowed", "Married-civ-spouse", "Widowed", "Married-civ-spouse", "Divorced", "Divorced"];
+var marital_status = ["Separated(已分居的)", "Divorced(离婚的)", "Widowed(丧偶的)", 
+"Married-civ-spouse(已婚的)", "Married-civ-spouse(已婚的)", "Married-civ-spouse(已婚的)", "Never-married(未婚的)", "Married-civ-spouse(已婚的)", 
+"Married-civ-spouse(已婚的)", "Never-married(未婚的)", "Never-married(未婚的)", "Never-married(未婚的)", "Never-married(未婚的)", "Never-married(未婚的)",
+"Widowed(丧偶的)", "Married-civ-spouse(已婚的)", "Widowed(丧偶的)", "Married-civ-spouse(已婚的)", "Divorced(离婚的)", "Divorced(离婚的)"];
 
 
-var occupation = ["Exec-managerial", "Sales", "Exec-managerial", "Craft-repair", "Prof-specialty", "Exec-managerial", 
-"Protective-serv", "Prof-specialty", "Prof-specialty", "Adm-clerical",
-"Sales", "Sales", "Tech-support", "Prof-specialty", "Prof-specialty",
-"Exec-managerial", "Prof-specialty", "Prof-specialty", "Exec-managerial", "Exec-managerial"];
+var occupation = ["Exec-managerial(行政经理)", "Sales(销售)", "Exec-managerial(行政经理)", "Craft-repair(维修)", "Prof-specialty(专业人员)", "Exec-managerial(行政经理)", 
+"Protective-serv(安保服务)", "Prof-specialty(专业人员)", "Prof-specialty(专业人员)", "Adm-clerical(行政文员)",
+"Sales(销售)", "Sales(销售)", "Tech-support(技术支持)", "Prof-specialty(专业人员)", "Prof-specialty(专业人员)",
+"Exec-managerial(行政经理)", "Prof-specialty(专业人员)", "Prof-specialty(专业人员)", "Exec-managerial(行政经理)", "Exec-managerial(行政经理)"];
 
 
 
-var relationship = ["Not-in-family", "Unmarried", "Not-in-family", "Husband", "Husband", "Wife",
-"Not-in-family", "Wife", "Wife", "Not-in-family",
-"Not-in-family", "Own-child", "Own-child", "Other-relative", "Unmarried", "Husband", "Unmarried", "Husband",
-"Not-in-family", "Not-in-family"];
+var relationship = ["Not-in-family（非家庭成员）", "Unmarried（未结婚）", "Not-in-family（非家庭成员）", "Husband（丈夫）", "Husband（丈夫）", "Wife（妻子）",
+"Not-in-family（非家庭成员）", "Wife（妻子）", "Wife（妻子）", "Not-in-family（非家庭成员）",
+"Not-in-family（非家庭成员）", "Own-child(有孩子)", "Own-child(有孩子)", "Other-relative(其他亲属)", "Unmarried（未结婚）", "Husband(丈夫)", "Unmarried（未结婚）", "Husband(丈夫)",
+"Not-in-family（非家庭成员）", "Not-in-family（非家庭成员）"];
 
 
-var race = ["White", "White", "White", "White", "Amer-Indian-Eskimo", "White", "Black",
-"Black", "White", "White", "White", "White", "White", "White", "Black",
-"White", "Black", "Asian-Pac-Islander", "White", "White"];
+var race = ["White（白人）", "White（白人）", "White（白人）", "White（白人）", "Amer-Indian-Eskimo（爱斯基摩人）", "White（白人）", "Black（黑人）",
+"Black（黑人）", "White（白人）", "White（白人）", "White（白人）", "White（白人）", "White（白人）", "White（白人）", "Black（黑人）",
+"White（白人）", "Black（黑人）", "Asian-Pac-Islander（太平洋岛民）", "White（白人）", "White（白人）"];
 
 
-var gender = ["Male", "Female", "Male", "Male", "Male", "Female", "Male", "Female", "Female", "Male",
-"Female", "Female", "Male", "Male", "Female", "Male", "Female", "Male", "Male", "Female"];
+var gender = ["Male(男性)", "Female(女性)", "Male(男性)", "Male(男性)", "Male(男性)", "Female(女性)", "Male(男性)", "Female(女性)", "Female(女性)", "Male(男性)",
+"Female(女性)", "Female(女性)", "Male(男性)", "Male(男性)", "Female(女性)", "Male(男性)", "Female(女性)", "Male(男性)", "Male(男性)", "Female(女性)"];
 
 
 var work_hours_per_week = ["55", "25", "40", "50", "60", 
 "50", "40", "40", "55", "40", "40", "32", "40", "50", "35", "60", "35", "67", "50", "60"];
 
 
-var native_country = ["United-States", "United-States", "United-States", "United-States", "United-States", 
-"United-States", "United-States", "United-States", "United-States", "United-States",
-"United-States", "United-States", "United-States", "United-States", "United-States",
-"United-States", "United-States", "India", "United-States", "United-States"];
+var native_country = ["United-States（美国）", "United-States（美国）", "United-States（美国）", "United-States（美国）", "United-States（美国）", 
+"United-States（美国）", "United-States（美国）", "United-States（美国）", "United-States（美国）", "United-States（美国）",
+"United-States（美国）", "United-States（美国）", "United-States（美国）", "United-States（美国）", "United-States（美国）",
+"United-States（美国）", "United-States（美国）", "India（印度）", "United-States（美国）", "United-States（美国）"];
 
 // 这里存储的是AI的预测信息
 var ai_prediction = [">50K", ">50K", ">50K", ">50K", ">50K", "<=50k", "<=50k", "<=50k", "<=50k", "<=50k", "<=50k", "<=50k", "<=50k", "<=50k", "<=50k", ">50k", "<=50k", ">50k", ">50k", ">50k"];
@@ -78,15 +78,6 @@ console.log(order_list);
 
 
 var user_id = 0;
-
-function uuidv4() {
-return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-	var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-	return v.toString(16);
-});
-}
-var user_id = uuidv4();
-
 
 var firstdecision_1 = null;
 var firstconfidence_1 = null;
@@ -130,9 +121,9 @@ $("#pager-0").click(function(){
 		userinfo = objData;
 	}
 
-	// console.log(userinfo[0]);
-	// console.log(userinfo[0]['value']);
-	// user_id = userinfo[0]['value'];
+	console.log(userinfo[0]);
+	console.log(userinfo[0]['value']);
+	user_id = userinfo[0]['value'];
 
 
 
@@ -194,11 +185,11 @@ $("#pager-0").click(function(){
 	td.innerHTML = ai_confidence[order_list[current_idx]];//动态修改表格的内容为222
 
 	//暗含groundtruth
-	// if(ground_truth[order_list[current_idx]] == 0){
-	// 	document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence_';
-	// }else{
-	// 	document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence__';
-	// }
+	if(ground_truth[order_list[current_idx]] == 0){
+		document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence_';
+	}else{
+		document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence__';
+	}
 	
 
 	document.getElementById('progress-text').textContent = current_idx + 1 + '/' + order_list.length;
@@ -376,11 +367,11 @@ $("#next-task").click(function(){
 			td.innerHTML = ai_confidence[order_list[current_idx]];//动态修改表格的内容为222
 
 			//暗含groundtruth
-			// if(ground_truth[order_list[current_idx]] == 0){
-			// 	document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence_';
-			// }else{
-			// 	document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence__';
-			// }
+			if(ground_truth[order_list[current_idx]] == 0){
+				document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence_';
+			}else{
+				document.getElementById('hidden_groundtruth').textContent = 'AI\'s prediction and its confidence__';
+			}
 
 
 
