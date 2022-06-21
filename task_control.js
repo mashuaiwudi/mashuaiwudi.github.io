@@ -430,7 +430,7 @@ function submitData_ms(){
 	var xhr = new XMLHttpRequest();
 	//var url = "http://165.227.108.67/mingfei/submit.php"
 	// var url = "https://shuaima.info/userstudy/submit.php"
-	var url = "http://49.232.60.34/userstudy/submit.php";
+	var url = "https://shuaima.top/userstudy/submit.php";
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-Type", "application/json");
 	// xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
