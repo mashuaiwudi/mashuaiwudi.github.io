@@ -95,6 +95,44 @@ table td{
   width: 80%;
 }
 
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+
 </style>
   
   
@@ -109,7 +147,7 @@ table td{
     </div>
     <ul class="nav nav-tabs" style="display: none;">
       <li class="active not-active"><a data-toggle="tab" href="#home">Home</a></li>
-      <li class="not-active"><a data-toggle="tab" href="#newdemo1">1/20</a></li>
+      <li class="not-active"><a data-toggle="tab" href="#newdemo1">1/100</a></li>
       <!-- <li class="not-active"><a data-toggle="tab" href="#newdemo2">2/20</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo3">3/20</a></li>
       <li class="not-active"><a data-toggle="tab" href="#newdemo4">4/20</a></li>
@@ -177,23 +215,9 @@ table td{
 
         <p style="font-size:16px;">
           <br>
-          Welcome to participate in this experiment! In this experiment, you need to make decisions on 20 instances with the AI's help. Specifically, you will be presented 20 adults' information one-by-one, and your task is to predict whether each person's income is more than 50k/year or less than 50k/year.
+          Welcome to participate in this experiment! In this experiment, you will be presented 50 adults' information one-by-one, and your task is to predict whether each person's income is more than 50k/year or less than 50k/year and give your confidence.
         </p>
 
-        <h3>Income prediction</h3>
-
-        <p style="font-size:16px;">
-          Each decision-making task will go through three steps.
-        </p>
-        <p style="font-size:16px; color: deepskyblue;">
-          Step 1: you need to make your own prediction.
-        </p>
-        <p style="font-size:16px; color:darkseagreen;">
-          Step 2: an AI assistant will give its suggestion.
-        </p>
-        <p style="font-size:16px; color:orange;">
-          Step 3: you need to make the final decision.
-        </p>
 
 
         <!--
@@ -243,7 +267,7 @@ table td{
 
   <div class="row">
     <div class="col-xs-7">
-      <h3 id="progress-text" align="center">1/20</h3>
+      <h3 id="progress-text" align="center">1/100</h3>
       
 
 
@@ -300,31 +324,30 @@ table td{
     </div>
 
 
-    <div class="col-xs-5">
-      <h3>Step 1: Make your own prediction</h3>
-      <div class="well">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("firstdecision1").style.display="block";'>Your decision</button>
+    <div id="user_prediction" class="col-xs-5" style="display: block;">
+      <h3>Make your prediction</h3>
+
         <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
         -->
         <p></p>
-        <form id="firstdecision1" class="container-fluid list-group-item list-group-item-success" style="display: none;">
+        <form id="firstdecision1" class="container-fluid list-group-item list-group-item-success" style="display: block;">
           <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-info">
               <div class="form-group">
                 <div style="display: inline-block;">
-                  <h4> 
+                  <h4 id="question1"> 
                     Q1. What is your prediction?
                   </h4>
                 </div>
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio-first-decision-1">
-                  <label class="form-check-label" for="radio-first-decision-1">Below 50k
+                  <label id="attentioncheck1" class="form-check-label" for="radio-first-decision-1">Below 50k
                   </label>
                 </div>
 
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio-first-decision-2">
-                  <label class="form-check-label" for="radio-first-decision-2">Above 50k
+                  <label id="attentioncheck2" class="form-check-label" for="radio-first-decision-2">Above 50k
                   </label>
                 </div>
 
@@ -333,7 +356,7 @@ table td{
             <li class="list-group-item list-group-item-success">
               <div class="form-group">
                 <div style="display: inline-block;">
-                  <h4> 
+                  <h4 id="question2"> 
                     Q2. What is your confidence in your prediction?
                   </h4>
                 </div>
@@ -355,109 +378,107 @@ table td{
 
         </form>
 
-      </div>
 
-      <h3>Step 2: See AI's suggestion</h3>
-      <div class="well">
-        <button id="see_suggestion1" type="button" class="btn btn-primary" data-dismiss="modal">See</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <!-- <form id="suggestion1" class="container-fluid list-group-item list-group-item-success" style="display: none;"> -->
-      <div id="suggestion1" style="display: none;">
-          <table id="human_own_prediction" border="0" width="100%">
-            <!--
-              <tr>
-                <td width="70%">January</td>
-                <td width="30%">$100</td>
-              </tr>
-            -->
-            <!-- 在 HTML 4.01 中，不赞成使用 td 元素的 width 属性；在 XHTML 1.0 Strict DTD 中，不支持 td 元素的 width 属性。所以用下面的CSS样式代替。 -->
-            <h4> Your prediction and your confidence</h4>
-              <tr>
-                <td style="width:20%"> <img src="human-icon.png" alt="Lights" style="width:60%"> </td>
-                <td style="width:40%">>50k</td>
-                <td style="width:40%">Low</td>
-              </tr>
-
-            </table>
-            <table id="AI_suggestion" border="0" width="100%">
-              <h4 id="hidden_groundtruth"> AI's prediction and its confidence</h4>
-              <tr>
-                <td style="width:20%"> <img src="AI-icon2.png" alt="Lights" style="width:60%"> </td>
-                <td style="width:40%"><=50k</td>
-                <td style="width:40%">High</td>
-              </tr>
-            
-            </table>
-        </div>
-        <!-- </form>   -->
-        <p></p>
-        
-
-      </div>
-
-
-
-      <h3>Step 3: Make the final decision</h3>
-      <div class="well">
-        <button id="makefinaldecision_button" type="button" class="btn btn-primary" data-dismiss="modal">Final decision</button>
-        <!--<button id="demonwatch-1" type="button" class="btn btn-primary" data-toggle="modal" data-target="#learning1_div_watch" onclick='videojs("learning1_vid_real").play();'> Watch</button>
-        -->
-        <p></p>
-        <form id="finaldecision1" class="container-fluid list-group-item list-group-item-success" style="display: none;">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item list-group-item-info">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q1. What is your final prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="0" id="radio-final-decision-1">
-                  <label class="form-check-label" for="radio-final-decision-1">Below 50k
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="seconddecision" value="1" id="radio-final-decision-2">
-                  <label class="form-check-label" for="radio-final-decision-2">Above 50k
-                  </label>
-                </div>
-
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-success">
-              <div class="form-group">
-                <div style="display: inline-block;">
-                  <h4> 
-                    Q2. What is your confidence in your final prediction?
-                  </h4>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="0" id="radio-final-confidence-1">
-                  <label class="form-check-label" for="radio-final-confidence">I am in Low confidence
-                  </label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="secondconfidence" value="1" id="radio-final-confidence-2">
-                  <label class="form-check-label" for="radio-final-confidence">I am in High confidence
-                  </label>
-                </div>
-              </div>
-            </li>
-
-          </ul>
-            
             <button id="next-task" type="button" class="btn btn-primary" data-dismiss="modal"> Next </button>
-
-        </form>
       </div>
+
+
+
+
+      <div id="attention_slider" class="col-xs-5" style="display: none;">
+        <h4>Please tell us which information you pay more attention to when making a decision that the income is more than 50K/year. (You can drag the slide bar to show your attention)</h3>
+      <br>
+        <div class="slidecontainer">
+          <p>Age</p>
+          <input type="range" id="workclass_range" min="1" max="100" value="1">
+          <p>WorkClass</p>
+          <input type="range" id="age_range" min="1" max="100" value="1">
+          <p>Education</p>
+          <input type="range" id="education_range" min="1" max="100" value="1">
+          <p>Education number</p>
+          <input type="range" id="educationnum_range" min="1" max="100" value="1">
+          <p>Marital status</p>
+          <input type="range" id="Marital_range" min="1" max="100" value="1">
+          <p>Occupation</p>
+          <input type="range" id="occupation_range" min="1" max="100" value="1">
+          <p>Relationship</p>
+          <input type="range" id="relationship_range" min="1" max="100" value="1">
+          <p>Race</p>
+          <input type="range" id="race_range" min="1" max="100" value="1">
+          <p>Gender</p>
+          <input type="range" id="gender_range" min="1" max="100" value="1">
+          <p>Work hours per week</p>
+          <input type="range" id="whpw_range" min="1" max="100" value="1">
+          <p>Native country</p>
+          <input type="range" id="country_range" min="1" max="100" value="1">
+        </div>
 
     </div>
+
+
+
+    <div id="user_rule" class="col-xs-10" style="display: none;">
+      <h4>Do you follow any rules to make your prediction (a person's income >= 50k/year)?</h3>
+        <br>
+      <form class="form-inline list-group-item list-group-item-success was-validated" id="form_info_rule0">
+        <!--
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="form-control" id="name" required>
+          </div>
+        -->
+        <!-- <div class="form-group">
+          <label for="age">No:</label>
+          <input type="text" name="testnumber" class="form-control">
+        </div> -->
+
+        <div class="form-group" id="user_rule1">
+          <label for="feature">Feature:</label>
+          <select class="form-control" name="feature" id="feature0" onchange="getRelation()" required>
+            <option></option>
+            <option>Age</option>
+            <option>WorkClass</option>
+            <option>Education</option>
+            <option>Education number</option>
+            <option>Marital status</option>
+            <option>Occupation</option>
+            <option>Relationship</option>
+            <option>Race</option>
+            <option>Gender</option>
+            <option>Work hours per week</option>
+            <option>Native country</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="user_rule2">
+          <label for="relation">Relation:</label>
+          <select class="form-control" name="relation" id="relation0" onchange="getValue()" required>
+            <!--<option></option>
+            <option>></option>
+            <option><</option>
+            <option>=</option>-->
+          </select>
+        </div>
+
+        <div class="form-group" id="user_rule3">
+          <label for="featurevalue">Value:</label>
+          <select class="form-control" name="value" id="value0" required>
+            <option></option>
+          </select>
+        </div>
+      </form>
+    </div>
+    </div>
+
+      <button id="add_rule" type="button" class="btn btn-primary" data-dismiss="modal" onClick="AddElement()" style="display: none;">Add</button>
+      <br>
+      <button id="go_to_next" type="button" class="btn btn-primary" data-dismiss="modal" style="display: none;">Next</button>
+
   </div>
+
+
+
+
 
   <ul class="pager"> <li>
     <!--a id="pager-1-prev" href="#home">Previous</a-->
@@ -493,13 +514,16 @@ table td{
 
 
 
+
+
+
 </div>
 
 
   <!--script src="https://vjs.zencdn.net/7.8.4/video.js"></script-->
   <!-- <script src="video.js"></script> -->
   <!-- <script src="rnd_control.js"></script> -->
-  <script src="task_control.js"></script>
+  <script src="userdata_collection.js" defer></script>
   
   <!--script src="https://raw.githubusercontent.com/mashuaiwudi/mashuaiwudi.github.io/master/play_control.js"></script-->
 </body>

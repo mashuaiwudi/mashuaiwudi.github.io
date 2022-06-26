@@ -121,6 +121,8 @@ var ai_suggestion_seen = false;
 
 $("#pager-0").click(function(){
 
+	var percentage = parseInt(11/order_list.length*100);
+	console.log(percentage);
 
 	var objData = $("#form_info").serializeArray();
 	if(!checkFormInfo(objData)){
@@ -321,7 +323,7 @@ $("#next-task").click(function(){
 		// $(".nav-tabs a[href='#newdemo2']").tab('show');
 
 
-		if (current_idx < order_list.length){
+		if (current_idx < order_list.length-19){
 			/*
 			在这里，我要试着改成纯动态页面，就用一个页面，来展示任意数量的instance
 			*/
@@ -410,7 +412,7 @@ $("#next-task").click(function(){
 		}else{
 			$("#finishModal").modal('show');
 			submitData_ms();
-			var percentage = current_idx/order_list.length*100;
+			var percentage = parseInt(current_idx/order_list.length*100);
 			console.log(percentage);
 			document.getElementById('progressbar1').style.width = percentage + '%';
 			document.getElementById('progressbar1').textContent = percentage + '%';
@@ -423,45 +425,37 @@ $("#next-task").click(function(){
 
 });
 
+$("#exit_button").click(function(){
+	document.getElementById("next-task").textContent = "Finished";
+	document.getElementById("next-task").disabled = true;
+});
 
 
 
 function submitData_ms(){
-	var xhr = new XMLHttpRequest();
-	//var url = "http://165.227.108.67/mingfei/submit.php"
-	// var url = "https://shuaima.info/userstudy/submit.php"
-	var url = "https://shuaima.top/userstudy/submit.php";
-	xhr.open("POST", url, true);
-	xhr.setRequestHeader("Content-Type", "application/json");
-	// xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState === 4 && xhr.status === 200) {
-			document.getElementById('user_id').innerHTML = xhr.responseText;
-			console.log(xhr.responseText);
-			//alert("Your response has been saved successfully!");
-			$("#finishModal").modal('show');
-	    }
-	};
 
-	// data = {"firstdecision_1": firstdecision_1,
-	// 		"firstconfidence_1": firstconfidence_1,
-	// 		// "aisuggestion_1": aisuggestion_1,
-	// 		// "aiconfidence_1": aiconfidence_1,
-	// 		"seconddecision_1": seconddecision_1,
-	// 		"secondconfidence_1": secondconfidence_1,
-	// 		"firstdecision_2": firstdecision_2,
-	// 		"firstconfidence_2": firstconfidence_2,
-	// 		// "aisuggestion_2": aisuggestion_2,
-	// 		// "aiconfidence_2": aiconfidence_2,
-	// 		"seconddecision_2": seconddecision_2,
-	// 		"secondconfidence_2": secondconfidence_2,
-	// 		"firstdecision_3": firstdecision_3,
-	// 		"firstconfidence_3": firstconfidence_3,
-	// 		// "aisuggestion_3": aisuggestion_3,
-	// 		// "aiconfidence_3": aiconfidence_3,
-	// 		"seconddecision_3": seconddecision_3,
-	// 		"secondconfidence_3": secondconfidence_3,
-	// 	}
+	/*
+	* 把数据上传到server
+	*/
+
+	// var xhr = new XMLHttpRequest();
+	// //var url = "http://165.227.108.67/mingfei/submit.php"
+	// // var url = "https://shuaima.info/userstudy/submit.php"
+
+	// // var url = "https://shuaima.top/userstudy/submit.php";
+	// var url = "http://49.232.60.34/userstudy/submit.php";
+	// xhr.open("POST", url, true);
+	// xhr.setRequestHeader("Content-Type", "application/json");
+	// // xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
+	// xhr.onreadystatechange = function () {
+	// 	if (xhr.readyState === 4 && xhr.status === 200) {
+	// 		document.getElementById('user_id').innerHTML = xhr.responseText;
+	// 		console.log(xhr.responseText);
+	// 		//alert("Your response has been saved successfully!");
+	// 		$("#finishModal").modal('show');
+	//     }
+	// };
+
 
 	var userinfo_alldata = {
 		"uid": user_id,
@@ -469,11 +463,14 @@ function submitData_ms(){
 		"decision_data": all_data_tosave
 	}
 	var dataJson = JSON.stringify(userinfo_alldata);
-	xhr.send(dataJson);
+	// xhr.send(dataJson);
 	
-	// 存为本地json文件，不上传到server
-	// var blob = new Blob([dataJson], {type: "text/plain;charset=utf-8"});
-    // saveAs(blob, user_id + ".json");
+
+	/*
+	* 把数据存为本地json文件，不上传到server
+	*/
+	var blob = new Blob([dataJson], {type: "text/plain;charset=utf-8"});
+    saveAs(blob, user_id + ".json");
 }
 
 
