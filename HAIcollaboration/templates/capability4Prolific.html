@@ -1,0 +1,1226 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+  <title>Human-AI Decision-Making</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="#"/>
+
+  <script src="../static/js/FileSaver.js"></script>
+  <script src="../static/js/jquery.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+
+
+<style type="text/css">
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr{
+  border-bottom: solid 2px white;
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  width: 30%;
+  background-color: #7d7d7d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #7d7d7d;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+table td{
+  text-align: left;
+  width: 70%;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px 0;
+}
+
+.main {
+  margin: 20px auto;
+  width: 80%;
+}
+
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.container_tree{
+      width: 100%;
+      height:1000px;
+}
+
+.line{
+    position:absolute;
+    background:#003865;
+    height:3px;
+    z-index: 1;/*这里设置大于2，即可看到真正连线的其实是两个元素的中心坐标*/
+}
+.choice{
+    position:absolute;
+    color:#003865;
+    z-index: 1;/*这里设置大于2，即可看到真正连线的其实是两个元素的中心坐标*/
+}
+.Navigator{
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    top: 0%; 
+} 
+.nav-img{ 
+    width: 10%; 
+    top: 10%;
+    height: 80%; 
+    float: left; 
+} 
+.treeIcon{ 
+    margin-top: 15%;
+    width: 80%; 
+    height: 100px;
+}
+.nav-text{
+    width:85%;
+    height:100%;
+    float: left;
+}
+.title{
+    float: left;
+    width: 100%;
+}
+.description{
+    float: left;
+    width: 800px;
+    height: 50px;
+    font-size: small;
+}
+.Tree{ 
+    width:100%;
+    height:78%;
+    position: relative;
+    /* top: 20%; */
+}
+.node{
+    background-color: #003865;
+    width:10%;
+    height:80%;
+    border-radius:5px;
+    z-index: 2
+}
+.feature{
+    /*display: none;*/
+    background-color: white;
+    width: 80%;
+    height: 25%;
+    border-radius:5px;
+    margin-left:10%;
+    margin-top: 10%;
+    text-align: center;
+}
+.relation{
+    /*display: none;*/
+    background-color: white;
+    width: 80%;
+    height: 25%;
+    border-radius:5px;
+    margin-left:10%;
+    margin-top: 5%;
+    text-align: center;
+}
+.value{
+    /*display: none;*/
+    background-color: white;
+    width: 80%;
+    height: 25%;
+    border-radius:5px;
+    margin-left:10%;
+    margin-top: 5%;
+    text-align: center;
+} 
+.level{
+    width: 100%;
+    height:20%;
+    position: relative; 
+}
+#level1{
+    margin-top:1%;
+}
+#level2{
+    margin-top:1%;
+}
+#level3{
+    margin-top:1%;
+}
+#level4{ 
+    margin-top:1%;
+} 
+#node1-1{ 
+    display: block;
+    top: 0%;
+    position: absolute;
+    left: 45%;
+}
+#node2-1{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:38%;
+    float: left;
+}
+#node2-2{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:52%;
+    float: left;
+}
+#node3-1{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:26%;
+    float: left;
+}
+#node3-2{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:38%;
+    float: left;
+}
+#node3-3{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:52%;
+    float: left;
+}
+#node3-4{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:64%;
+    float: left;
+}
+#node4-1{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:2%;
+    float: left;
+}
+#node4-2{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:14%;
+    float: left;
+}
+#node4-3{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:26%; 
+    float: left; 
+}
+#node4-4{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:38%;
+    float: left;
+}
+#node4-5{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:52%;
+    float: left;
+}
+#node4-6{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:64%;
+    float: left;
+}
+#node4-7{
+    display: block;
+    top: 0%;
+    position: absolute;
+    left:76%;
+    float: left;
+}
+#node4-8{
+    display: block;
+    top: 0%; 
+    position: absolute;
+    left:88%;
+    float: left;
+}
+
+
+</style>
+  
+  
+</head>
+
+<body>
+  
+  <div class="container">
+    <h2 id="title1">Human-AI Decision-Making <small> Making decisions with the assistance of AI</small></h2>
+    <div id="attention" class="well">
+      <b>ATTENTION:</b> During the whole experiment, please <b>DO NOT</b> refresh the browser. Otherwise, all data will be lost. 
+    </div>
+      <ul class="nav nav-tabs" style="display: none;">
+        <li class="active not-active"><a data-toggle="tab" href="#home">Home</a></li>
+        <li class="not-active"><a data-toggle="tab" href="#tutorial"></a></li>
+        <li class="not-active"><a data-toggle="tab" href="#traindemo1">1/2</a></li>
+        <li class="not-active"><a data-toggle="tab" href="#newdemo1">1/40</a></li>
+        <li class="not-active"><a data-toggle="tab" href="#decisionTree"></a></li>
+        <li class="not-active"><a data-toggle="tab" href="#questionnaire"></a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <h3>Welcome</h3>
+
+          <form class="form-inline list-group-item list-group-item-success was-validated" id="form_info">
+            <h4>Your information: </h4>
+            <div class="form-group">
+              <label for="id">Prolific ID:</label>
+              <input type="text" name="id" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="age">Age:</label>
+              <input type="number" name="age" class="form-control" min="10" max="90" required>
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <select class="form-control" name="gender" id="gender" required>
+                <option></option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Prefer not to say</option>
+                <option>Others</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="experience">What is your knowledge level of AI?</label>
+              <select class="form-control" name="experience" id="experience" required>
+                <option></option>
+                <option>I am an expert in AI</option>
+                <option>I know or used AI algorithms</option>
+                <option>I know basic concepts in AI</option>
+                <option>I have no knowledge of AI</option>
+              </select>
+            </div>
+          </form>
+
+          <p style="font-size:20px; color: deepskyblue;">
+            <br>
+            Welcome to participate in this experiment! In this experiment, you will be presented with 40 adults' profile (including age, workclass, year of education, marital status, occupation, race, gender and work hours per week) one by one. Your task is to predict whether a person's income is > 50k USD per year or ≤ 50k USD per year.
+            <br>
+            <br>   
+            After 20 tasks, you will be invited to create a decision tree that can illustrate how you make decisions.
+            <br>         
+          </p>
+
+          
+          <br>
+          <p style="font-size:16px;">
+            The whole process will take you about 15-20 minutes. And we will pay a 1 USD bonus if your prediction accuracy >= 80%.
+          </p>
+
+          <p style="font-size:16px; color:red;">
+            We will conduct attention check. If you fail the attention check, we will not pay for you. 
+          </p>
+
+          <p style="font-size:16px;">
+            <br>
+            Before the actual task, let's first go through a toturial, which can help you perform better in the formal experiment.
+          </p>
+
+          <p style="font-size:16px;">
+            <br>
+            <b>Let's get started!</b> 
+            <br>
+          </p>
+
+          <ul class="pager"> <li>
+            <a id="page-train" href="#tutorial">Start a tutorial</a>
+          </li> </ul>        
+      </div>
+
+        <div id="newdemo1" class="tab-pane fade">
+
+          <div class="row">
+            <div id="profile" class="col-xs-6">
+              <h3 id="progress-text" align="center">1/100</h3>
+              
+
+
+              <div class="main">
+                <table id="tab1">
+                  <tr>
+                    <th>Age</th>
+                    <td>not known</td>
+                  </tr>
+                  <tr>
+                    <th>WorkClass</th>
+                    <td>Self-emp-inc</td>
+                  </tr>
+                  <tr>
+                    <th>Year of Education</th>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <th>Marital status</th>
+                    <td>Married-civ-spouse</td>
+                  </tr>
+                  <tr>
+                    <th>Occupation</th>
+                    <td>Sales</td>
+                  </tr>
+                  <tr>
+                    <th>Race</th>
+                    <td>White</td>
+                  </tr>
+                  <tr>
+                    <th>Gender</th>
+                    <td>Male</td>
+                  </tr>
+                  <tr>
+                    <th>Work hours per week</th>
+                    <td>40</td>
+                  </tr>
+                </table>
+              </div>
+
+
+            </div>
+
+
+            <div class="col-xs-6" id="user_prediction">
+              <h3>Step 1: Make your own prediction</h3>
+              <div class="well">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("firstdecision1").style.display="block";'>Your decision</button>
+                <p></p>
+                <form id="firstdecision1" class="container-fluid list-group-item list-group-item-success" style="display: none;">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-info">
+                      <div class="form-group">
+                        <div style="display: inline-block;">
+                          <h4> 
+                            Q1. What is your prediction?
+                          </h4>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio-first-decision-1">
+                          <label class="form-check-label" for="radio-first-decision-1">≤ 50k
+                          </label>
+                        </div>
+        
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio-first-decision-2">
+                          <label class="form-check-label" for="radio-first-decision-2">> 50k
+                          </label>
+                        </div>
+        
+                      </div>
+                    </li>
+
+                    <li id="showanswer_area" class="list-group-item list-group-item-success">
+                      <div class="form-group">
+                        <div style="display: inline-block;">
+                          <button id="show_groundtruth_task" type="button" class="btn btn-primary" data-dismiss="modal"> Show Answer </button>
+                          <h4 id="groundtruth_task"><h4>
+                        </div>
+                      </div>
+                    </li>
+
+                  </ul>
+        
+                </form>
+        
+              </div>
+                          
+                    <button id="next-task" type="button" class="btn btn-primary" data-dismiss="modal"> Finish and Next </button>
+
+            </div>
+
+          </div>
+          <br>
+          <button id="go_to_next" type="button" class="btn btn-primary" data-dismiss="modal" style="display: none;">Finish</button>
+
+        </div>  
+
+
+
+
+        <div id="traindemo1" class="tab-pane fade">
+        
+          <div class="row">
+            <div id="profile_training" class="col-xs-6">
+              <h3 id="progress-text-training" align="center">1/20</h3>
+              <div class="main">
+                <table id="tab1-training">
+                  <tr>
+                    <th>Age</th>
+                    <td>not known</td>
+                  </tr>
+                  <tr>
+                    <th>WorkClass</th>
+                    <td>Self-emp-inc</td>
+                  </tr>
+                  <tr>
+                    <th>Year of Education</th>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <th>Marital status</th>
+                    <td>Married-civ-spouse</td>
+                  </tr>
+                  <tr>
+                    <th>Occupation</th>
+                    <td>Sales</td>
+                  </tr>
+                  <tr>
+                    <th>Race</th>
+                    <td>White</td>
+                  </tr>
+                  <tr>
+                    <th>Gender</th>
+                    <td>Male</td>
+                  </tr>
+                  <tr>
+                    <th>Work hours per week</th>
+                    <td>40</td>
+                  </tr>
+                </table>
+              </div>
+        
+        
+            </div>
+        
+        
+            <div id="user_prediction_training" class="col-xs-6" style="display: block;">
+              <h3>Make your prediction</h3>
+              <p></p>
+              <form id="firstdecision1_training" class="container-fluid list-group-item list-group-item-success" style="display: block;">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item list-group-item-info">
+                    <div class="form-group">
+                      <div style="display: inline-block;">
+                        <h4 id="question1">
+                          Q1. What is your prediction?
+                        </h4>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio-first-decision-1_training">
+                        <label id="attentioncheck1" class="form-check-label" for="radio-first-decision-1_training">≤ 50k
+                        </label>
+                      </div>
+        
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio-first-decision-2_training">
+                        <label id="attentioncheck2" class="form-check-label" for="radio-first-decision-2_training">> 50k
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="list-group-item list-group-item-success">
+                    <div class="form-group">
+                      <div style="display: inline-block;">
+                        <button id="show_groundtruth" type="button" class="btn btn-primary" data-dismiss="modal"> Show Answer </button>
+                        <h4 id="groundtruth"><h4>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </form>
+        
+              
+              <button id="next-task_training" type="button" class="btn btn-primary" data-dismiss="modal"> Finish and Next </button>
+            </div>
+        
+        
+        
+          </div>
+        
+          <br>
+
+          <div id="goodjob" style="display: none;">
+            <p style="font-size:16px;">
+              <br>
+              Good job! We believe that you have been very familiar with this task. Let's start the actual task!
+              <br>
+            </p>
+          </div>
+
+
+          <button id="pager-0" type="button" class="btn btn-primary" data-dismiss="modal"
+            style="display: none;">Next</button>
+        
+        </div>
+
+  
+        
+
+    
+        <div id="tutorial" class="tab-pane fade">
+
+          <p style="font-size:20px;">
+            <br>
+            For each task, you will be shown a table showing a person's profile. There are 8 attributes in total and we list all the possible values for each.
+            <br>
+          </p>
+
+          <div class="info_detail">
+            <table id="tab0">
+              <tr>
+                <th>Age</th>
+                <td>Continuous number</td>
+              </tr>
+              <tr>
+                <th>WorkClass</th>
+                <td>Private, self employment(not incorporated), self employment(incorporated), Federal government, Local government, State government, Without payment, Never work</td>
+              </tr>
+              <tr>
+                <th>Year of Education</th>
+                <td>Continuous number</td>
+              </tr>
+              <tr>
+                <th>Marital status</th>
+                <td>Married civilian spouse, Divorced, Never married, Separated, Widowed, Married spouse absent, Married armed forces spouse</td>
+              </tr>
+              <tr>
+                <th>Occupation</th>
+                <td>Technical support, Craft repair, Other service, Sales, Executive managerial, Professional specialty, Handlers/Cleaners, Machine operation inspector, Administrative clerical, Farming/Fishing, Transport moving, Private house service, Protective service, Armed forces</td>
+              </tr>
+              <tr>
+                <th>Race</th>
+                <td>White, Asian Pacific Islander, American Indian Eskimo, Other, Black.</td>
+              </tr>
+              <tr>
+                <th>Gender</th>
+                <td>Female, Male</td>
+              </tr>
+              <tr>
+                <th>Work hours per week</th>
+                <td>Continuous number</td>
+              </tr>
+            </table>
+          </div>
+
+          <p style="font-size:16px;">
+            <br>
+            To help you get some sense of the task, here we provide you with the income distribution on each attribute.
+            <br>
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Attributes</th>
+                <th colspan="1" scope="colgroup">Distribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Age</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/age.png">
+                </td>
+              </tr>
+              <th scope="row">WorkClass</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/workclass.png">
+                </td>
+              </tr>
+              <th scope="row">EducationNum</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/educationnum.png">
+                </td>
+              </tr>
+              <th scope="row">Marital status</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/maritalstatus.png">
+                </td>
+              </tr>
+              <th scope="row">Occupation</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/occupation.png">
+                </td>
+              </tr>
+              <th scope="row">Race</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/race.png">
+                </td>
+              </tr>
+              <th scope="row">Gender</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/gender.png">
+                </td>
+              </tr>
+              <th scope="row">work hours per week</th>
+                <td style="text-align:center;">
+                  <img src="../static/img/workhoursperweek.png">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <div id="attention_check" class="col-xs-12" style="display: block;">
+            <form id="firstcheck" class="container-fluid list-group-item list-group-item-success" style="display: block;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4 id="question1"> 
+                        Q1. What is the purpose of this task?
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="0" id="attention_question_1-1">
+                      <label id="attentioncheck1" class="form-check-label" for="attention_question_1-1">To predict whether a person's income is > 50k/year
+                      </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="1" id="attention_question_1-2">
+                      <label id="attentioncheck2" class="form-check-label" for="attention_question_1-2">To make sure you understand the AI
+                      </label>
+                    </div>
+
+                  </div>
+                </li>
+              </ul>
+            </form>
+            <form id="secondcheck" class="container-fluid list-group-item list-group-item-success" style="display: block;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4 id="question1"> 
+                        Q2. What is the answer of 25 + 30?
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="0" id="attention_question_2-1">
+                      <label id="attentioncheck1" class="form-check-label" for="attention_question_2-1">Larger than 50
+                      </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="1" id="attention_question_2-2">
+                      <label id="attentioncheck2" class="form-check-label" for="attention_question_2-2">Smaller than 50
+                      </label>
+                    </div>
+
+                  </div>
+                </li>
+              </ul>
+            </form>
+        </div>
+
+          <p style="font-size:16px;">
+            <br>
+            Now you have finished the tutorial. Let's move to some training demos. 
+            <br>
+          </p>
+          
+
+          <ul class="pager"> <li>
+            <a id="pager-training-20tasks" href="#traindemo1">Next</a>
+          </li> </ul>
+
+        </div>
+
+
+
+      <div id="bottom">
+        <ul class="pager"> <li>
+        </li> </ul>
+        <div class="progress">
+          <div id="progressbar1" class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+        </div>
+        Forany questions, please <a href="mailto:shuaihci@gmail.com">contact us</a>.
+      </div>
+
+
+      <div class="modal" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="finishModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="finishModal"><strong>Well done</strong></h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- <p>Please copy the following code to finish the process in AMT. (Please wait for a minute as the server is processing your upload.)</p> -->
+              <p>Please copy the following Completion code to finish the process in Prolific. (Please wait for a minute as the server is processing your upload.)</p>
+              <div class="alert alert-success" role="alert" id="user_id"> </div>
+              <p class="mb-0">Thanks for your time and efforts. You can close this window right now. </p>
+            </div>
+            <div class="modal-footer">
+              <button id="exit_button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+  </div>
+
+  <div class="container_tree" id="decisionTree" style="display:none;"> 
+
+          <!-- <div class="nav-img">
+              <img class="treeIcon" src="../static/img/树.png"> 
+          </div>    -->
+
+
+
+
+          <div id="intro_decision_tree" class="container-fluid list-group-item list-group-item-info" style="display: block;">
+            
+
+            <p class="container-fluid list-group-item list-group-item-light" style="font-size:25px; color:orange;">
+              At the bottom of this page is a decision tree automatically generated based on the 20 tasks you have finished. It might not be the same with the actual decision-making process in your mind. Do not worry. Now, we invite you to modify it to illustrate your decision-making process.
+              <br>
+              <p style="font-size:25px; color:rgb(19, 117, 197);"><b>How to interpret a decision tree?</b></p>
+              <ul>
+                
+                <li style="font-size:20px;">A decision tree contains three types of nodes. (1) Root node, (2) Split (Internal) nodes, and (3) Leaf nodes. All the nodes are linked as parent-child relationship.</li>
+                <li style="font-size:20px;">The Root node and each Split node can represent a condition (e.g., Age > 35). If the condition is met, go to the left child-node, otherwise, go to the right child-node.</li>
+                <li style="font-size:20px;">The Leaf node represents your prediction (e.g., Label is >50k or Label is < 50k).</li>
+                <li style="font-size:20px;">Let's interpret a decision tree example.<br>
+                <img src="../static/img/tree.png" alt="Lights" style="width:400px"></li>
+                <li style="font-size:20px;">In this tree, the Root node is "Education (years) <= 13". If this condition is satisfied, then follow the "Y" link to the Split node "Age > 35" (Otherwise go to another Split node "Work hours per week > 40"). If the "Age > 35" condition is also satisfied, then go to the Lead node "Label is >50k" otherwise "Label is <= 50k".</li>
+                <li style="font-size:20px;">Based on this tree, if a person's education is 14 years, Age is 37, Work hours per week is 50. This person will be predicted as > 50k. Just like the below decision path.
+                  <br><img src="../static/img/tree2.png" alt="Lights" style="width:400px"></li>
+
+              </ul>
+
+              <p style="font-size:25px; color:rgb(19, 117, 197);"><b>How to modify it?</b></p>
+              <ul>
+                
+                <li style="font-size:20px;">Every node contains three parts, (1) feature (e.g., Age, Education, workclass, etc.), relation (e.g., >, <=, is, isnot, etc.), value (e.g., 35, Private, etc.)</li>
+                <li style="font-size:20px;">For any node, you can change the feature, relation, value as you want.</li>
+                <li style="font-size:20px;">Note that the value is a multiple-selection, for example, if you want to set a condition "Workclass belongs to Local-gov and Private", you can select them one-by-one. The selected item will become <font color="Blue"> Blue</font>
+                  <br>
+                  <img src="../static/img/tree-node.png" alt="Lights" style="width:200px"></li>
+                <li style="font-size:20px;">If you want to cancel a selection, you need to click the item again to make its color back to <font color="Black"> Black</font></li>
+                
+              </ul>
+              
+              <p style="font-size:25px; color:rgb(19, 117, 197);">Finally, once you finish the modification, you can click the <b>Finish and Next</b> button to proceed.
+              <br>
+              Note that the last Leaf Node of each path needs to be your prediction, "Label is >50k or Label is <=50k".
+              </p>
+            </p>
+
+          </div>
+
+                <div class="Tree">
+                  <div class="level" id="level1">
+                      <div class="node" id="node1-1">
+                          <select class="feature" id="feature1-1" onchange="chgRelation('1-1')">
+                              <option value="" style="color:gray;"></option> 
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation1-1">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value1-1">
+                              <option></option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="level" id="level2">
+                      <div class="node" id="node2-1">
+                          <select class="feature" id="feature2-1" onchange="chgRelation('2-1')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation2-1">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value2-1">
+                              <option></option>
+                          </select>
+                      </div>
+                      <div class="node" id="node2-2">
+                          <select class="feature" id="feature2-2" onchange="chgRelation('2-2')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation2-2">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value2-2">
+                              <option></option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="level" id="level3">
+                      <div class="node" id="node3-1">
+                          <select class="feature" id="feature3-1" onchange="chgRelation('3-1')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation3-1">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value3-1">
+                              <option></option>
+                          </select>
+                      </div>
+                      <div class="node" id="node3-2">
+                          <select class="feature" id="feature3-2" onchange="chgRelation('3-2')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation3-2">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value3-2">
+                              <option></option>
+                          </select>                  
+                      </div>
+                      <div class="node" id="node3-3">
+                          <select class="feature" id="feature3-3" onchange="chgRelation('3-3')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation3-3">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value3-3">
+                              <option></option>
+                          </select>                   
+                      </div>
+                      <div class="node" id="node3-4">
+                          <select class="feature" id="feature3-4" onchange="chgRelation('3-4')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation3-4">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value3-4">
+                              <option></option>
+                          </select>                     
+                      </div>        
+                  </div>
+                  <div class="level" id="level4">
+                      <div class="node" id="node4-1">
+                          <select class="feature" id="feature4-1" onchange="chgRelation('4-1')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-1">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-1">
+                              <option></option>
+                          </select>                    
+                      </div>
+                      <div class="node" id="node4-2">
+                          <select class="feature" id="feature4-2" onchange="chgRelation('4-2')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-2">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-2">
+                              <option></option>
+                          </select>  
+                      </div>
+                      <div class="node" id="node4-3">
+                          <select class="feature" id="feature4-3" onchange="chgRelation('4-3')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-3">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-3">
+                              <option></option>
+                          </select>  
+                      </div>
+                      <div class="node" id="node4-4">
+                          <select class="feature" id="feature4-4" onchange="chgRelation('4-4')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-4">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-4">
+                              <option></option>
+                          </select>  
+                      </div>
+                      <div class="node" id="node4-5">
+                          <select class="feature" id="feature4-5" onchange="chgRelation('4-5')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-5">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-5">
+                              <option></option>
+                          </select>  
+                      </div>
+                      <div class="node" id="node4-6">
+                          <select class="feature" id="feature4-6" onchange="chgRelation('4-6')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-6">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-6">
+                              <option></option>
+                          </select>  
+                      </div>
+                      <div class="node" id="node4-7">
+                          <select class="feature" id="feature4-7" onchange="chgRelation('4-7')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-7">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-7">
+                              <option></option>
+                          </select>  
+                      </div>
+                      <div class="node" id="node4-8">
+                          <select class="feature" id="feature4-8" onchange="chgRelation('4-8')">
+                              <option value=""></option>
+                              <option value="1" style="color:red;">Label</option>
+                              <option value="2" >Age</option>
+                              <option value="3" >Workclass</option>
+                              <option value="4" >Education.number</option>
+                              <option value="5" >Marital.status</option>
+                              <option value="6" >Occupation</option>
+                              <option value="7" >Race</option>
+                              <option value="8" >Sex</option>
+                              <option value="9" >Work.hours.per.week</option>
+                          </select>
+                          <select class="relation" id="relation4-8">
+                              <option></option>
+                          </select>
+                          <select multip class="value" id="value4-8">
+                              <option></option>
+                          </select>  
+                      </div>
+                  </div>
+              </div>
+
+
+              <li class="list-group-item list-group-item-success">
+                <div class="form-group">
+                  <div style="display: inline-block;">
+                    <h4>
+                      Do you think the decision tree is hard to understand? Or do you have any questions or encounter any problems? Please feel free to tell us! Thank you.
+                    </h4>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <textarea class="form-check-input" name="feedback_decisiontree" id="text-feedback-tree" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
+                  </div>
+                </div>
+              </li>
+
+
+              <button id="finish_tree" type="button" class="btn btn-primary" data-dismiss="modal"> Finish and Next </button>
+              <br><br><br>
+
+
+
+
+  </div>
+
+  <script src="../static/js/capability4Prolific.js" defer></script>
+  <script src="../static/js/selectMultip.js" defer></script>
+
+</body>
+</html>
