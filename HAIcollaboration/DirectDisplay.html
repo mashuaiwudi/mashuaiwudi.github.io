@@ -10,17 +10,18 @@
   <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="shortcut icon" href="#"/>
 
-  <script src="../static/js/FileSaver.js"></script>
-  <script src="../static/js/jquery.min.js"></script>
-  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="static/js/FileSaver.js"></script>
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
 
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/highcharts-more.js"></script>
   <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+  <script src="https://kit.fontawesome.com/1b68509e26.js" crossorigin="anonymous"></script>
 
 
 <style type="text/css">
@@ -74,9 +75,9 @@ table td{
 
 
 
-/* .container {
+.container {
   width: 80%;
-} */
+}
 
 
 
@@ -241,58 +242,27 @@ table td{
         <div id="home" class="tab-pane fade in active">
           <h3>Welcome</h3>
 
-          <form class="form-inline list-group-item list-group-item-success was-validated" id="form_info">
-            <h4>Your information: </h4>
-            <div class="form-group">
-              <label for="id">Prolific ID:</label>
-              <input type="text" name="id" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="age">Age:</label>
-              <input type="number" name="age" class="form-control" min="10" max="90" required>
-            </div>
-            <div class="form-group">
-              <label for="gender">Gender:</label>
-              <select class="form-control" name="gender" id="gender" required>
-                <option></option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Prefer not to say</option>
-                <option>Others</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="experience">What is your knowledge level of AI?</label>
-              <select class="form-control" name="experience" id="experience" required>
-                <option></option>
-                <option>I am an expert in AI</option>
-                <option>I know or used AI algorithms</option>
-                <option>I know basic concepts in AI</option>
-                <option>I have no knowledge of AI</option>
-              </select>
-            </div>
-          </form>
+          
 
 
           <div class="form-inline list-group-item list-group-item-info">
           <p style="font-size:20px; color: rgb(35, 111, 136);">
             <br>
-            Welcome to participate in this experiment! In this experiment, you will be presented with 40 people's profiles (including age, year of education, marital status, occupation, and work hours per week) one by one. Your task is to predict whether a person's income is > 50k USD per year or ≤ 50k USD per year. 
-            After 20 tasks, you will be invited to create some decision rules based on how you make decisions.
+            Welcome to participate in this experiment! In this experiment, you will be presented with 40 people's profiles (including age, year of education, marital status, occupation, and work hours per week) one by one. Your task is to predict whether a person's income is > 50k USD per year or ≤ 50k USD per year.
             <br>
           </p>
-            <!-- <br> 
+            <br> 
             <li style="font-size:20px; color: rgb(35, 111, 136);">In the first 20 tasks, you are required to make your own decisions. After 20 tasks, you will be invited to create some decision rules based on how you make decisions.</li>
             <br>         
-            <li style="font-size:20px; color: rgb(35, 111, 136);">In the last 20 tasks, you will be provided with an AI assistant who will give a recommendation. You can decide whether to trust it.</li>
+            <li style="font-size:20px; color: rgb(35, 111, 136);">In the last 20 tasks, you will be provided with an AI assistant who will give a recommendation for each task. Note that the AI is not always correct. You can decide whether to trust it.</li>
 
-          <img src="../static/img/AI-icon3.png" alt="Lights" style="width:400px"> -->
+          <img src="static/img/AI-icon3.png" alt="Lights" style="width:400px">
           
           </div>
           
           <br>
           <p style="font-size:16px;">
-            The whole process will take you about 10-15 minutes. And we will pay a 1 USD bonus if your decision accuracy rank top 10% in all survey participants.
+            The whole process will take you about 20 minutes. And we will pay a 1 USD bonus if your decision accuracy in the last 20 tasks rank top 10% in all survey participants.
           </p>
 
           <p style="font-size:16px; color:red;">
@@ -311,9 +281,15 @@ table td{
           </p>
 
           <ul class="pager"> <li>
-            <a id="page-train" href="#consent_form">Start a tutorial</a>
+            <a id="page-train" href="#tutorial">Start a tutorial</a>
           </li> </ul>        
         </div>
+
+
+
+
+
+
 
 
       
@@ -358,44 +334,40 @@ table td{
             <div class="col-xs-7" >
 
               <div class="list-group-item list-group-item-info" id="ai_suggestion_region" style="display: none;">
-                <!-- <div id="estimation" style="display: inline; font-size:20px;">Based on the system's estimation, you have a higher probability of making a correct decision in this task case than AI.
+                <div id="estimation" style="display: inline; font-size:20px;">Based on the system's estimation, you have a higher probability of making a correct decision in this task case than AI.
                 </div>
                 <br>
-                <br> -->
+                <br>
                 
                 <div id="wrap1" class="container-fluid list-group-item list-group-item-light">
-                  <!-- <div id="human_confidence">
+                  <div id="human_confidence">
                     <div id="wrap2">
-                      <div style="display: inline; font-size:20px;">Your likelihood:
+                      <div style="display: inline; font-size:20px;">Your capability:
                       </div>
-                      <img src="../static/img/human-icon.png" alt="Lights" style="width: 90px; height: 90px;">
+                      <img src="static/img/human-icon.png" alt="Lights" style="width: 90px; height: 90px;">
                       <figure class="highcharts-figure">
                         <div id="conf_container_human" style="width:200px;height:150px" class="chart-container"></div>
                       </figure>
                     </div>
-                  </div> -->
+                  </div>
 
                 
 
-                  <!-- <div id="ai_confidence">
+                  <div id="ai_confidence">
                       <div id="wrap2">
-                        <div style="display: inline; font-size:20px;">AI's likelihood:
+                        <div style="display: inline; font-size:20px;">AI's capability:
                         </div>
-                        <img src="../static/img/AI-icon2.png" alt="Lights" style="width: 100px; height: 100px;">
+                        <img src="static/img/AI-icon2.png" alt="Lights" style="width: 100px; height: 100px;">
                         <figure class="highcharts-figure">
                           <div id="conf_container_AI" style="width:200px;height:150px" class="chart-container"></div>
                         </figure>
                       </div>
-                  </div> -->
-                  <img src="../static/img/AI-icon2.png" alt="Lights" style="width: 100px; height: 100px;">
-                  <div id="ai_prediction" style="font-size:20px; display: none;">AI's suggestion is < 50k
-                  </div>
-                  <div id="inviteyou" style="font-size:20px; display: none;">AI thinks you can make decisions that are more likely to be correct. So AI invites you to make independent decisions.
                   </div>
                 </div>
-                <!-- <h5>You can think of AI's confidence as the AI's likelihood of correctness.</h5> -->
+                <h5><b>Your capability</b> is the likelihood that you will be able to correctly predict the person's income based on your performance on the first 20 tasks.</h5>
   
-
+                <div id="ai_prediction" class="container-fluid list-group-item list-group-item-light" style="font-size:20px;">AI's suggestion is < 50k
+                </div>
   
                 <!-- <div id="ai_explanation" class="container-fluid list-group-item list-group-item-light" style="display: block;">
 
@@ -405,15 +377,6 @@ table td{
                       <div id="container" style="width:500px;height:300px"></div>
                     </figure>
                 </div> -->
-                <div id="ai_explanation" class="container-fluid list-group-item list-group-item-light" style="display: block;">
-
-                  <div style="display: inline; font-size:20px;">AI's explanation:
-                  </div>
-                  <h5>This bar chart represents how the AI thinks of the contribution of each attribute of this person. A green bar means a contribution to >50k/y, while a blue bar means a contribution to ≤50k/y. The length of the bar represents how much the attribute contributes.</h5> 
-                  <figure  class="highcharts-figure">
-                    <div id="container" style="width:500px;height:300px"></div>
-                  </figure>
-                </div>
   
 
                 <p></p>
@@ -426,7 +389,7 @@ table td{
 
               
               <div class="container-fluid list-group-item list-group-item-warning" id="user_prediction_region">
-                <h3>Make your own prediction</h3>
+                <h3>Make your decision</h3>
                 <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" onclick='document.getElementById("firstdecision1").style.display="block";'>Your decision</button> -->
                 <p></p>
                 <form id="firstdecision1" class="container-fluid list-group-item list-group-item-light" style="display: block;">
@@ -453,7 +416,7 @@ table td{
                       </div>
                     </li>
 
-                    <!-- <li class="list-group-item list-group-item-light" id="whichone_question" style="display: none;">
+                    <li class="list-group-item list-group-item-light" id="whichone_question" style="display: none;">
                       <div class="form-group">
                         <div style="display: inline-block;">
                           <h4> 
@@ -479,7 +442,7 @@ table td{
                         </div>
         
                       </div>
-                    </li> -->
+                    </li>
 
                     <li id="showanswer_area" class="list-group-item list-group-item-light" style="display: none;">
                       <div class="form-group">
@@ -501,8 +464,32 @@ table td{
 
           </div>
           <br>
-          <button id="go_to_next" type="button" class="btn btn-primary" data-dismiss="modal" style="display: none;">Finish</button>
+          <ul class="pager"> <li>
+            <a id="go_to_questionnaire" style="display: none;" href="#questionnaire">Answer Questions</a>
+          </li> </ul>
         </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -658,85 +645,33 @@ table td{
               <tr>
                 <th scope="row">Age</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/age_new.png">
+                  <img src="static/img/age_new.png">
                 </td>
               </tr>
               <th scope="row">EducationNum</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/educationnum_new.png">
+                  <img src="static/img/educationnum_new.png">
                 </td>
               </tr>
               <th scope="row">Marital status</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/maritalstatus_new.png">
+                  <img src="static/img/maritalstatus_new.png">
                 </td>
               </tr>
               <th scope="row">Occupation</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/occupation_new.png">
+                  <img src="static/img/occupation_new.png">
                 </td>
               </tr>
               <th scope="row">work hours per week</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/workhoursperweek_new.png">
+                  <img src="static/img/workhoursperweek_new.png">
                 </td>
               </tr>
             </tbody>
           </table>
 
-<!-- 
-          <div id="attention_check" class="col-xs-12" style="display: block;">
-            <form id="firstcheck" class="container-fluid list-group-item list-group-item-success" style="display: block;">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-info">
-                  <div class="form-group">
-                    <div style="display: inline-block;">
-                      <h4 id="question1"> 
-                        Q1. What is the purpose of this task?
-                      </h4>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="firstdecision" value="0" id="attention_question_1-1">
-                      <label id="attentioncheck1" class="form-check-label" for="attention_question_1-1">To predict whether a person's income is > 50k/year
-                      </label>
-                    </div>
 
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="firstdecision" value="1" id="attention_question_1-2">
-                      <label id="attentioncheck2" class="form-check-label" for="attention_question_1-2">To make sure you understand the AI
-                      </label>
-                    </div>
-
-                  </div>
-                </li>
-              </ul>
-            </form>
-            <form id="secondcheck" class="container-fluid list-group-item list-group-item-success" style="display: block;">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-info">
-                  <div class="form-group">
-                    <div style="display: inline-block;">
-                      <h4 id="question1"> 
-                        Q2. What is the answer of 25 + 30?
-                      </h4>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="firstdecision" value="0" id="attention_question_2-1">
-                      <label id="attentioncheck1" class="form-check-label" for="attention_question_2-1">Larger than 50
-                      </label>
-                    </div>
-
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="firstdecision" value="1" id="attention_question_2-2">
-                      <label id="attentioncheck2" class="form-check-label" for="attention_question_2-2">Smaller than 50
-                      </label>
-                    </div>
-
-                  </div>
-                </li>
-              </ul>
-            </form>
-        </div> -->
 
           <div id="attention_check" class="col-xs-12" style="display: block;">
             <form id="firstcheck" class="container-fluid list-group-item list-group-item-success" style="display: block;">
@@ -770,18 +705,18 @@ table td{
                   <div class="form-group">
                     <div style="display: inline-block;">
                       <h4 id="question1"> 
-                        Q2. What is the answer of 25 + 30?
+                        Q2. Which group of people have a higher likelihood of earning more money (just based on the above figures)?
                       </h4>
                     </div>
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="firstdecision" value="0" id="attention_question_2-1">
-                      <label id="attentioncheck1" class="form-check-label" for="attention_question_2-1">Larger than 50
+                      <label id="attentioncheck1" class="form-check-label" for="attention_question_2-1">Married civilian spouse
                       </label>
                     </div>
 
                     <div class="form-check form-check-inline">
                       <input class="form-check-input" type="radio" name="firstdecision" value="1" id="attention_question_2-2">
-                      <label id="attentioncheck2" class="form-check-label" for="attention_question_2-2">Smaller than 50
+                      <label id="attentioncheck2" class="form-check-label" for="attention_question_2-2">Never married
                       </label>
                     </div>
 
@@ -803,6 +738,20 @@ table td{
           </li> </ul>
 
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -937,6 +886,10 @@ table td{
 
 
 
+
+
+
+
         <div id="consent_form" class="tab-pane fade">
           <h1>Consent Form</h1>
           <p style="font-size:20px;">
@@ -944,21 +897,22 @@ table td{
             Before moving to the main task, we need to get your consent.
             <br>
           </p>
-
+  
+  
           <div class="container-fluid list-group-item list-group-item-light">
             <h3>Data Collected</h3>
             <p class="container-fluid list-group-item list-group-item-light" style="font-size:20px; color:orange;">In this study, we will collect your interaction logs on the task interface. We will not ask for your real name and contact information.
               We will collect your answers to every question in the questionnaire.</p>
           </div>
-
+  
           <div class="container-fluid list-group-item list-group-item-light">
             <h3>Voluntary Consent</h3>
             <p class="container-fluid list-group-item list-group-item-light" style="font-size:20px; color:orange;">Participation in this study is voluntary. You are free to withdraw or discontinue participation at any time.</p>
           </div>
-
+  
           <button id="accept_button" type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
           <button id="reject_button" type="button" class="btn btn-primary" data-dismiss="modal" style="border-color: gray; background-color: gray;">Reject</button>
-
+  
         </div>
 
 
@@ -971,63 +925,52 @@ table td{
         
   
               <h3>Finally, we are willing to get some feedback about your experience and perceptions in the last 20 tasks. Thank you.</h3>
-              <h4 style="color:orange;">You may notice that sometimes the AI does not show its recommendation. This is because the AI thinks you are better than itself in this situation. It is determined by an algorithm that estimates your potential correctness likelihood to handle different predictions (based on your predictions in the first 20 tasks).</h4>
               <p></p>
+
+
+              <form class="form-inline list-group-item list-group-item-success was-validated" id="form_info">
+                <h4>Your information: </h4>
+                <div class="form-group">
+                  <label for="id">Prolific ID:</label>
+                  <input type="text" name="id" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="age">Age:</label>
+                  <input type="number" name="age" class="form-control" min="10" max="90" required>
+                </div>
+                <div class="form-group">
+                  <label for="gender">Gender:</label>
+                  <select class="form-control" name="gender" id="gender" required>
+                    <option></option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Prefer not to say</option>
+                    <option>Others</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="experience">What is your knowledge level of AI?</label>
+                  <select class="form-control" name="experience" id="experience" required>
+                    <option></option>
+                    <option>I am an expert in AI</option>
+                    <option>I know or used AI algorithms</option>
+                    <option>I know basic concepts in AI</option>
+                    <option>I have no knowledge of AI</option>
+                  </select>
+                </div>
+              </form>
+
+
+                 
               <form id="post-task-questionnaire" class="container-fluid list-group-item list-group-item-light" style="display: block;">
                 <ul class="list-group list-group-flush">
   
-                  <li class="list-group-item list-group-item-light">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>  
-                          Q0. I like the AI that can adaptively adjust whether to show its recommendations based on the estimated "who has a higher likelihood of being correct".
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <input class="form-check-input" type="radio" name="Q-like1" value="1" id="radio-like1-1">
-                        <label class="form-check-label" for="radio-like1-1">1&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-like1" value="2" id="radio-like1-2">
-                        <label class="form-check-label" for="radio-like1-2">2&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-like1" value="3" id="radio-like1-3">
-                        <label class="form-check-label" for="radio-like1-3">3&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-like1" value="4" id="radio-like1-4">
-                        <label class="form-check-label" for="radio-like1-4">4&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-like1" value="5" id="radio-like1-5">
-                        <label class="form-check-label" for="radio-like1-5">5&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-like1" value="6" id="radio-like1-6">
-                        <label class="form-check-label" for="radio-like1-6">6&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-like1" value="7" id="radio-like1-7">
-                        <label class="form-check-label" for="radio-like1-7">7&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                    </div>
-                  </li>
                   
                   <li class="list-group-item list-group-item-info">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q1. I trust the AI's recommendations (if shown) in this experiment.
+                          Q1. I trust the AI's recommendations in this experiment.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1074,7 +1017,7 @@ table td{
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q2. I trust the estimated human-AI capability (who has a higher probability/likelihood of making a correct decision).
+                          Q2. I trust the estimated human-AI capability (who has a higher probability of making a correct decision).
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1116,9 +1059,9 @@ table td{
                       </div>
                     </div>
                   </li>
-  
-  
-  
+
+
+
                   <li class="list-group-item list-group-item-info">
                     <div class="form-group">
                       <div style="display: inline-block;">
@@ -1165,208 +1108,14 @@ table td{
                       </div>
                     </div>
                   </li>
-  
-  
-  
-                  <li class="list-group-item list-group-item-success">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>  
-                          Q4. I am confident in the outcome of my decision.
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <input class="form-check-input" type="radio" name="Q-confidence2" value="1" id="radio-confidence2-1">
-                        <label class="form-check-label" for="radio-confidence2-1">1&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-confidence2" value="2" id="radio-confidence2-2">
-                        <label class="form-check-label" for="radio-confidence2-2">2&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-confidence2" value="3" id="radio-confidence2-3">
-                        <label class="form-check-label" for="radio-confidence2-3">3&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-confidence2" value="4" id="radio-confidence2-4">
-                        <label class="form-check-label" for="radio-confidence2-4">4&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-confidence2" value="5" id="radio-confidence2-5">
-                        <label class="form-check-label" for="radio-confidence2-5">5&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-confidence2" value="6" id="radio-confidence2-6">
-                        <label class="form-check-label" for="radio-confidence2-6">6&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-confidence2" value="7" id="radio-confidence2-7">
-                        <label class="form-check-label" for="radio-confidence2-7">7&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-  
-  
-  
-                  <li class="list-group-item list-group-item-info">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>  
-                          Q5. Making a decision with the system was easy.
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <input class="form-check-input" type="radio" name="Q-ease1" value="1" id="radio-ease1-1">
-                        <label class="form-check-label" for="radio-ease1-1">1&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-ease1" value="2" id="radio-ease1-2">
-                        <label class="form-check-label" for="radio-ease1-2">2&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-ease1" value="3" id="radio-ease1-3">
-                        <label class="form-check-label" for="radio-ease1-3">3&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-ease1" value="4" id="radio-ease1-4">
-                        <label class="form-check-label" for="radio-ease1-4">4&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-ease1" value="5" id="radio-ease1-5">
-                        <label class="form-check-label" for="radio-ease1-5">5&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-ease1" value="6" id="radio-ease1-6">
-                        <label class="form-check-label" for="radio-ease1-6">6&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-ease1" value="7" id="radio-ease1-7">
-                        <label class="form-check-label" for="radio-ease1-7">7&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-  
-  
+
+
   
                   <li class="list-group-item list-group-item-success">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q6. It was an engaging experience working on the task.
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <input class="form-check-input" type="radio" name="Q-engage1" value="1" id="radio-engage1-1">
-                        <label class="form-check-label" for="radio-engage1-1">1&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-engage1" value="2" id="radio-engage1-2">
-                        <label class="form-check-label" for="radio-engage1-2">2&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-engage1" value="3" id="radio-engage1-3">
-                        <label class="form-check-label" for="radio-engage1-3">3&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-engage1" value="4" id="radio-engage1-4">
-                        <label class="form-check-label" for="radio-engage1-4">4&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-engage1" value="5" id="radio-engage1-5">
-                        <label class="form-check-label" for="radio-engage1-5">5&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-engage1" value="6" id="radio-engage1-6">
-                        <label class="form-check-label" for="radio-engage1-6">6&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-engage1" value="7" id="radio-engage1-7">
-                        <label class="form-check-label" for="radio-engage1-7">7&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-  
-  
-  
-                  <li class="list-group-item list-group-item-info">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>  
-                          Q7. How mentally demanding was the task?
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <input class="form-check-input" type="radio" name="Q-mental1" value="1" id="radio-mental1-1">
-                        <label class="form-check-label" for="radio-mental1-1">1&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-mental1" value="2" id="radio-mental1-2">
-                        <label class="form-check-label" for="radio-mental1-2">2&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-mental1" value="3" id="radio-mental1-3">
-                        <label class="form-check-label" for="radio-mental1-3">3&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-mental1" value="4" id="radio-mental1-4">
-                        <label class="form-check-label" for="radio-mental1-4">4&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-mental1" value="5" id="radio-mental1-5">
-                        <label class="form-check-label" for="radio-mental1-5">5&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-mental1" value="6" id="radio-mental1-6">
-                        <label class="form-check-label" for="radio-mental1-6">6&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-mental1" value="7" id="radio-mental1-7">
-                        <label class="form-check-label" for="radio-mental1-7">7&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">Very low&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <label class="form-check-label">Very high&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-  
-                  <li class="list-group-item list-group-item-success">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>  
-                          Q8. The system was complex.
+                          Q4. The system was complex.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1408,6 +1157,55 @@ table td{
                       </div>
                     </div>
                   </li>
+
+                  <li class="list-group-item list-group-item-success">
+                    <div class="form-group">
+                      <div style="display: inline-block;">
+                        <h4>  
+                          Q5.  I thought the task was mental demanding.
+                        </h4>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                        </label>
+                        <input class="form-check-input" type="radio" name="Q-mental1" value="1" id="radio-mental1-1">
+                        <label class="form-check-label" for="radio-mental1-1">1&emsp;&emsp;&emsp;
+                        </label>
+      
+                        <input class="form-check-input" type="radio" name="Q-mental1" value="2" id="radio-mental1-2">
+                        <label class="form-check-label" for="radio-mental1-2">2&emsp;&emsp;&emsp;
+                        </label>
+      
+                        <input class="form-check-input" type="radio" name="Q-mental1" value="3" id="radio-mental1-3">
+                        <label class="form-check-label" for="radio-mental1-3">3&emsp;&emsp;&emsp;
+                        </label>
+      
+                        <input class="form-check-input" type="radio" name="Q-mental1" value="4" id="radio-mental1-4">
+                        <label class="form-check-label" for="radio-mental1-4">4&emsp;&emsp;&emsp;
+                        </label>
+      
+                        <input class="form-check-input" type="radio" name="Q-mental1" value="5" id="radio-mental1-5">
+                        <label class="form-check-label" for="radio-mental1-5">5&emsp;&emsp;&emsp;
+                        </label>
+      
+                        <input class="form-check-input" type="radio" name="Q-mental1" value="6" id="radio-mental1-6">
+                        <label class="form-check-label" for="radio-mental1-6">6&emsp;&emsp;&emsp;
+                        </label>
+      
+                        <input class="form-check-input" type="radio" name="Q-mental1" value="7" id="radio-mental1-7">
+                        <label class="form-check-label" for="radio-mental1-7">7&emsp;&emsp;&emsp;
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <label class="form-check-label">Strongly agree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </label>
+                        <label class="form-check-label">Strongly disagree&emsp;&emsp;&emsp;&emsp;&emsp;
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+  
+  
   
   
   
@@ -1418,7 +1216,7 @@ table td{
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q9. Estimating my potential capability (correctness likelihood) and AI's capability (correctness likelihood) was useful for me to make a decision.
+                          Q6. Displaying my potential capability and AI's capability was useful for me to make a decision.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1460,15 +1258,15 @@ table td{
                       </div>
                     </div>
                   </li>
-  
-  
-  
-  
+
+
+
+
                   <li class="list-group-item list-group-item-success">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q10. Estimating my potential capability and AI's capability helped me better decide whether to trust the AI's recommendation.
+                          Q7. Displaying my potential capability and AI's capability helped me better decide whether to trust the AI's recommendation.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1511,15 +1309,15 @@ table td{
                     </div>
                   </li>
                   
-  
-  
-  
-  
+
+
+
+
                   <li class="list-group-item list-group-item-info">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q11. I think the estimation of my potential capability is an acceptable thing.
+                          Q8. I think the estimation of my potential capability is an acceptable thing.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1561,13 +1359,13 @@ table td{
                       </div>
                     </div>
                   </li>
-  
-  
+
+
                   <li class="list-group-item list-group-item-success">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q12. I thought I had autonomy in the decision-making process.
+                          Q9. I thought I had autonomy in the decision-making process.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1609,15 +1407,15 @@ table td{
                       </div>
                     </div>
                   </li>
-  
-  
-  
-  
+
+
+
+
                   <li class="list-group-item list-group-item-info">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q13. I was satisfied with the decision-making process collaborating with the AI.
+                          Q10. I was satisfied with the decision-making process collaborating with the AI.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1659,61 +1457,16 @@ table td{
                       </div>
                     </div>
                   </li>
-  
-  
+
+
+
+
+
                   <li class="list-group-item list-group-item-success">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>  
-                          Q14. To what extent did you consider and refer to your and AI's capabilities (displayed on the interface) when you made a decision?
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <input class="form-check-input" type="radio" name="Q-consider1" value="1" id="radio-consider1-1">
-                        <label class="form-check-label" for="radio-consider1-1">1&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-consider1" value="2" id="radio-consider1-2">
-                        <label class="form-check-label" for="radio-consider1-2">2&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-consider1" value="3" id="radio-consider1-3">
-                        <label class="form-check-label" for="radio-consider1-3">3&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-consider1" value="4" id="radio-consider1-4">
-                        <label class="form-check-label" for="radio-consider1-4">4&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-consider1" value="5" id="radio-consider1-5">
-                        <label class="form-check-label" for="radio-consider1-5">5&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-consider1" value="6" id="radio-consider1-6">
-                        <label class="form-check-label" for="radio-consider1-6">6&emsp;&emsp;&emsp;
-                        </label>
-      
-                        <input class="form-check-input" type="radio" name="Q-consider1" value="7" id="radio-consider1-7">
-                        <label class="form-check-label" for="radio-consider1-7">7&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <label class="form-check-label">Not at all&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                        <label class="form-check-label">Definitely a lot&emsp;&emsp;&emsp;&emsp;&emsp;
-                        </label>
-                      </div>
-                    </div>
-                  </li>
-  
-  
-                  <li class="list-group-item list-group-item-success">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>  
-                          Q15. I would like to use this system in future decision-making tasks.
+                          Q11. I would like to use this system in future decision-making tasks.
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
@@ -1755,71 +1508,55 @@ table td{
                       </div>
                     </div>
                   </li>
-  
-  
-  
-  
-  
-                  <li class="list-group-item list-group-item-success">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>
-                          Q16. The system sometimes shows AI's recommendations and sometimes does not.
-                          How do these two affect your decision-making process differently?
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <textarea class="form-check-input" name="base1" id="text-base1" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
-                      </div>
-                    </div>
-                  </li>
-  
-
-  
-                  <li class="list-group-item list-group-item-success">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>
-                          Q17. How do you use AI's explanations to make a decision? How does it affect your decision-making process?
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <textarea class="form-check-input" name="base2" id="text-base2" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
-                      </div>
-                    </div>
-                  </li>
 
 
-                  <li class="list-group-item list-group-item-success">
-                    <div class="form-group">
-                      <div style="display: inline-block;">
-                        <h4>
-                          Q18. How do you use the AI's recommendation to make a decision?
-                        </h4>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <textarea class="form-check-input" name="base3" id="text-base3" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
-                      </div>
-                    </div>
-                  </li>
- 
-  
+
+
+
                   <li class="list-group-item list-group-item-info">
                     <div class="form-group">
                       <div style="display: inline-block;">
                         <h4>
-                          Q19. The underlying algorithm estimates your and AI's capability. Do you think knowing this information would help you work with the AI? Why?
+                          Q12. What do you think of estimating your capability? And what do you think of displaying your and AI's capability?
                         </h4>
                       </div>
                       <div class="form-check form-check-inline">
-                        <textarea class="form-check-input" name="feedback1" id="text-feedback1" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
+                        <textarea class="form-check-input" name="how users perceive CL" id="text-feedback1" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
                       </div>
                     </div>
                   </li>
-  
-  
-  
-  
+
+                  <li class="list-group-item list-group-item-success">
+                    <div class="form-group">
+                      <div style="display: inline-block;">
+                        <h4>
+                          Q13. Do you think knowing this information (the likelihood of you and the AI making the correct predictions, respectively) would help you work with the AI? Why?
+                        </h4>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <textarea class="form-check-input" name="feedback2" id="text-feedback2" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
+                      </div>
+                    </div>
+                  </li>
+
+
+                  <li class="list-group-item list-group-item-info">
+                    <div class="form-group">
+                      <div style="display: inline-block;">
+                        <h4>
+                          Q14. How do you use the displayed correctness likelihood in your decision-making process?
+                        </h4>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <textarea class="form-check-input" name="how users use CL" id="text-feedback3" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
+                      </div>
+                    </div>
+                  </li>
+
+
+
+
+
   
   
                 </ul>
@@ -1843,14 +1580,14 @@ table td{
         <div id="introduction_before_main_tasks" style="display:none;">
           <div class="container-fluid list-group-item list-group-item-info">
             <p class="container-fluid list-group-item list-group-item-light" style="font-size:25px; color:orange;">Thank you for your efforts to create decision rules.</p>
-            <p class="container-fluid list-group-item list-group-item-warning" style="font-size:20px;">In the following 20 tasks,
-              you will work with an AI assistant that is trained based on large income prediction dataset. The AI will provide its recommendation to you. You can decide whether to trust the AI.</p>
-            <!-- <p class="container-fluid list-group-item list-group-item-warning" style="font-size:20px;">When the system thinks you have a higher correctness likelihood than the AI, the AI's recommendation will not be shown. When the system
-            thinks AI has a higher correctness likelihood than you, the AI's recommendation will be shown.</p> -->
+            <p class="container-fluid list-group-item list-group-item-warning" style="font-size:20px;">Based on your past tasks and your decision rules, our system has built a model of your potential capability. In the following 20 tasks,
+              you will work with an AI assistant who will provide its recommendation to you. You can decide whether to trust the AI.</p>
           </div>
           <br>
           <button id="continue_last_20" type="button" class="btn btn-primary" data-dismiss="modal">Continue</button>
         </div>
+
+
 
 
 
@@ -1862,11 +1599,17 @@ table td{
         <div class="progress">
           <div id="progressbar1" class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
         </div>
-        Forany questions, please <a href="mailto:shuaihci@gmail.com">contact us</a>.
       </div>
 
 
-   
+
+
+
+
+
+
+
+      
 
       <div class="modal" id="waitModal" tabindex="-1" role="dialog" aria-labelledby="waitModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -1917,6 +1660,12 @@ table td{
 
 
 
+
+
+
+
+
+
       <div class="modal" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="finishModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -1938,6 +1687,12 @@ table td{
           </div>
         </div>
       </div>
+
+
+
+
+
+
 
 
 
@@ -1965,29 +1720,30 @@ table td{
 
 
       <!--user rule-->
-      <div id="userrule" style="display:none;">
+      <!--user rule-->
+      <div id="userrule" class="row" style="display:none;">
         <div id="intro" class="container-fluid list-group-item list-group-item-info">
           <p class="container-fluid list-group-item list-group-item-light" style="font-size:25px; color:orange;">Below are some decision-making rules that are automatically generated based on the 20 tasks you have finished. It is not 100% accurate. And these rules might not be the same with the actual decision-making process in your mind. Now, you can change it or add new rules based on your actual decision processes.</p>
           <p class="container-fluid list-group-item list-group-item-warning" style="font-size:20px;">Each rule contains several conditions and a label. For example, below shows a rule <b>[Age > 45 and EducationNum > 12: Label: > 50k]</b> containing two conditions [Age > 45] and [EducationNum > 12] and a label [> 50k]. The relationship between all conditions inside a rule is <b>AND</b>, which means only if a person satisfies all conditions (Age > 45 AND EducationNum > 12) at the same time, you will predict the person's income to be <b>(> 50k)</b>.                  <br>
-            <img src="../static/img/rule_demo.png" alt="Lights" style="width:1000px"></p>
+            <img src="static/img/rule_demo.png" alt="Lights" style="width:1000px"></p>
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">You can change any conditions in any rules by clicking the Drop-down menus and selecting a different value.</li>
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">You can add a new condition in a rule by clicking the <b>Add</b> button. And you can create a new rule by clicking the <b>Add Rule</b> button at the bottom.</li>  
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">You can delete any conditions by clicking the <b>Delete</b> button. And you can delete a rule by clicking the <b>Delete the whole rule</b> button.</li> 
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">Once you finish creating a rule, you need to click the <b>Check</b> button. It will help you check whether your rule conflicts with your previous decisions. If a rule does not match your previous decisions, you may want to change the rule. Also, you can go on without changing it.</li>       
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">Note that the value is a multiple-selection, for example, if you want to set a condition "Occupation belongs to Executive managerial or Other service", you can select them one-by-one. The selected item will become <font color="Blue"> Blue</font>
               <br>
-              <img src="../static/img/selected.png" alt="Lights" style="width:1000px"></li>
+              <img src="static/img/selected.png" alt="Lights" style="width:1000px"></li>
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">If you want to cancel a selection, you need to click the item again to make its color back to <font color="Black"> Black</font></li>
 
           <h4><b>NOTE</b>: if once you click the Check button, you are taken back to the beginning, this is because your browser does not support this feature. We are very sorry for this problem but you have to quit this study. Message us and we will give you a little compensation.</h4>
 
         </div>
 
-        <div>
+        <div class="col-xs-3">
           <h3>To help you review and recall the 20 predictions you have made, you can click Last one and Next one to browse your historical decisions.</h3>
           <h3 id="historyprofile-progress-text" align="center">1/100</h3>
-          <button class="btn btn-primary" id="lastone" style="float:left;">Last one</button>
-          <button class="btn btn-primary" id="nextone" style="float:right;">Next one</button>
+          <button class="btn btn-primary" id="lastone" style="float:left;"><i class="fa-solid fa-arrow-left-long"></i> Last one</button>
+          <button class="btn btn-primary" id="nextone" style="float:right;"><i class="fa-solid fa-arrow-right-long"></i> Next one</button>
           <div>
             <table id="historyprofile">
               <tr>
@@ -2018,10 +1774,11 @@ table td{
           </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-        <h1>Your decision-making rules</h1>
+
+        <div class="col-xs-9" id="userrule_append">
+
+
+
 
 
 
@@ -2052,97 +1809,107 @@ table td{
 
 
 
-        <!--用户的第一条规则-->
-        <div id="rule1" class="col-xs-12" style="display: block;margin-top: 10px;">
-          <form id="rulegroup1" class="container-fluid list-group-item list-group-item-success" style="display: block;">
-            <h3>Rule 1</h3>
-            <!--第一条规则的决定-->
-            <ul class="list-group list-group-flush" id="ruledecision1">
-              <li class="list-group-item list-group-item-info">
-                <div class="form-group">
-                  <div class="decision">
-                    <label class="form-check-label" style="width:50%;float:left;text-align: center;">If a person satisfies this rule, you will predict her/his income to be:</label>
-                    <div class="form-check form-check-inline" style="width:20%;float:left;margin-top: -2px;">
-                      <input class="form-check-input" type="radio" name="ruledecision1" value="0" id="ruledecision1-1" onchange="chgDecision('1')"> 
-                      <label id="choice1-1" for="ruledecision1-1" class="form-check-label">≤ 50k
-                      </label>
+          <!--用户的第一条规则-->
+          <div id="rule1" style="display: block;margin-top: 10px;">
+            <h2>Your decision-making rules</h2>
+            <form id="rulegroup1" class="container-fluid list-group-item list-group-item-success" style="display: block;">
+              <h3>Rule 1</h3>
+              <!--第一条规则的决定-->
+              <ul class="list-group list-group-flush" id="ruledecision1">
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div class="decision">
+                      <label class="form-check-label" style="width:50%;float:left;text-align: center;">If a person satisfies this rule, you will predict her/his income to be:</label>
+                      <div class="form-check form-check-inline" style="width:20%;float:left;margin-top: -2px;">
+                        <input class="form-check-input" type="radio" name="ruledecision1" value="0" id="ruledecision1-1" onchange="chgDecision('1')"> 
+                        <label id="choice1-1" class="form-check-label">≤ 50k
+                        </label>
+                      </div>
+                      <div class="form-check form-check-inline" style="width:20%;float:left;margin-top: -2px;">
+                        <input class="form-check-input" type="radio" name="ruledecision1" value="1" id="ruledecision1-2" onchange="chgDecision('1')"> 
+                        <label id="choice1-2" class="form-check-label">> 50k
+                        </label>
+                      </div>
                     </div>
-                    <div class="form-check form-check-inline" style="width:20%;float:left;margin-top: -2px;">
-                      <input class="form-check-input" type="radio" name="ruledecision1" value="1" id="ruledecision1-2" onchange="chgDecision('1')"> 
-                      <label id="choice1-2" for="ruledecision1-2" class="form-check-label">> 50k
-                      </label>
+                  </div>
+                </li>
+              </ul>
+              <!--第一条规则的第一个条件-->
+              <ul class="list-group list-group-flush" id="condition1-1">
+                <li class="wrap list-group-item list-group-item-light" style="height:60px;">
+                  <h4><b>IF</b> Condition 1 </h4>
+                  <div class="form-group">
+                    <div class="feature" id="feature1-1">
+                      <select class="form-control" id="featureselect1-1" required onchange="chgFeature('1-1')">
+                        <option style="color:#7d7d7d">Please choose feature</option>
+                        <option value="1" >Age</option>
+                        <option value="2" >EducationNumber</option>
+                        <option value="3" >MaritalStatus</option>
+                        <option value="4" >Occupation</option>
+                        <option value="5" >WorkHoursPerWeek</option>
+                      </select>
                     </div>
+                    <div class="relation" id="relation1-1">
+                      <select class="form-control" id="relationselect1-1" required onchange="chgRelation('1-1')">
+                        <option style="color:#7d7d7d">Please choose relation</option>
+                      </select>
+                    </div>
+                    <div class="value" id="value1-1">
+                      <select class="form-control" id="valueselect1-1" required onchange="chgValue('1-1')">
+                        <option style="color:#7d7d7d">Please choose value</option>
+                      </select>
+                    </div>
+                    <!-- <button class="btn btn-primary" id="deletecondition1-1" style="margin-top:5px; border-color: #d30023; background-color: #d30023;">Delete</button> -->
+                    <button class="btn btn-primary" id="deletecondition1-1" style="margin-top:5px;"><i class="fa fa-trash"></i></button>
                   </div>
-                </div>
-              </li>
-            </ul>
-            <!--第一条规则的第一个条件-->
-            <ul class="list-group list-group-flush" id="condition1-1">
-              <li class="wrap list-group-item list-group-item-light" style="height:60px;">
-                <h4><b>IF</b> Condition 1 </h4>
-                <div class="form-group">
-                  <div class="feature" id="feature1-1">
-                    <select class="form-control" id="featureselect1-1" required onchange="chgFeature('1-1')">
-                      <option style="color:#7d7d7d">Please choose feature</option>
-                      <option value="1" >Age</option>
-                      <option value="2" >EducationNumber</option>
-                      <option value="3" >MaritalStatus</option>
-                      <option value="4" >Occupation</option>
-                      <option value="5" >WorkHoursPerWeek</option>
-                    </select>
-                  </div>
-                  <div class="relation" id="relation1-1">
-                    <select class="form-control" id="relationselect1-1" required onchange="chgRelation('1-1')">
-                      <option style="color:#7d7d7d">Please choose relation</option>
-                    </select>
-                  </div>
-                  <div class="value" id="value1-1">
-                    <select class="form-control" id="valueselect1-1" required onchange="chgValue('1-1')">
-                      <option style="color:#7d7d7d">Please choose value</option>
-                    </select>
-                  </div>
-                  <!-- <button class="btn btn-primary" id="deletecondition1-1" style="margin-top:5px; border-color: #d30023; background-color: #d30023;">Delete</button> -->
-                  <button class="btn btn-primary" id="deletecondition1-1" style="margin-top:5px;">Delete</button>
-                </div>
-              </li>
-            </ul>
-            <button class="btn btn-primary" id="addcondition1">Add condition</button>
-            <button class="btn btn-primary" id="checkcondition1">Check</button>
-            <!-- <button class="btn btn-primary" id="deleteallcondition1" style="float:right; border-color: #d30023; background-color: #d30023;">Delete the whole rule</button> -->
-            <button class="btn btn-primary" id="deleteallcondition1" style="float:right;">Delete the whole rule</button>
-          </form>
-        </div>
-        <div id="bottombutton1" style="text-align:center;">
-          <button class="btn btn-primary" id="addrule1" style="margin-top: 20px;">Add Rule</button>
+                </li>
+              </ul>
+              <button class="btn btn-primary" id="addcondition1"><i class="fa-solid fa-circle-plus"></i> Add condition</button>
+              <button class="btn btn-primary" id="checkcondition1"><i class="fa-solid fa-magnifying-glass"></i> Check</button>
+              <!-- <button class="btn btn-primary" id="deleteallcondition1" style="float:right; border-color: #d30023; background-color: #d30023;">Delete the whole rule</button> -->
+              <button class="btn btn-primary" id="deleteallcondition1" style="float:right;"><i class="fa fa-trash"></i> Delete the whole rule</button>
+            </form>
+          </div>
 
-          <br>
-          <br>
 
-          <li class="list-group-item list-group-item-success">
-            <div class="form-group">
-              <div style="display: inline-block;">
-                <h4>
-                  Do you think the rule is hard to create/modify? Or do you have any suggestions or encounter any problems while you create the rules? Can you suggest other methods besides the rules to show how you make a decision? Please give your valuable feedback! Thank you!
-                </h4>
+
+          <div id="bottombutton1" style="text-align:center;">
+            <button class="btn btn-primary" id="addrule1" style="margin-top: 20px;"><i class="fa-solid fa-circle-plus"></i> Add Rule</button>
+
+            <br>
+            <br>
+
+            <li class="list-group-item list-group-item-success">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4>
+                    Do you think the rule is hard to create/modify? Or do you have any suggestions or encounter any problems while you create the rules? Can you suggest other methods besides the rules to show how you make a decision? Please give your valuable feedback! Thank you!
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <textarea class="form-check-input" name="feedback_decisiontree" id="text-feedback-tree" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
+                </div>
               </div>
-              <div class="form-check form-check-inline">
-                <textarea class="form-check-input" name="feedback_decisiontree" id="text-feedback-tree" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
-              </div>
-            </div>
-          </li>
-          <br>
-          <button class="btn btn-primary" id="finishrule1" style="margin-top: 20px;">Finish and Next</button>
-          <br>
-          <br>
+            </li>
+            <br>
+            <button class="btn btn-primary" id="finishrule1" style="margin-top: 20px;">Finish and Next</button>
+            <br>
+            <br>
+          </div>
+
         </div>
+
+
+
+
       </div>
 
 
 
   </div>
 
-  <script src="../static/js/Rule_simple_collection.js" defer></script>
-  <script src="../static/js/selectMultip_simple.js" defer></script>
+  <script src="static/js/DirectDisplay.js" defer></script>
+  <script src="static/js/selectMultip_simple.js" defer></script>
 
 </body>
 </html>

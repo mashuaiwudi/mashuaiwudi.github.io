@@ -10,14 +10,14 @@
   <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="../static/css/index.css">
+  <link rel="stylesheet" href="static/css/index.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="shortcut icon" href="#"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script src="../static/js/FileSaver.js"></script>
-  <script src="../static/js/jquery.min.js"></script>
-  <script src="../static/js/bootstrap.min.js"></script>
+  <script src="static/js/FileSaver.js"></script>
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
 
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/highcharts-more.js"></script>
@@ -254,7 +254,7 @@ table td{
             <br>         
             <li style="font-size:20px; color: rgb(35, 111, 136);">In the last 20 tasks, you will be provided with an AI assistant who will give a recommendation for each task. Note that the AI is not always correct. You can decide whether to trust it.</li>
 
-          <img src="../static/img/AI-icon3.png" alt="Lights" style="width:400px">
+          <img src="static/img/AI-icon3.png" alt="Lights" style="width:400px">
           
           </div>
           
@@ -373,7 +373,7 @@ table td{
                       <div id="wrap2">
                         <div style="display: inline; font-size:20px;">AI's confidence:
                         </div>
-                        <img src="../static/img/AI-icon2.png" alt="Lights" style="width: 100px; height: 100px;">
+                        <img src="static/img/AI-icon2.png" alt="Lights" style="width: 100px; height: 100px;">
                         <figure class="highcharts-figure">
                           <div id="conf_container_AI" style="width:200px;height:150px" class="chart-container"></div>
                         </figure>
@@ -1435,27 +1435,27 @@ table td{
               <tr>
                 <th scope="row">Age</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/age_new.png">
+                  <img src="static/img/age_new.png">
                 </td>
               </tr>
               <th scope="row">EducationNum</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/educationnum_new.png">
+                  <img src="static/img/educationnum_new.png">
                 </td>
               </tr>
               <th scope="row">Marital status</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/maritalstatus_new.png">
+                  <img src="static/img/maritalstatus_new.png">
                 </td>
               </tr>
               <th scope="row">Occupation</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/occupation_new.png">
+                  <img src="static/img/occupation_new.png">
                 </td>
               </tr>
               <th scope="row">work hours per week</th>
                 <td style="text-align:center;">
-                  <img src="../static/img/workhoursperweek_new.png">
+                  <img src="static/img/workhoursperweek_new.png">
                 </td>
               </tr>
             </tbody>
@@ -1664,14 +1664,14 @@ table td{
         <div id="intro" class="container-fluid list-group-item list-group-item-info">
           <p class="container-fluid list-group-item list-group-item-light" style="font-size:25px; color:orange;">Below are some decision-making rules that are automatically generated based on the 20 tasks you have finished. It is not 100% accurate. And these rules might not be the same with the actual decision-making process in your mind. Now, you can change it or add new rules based on your actual decision processes.</p>
           <p class="container-fluid list-group-item list-group-item-warning" style="font-size:20px;">Each rule contains several conditions and a label. For example, below shows a rule <b>[Age > 45 and EducationNum > 12: Label: > 50k]</b> containing two conditions [Age > 45] and [EducationNum > 12] and a label [> 50k]. The relationship between all conditions inside a rule is <b>AND</b>, which means only if a person satisfies all conditions (Age > 45 AND EducationNum > 12) at the same time, you will predict the person's income to be <b>(> 50k)</b>.                  <br>
-            <img src="../static/img/rule_demo.png" alt="Lights" style="width:1000px"></p>
+            <img src="static/img/rule_demo.png" alt="Lights" style="width:1000px"></p>
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">You can change any conditions in any rules by clicking the Drop-down menus and selecting a different value.</li>
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">You can add a new condition in a rule by clicking the <b>Add</b> button. And you can create a new rule by clicking the <b>Add Rule</b> button at the bottom.</li>  
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">You can delete any conditions by clicking the <b>Delete</b> button. And you can delete a rule by clicking the <b>Delete the whole rule</b> button.</li> 
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">Once you finish creating a rule, you need to click the <b>Check</b> button. It will help you check whether your rule conflicts with your previous decisions. If a rule does not match your previous decisions, you may want to change the rule. Also, you can go on without changing it.</li>       
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">Note that the value is a multiple-selection, for example, if you want to set a condition "Occupation belongs to Executive managerial or Other service", you can select them one-by-one. The selected item will become <font color="Blue"> Blue</font>
               <br>
-              <img src="../static/img/selected.png" alt="Lights" style="width:1000px"></li>
+              <img src="static/img/selected.png" alt="Lights" style="width:1000px"></li>
           <li class="list-group-item list-group-item-primary" style="font-size:20px;">If you want to cancel a selection, you need to click the item again to make its color back to <font color="Black"> Black</font></li>
 
           <h4><b>NOTE</b>: if once you click the Check button, you are taken back to the beginning, this is because your browser does not support this feature. We are very sorry for this problem but you have to quit this study. Message us and we will give you a little compensation.</h4>
@@ -1843,8 +1843,8 @@ table td{
 
       </div>
 
-  <script src="../static/js/AdaptiveWorkflow.js" defer></script>
-  <script src="../static/js/selectMultip_simple.js" defer></script>
+  <script src="static/js/AdaptiveWorkflow.js" defer></script>
+  <script src="static/js/selectMultip_simple.js" defer></script>
 
 </body>
 </html>
