@@ -1,0 +1,3107 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+  <title>Decision-Making</title>
+  <link rel="shortcut icon" href="#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!--meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"--> 
+  
+  <!-- <link href="video-js.css" rel="stylesheet"> -->
+  <!--link href="http://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet"-->
+  <!--link href="http://vjs.zencdn.net/6.8.0/video-js.css" rel="stylesheet"-->
+  <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="index.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <!-- <script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <script src="FileSaver.js"></script>
+  <!--script src="http://vjs.zencdn.net/6.8.0/video.js"></script-->
+  <!--script src="video.js"></script-->
+
+  <!-- required libraries -->
+<!-- <script src="jquery-1.7.2.min.js"></script> -->
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="https://kit.fontawesome.com/1b68509e26.js" crossorigin="anonymous"></script> -->
+<script src="https://kit.fontawesome.com/1b68509e26.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- <script src="js/three.min.js"></script> -->
+<!--为了实时拍照的js-->
+<!-- <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>  -->
+<!-- Valiant360 plugin -->
+<!-- <script src="js/jquery.valiant360.min.js"></script> -->
+ 
+<!-- Valiant360 styles -->
+<!--link rel="stylesheet" type="text/css" href="css/valiant360.css"-->
+
+
+<style type="text/css">
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table tr{
+  border-bottom: solid 2px white;
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  width: 30%;
+  background-color: #7d7d7d;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #7d7d7d;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+table td{
+  text-align: left;
+  width: 70%;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px 0;
+}
+
+.main {
+  margin: 20px auto;
+  item-align: center;
+  width: 80%;
+}
+
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+input[type=range].feature_range {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  height: 8px;
+  padding: 0;
+  border-radius: 2px;
+  margin-bottom: 5px;
+  margin-bottom: 25px;
+  background: -webkit-linear-gradient(bottom right, red, white 50%, white 50%, blue);
+}
+
+.feature_range {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.feature_range:hover {
+  opacity: 1;
+}
+
+.feature_range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3c3d3d79;
+  cursor: pointer;
+}
+
+.feature_range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #3c3d3d79;
+  cursor: pointer;
+}
+
+.content {
+  width: 100%;
+  height: 700px;
+  background-color: #585858;
+  margin: 10px auto;
+  border-radius: 15px;
+}
+
+.nav {
+  display: flex;
+}
+.nav > div {
+  width: 20%;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  background-color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.nav .active {
+  background-color: #585858;
+  color: white;
+  border-radius: 15px;
+}
+
+.item {
+  background-color: #ffffff;
+  width: 95%;
+  height: 600px;
+  margin: 26px auto;
+  border-radius: 15px;
+}
+
+.item > div {
+  display: none;
+  color: rgb(0, 0, 0);
+  padding: 50px 10px;
+}
+</style>
+  
+  
+</head>
+
+<body>
+  
+  <div class="container">
+    <h2>Decision-Making <small> News Category Classification</small></h2>
+    <div class="well">
+      <b>ATTENTION:</b> During the whole experiment, please <b>DO NOT</b> refresh the browser. Otherwise, all data will be lost. 
+    </div>
+    <ul class="nav nav-tabs" style="display: none;">
+      <li class="active not-active"><a data-toggle="tab" href="#home">Home</a></li>
+      <li class="not-active"><a data-toggle="tab" href="#consent_form"></a></li>
+      <li class="not-active"><a data-toggle="tab" href="#tutorial"></a></li>
+      <li class="not-active"><a data-toggle="tab" href="#questionnaire"></a></li>
+      <li class="not-active"><a data-toggle="tab" href="#NLP_task"></a></li>
+      <li class="not-active"><a data-toggle="tab" href="#AI_suggestion1"></a></li>
+    </ul>
+
+
+
+
+
+
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>Welcome</h3>
+
+        <form class="form-inline list-group-item list-group-item-success was-validated" id="form_info">
+          <h4>Your information: </h4>
+          <div class="form-group">
+            <label for="id">Prolific ID:</label>
+            <input type="text" name="Prolific Id" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" name="age" class="form-control" min="10" max="90" required>
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select class="form-control" name="gender" id="gender" required>
+              <option></option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Others</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="experience">What is your knowledge level of AI?</label>
+            <select class="form-control" name="experience" id="experience" required>
+              <option></option>
+              <option>I am an expert in AI</option>
+              <option>I know or used AI algorithms</option>
+              <option>I know basic concepts in AI</option>
+              <option>I have no knowledge of AI</option>
+            </select>
+          </div>
+        </form>
+
+        <p style="font-size:16px;">
+          <br>
+          Welcome to participate in this experiment! In this experiment, we will show you 40 short news in sequence, and your task is to classify the topic of each news.
+          The correct answer will be one out of the five categories, 1. <b>Business</b>, 2. <b>Entertainment</b>, 3. <b>Healthy Living</b>, 4. <b>Politics</b>, and 5. <b>Technology</b>.
+          <br>        
+        </p>
+
+        
+        <br>
+        <p style="font-size:16px;">
+          The whole process will take you about 10-20 minutes. And we will pay a 1 USD bonus if your prediction accuracy >= <font style="color: red;">90%</font> in the 40 tasks.
+        </p>
+
+        <p style="font-size:16px; color:red;">
+          Note that we will conduct an attention check. If you fail the attention check, we may not pay you.
+        </p>
+
+        <p style="font-size:16px;">
+          <br>
+          Before the actual task, let's first go through a tutorial, which can help you perform better in the formal experiment.
+        </p>
+
+        <p style="font-size:16px;">
+          <br>
+          <b>Let's start with a tutorial!</b> 
+          <br>
+        </p>
+
+        <ul class="pager"> <li>
+          <a id="go_to_consentform" href="#consent_form">Start a tutorial</a>
+          <p>If this button cannot be clicked (no response), you can refresh this webpage to try again.</p>
+        </li> </ul>    
+      </div>
+
+
+
+
+      <div id="consent_form" class="tab-pane fade">
+        <h1>Consent Form</h1>
+        <p style="font-size:20px;">
+          <br>
+          Before moving to the main task, we need to get your consent.
+          <br>
+        </p>
+
+        <div class="container-fluid list-group-item list-group-item-light">
+          <h3>Data Collected</h3>
+          <p class="container-fluid list-group-item list-group-item-light" style="font-size:20px; color:orange;">In this study, we will collect your interaction logs on the task interface. We will not ask for your real name and contact information.
+            We will collect your answers to every question in the questionnaire.</p>
+        </div>
+
+        <div class="container-fluid list-group-item list-group-item-light">
+          <h3>Voluntary Consent</h3>
+          <p class="container-fluid list-group-item list-group-item-light" style="font-size:20px; color:orange;">Participation in this study is voluntary. You are free to withdraw or discontinue participation at any time.</p>
+        </div>
+
+        <button id="accept_button" type="button" class="btn btn-primary" data-dismiss="modal">Accept</button>
+        <button id="reject_button" type="button" class="btn btn-primary" data-dismiss="modal" style="border-color: gray; background-color: gray;">Reject</button>
+
+      </div>
+
+
+      <div id="questionnaire" class="tab-pane fade">
+      
+        <div id="question_area" class="row">    
+      
+
+            <h3>Finally, we are willing to get some feedback about your experience and perceptions. Thank you.</h3>
+            <p></p>
+            <form id="post-task-questionnaire" class="container-fluid list-group-item list-group-item-light" style="display: block;">
+              <ul class="list-group list-group-flush">
+
+                
+              
+                <!-- <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q1. I am good at this news category classification task.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-performance1" value="1" id="radio-performance1-1">
+                      <label class="form-check-label" for="radio-performance1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance1" value="2" id="radio-performance1-2">
+                      <label class="form-check-label" for="radio-performance1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance1" value="3" id="radio-performance1-3">
+                      <label class="form-check-label" for="radio-performance1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance1" value="4" id="radio-performance1-4">
+                      <label class="form-check-label" for="radio-performance1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance1" value="5" id="radio-performance1-5">
+                      <label class="form-check-label" for="radio-performance1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance1" value="6" id="radio-performance1-6">
+                      <label class="form-check-label" for="radio-performance1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance1" value="7" id="radio-performance1-7">
+                      <label class="form-check-label" for="radio-performance1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li> -->
+
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q1. How likely would this interaction be to help you maintain the freedom (i.e., autonomy) to make the decision the way you see fit?
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-autonomy1" value="1" id="radio-autonomy1-1">
+                      <label class="form-check-label" for="radio-autonomy1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-autonomy1" value="2" id="radio-autonomy1-2">
+                      <label class="form-check-label" for="radio-autonomy1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-autonomy1" value="3" id="radio-autonomy1-3">
+                      <label class="form-check-label" for="radio-autonomy1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-autonomy1" value="4" id="radio-autonomy1-4">
+                      <label class="form-check-label" for="radio-autonomy1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-autonomy1" value="5" id="radio-autonomy1-5">
+                      <label class="form-check-label" for="radio-autonomy1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-autonomy1" value="6" id="radio-autonomy1-6">
+                      <label class="form-check-label" for="radio-autonomy1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-autonomy1" value="7" id="radio-autonomy1-7">
+                      <label class="form-check-label" for="radio-autonomy1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Not at all&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Extremely&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q2. How mentally demanding was the task?
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-mental1" value="1" id="radio-mental1-1">
+                      <label class="form-check-label" for="radio-mental1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-mental1" value="2" id="radio-mental1-2">
+                      <label class="form-check-label" for="radio-mental1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-mental1" value="3" id="radio-mental1-3">
+                      <label class="form-check-label" for="radio-mental1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-mental1" value="4" id="radio-mental1-4">
+                      <label class="form-check-label" for="radio-mental1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-mental1" value="5" id="radio-mental1-5">
+                      <label class="form-check-label" for="radio-mental1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-mental1" value="6" id="radio-mental1-6">
+                      <label class="form-check-label" for="radio-mental1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-mental1" value="7" id="radio-mental1-7">
+                      <label class="form-check-label" for="radio-mental1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Very low&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Very high&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q3. The decision-making process with the interface is complex.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-complex1" value="1" id="radio-complex1-1">
+                      <label class="form-check-label" for="radio-complex1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-complex1" value="2" id="radio-complex1-2">
+                      <label class="form-check-label" for="radio-complex1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-complex1" value="3" id="radio-complex1-3">
+                      <label class="form-check-label" for="radio-complex1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-complex1" value="4" id="radio-complex1-4">
+                      <label class="form-check-label" for="radio-complex1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-complex1" value="5" id="radio-complex1-5">
+                      <label class="form-check-label" for="radio-complex1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-complex1" value="6" id="radio-complex1-6">
+                      <label class="form-check-label" for="radio-complex1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-complex1" value="7" id="radio-complex1-7">
+                      <label class="form-check-label" for="radio-complex1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q4. I am engaged in the decision-making task with the AI.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-engage1" value="1" id="radio-engage1-1">
+                      <label class="form-check-label" for="radio-engage1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-engage1" value="2" id="radio-engage1-2">
+                      <label class="form-check-label" for="radio-engage1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-engage1" value="3" id="radio-engage1-3">
+                      <label class="form-check-label" for="radio-engage1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-engage1" value="4" id="radio-engage1-4">
+                      <label class="form-check-label" for="radio-engage1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-engage1" value="5" id="radio-engage1-5">
+                      <label class="form-check-label" for="radio-engage1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-engage1" value="6" id="radio-engage1-6">
+                      <label class="form-check-label" for="radio-engage1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-engage1" value="7" id="radio-engage1-7">
+                      <label class="form-check-label" for="radio-engage1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+                
+                
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q5. I would like to continue to work with the AI.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-future1" value="1" id="radio-future1-1">
+                      <label class="form-check-label" for="radio-future1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-future1" value="2" id="radio-future1-2">
+                      <label class="form-check-label" for="radio-future1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-future1" value="3" id="radio-future1-3">
+                      <label class="form-check-label" for="radio-future1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-future1" value="4" id="radio-future1-4">
+                      <label class="form-check-label" for="radio-future1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-future1" value="5" id="radio-future1-5">
+                      <label class="form-check-label" for="radio-future1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-future1" value="6" id="radio-future1-6">
+                      <label class="form-check-label" for="radio-future1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-future1" value="7" id="radio-future1-7">
+                      <label class="form-check-label" for="radio-future1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q6. I am satisfied with the AI's assistance.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-satisfaction1" value="1" id="radio-satisfaction1-1">
+                      <label class="form-check-label" for="radio-satisfaction1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-satisfaction1" value="2" id="radio-satisfaction1-2">
+                      <label class="form-check-label" for="radio-satisfaction1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-satisfaction1" value="3" id="radio-satisfaction1-3">
+                      <label class="form-check-label" for="radio-satisfaction1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-satisfaction1" value="4" id="radio-satisfaction1-4">
+                      <label class="form-check-label" for="radio-satisfaction1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-satisfaction1" value="5" id="radio-satisfaction1-5">
+                      <label class="form-check-label" for="radio-satisfaction1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-satisfaction1" value="6" id="radio-satisfaction1-6">
+                      <label class="form-check-label" for="radio-satisfaction1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-satisfaction1" value="7" id="radio-satisfaction1-7">
+                      <label class="form-check-label" for="radio-satisfaction1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q7. I think this AI assistance is helpful/useful for me to make good decisions.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-helpful1" value="1" id="radio-helpful1-1">
+                      <label class="form-check-label" for="radio-helpful1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-helpful1" value="2" id="radio-helpful1-2">
+                      <label class="form-check-label" for="radio-helpful1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-helpful1" value="3" id="radio-helpful1-3">
+                      <label class="form-check-label" for="radio-helpful1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-helpful1" value="4" id="radio-helpful1-4">
+                      <label class="form-check-label" for="radio-helpful1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-helpful1" value="5" id="radio-helpful1-5">
+                      <label class="form-check-label" for="radio-helpful1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-helpful1" value="6" id="radio-helpful1-6">
+                      <label class="form-check-label" for="radio-helpful1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-helpful1" value="7" id="radio-helpful1-7">
+                      <label class="form-check-label" for="radio-helpful1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q8. I think I can trust the AI.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-trust1" value="1" id="radio-trust1-1">
+                      <label class="form-check-label" for="radio-trust1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust1" value="2" id="radio-trust1-2">
+                      <label class="form-check-label" for="radio-trust1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust1" value="3" id="radio-trust1-3">
+                      <label class="form-check-label" for="radio-trust1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust1" value="4" id="radio-trust1-4">
+                      <label class="form-check-label" for="radio-trust1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust1" value="5" id="radio-trust1-5">
+                      <label class="form-check-label" for="radio-trust1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust1" value="6" id="radio-trust1-6">
+                      <label class="form-check-label" for="radio-trust1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust1" value="7" id="radio-trust1-7">
+                      <label class="form-check-label" for="radio-trust1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q9. The AI can be trusted to provide reliable support.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-trust2" value="1" id="radio-trust2-1">
+                      <label class="form-check-label" for="radio-trust2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust2" value="2" id="radio-trust2-2">
+                      <label class="form-check-label" for="radio-trust2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust2" value="3" id="radio-trust2-3">
+                      <label class="form-check-label" for="radio-trust2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust2" value="4" id="radio-trust2-4">
+                      <label class="form-check-label" for="radio-trust2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust2" value="5" id="radio-trust2-5">
+                      <label class="form-check-label" for="radio-trust2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust2" value="6" id="radio-trust2-6">
+                      <label class="form-check-label" for="radio-trust2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust2" value="7" id="radio-trust2-7">
+                      <label class="form-check-label" for="radio-trust2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q10. I trust the AI to keep my best interests in mind.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-trust3" value="1" id="radio-trust3-1">
+                      <label class="form-check-label" for="radio-trust3-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust3" value="2" id="radio-trust3-2">
+                      <label class="form-check-label" for="radio-trust3-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust3" value="3" id="radio-trust3-3">
+                      <label class="form-check-label" for="radio-trust3-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust3" value="4" id="radio-trust3-4">
+                      <label class="form-check-label" for="radio-trust3-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust3" value="5" id="radio-trust3-5">
+                      <label class="form-check-label" for="radio-trust3-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust3" value="6" id="radio-trust3-6">
+                      <label class="form-check-label" for="radio-trust3-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust3" value="7" id="radio-trust3-7">
+                      <label class="form-check-label" for="radio-trust3-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q11. In my opinion, the AI is trustworthy.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-trust4" value="1" id="radio-trust4-1">
+                      <label class="form-check-label" for="radio-trust4-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust4" value="2" id="radio-trust4-2">
+                      <label class="form-check-label" for="radio-trust4-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust4" value="3" id="radio-trust4-3">
+                      <label class="form-check-label" for="radio-trust4-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust4" value="4" id="radio-trust4-4">
+                      <label class="form-check-label" for="radio-trust4-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust4" value="5" id="radio-trust4-5">
+                      <label class="form-check-label" for="radio-trust4-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust4" value="6" id="radio-trust4-6">
+                      <label class="form-check-label" for="radio-trust4-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-trust4" value="7" id="radio-trust4-7">
+                      <label class="form-check-label" for="radio-trust4-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+               
+                
+                
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q12. I would prefer complex to simple problems.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-nfc1" value="1" id="radio-nfc1-1">
+                      <label class="form-check-label" for="radio-nfc1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc1" value="2" id="radio-nfc1-2">
+                      <label class="form-check-label" for="radio-nfc1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc1" value="3" id="radio-nfc1-3">
+                      <label class="form-check-label" for="radio-nfc1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc1" value="4" id="radio-nfc1-4">
+                      <label class="form-check-label" for="radio-nfc1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc1" value="5" id="radio-nfc1-5">
+                      <label class="form-check-label" for="radio-nfc1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc1" value="6" id="radio-nfc1-6">
+                      <label class="form-check-label" for="radio-nfc1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc1" value="7" id="radio-nfc1-7">
+                      <label class="form-check-label" for="radio-nfc1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q13. I like to have the responsibility of handling a situation that requires a lot of thinking.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-nfc2" value="1" id="radio-nfc2-1">
+                      <label class="form-check-label" for="radio-nfc2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc2" value="2" id="radio-nfc2-2">
+                      <label class="form-check-label" for="radio-nfc2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc2" value="3" id="radio-nfc2-3">
+                      <label class="form-check-label" for="radio-nfc2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc2" value="4" id="radio-nfc2-4">
+                      <label class="form-check-label" for="radio-nfc2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc2" value="5" id="radio-nfc2-5">
+                      <label class="form-check-label" for="radio-nfc2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc2" value="6" id="radio-nfc2-6">
+                      <label class="form-check-label" for="radio-nfc2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc2" value="7" id="radio-nfc2-7">
+                      <label class="form-check-label" for="radio-nfc2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q14. Thinking is NOT my idea of fun.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-nfc3" value="1" id="radio-nfc3-1">
+                      <label class="form-check-label" for="radio-nfc3-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc3" value="2" id="radio-nfc3-2">
+                      <label class="form-check-label" for="radio-nfc3-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc3" value="3" id="radio-nfc3-3">
+                      <label class="form-check-label" for="radio-nfc3-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc3" value="4" id="radio-nfc3-4">
+                      <label class="form-check-label" for="radio-nfc3-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc3" value="5" id="radio-nfc3-5">
+                      <label class="form-check-label" for="radio-nfc3-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc3" value="6" id="radio-nfc3-6">
+                      <label class="form-check-label" for="radio-nfc3-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc3" value="7" id="radio-nfc3-7">
+                      <label class="form-check-label" for="radio-nfc3-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q15. I would rather do something that requires little thought than something that is sure to challenge my thinking abilities.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-nfc4" value="1" id="radio-nfc4-1">
+                      <label class="form-check-label" for="radio-nfc4-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc4" value="2" id="radio-nfc4-2">
+                      <label class="form-check-label" for="radio-nfc4-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc4" value="3" id="radio-nfc4-3">
+                      <label class="form-check-label" for="radio-nfc4-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc4" value="4" id="radio-nfc4-4">
+                      <label class="form-check-label" for="radio-nfc4-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc4" value="5" id="radio-nfc4-5">
+                      <label class="form-check-label" for="radio-nfc4-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc4" value="6" id="radio-nfc4-6">
+                      <label class="form-check-label" for="radio-nfc4-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-nfc4" value="7" id="radio-nfc4-7">
+                      <label class="form-check-label" for="radio-nfc4-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q16. What do you think of your accuracy in the 20 tasks?
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-performance2" value="1" id="radio-performance2-1">
+                      <label class="form-check-label" for="radio-performance2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance2" value="2" id="radio-performance2-2">
+                      <label class="form-check-label" for="radio-performance2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance2" value="3" id="radio-performance2-3">
+                      <label class="form-check-label" for="radio-performance2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance2" value="4" id="radio-performance2-4">
+                      <label class="form-check-label" for="radio-performance2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance2" value="5" id="radio-performance2-5">
+                      <label class="form-check-label" for="radio-performance2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance2" value="6" id="radio-performance2-6">
+                      <label class="form-check-label" for="radio-performance2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-performance2" value="7" id="radio-performance2-7">
+                      <label class="form-check-label" for="radio-performance2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Very Bad&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Very good&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q17. I am confident about my ability to do the task.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-efficacy1" value="1" id="radio-efficacy1-1">
+                      <label class="form-check-label" for="radio-efficacy1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy1" value="2" id="radio-efficacy1-2">
+                      <label class="form-check-label" for="radio-efficacy1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy1" value="3" id="radio-efficacy1-3">
+                      <label class="form-check-label" for="radio-efficacy1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy1" value="4" id="radio-efficacy1-4">
+                      <label class="form-check-label" for="radio-efficacy1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy1" value="5" id="radio-efficacy1-5">
+                      <label class="form-check-label" for="radio-efficacy1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy1" value="6" id="radio-efficacy1-6">
+                      <label class="form-check-label" for="radio-efficacy1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy1" value="7" id="radio-efficacy1-7">
+                      <label class="form-check-label" for="radio-efficacy1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q18. I have mastered the skills necessary for the task.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-efficacy2" value="1" id="radio-efficacy2-1">
+                      <label class="form-check-label" for="radio-efficacy2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy2" value="2" id="radio-efficacy2-2">
+                      <label class="form-check-label" for="radio-efficacy2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy2" value="3" id="radio-efficacy2-3">
+                      <label class="form-check-label" for="radio-efficacy2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy2" value="4" id="radio-efficacy2-4">
+                      <label class="form-check-label" for="radio-efficacy2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy2" value="5" id="radio-efficacy2-5">
+                      <label class="form-check-label" for="radio-efficacy2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy2" value="6" id="radio-efficacy2-6">
+                      <label class="form-check-label" for="radio-efficacy2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy2" value="7" id="radio-efficacy2-7">
+                      <label class="form-check-label" for="radio-efficacy2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q19. I am self-assured about my capabilities to perform the task.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-efficacy3" value="1" id="radio-efficacy3-1">
+                      <label class="form-check-label" for="radio-efficacy3-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy3" value="2" id="radio-efficacy3-2">
+                      <label class="form-check-label" for="radio-efficacy3-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy3" value="3" id="radio-efficacy3-3">
+                      <label class="form-check-label" for="radio-efficacy3-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy3" value="4" id="radio-efficacy3-4">
+                      <label class="form-check-label" for="radio-efficacy3-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy3" value="5" id="radio-efficacy3-5">
+                      <label class="form-check-label" for="radio-efficacy3-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy3" value="6" id="radio-efficacy3-6">
+                      <label class="form-check-label" for="radio-efficacy3-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-efficacy3" value="7" id="radio-efficacy3-7">
+                      <label class="form-check-label" for="radio-efficacy3-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q20. I don't tolerate ambiguous situations well.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-tolerance1" value="1" id="radio-tolerance1-1">
+                      <label class="form-check-label" for="radio-tolerance1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance1" value="2" id="radio-tolerance1-2">
+                      <label class="form-check-label" for="radio-tolerance1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance1" value="3" id="radio-tolerance1-3">
+                      <label class="form-check-label" for="radio-tolerance1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance1" value="4" id="radio-tolerance1-4">
+                      <label class="form-check-label" for="radio-tolerance1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance1" value="5" id="radio-tolerance1-5">
+                      <label class="form-check-label" for="radio-tolerance1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance1" value="6" id="radio-tolerance1-6">
+                      <label class="form-check-label" for="radio-tolerance1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance1" value="7" id="radio-tolerance1-7">
+                      <label class="form-check-label" for="radio-tolerance1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q21. I avoid situations that are too complicated for me to easily understand.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-tolerance2" value="1" id="radio-tolerance2-1">
+                      <label class="form-check-label" for="radio-tolerance2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance2" value="2" id="radio-tolerance2-2">
+                      <label class="form-check-label" for="radio-tolerance2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance2" value="3" id="radio-tolerance2-3">
+                      <label class="form-check-label" for="radio-tolerance2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance2" value="4" id="radio-tolerance2-4">
+                      <label class="form-check-label" for="radio-tolerance2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance2" value="5" id="radio-tolerance2-5">
+                      <label class="form-check-label" for="radio-tolerance2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance2" value="6" id="radio-tolerance2-6">
+                      <label class="form-check-label" for="radio-tolerance2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance2" value="7" id="radio-tolerance2-7">
+                      <label class="form-check-label" for="radio-tolerance2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q22. I find it hard to make a choice when the outcome is uncertain.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-tolerance3" value="1" id="radio-tolerance3-1">
+                      <label class="form-check-label" for="radio-tolerance3-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance3" value="2" id="radio-tolerance3-2">
+                      <label class="form-check-label" for="radio-tolerance3-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance3" value="3" id="radio-tolerance3-3">
+                      <label class="form-check-label" for="radio-tolerance3-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance3" value="4" id="radio-tolerance3-4">
+                      <label class="form-check-label" for="radio-tolerance3-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance3" value="5" id="radio-tolerance3-5">
+                      <label class="form-check-label" for="radio-tolerance3-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance3" value="6" id="radio-tolerance3-6">
+                      <label class="form-check-label" for="radio-tolerance3-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance3" value="7" id="radio-tolerance3-7">
+                      <label class="form-check-label" for="radio-tolerance3-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q23. I prefer familiar situations to new ones.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-tolerance4" value="1" id="radio-tolerance4-1">
+                      <label class="form-check-label" for="radio-tolerance4-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance4" value="2" id="radio-tolerance4-2">
+                      <label class="form-check-label" for="radio-tolerance4-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance4" value="3" id="radio-tolerance4-3">
+                      <label class="form-check-label" for="radio-tolerance4-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance4" value="4" id="radio-tolerance4-4">
+                      <label class="form-check-label" for="radio-tolerance4-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance4" value="5" id="radio-tolerance4-5">
+                      <label class="form-check-label" for="radio-tolerance4-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance4" value="6" id="radio-tolerance4-6">
+                      <label class="form-check-label" for="radio-tolerance4-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance4" value="7" id="radio-tolerance4-7">
+                      <label class="form-check-label" for="radio-tolerance4-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q24. I would rather avoid solving a problem that must be viewed from several different perspectives.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-tolerance5" value="1" id="radio-tolerance5-1">
+                      <label class="form-check-label" for="radio-tolerance5-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance5" value="2" id="radio-tolerance5-2">
+                      <label class="form-check-label" for="radio-tolerance5-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance5" value="3" id="radio-tolerance5-3">
+                      <label class="form-check-label" for="radio-tolerance5-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance5" value="4" id="radio-tolerance5-4">
+                      <label class="form-check-label" for="radio-tolerance5-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance5" value="5" id="radio-tolerance5-5">
+                      <label class="form-check-label" for="radio-tolerance5-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance5" value="6" id="radio-tolerance5-6">
+                      <label class="form-check-label" for="radio-tolerance5-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-tolerance5" value="7" id="radio-tolerance5-7">
+                      <label class="form-check-label" for="radio-tolerance5-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q25. At times I think I am no good at all.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-esteem1" value="1" id="radio-esteem1-1">
+                      <label class="form-check-label" for="radio-esteem1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem1" value="2" id="radio-esteem1-2">
+                      <label class="form-check-label" for="radio-esteem1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem1" value="3" id="radio-esteem1-3">
+                      <label class="form-check-label" for="radio-esteem1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem1" value="4" id="radio-esteem1-4">
+                      <label class="form-check-label" for="radio-esteem1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem1" value="5" id="radio-esteem1-5">
+                      <label class="form-check-label" for="radio-esteem1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem1" value="6" id="radio-esteem1-6">
+                      <label class="form-check-label" for="radio-esteem1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem1" value="7" id="radio-esteem1-7">
+                      <label class="form-check-label" for="radio-esteem1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q26. All in all, I am inclined to think that I am a failure.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-esteem2" value="1" id="radio-esteem2-1">
+                      <label class="form-check-label" for="radio-esteem2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem2" value="2" id="radio-esteem2-2">
+                      <label class="form-check-label" for="radio-esteem2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem2" value="3" id="radio-esteem2-3">
+                      <label class="form-check-label" for="radio-esteem2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem2" value="4" id="radio-esteem2-4">
+                      <label class="form-check-label" for="radio-esteem2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem2" value="5" id="radio-esteem2-5">
+                      <label class="form-check-label" for="radio-esteem2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem2" value="6" id="radio-esteem2-6">
+                      <label class="form-check-label" for="radio-esteem2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem2" value="7" id="radio-esteem2-7">
+                      <label class="form-check-label" for="radio-esteem2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q27. I feel I do have much to be proud of.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-esteem3" value="1" id="radio-esteem3-1">
+                      <label class="form-check-label" for="radio-esteem3-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem3" value="2" id="radio-esteem3-2">
+                      <label class="form-check-label" for="radio-esteem3-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem3" value="3" id="radio-esteem3-3">
+                      <label class="form-check-label" for="radio-esteem3-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem3" value="4" id="radio-esteem3-4">
+                      <label class="form-check-label" for="radio-esteem3-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem3" value="5" id="radio-esteem3-5">
+                      <label class="form-check-label" for="radio-esteem3-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem3" value="6" id="radio-esteem3-6">
+                      <label class="form-check-label" for="radio-esteem3-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem3" value="7" id="radio-esteem3-7">
+                      <label class="form-check-label" for="radio-esteem3-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q28. On the whole, I am satisfied with myself.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-esteem4" value="1" id="radio-esteem4-1">
+                      <label class="form-check-label" for="radio-esteem4-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem4" value="2" id="radio-esteem4-2">
+                      <label class="form-check-label" for="radio-esteem4-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem4" value="3" id="radio-esteem4-3">
+                      <label class="form-check-label" for="radio-esteem4-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem4" value="4" id="radio-esteem4-4">
+                      <label class="form-check-label" for="radio-esteem4-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem4" value="5" id="radio-esteem4-5">
+                      <label class="form-check-label" for="radio-esteem4-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem4" value="6" id="radio-esteem4-6">
+                      <label class="form-check-label" for="radio-esteem4-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem4" value="7" id="radio-esteem4-7">
+                      <label class="form-check-label" for="radio-esteem4-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q29. I take a positive attitude toward myself.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-esteem5" value="1" id="radio-esteem5-1">
+                      <label class="form-check-label" for="radio-esteem5-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem5" value="2" id="radio-esteem5-2">
+                      <label class="form-check-label" for="radio-esteem5-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem5" value="3" id="radio-esteem5-3">
+                      <label class="form-check-label" for="radio-esteem5-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem5" value="4" id="radio-esteem5-4">
+                      <label class="form-check-label" for="radio-esteem5-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem5" value="5" id="radio-esteem5-5">
+                      <label class="form-check-label" for="radio-esteem5-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem5" value="6" id="radio-esteem5-6">
+                      <label class="form-check-label" for="radio-esteem5-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-esteem5" value="7" id="radio-esteem5-7">
+                      <label class="form-check-label" for="radio-esteem5-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q30. I see myself as Extraverted, enthusiastic.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-extraversion1" value="1" id="radio-extraversion1-1">
+                      <label class="form-check-label" for="radio-extraversion1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion1" value="2" id="radio-extraversion1-2">
+                      <label class="form-check-label" for="radio-extraversion1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion1" value="3" id="radio-extraversion1-3">
+                      <label class="form-check-label" for="radio-extraversion1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion1" value="4" id="radio-extraversion1-4">
+                      <label class="form-check-label" for="radio-extraversion1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion1" value="5" id="radio-extraversion1-5">
+                      <label class="form-check-label" for="radio-extraversion1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion1" value="6" id="radio-extraversion1-6">
+                      <label class="form-check-label" for="radio-extraversion1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion1" value="7" id="radio-extraversion1-7">
+                      <label class="form-check-label" for="radio-extraversion1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q31. I see myself as Reserved, quiet.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-extraversion2" value="1" id="radio-extraversion2-1">
+                      <label class="form-check-label" for="radio-extraversion2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion2" value="2" id="radio-extraversion2-2">
+                      <label class="form-check-label" for="radio-extraversion2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion2" value="3" id="radio-extraversion2-3">
+                      <label class="form-check-label" for="radio-extraversion2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion2" value="4" id="radio-extraversion2-4">
+                      <label class="form-check-label" for="radio-extraversion2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion2" value="5" id="radio-extraversion2-5">
+                      <label class="form-check-label" for="radio-extraversion2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion2" value="6" id="radio-extraversion2-6">
+                      <label class="form-check-label" for="radio-extraversion2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-extraversion2" value="7" id="radio-extraversion2-7">
+                      <label class="form-check-label" for="radio-extraversion2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q32. I see myself as Critical, quarrelsome.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-agreeableness1" value="1" id="radio-agreeableness1-1">
+                      <label class="form-check-label" for="radio-agreeableness1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness1" value="2" id="radio-agreeableness1-2">
+                      <label class="form-check-label" for="radio-agreeableness1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness1" value="3" id="radio-agreeableness1-3">
+                      <label class="form-check-label" for="radio-agreeableness1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness1" value="4" id="radio-agreeableness1-4">
+                      <label class="form-check-label" for="radio-agreeableness1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness1" value="5" id="radio-agreeableness1-5">
+                      <label class="form-check-label" for="radio-agreeableness1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness1" value="6" id="radio-agreeableness1-6">
+                      <label class="form-check-label" for="radio-agreeableness1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness1" value="7" id="radio-agreeableness1-7">
+                      <label class="form-check-label" for="radio-agreeableness1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q33. I see myself as Sympathetic, warm.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-agreeableness2" value="1" id="radio-agreeableness2-1">
+                      <label class="form-check-label" for="radio-agreeableness2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness2" value="2" id="radio-agreeableness2-2">
+                      <label class="form-check-label" for="radio-agreeableness2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness2" value="3" id="radio-agreeableness2-3">
+                      <label class="form-check-label" for="radio-agreeableness2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness2" value="4" id="radio-agreeableness2-4">
+                      <label class="form-check-label" for="radio-agreeableness2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness2" value="5" id="radio-agreeableness2-5">
+                      <label class="form-check-label" for="radio-agreeableness2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness2" value="6" id="radio-agreeableness2-6">
+                      <label class="form-check-label" for="radio-agreeableness2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-agreeableness2" value="7" id="radio-agreeableness2-7">
+                      <label class="form-check-label" for="radio-agreeableness2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+                
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q34. I see myself as Dependable, self-disciplined.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness1" value="1" id="radio-conscientiousness1-1">
+                      <label class="form-check-label" for="radio-conscientiousness1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness1" value="2" id="radio-conscientiousness1-2">
+                      <label class="form-check-label" for="radio-conscientiousness1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness1" value="3" id="radio-conscientiousness1-3">
+                      <label class="form-check-label" for="radio-conscientiousness1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness1" value="4" id="radio-conscientiousness1-4">
+                      <label class="form-check-label" for="radio-conscientiousness1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness1" value="5" id="radio-conscientiousness1-5">
+                      <label class="form-check-label" for="radio-conscientiousness1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness1" value="6" id="radio-conscientiousness1-6">
+                      <label class="form-check-label" for="radio-conscientiousness1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness1" value="7" id="radio-conscientiousness1-7">
+                      <label class="form-check-label" for="radio-conscientiousness1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q35. I see myself as Disorganized, careless.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness2" value="1" id="radio-conscientiousness2-1">
+                      <label class="form-check-label" for="radio-conscientiousness2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness2" value="2" id="radio-conscientiousness2-2">
+                      <label class="form-check-label" for="radio-conscientiousness2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness2" value="3" id="radio-conscientiousness2-3">
+                      <label class="form-check-label" for="radio-conscientiousness2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness2" value="4" id="radio-conscientiousness2-4">
+                      <label class="form-check-label" for="radio-conscientiousness2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness2" value="5" id="radio-conscientiousness2-5">
+                      <label class="form-check-label" for="radio-conscientiousness2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness2" value="6" id="radio-conscientiousness2-6">
+                      <label class="form-check-label" for="radio-conscientiousness2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-conscientiousness2" value="7" id="radio-conscientiousness2-7">
+                      <label class="form-check-label" for="radio-conscientiousness2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q36. I see myself as Anxious, easily upset.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-stability1" value="1" id="radio-stability1-1">
+                      <label class="form-check-label" for="radio-stability1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability1" value="2" id="radio-stability1-2">
+                      <label class="form-check-label" for="radio-stability1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability1" value="3" id="radio-stability1-3">
+                      <label class="form-check-label" for="radio-stability1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability1" value="4" id="radio-stability1-4">
+                      <label class="form-check-label" for="radio-stability1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability1" value="5" id="radio-stability1-5">
+                      <label class="form-check-label" for="radio-stability1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability1" value="6" id="radio-stability1-6">
+                      <label class="form-check-label" for="radio-stability1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability1" value="7" id="radio-stability1-7">
+                      <label class="form-check-label" for="radio-stability1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q37. I see myself as Calm, emotionally stable.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-stability2" value="1" id="radio-stability2-1">
+                      <label class="form-check-label" for="radio-stability2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability2" value="2" id="radio-stability2-2">
+                      <label class="form-check-label" for="radio-stability2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability2" value="3" id="radio-stability2-3">
+                      <label class="form-check-label" for="radio-stability2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability2" value="4" id="radio-stability2-4">
+                      <label class="form-check-label" for="radio-stability2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability2" value="5" id="radio-stability2-5">
+                      <label class="form-check-label" for="radio-stability2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability2" value="6" id="radio-stability2-6">
+                      <label class="form-check-label" for="radio-stability2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-stability2" value="7" id="radio-stability2-7">
+                      <label class="form-check-label" for="radio-stability2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q38. I see myself as Open to new experiences, complex.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-openness1" value="1" id="radio-openness1-1">
+                      <label class="form-check-label" for="radio-openness1-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness1" value="2" id="radio-openness1-2">
+                      <label class="form-check-label" for="radio-openness1-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness1" value="3" id="radio-openness1-3">
+                      <label class="form-check-label" for="radio-openness1-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness1" value="4" id="radio-openness1-4">
+                      <label class="form-check-label" for="radio-openness1-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness1" value="5" id="radio-openness1-5">
+                      <label class="form-check-label" for="radio-openness1-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness1" value="6" id="radio-openness1-6">
+                      <label class="form-check-label" for="radio-openness1-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness1" value="7" id="radio-openness1-7">
+                      <label class="form-check-label" for="radio-openness1-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+                <li class="list-group-item list-group-item-success">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>  
+                        Q39. I see myself as Conventional, uncreative.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <input class="form-check-input" type="radio" name="Q-openness2" value="1" id="radio-openness2-1">
+                      <label class="form-check-label" for="radio-openness2-1">1&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness2" value="2" id="radio-openness2-2">
+                      <label class="form-check-label" for="radio-openness2-2">2&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness2" value="3" id="radio-openness2-3">
+                      <label class="form-check-label" for="radio-openness2-3">3&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness2" value="4" id="radio-openness2-4">
+                      <label class="form-check-label" for="radio-openness2-4">4&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness2" value="5" id="radio-openness2-5">
+                      <label class="form-check-label" for="radio-openness2-5">5&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness2" value="6" id="radio-openness2-6">
+                      <label class="form-check-label" for="radio-openness2-6">6&emsp;&emsp;&emsp;
+                      </label>
+    
+                      <input class="form-check-input" type="radio" name="Q-openness2" value="7" id="radio-openness2-7">
+                      <label class="form-check-label" for="radio-openness2-7">7&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <label class="form-check-label">Strongly Disagree&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                      <label class="form-check-label">Strongly Agree&emsp;&emsp;&emsp;&emsp;&emsp;
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4>
+                        Do you have any thoughts about the AI assistance? Please share with us.
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <textarea class="form-check-input" name="feedback_1" id="text-feedback-3" placeholder="please input your feedback" rows="4" style="width:100%;"></textarea>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+            </form>
+      
+                 
+      
+      
+        </div>
+      
+        <br>
+
+        <button id="go_to_next_finish" type="button" class="btn btn-primary" data-dismiss="modal" style="display: none;">Finish</button>
+      
+      </div>
+
+
+
+      <div id="NLP_task" class="tab-pane fade">
+        <h1>News Category Classification - Main Task</h1>
+        </br>
+        <h2 id="the-index">1/20</h2>
+        <form class="form-inline list-group-item list-group-item-light was-validated" id="form_info">
+          <p style="font-size:20px;" id="category-text-content">
+            him, as many did, why he chose not to run.
+          </p>
+        </form>
+
+
+        <form id="firstdecision1" class="container-fluid list-group-item list-group-item-light" style="display: block;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    What is your prediction?
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="0" id="radio-first-decision-1">
+                  <label class="form-check-label" for="radio-first-decision-1">BUSINESS
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="1" id="radio-first-decision-2">
+                  <label class="form-check-label" for="radio-first-decision-2">ENTERTAINMENT
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="2" id="radio-first-decision-3">
+                  <label class="form-check-label" for="radio-first-decision-3">HEALTHY LIVING
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="3" id="radio-first-decision-4">
+                  <label class="form-check-label" for="radio-first-decision-4">POLITICS
+                  </label>
+                </div>      
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="4" id="radio-first-decision-5">
+                  <label class="form-check-label" for="radio-first-decision-5">TECHNOLOGY
+                  </label>
+                </div>
+
+              </div>
+            </li>
+          </ul>
+
+        </form>
+
+        <ul class="pager" style="display: none;"> <li>
+          <a id="see_ai_suggestion" href="#AI_suggestion1">See AI Suggestion</a>
+        </li> </ul>    
+      </div>
+
+      <div id="AI_suggestion1" class="tab-pane fade">
+        
+        <table id="show_ai_suggestion" border="0" width="100%">
+          <tr>
+            <td style="width:20%; background-color:transparent"> <img src="AI-icon2.png" alt="Lights" style="width:60%"> </td>
+            <td style="width:20%; background-color:transparent; font-size:20px" id="ai_sug_region">AI's suggestion: TECHNOLOGY</td>
+            <td style="width:60%; background-color:transparent; font-size:20px"></td>
+          </tr> 
+        </table>
+
+
+        <div class="list-group-item list-group-item-light">
+          <div id="demp">
+            <div class="content animate__animated animate__swing">
+              <div class="nav">
+                <div id="tab1" style="font-size:20px;">BUSINESS</div>
+                <div id="tab2" style="font-size:20px;">ENTERTAINMENT</div>
+                <div id="tab3" style="font-size:20px;">HEALTHY LIVING</div>
+                <div id="tab4" style="font-size:20px;">POLITICS</div>
+                <div id="tab5" style="font-size:20px;">TECHNOLOGY</div>
+              </div>
+              <div class="item">
+
+
+                <div id="highlight_1">
+                  <p style="font-size:20px;" id="suggestion1-text-BUSINESS">
+                      <font style="background: #C2DAEB">Why</font> Every Young Physician Should Have a <font style="background: #97C0DC">Professional</font> <font style="background: #e2edeb">Twitter</font> 
+                      Account As patients and <font style="background: #75b6ae">medical</font> providers 
+                      increasingly use <font style="background: #A8CAE2">online</font> sources <font style="background: #B8D4E7">for</font> information and support, <font style="background: #E2EDED">Twitter</font> 
+                      <font style="background: #88B6D7">offers</font> a unique opportunity <font style="background: #B8D4E7">for</font> young <font style="background: #5F9EA0">medical</font> 
+                      professionals like yourself to <font style="background: #E7F1F1">voice</font> opinions and be heard in ways that otherwise would 
+                      be challenging at <font style="background: #BCD6E9">such</font> 
+                      an early level of <font style="background: #5F9EA0">medical</font> training.
+                  </p>
+                  <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                  <figure  class="highcharts-figure">
+                    <div id="chart_business"></div>
+                  </figure>
+                </div>
+
+
+                <div id="highlight_2">
+                  <p style="font-size:20px;" id="suggestion1-text-ENTERTAINMENT">
+                    <font style="background: #5F9EA0">Why</font> Every <font style="background: #FFCB9D">Young</font> Physician 
+                    <font style="background: #5F9EA0">Should</font> Have a Professional
+                    <font style="background: #FFCB9D">Twitter</font> 
+                    Account As <font style="background: #A7C9CA">patients</font>  and medical providers 
+                    increasingly <font style="background: #A7C9CA">use</font>  <font style="background: #A7C9CA">online</font> sources 
+                    <font style="background: #A7C9CA">for</font> 
+                    <font style="background: #A7C9CA">information</font> and support, <font style="background: #FFCB9D">Twitter</font> 
+                    offers a unique opportunity <font style="background: #A7C9CA">for</font> young 
+                    medical
+                    professionals like yourself <font style="background: #88B6D7">to</font> voice opinions 
+                    and be heard in ways that otherwise would 
+                    be challenging at such
+                    an early level of medical training.
+                  </p>
+
+                  <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                  <figure  class="highcharts-figure">
+                    <div id="chart_entertainment"></div>
+                  </figure>
+                </div>
+
+                <div id="highlight_3">
+                  <p style="font-size:20px;" id="suggestion1-text-HEALTHY">
+                    <font style="background: #E3F2E3">Why</font> Every Young <font style="background: #E3F2E3">Physician</font> Should Have a 
+                    Professional <font style="background: #7AAEB0">Twitter</font> 
+                    Account As <font style="background: #B1DCB1">patients</font> <font style="background: #E3F2E3">and</font>
+                     <font style="background: #2CA02C">medical</font> providers 
+                    increasingly use <font style="background: #D3E4E5">online</font> sources for information
+                     <font style="background: #E3F2E3">and</font> support, <font style="background: #7AAEB0">Twitter</font> 
+                    offers a unique opportunity for young <font style="background: #2CA02C">medical</font> 
+                    professionals like <font style="background: #CBE8CB">yourself</font> to voice opinions 
+                    <font style="background: #E3F2E3">and</font> be heard in <font style="background: #E3F2E3">ways</font> that otherwise would 
+                    be challenging at <font style="background: #D4E5E6">such</font> 
+                    an early level of <font style="background: #2CA02C">medical</font> training.
+                  </p>
+
+                  <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                  <figure  class="highcharts-figure">
+                    <div id="chart_health"></div>
+                  </figure>
+                </div>
+
+                <div id="highlight_4">
+                  <p style="font-size:20px;" id="suggestion1-text-POLITICS">
+                    <font style="background: #A8CBCC">Why</font> Every Young Physician Should Have a <font style="background: #8AB8BA">Professional</font> 
+                    Twitter
+                    Account As <font style="background: #A8CBCC">patients</font> <font style="background: #A8CBCC">and</font> 
+                    medical providers 
+                    <font style="background: #E57777">increasingly</font>  use <font style="background: #5F9EA0">online</font> 
+                    sources for information <font style="background: #A8CBCC">and</font> support, Twitter
+                    <font style="background: #A8CBCC">offers</font> a unique opportunity for young medical
+                    professionals like <font style="background: #A8CBCC">yourself</font> to voice 
+                    <font style="background: #E57777">opinions</font>  <font style="background: #A8CBCC">and</font> be heard in ways 
+                    that otherwise <font style="background: #E57777">would</font> 
+                    be challenging at such 
+                    an early level of medical training.
+                  </p>
+
+                  <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                  <figure  class="highcharts-figure">
+                    <div id="chart_politics"></div>
+                  </figure>
+                </div>
+
+                <div id="highlight_5">
+                  <p style="font-size:20px;" id="suggestion1-text-TECHNOLOGY">
+                  <font style="background: #DEEBEB">Why</font> 
+                  Every 
+                  Young 
+                  Physician 
+                  Should 
+                  Have a 
+                  Professional
+                  <font style="background: #9467BD">Twitter</font> 
+                  Account 
+                  As 
+                  patients
+                  <font style="background: #CCE0E0">and</font> 
+                  <font style="background: #CCE0E0">medical</font>  
+                  <font style="background: #F5F0F9">providers</font> 
+                  increasingly 
+                  <font style="background: #E5D9EF">use</font> 
+                  <font style="background: #E5D9EF">online</font> 
+                  sources for 
+                  <font style="background: #F5F0F9">information</font>  
+                  <font style="background: #CCE0E0">and</font> 
+                  support, 
+                  <font style="background: #9467BD">Twitter</font> 
+                  <font style="background: #DEEBEB">offers</font> 
+                  a 
+                  unique 
+                  opportunity 
+                  for
+                   young
+                   <font style="background: #CCE0E0">medical</font> 
+                  professionals
+                   like yourself to voice 
+                  opinions  <font style="background: #CCE0E0">and</font> 
+                  <font style="background: #CCE0E0">be</font> heard in ways 
+                  that otherwise would
+                   <font style="background: #CCE0E0">be</font>  challenging at such 
+                  an early level of <font style="background: #CCE0E0">medical</font>   training.
+                </p>
+
+                  <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                  <figure  class="highcharts-figure">
+                    <div id="chart_technology"></div>
+                  </figure>
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+        <form id="finaldecision1" class="container-fluid list-group-item list-group-item-light" style="display: block;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    What is your final prediction?
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="finaldecision" value="0" id="radio-final-decision-1">
+                  <label class="form-check-label" for="radio-final-decision-1">BUSINESS
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="finaldecision" value="1" id="radio-final-decision-2">
+                  <label class="form-check-label" for="radio-final-decision-2">ENTERTAINMENT
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="finaldecision" value="2" id="radio-final-decision-3">
+                  <label class="form-check-label" for="radio-final-decision-3">HEALTHY LIVING
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="finaldecision" value="3" id="radio-final-decision-4">
+                  <label class="form-check-label" for="radio-final-decision-4">POLITICS
+                  </label>
+                </div>      
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="finaldecision" value="4" id="radio-final-decision-5">
+                  <label class="form-check-label" for="radio-final-decision-5">TECHNOLOGY
+                  </label>
+                </div>
+
+              </div>
+            </li>
+          </ul>
+
+                    
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    How confident are you about the final choice you made?
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">&emsp;&emsp;&emsp;&emsp;
+                  <label class="form-check-label">Not confident at all&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="1" id="radio-final-confidence-1">
+                  <label class="form-check-label" for="radio-final-confidence-1">1&emsp;&emsp;&emsp;
+                  </label>
+                
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="2" id="radio-final-confidence-2">
+                  <label class="form-check-label" for="radio-final-confidence-2">2&emsp;&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="3" id="radio-final-confidence-3">
+                  <label class="form-check-label" for="radio-final-confidence-3">3&emsp;&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="4" id="radio-final-confidence-4">
+                  <label class="form-check-label" for="radio-final-confidence-4">4&emsp;&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="5" id="radio-final-confidence-5">
+                  <label class="form-check-label" for="radio-final-confidence-5">5&emsp;&emsp;&emsp;
+                  </label>
+
+                  <label class="form-check-label">Very confident
+                  </label>
+              </div>
+            </li>
+          </ul>
+
+
+
+        </form>
+
+      </div>
+    
+
+  
+      <div id="tutorial" class="tab-pane fade">
+
+
+        <div id="tutorial_firstdecision" style="display: block;">
+
+            <h3>In each task, you will be shown a short news (see below). You need to make your prediction of which category this news belongs to.</h3>
+
+
+            <form class="form-inline list-group-item list-group-item-light was-validated" id="form_info">
+              <p style="font-size:20px;" id="tutorial_category-text-content">
+                Why Every Young Physician Should Have a Professional Twitter Account <br>As patients and medical providers increasingly use online sources for information and support, Twitter offers a unique opportunity for young medical professionals like yourself to voice opinions and be heard in ways that otherwise would be challenging at such an early level of medical training.
+              </p>
+            </form>
+
+
+            <form id="tutorial_first" class="container-fluid list-group-item list-group-item-light" style="display: block;">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-info">
+                  <div class="form-group">
+                    <div style="display: inline-block;">
+                      <h4> 
+                        What is your prediction?
+                      </h4>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="0" id="tutorial-first-decision-1">
+                      <label class="form-check-label" for="tutorial-first-decision-1">BUSINESS
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="1" id="tutorial-first-decision-2">
+                      <label class="form-check-label" for="tutorial-first-decision-2">ENTERTAINMENT
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="2" id="tutorial-first-decision-3">
+                      <label class="form-check-label" for="tutorial-first-decision-3">HEALTHY LIVING
+                      </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="3" id="tutorial-first-decision-4">
+                      <label class="form-check-label" for="tutorial-first-decision-4">POLITICS
+                      </label>
+                    </div>      
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="firstdecision" value="4" id="tutorial-first-decision-5">
+                      <label class="form-check-label" for="tutorial-first-decision-5">TECHNOLOGY
+                      </label>
+                    </div>
+
+                  </div>
+                </li>
+              </ul>
+
+            </form>
+        </div>
+
+
+
+        <div id="tutorial_aisuggestion" class="list-group-item list-group-item-light" style="display: none;">
+          <h3>Second, an AI will give its suggestion.</h3>
+          
+          
+          <table border="0" width="100%">
+            <tr>
+              <td style="width:20%; background-color:transparent"> <img src="AI-icon2.png" alt="Lights" style="width:60%"> </td>
+              <td style="width:80%; background-color:transparent; font-size:20px" id="tutorial_ai_sug_region">AI disagrees with you. AI's suggestion: TECHNOLOGY</td>
+            </tr> 
+          </table>
+
+
+            <div id="demp">
+              <div class="content animate__animated animate__swing">
+                <div class="nav">
+                  <div id="tutorial_tab1" class="active" style="font-size:20px;">BUSINESS</div>
+                  <div id="tutorial_tab2" style="font-size:20px;">ENTERTAINMENT</div>
+                  <div id="tutorial_tab3" style="font-size:20px;">HEALTHY LIVING</div>
+                  <div id="tutorial_tab4" style="font-size:20px;">POLITICS</div>
+                  <div id="tutorial_tab5" style="font-size:20px;">TECHNOLOGY</div>
+                </div>
+                <div class="item">
+  
+  
+                  <div id="tutorial_highlight_1" style="display: block">
+                    <p style="font-size:20px;">
+                        <font style="background: #C2DAEB">Why</font> Every Young Physician Should Have a <font style="background: #97C0DC">Professional</font> <font style="background: #e2edeb">Twitter</font> 
+                        Account As patients and <font style="background: #75b6ae">medical</font> providers 
+                        increasingly use <font style="background: #A8CAE2">online</font> sources <font style="background: #B8D4E7">for</font> information and support, <font style="background: #E2EDED">Twitter</font> 
+                        <font style="background: #88B6D7">offers</font> a unique opportunity <font style="background: #B8D4E7">for</font> young <font style="background: #5F9EA0">medical</font> 
+                        professionals like yourself to <font style="background: #E7F1F1">voice</font> opinions and be heard in ways that otherwise would 
+                        be challenging at <font style="background: #BCD6E9">such</font> 
+                        an early level of <font style="background: #5F9EA0">medical</font> training.
+                    </p>
+                    <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                    <figure  class="highcharts-figure">
+                      <div id="explanation1"></div>
+                    </figure>
+                  </div>
+  
+  
+                  <div id="tutorial_highlight_2"> 
+                    <p style="font-size:20px;">
+                      <font style="background: #5F9EA0">Why</font> Every <font style="background: #FFCB9D">Young</font> Physician 
+                      <font style="background: #5F9EA0">Should</font> Have a Professional
+                      <font style="background: #FFCB9D">Twitter</font> 
+                      Account As <font style="background: #A7C9CA">patients</font>  and medical providers 
+                      increasingly <font style="background: #A7C9CA">use</font>  <font style="background: #A7C9CA">online</font> sources 
+                      <font style="background: #A7C9CA">for</font> 
+                      <font style="background: #A7C9CA">information</font> and support, <font style="background: #FFCB9D">Twitter</font> 
+                      offers a unique opportunity <font style="background: #A7C9CA">for</font> young 
+                      medical
+                      professionals like yourself <font style="background: #88B6D7">to</font> voice opinions 
+                      and be heard in ways that otherwise would 
+                      be challenging at such
+                      an early level of medical training.
+                    </p>
+                    <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                    <figure  class="highcharts-figure">
+                      <div id="explanation2"></div>
+                    </figure>
+                  </div>
+  
+                  <div id="tutorial_highlight_3">
+                    <p style="font-size:20px;">
+                      <font style="background: #E3F2E3">Why</font> Every Young <font style="background: #E3F2E3">Physician</font> Should Have a 
+                      Professional <font style="background: #7AAEB0">Twitter</font> 
+                      Account As <font style="background: #B1DCB1">patients</font> <font style="background: #E3F2E3">and</font>
+                       <font style="background: #2CA02C">medical</font> providers 
+                      increasingly use <font style="background: #D3E4E5">online</font> sources for information
+                       <font style="background: #E3F2E3">and</font> support, <font style="background: #7AAEB0">Twitter</font> 
+                      offers a unique opportunity for young <font style="background: #2CA02C">medical</font> 
+                      professionals like <font style="background: #CBE8CB">yourself</font> to voice opinions 
+                      <font style="background: #E3F2E3">and</font> be heard in <font style="background: #E3F2E3">ways</font> that otherwise would 
+                      be challenging at <font style="background: #D4E5E6">such</font> 
+                      an early level of <font style="background: #2CA02C">medical</font> training.
+                    </p>
+                    <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                    <figure  class="highcharts-figure">
+                      <div id="explanation3"></div>
+                    </figure>
+                  </div>
+  
+                  <div id="tutorial_highlight_4">
+                    <p style="font-size:20px;">
+                      <font style="background: #A8CBCC">Why</font> Every Young Physician Should Have a <font style="background: #8AB8BA">Professional</font> 
+                      Twitter
+                      Account As <font style="background: #A8CBCC">patients</font> <font style="background: #A8CBCC">and</font> 
+                      medical providers 
+                      <font style="background: #E57777">increasingly</font>  use <font style="background: #5F9EA0">online</font> 
+                      sources for information <font style="background: #A8CBCC">and</font> support, Twitter
+                      <font style="background: #A8CBCC">offers</font> a unique opportunity for young medical
+                      professionals like <font style="background: #A8CBCC">yourself</font> to voice 
+                      <font style="background: #E57777">opinions</font>  <font style="background: #A8CBCC">and</font> be heard in ways 
+                      that otherwise <font style="background: #E57777">would</font> 
+                      be challenging at such 
+                      an early level of medical training.
+                    </p>
+                    <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                    <figure  class="highcharts-figure">
+                      <div id="explanation4"></div>
+                    </figure>
+                  </div>
+  
+                  <div id="tutorial_highlight_5">
+                    <p style="font-size:20px;">
+                    <font style="background: #DEEBEB">Why</font> 
+                    Every 
+                    Young 
+                    Physician 
+                    Should 
+                    Have a 
+                    Professional
+                    <font style="background: #9467BD">Twitter</font> 
+                    Account 
+                    As 
+                    patients
+                    <font style="background: #CCE0E0">and</font> 
+                    <font style="background: #CCE0E0">medical</font>  
+                    <font style="background: #F5F0F9">providers</font> 
+                    increasingly 
+                    <font style="background: #E5D9EF">use</font> 
+                    <font style="background: #E5D9EF">online</font> 
+                    sources for 
+                    <font style="background: #F5F0F9">information</font>  
+                    <font style="background: #CCE0E0">and</font> 
+                    support, 
+                    <font style="background: #9467BD">Twitter</font> 
+                    <font style="background: #DEEBEB">offers</font> 
+                    a 
+                    unique 
+                    opportunity 
+                    for
+                     young
+                     <font style="background: #CCE0E0">medical</font> 
+                    professionals
+                     like yourself to voice 
+                    opinions  <font style="background: #CCE0E0">and</font> 
+                    <font style="background: #CCE0E0">be</font> heard in ways 
+                    that otherwise would
+                     <font style="background: #CCE0E0">be</font>  challenging at such 
+                    an early level of <font style="background: #CCE0E0">medical</font>   training.
+                  </p>
+                  <p style="color: #088eff; font-size: 18px;">The importance of a feature is encoded by the length of the bar where a longer bar means greater impact and vice versa</p>
+                    <figure  class="highcharts-figure">
+                      <div id="explanation5"></div>
+                    </figure>
+                  </div>
+  
+                </div>
+  
+              </div>
+  
+  
+            </div>
+  
+        </div>
+    
+
+
+        <form id="tutorial_finaldecision" class="container-fluid list-group-item list-group-item-light" style="display: none;">
+          <h3>Finally, after seeing AI's assistance, you need to make your final prediction.</h3>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    What is your final prediction?
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="0" id="tutorial-final-decision-1">
+                  <label class="form-check-label" for="tutorial-final-decision-1">BUSINESS
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="1" id="tutorial-final-decision-2">
+                  <label class="form-check-label" for="tutorial-final-decision-2">ENTERTAINMENT
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="2" id="tutorial-final-decision-3">
+                  <label class="form-check-label" for="tutorial-final-decision-3">HEALTHY LIVING
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="3" id="tutorial-final-decision-4">
+                  <label class="form-check-label" for="tutorial-final-decision-4">POLITICS
+                  </label>
+                </div>      
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="firstdecision" value="4" id="tutorial-final-decision-5">
+                  <label class="form-check-label" for="tutorial-final-decision-5">TECHNOLOGY
+                  </label>
+                </div>
+
+              </div>
+            </li>
+          </ul>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-info">
+              <div class="form-group">
+                <div style="display: inline-block;">
+                  <h4> 
+                    How confident are you about the final choice you made?
+                  </h4>
+                </div>
+                <div class="form-check form-check-inline">&emsp;&emsp;&emsp;&emsp;
+                  <label class="form-check-label">Not confident at all&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="1" id="tutorial-final-confidence-1">
+                  <label class="form-check-label" for="tutorial-final-confidence-1">1&emsp;&emsp;&emsp;
+                  </label>
+                
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="2" id="tutorial-final-confidence-2">
+                  <label class="form-check-label" for="tutorial-final-confidence-2">2&emsp;&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="3" id="tutorial-final-confidence-3">
+                  <label class="form-check-label" for="tutorial-final-confidence-3">3&emsp;&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="4" id="tutorial-final-confidence-4">
+                  <label class="form-check-label" for="tutorial-final-confidence-4">4&emsp;&emsp;&emsp;
+                  </label>
+
+                  <input class="form-check-input" type="radio" name="finalconfidence" value="5" id="tutorial-final-confidence-5">
+                  <label class="form-check-label" for="tutorial-final-confidence-5">5&emsp;&emsp;&emsp;
+                  </label>
+
+                  <label class="form-check-label">Very confident
+                  </label>
+              </div>
+            </li>
+          </ul>
+
+        </form>
+
+
+
+        <div id="attention_check" class="form-inline list-group-item list-group-item-light was-validated" style="display: block;">
+          <h3>Answer two questions.</h3>
+          <form id="firstcheck" class="container-fluid list-group-item list-group-item-success" style="display: block;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item list-group-item-light">
+                <div class="form-group">
+                  <div style="display: inline-block;">
+                    <h4 id="question1"> 
+                      Q1. How many possible categories of news are there in this task?
+                    </h4>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="first attention" value="0" id="attention_question_1-1">
+                    <label class="form-check-label" for="attention_question_1-1">Five
+                    </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="first attention" value="1" id="attention_question_1-2">
+                    <label class="form-check-label" for="attention_question_1-2">Four
+                    </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="first attention" value="2" id="attention_question_1-3">
+                    <label class="form-check-label" for="attention_question_1-3">Three
+                    </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="first attention" value="3" id="attention_question_1-4">
+                    <label class="form-check-label" for="attention_question_1-4">Two
+                    </label>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </form>
+          <form id="secondcheck" class="container-fluid list-group-item list-group-item-success" style="display: block;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item list-group-item-light">
+                <div class="form-group">
+                  <div style="display: inline-block;">
+                    <h4 id="question1"> 
+                      Q2. Please select 'strongly agree' to show you are paying attention to this question.
+                    </h4>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="second attention" value="0" id="attention_question_2-1">
+                    <label class="form-check-label" for="attention_question_2-1">Strongly agree
+                    </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="second attention" value="1" id="attention_question_2-2">
+                    <label class="form-check-label" for="attention_question_2-2">Agree
+                    </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="second attention" value="2" id="attention_question_2-3">
+                    <label class="form-check-label" for="attention_question_2-3">Disagree
+                    </label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="second attention" value="3" id="attention_question_2-4">
+                    <label class="form-check-label" for="attention_question_2-4">Strongly disagree
+                    </label>
+                  </div>
+
+                </div>
+              </li>
+            </ul>
+          </form>
+        </div>
+
+
+
+        
+
+        <ul id="tutorial_pager_region1" class="pager" style="display: none;"> <li>
+          <a id="tutorial_moveto_step23">See AI Suggestion</a>
+        </li> </ul>
+
+
+        <ul id="tutorial_pager_region2" class="pager"> <li>
+          <a id="go_to_middle_page">Finish tutorial</a>
+        </li> </ul>
+
+      </div>
+
+
+
+
+      <div id="introduction_before_main_tasks" style="display:none;">
+        <p style="font-size:16px;" id="youcanmoveon">
+          <br>
+          Now you have finished the tutorial. Let's move to the actual tasks!
+          <br>
+        </p>
+        
+        <ul id="tutorial_pager_region2" class="pager"> <li>
+          <a id="start_actual_tasks" href="#NLP_task">Start Actual Task</a>
+        </li> </ul>
+      </div>
+
+
+
+      <button id="go_to_next" type="button" class="btn btn-primary" data-dismiss="modal" style="display: none;">Finish</button>
+
+      <br>
+      <button id="next-task-btn" type="button" style="display: none;" class="btn btn-primary" data-dismiss="modal">Next Task</button>
+      <br>
+
+      <br>
+      <ul class="pager"> <li>
+        <a id="go_to_questionnaire" style="display: none;" href="#questionnaire">Answer Questions</a>
+      </li> </ul>
+
+
+      <div class="progress">
+        <div id="progressbar1" class="progress-bar progress-bar-striped progress-bar-animated " role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%">0%</div>
+      </div>
+
+
+
+      For any questions, please <a href="mailto:shuaihci@gmail.com">contact us</a>.
+
+
+
+      <div class="modal" id="finishModal" tabindex="-1" role="dialog" aria-labelledby="finishModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="finishModal"><strong>Well done</strong></h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- <p>Please copy the following code to finish the process in AMT. (Please wait for a minute as the server is processing your upload.)</p> -->
+              <p>Please copy the following Completion code to finish the process in Prolific. (Please wait for a minute as the server is processing your upload.)</p>
+              <div class="alert alert-success" role="alert" id="user_id"> </div>
+              <p class="mb-0">Thanks for your time and efforts. You can close this window right now. </p>
+            </div>
+            <div class="modal-footer">
+              <button id="exit_button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal" id="quitModal" tabindex="-1" role="dialog" aria-labelledby="quitModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title" id="quitModal"><strong>Bye</strong></h3>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- <p>Please copy the following code to finish the process in AMT. (Please wait for a minute as the server is processing your upload.)</p> -->
+              <p>Thank you. You can close this window now.</p>
+            </div>
+            <div class="modal-footer">
+              <button id="quit_button" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+</div>
+
+
+
+  <!--script src="https://vjs.zencdn.net/7.8.4/video.js"></script-->
+  <!-- <script src="video.js"></script> -->
+  <!-- <script src="rnd_control.js"></script> -->
+  <script src="PilotStudy_news.js" defer></script>
+  
+  <!--script src="https://raw.githubusercontent.com/mashuaiwudi/mashuaiwudi.github.io/master/play_control.js"></script-->
+</body>
+</html>
