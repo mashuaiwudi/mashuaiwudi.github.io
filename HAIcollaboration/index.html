@@ -1,0 +1,251 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+  <title>Human-AI Decision-Making</title>
+  <link rel="shortcut icon" href="#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!--meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"--> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="shortcut icon" href="#"/>
+
+  <script src="static/js/FileSaver.js"></script>
+  <script src="static/js/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
+
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts-more.js"></script>
+  <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+  <script src="https://kit.fontawesome.com/1b68509e26.js" crossorigin="anonymous"></script>
+
+<!-- <script src="js/three.min.js"></script> -->
+<!--为了实时拍照的js-->
+<!-- <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>  -->
+<!-- Valiant360 plugin -->
+<!-- <script src="js/jquery.valiant360.min.js"></script> -->
+ 
+<!-- Valiant360 styles -->
+<!--link rel="stylesheet" type="text/css" href="css/valiant360.css"-->
+
+
+<style type="text/css">
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+table tr{
+  border-bottom: solid 2px rgb(235, 234, 234);
+}
+
+table tr:last-child{
+  border-bottom: none;
+}
+
+table th{
+  position: relative;
+  width: 30%;
+  background-color: #7d7d7de3;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* table th:after{
+  display: block;
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top:calc(50% - 10px);
+  right:-10px;
+  border-left: 10px solid #7d7d7d;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+} */
+
+table td{
+  text-align: left;
+  width: 70%;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 10px 0;
+}
+
+.main {
+  margin: 20px auto;
+  item-align: center;
+  width: 80%;
+}
+
+
+
+.slidecontainer {
+  width: 100%;
+}
+
+
+
+#myinput {
+  background: linear-gradient(to right, #82CFD0 0%, #82CFD0 50%, #fff 50%, #fff 100%);
+  border: solid 1px #82CFD0;
+  border-radius: 8px;
+  height: 7px;
+  width: 356px;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+
+input[type=range].feature_range {
+  --slidercolor: #757272;
+  background: linear-gradient(to right, #ddebf771 0%, #ddebf771 50%, #f7cdaa8e 50%, #f7cdaa8e 100%);
+  border: solid 1px #ffffff;
+  border-radius: 8px;
+  height: 15px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+/* 
+input[type=range].feature_range {
+  --slidercolor: #757272;
+  background: linear-gradient(to right, #9bc2e29c 0%, #9bc2e29c 50%, #ee5121d2 50%, #ee5121d2 100%);
+  border: solid 1px #ffffff;
+  border-radius: 8px;
+  height: 15px;
+  width: 100%;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+} */
+  
+
+  
+.feature_range:hover {
+  opacity: 1;
+}
+
+.feature_range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 5px;
+  height: 20px;
+  border-radius: 0%;
+  /* background: #757272; */
+  background: var(--slidercolor);
+  cursor: pointer;
+}
+
+.feature_range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #757272;
+  cursor: pointer;
+}
+  
+
+
+.shuai_layout{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.ma_layout{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+}
+
+
+.wudi_layout{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+}
+
+
+.niubi_layout{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+</style>
+  
+  
+</head>
+
+<body>
+  
+  <div class="container">
+    <h2>Human-AI Decision-Making</h2>
+    <div class="well">
+      <b>ATTENTION:</b> During the whole experiment, please <b>DO NOT</b> refresh the browser. Otherwise, all data will be lost. 
+    </div>
+    <ul class="nav nav-tabs" style="display: none;">
+      <li class="active not-active"><a data-toggle="tab" href="#home">Home</a></li>
+    </ul>
+
+
+
+
+
+
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <p style="font-size:20px;">
+            <br>
+            Welcome to participate in this experiment! In this experiment, you will be presented with 40 people's profiles (including age, year of education, marital status, occupation, and work hours per week) one by one. Your task is to predict whether a person's income is > 50k USD per year or ≤ 50k USD per year.
+            <br>      
+        </p>
+
+
+        <ul class="pager"> <li>
+          <h4>The Proposed Conditions (based on human-AI CL)</h4>
+          <a onclick="GoToDirectDisplay()">Direct Display</a>
+          <a onclick="GoToAdaptiveWorkflow()">Adaptive Workflow</a>
+          <a onclick="GoToAdaptiveRecommendation()">Adaptive Recommendation</a>
+          <h4>Our Baselines</h4>
+          <a onclick="GoToAIConfidence()">AI Confidence</a>
+          <a onclick="GoToHumanOnly()">Human Only</a>
+
+        </li> </ul>    
+      </div>
+
+
+      <br>
+      <br>
+      <br>
+
+  </div>
+
+
+
+
+
+
+
+  <!--script src="https://vjs.zencdn.net/7.8.4/video.js"></script-->
+  <!-- <script src="video.js"></script> -->
+  <!-- <script src="rnd_control.js"></script> -->
+  <script src="static/js/HAIcollaboration.js" defer></script>
+  
+  <!--script src="https://raw.githubusercontent.com/mashuaiwudi/mashuaiwudi.github.io/master/play_control.js"></script-->
+</body>
+</html>
