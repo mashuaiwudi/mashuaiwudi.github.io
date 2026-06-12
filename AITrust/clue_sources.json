@@ -1,0 +1,2562 @@
+[
+  {
+    "task_id": 1,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "right",
+    "raven_correct_answer": 7,
+    "raven_AI_answer": 3,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 2,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "left",
+    "raven_correct_answer": 2,
+    "raven_AI_answer": 4,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 3,
+    "difficulty": "medium",
+    "correct_answer": "left",
+    "AI_answer": "right",
+    "raven_correct_answer": 3,
+    "raven_AI_answer": 5,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": 1.5,
+    "right_score": -0.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 4,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "left",
+    "raven_correct_answer": 5,
+    "raven_AI_answer": 6,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 5,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "right",
+    "raven_correct_answer": 2,
+    "raven_AI_answer": 7,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 6,
+    "difficulty": "medium",
+    "correct_answer": "right",
+    "AI_answer": "left",
+    "raven_correct_answer": 6,
+    "raven_AI_answer": 8,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": -0.5,
+    "right_score": 1.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 7,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 3,
+    "raven_AI_answer": 3,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 8,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 9,
+    "difficulty": "medium",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 2,
+    "raven_AI_answer": 2,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 1.5,
+    "right_score": -0.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 10,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 3,
+    "raven_AI_answer": 3,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 11,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 7,
+    "raven_AI_answer": 7,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 12,
+    "difficulty": "medium",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 8,
+    "raven_AI_answer": 8,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 1.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 13,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 14,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 4,
+    "raven_AI_answer": 4,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 15,
+    "difficulty": "medium",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 1.5,
+    "right_score": -0.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 16,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 2,
+    "raven_AI_answer": 2,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 17,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 18,
+    "difficulty": "medium",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 4,
+    "raven_AI_answer": 4,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 1.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 19,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 8,
+    "raven_AI_answer": 8,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 20,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 6,
+    "raven_AI_answer": 6,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 21,
+    "difficulty": "medium",
+    "correct_answer": "left",
+    "AI_answer": "right",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 2,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": 1.5,
+    "right_score": -0.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 22,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "left",
+    "raven_correct_answer": 5,
+    "raven_AI_answer": 3,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 23,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "right",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 4,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 24,
+    "difficulty": "medium",
+    "correct_answer": "right",
+    "AI_answer": "left",
+    "raven_correct_answer": 2,
+    "raven_AI_answer": 5,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": -0.5,
+    "right_score": 1.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 25,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "right",
+    "raven_correct_answer": 6,
+    "raven_AI_answer": 7,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 26,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "left",
+    "raven_correct_answer": 8,
+    "raven_AI_answer": 6,
+    "AI_is_correct_preserved_from_RAVEN": false,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 27,
+    "difficulty": "medium",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 1.5,
+    "right_score": -0.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 28,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 7,
+    "raven_AI_answer": 7,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 29,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 5,
+    "raven_AI_answer": 5,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 30,
+    "difficulty": "medium",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 3,
+    "raven_AI_answer": 3,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 1.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 31,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 5,
+    "raven_AI_answer": 5,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 32,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 7,
+    "raven_AI_answer": 7,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 33,
+    "difficulty": "medium",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 3,
+    "raven_AI_answer": 3,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 1.5,
+    "right_score": -0.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 34,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 35,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 36,
+    "difficulty": "medium",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 7,
+    "raven_AI_answer": 7,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 1.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A certified route mark is carved beside the handle.",
+        "source": "certified route marker",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The peephole is covered from the inside.",
+        "source": "visibility obstruction cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The floor mat is aligned with the doorway.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "A faint clicking sound repeats behind the door.",
+        "source": "mechanical trap cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 37,
+    "difficulty": "hard",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 4,
+    "raven_AI_answer": 4,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 0.5,
+    "right_score": -0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A clean path of footprints leads to the threshold.",
+        "source": "environmental trace",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Fresh scratches surround the handle.",
+        "source": "recent damage cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The emergency lantern above this door burns steadily.",
+        "source": "environmental sensor cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The shadow under the door moves irregularly.",
+        "source": "movement anomaly cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 38,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "A calm airflow comes from the gap below the door.",
+        "source": "environmental airflow cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A red thread is tied tightly around the knob.",
+        "source": "trap marker cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "A handwritten note says 'safe', but the handwriting is unfamiliar.",
+        "source": "unverified handwritten note",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The handle is clean, cool, and free of residue.",
+        "source": "tactile inspection cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "A warning symbol appears partly painted over.",
+        "source": "tampered warning sign",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The handle is warm, which could indicate either recent use or hidden danger.",
+        "source": "ambiguous tactile cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  },
+  {
+    "task_id": 39,
+    "difficulty": "medium",
+    "correct_answer": "left",
+    "AI_answer": "left",
+    "raven_correct_answer": 8,
+    "raven_AI_answer": 8,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": 1.5,
+    "right_score": -0.5,
+    "score_gap": 2.0,
+    "left_clues": [
+      {
+        "text": "A soft regular humming sound comes from inside.",
+        "source": "auditory machinery cue",
+        "evidence": "safe",
+        "reliability": "high",
+        "lean": null,
+        "score": 3
+      },
+      {
+        "text": "A hairline crack runs across the door frame.",
+        "source": "structural damage cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The lock is polished, but there are small marks around it.",
+        "source": "mixed lock condition cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The keyhole emits a stable green glow.",
+        "source": "door status indicator",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The floor tile in front of the door is loose.",
+        "source": "floor instability cue",
+        "evidence": "danger",
+        "reliability": "high",
+        "lean": null,
+        "score": -3
+      },
+      {
+        "text": "A faint glow is visible, but it could be a decoy marker.",
+        "source": "ambiguous light cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "safe_leaning",
+        "score": 0.5
+      }
+    ]
+  },
+  {
+    "task_id": 40,
+    "difficulty": "hard",
+    "correct_answer": "right",
+    "AI_answer": "right",
+    "raven_correct_answer": 1,
+    "raven_AI_answer": 1,
+    "AI_is_correct_preserved_from_RAVEN": true,
+    "left_score": -0.5,
+    "right_score": 0.5,
+    "score_gap": 1.0,
+    "left_clues": [
+      {
+        "text": "The frame is straight, aligned, and undamaged.",
+        "source": "structural integrity cue",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "The sign above the door is tilted and recently swapped.",
+        "source": "tampering cue",
+        "evidence": "danger",
+        "reliability": "medium",
+        "lean": null,
+        "score": -2
+      },
+      {
+        "text": "The dust pattern is disturbed, but it does not clearly show direction.",
+        "source": "unclear environmental trace",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ],
+    "right_clues": [
+      {
+        "text": "The blue seal is intact and has not been scratched off.",
+        "source": "official safety seal",
+        "evidence": "safe",
+        "reliability": "medium",
+        "lean": null,
+        "score": 2
+      },
+      {
+        "text": "Dark smoke marks are visible near the bottom.",
+        "source": "environmental hazard cue",
+        "evidence": "danger",
+        "reliability": "low",
+        "lean": null,
+        "score": -1
+      },
+      {
+        "text": "The door is unusually quiet compared with the corridor.",
+        "source": "ambiguous auditory cue",
+        "evidence": "ambiguous",
+        "reliability": "medium",
+        "lean": "danger_leaning",
+        "score": -0.5
+      }
+    ]
+  }
+]
