@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calendar Agent Study</title>
+    <link rel="stylesheet" href="styles.css?v=calendar-study-20260708j" />
+  </head>
+  <body>
+    <div class="shell">
+      <section id="participantView" class="view active">
+        <div class="form-panel">
+          <div class="eyebrow">User study</div>
+          <h1>Calendar Agent Intervention Study</h1>
+          <p class="lead">
+            First, please provide basic participant information. The consent form
+            appears on the next page.
+          </p>
+
+          <form id="participantForm" class="study-form" novalidate>
+            <label>
+              Prolific ID
+              <input id="participantId" name="participantId" type="text" required />
+            </label>
+
+            <label>
+              Age range
+              <select id="ageRange" name="ageRange" required>
+                <option value="">Select one</option>
+                <option value="18-24">18-24</option>
+                <option value="25-34">25-34</option>
+                <option value="35-44">35-44</option>
+                <option value="45-54">45-54</option>
+                <option value="55+">55+</option>
+              </select>
+            </label>
+
+            <label>
+              Calendar scheduling experience
+              <select id="calendarExperience" name="calendarExperience" required>
+                <option value="">Select one</option>
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+                <option value="rarely">Rarely</option>
+              </select>
+            </label>
+
+            <label>
+              AI coding or agent tool experience
+              <select id="agentExperience" name="agentExperience" required>
+                <option value="">Select one</option>
+                <option value="frequent">Frequent</option>
+                <option value="occasional">Occasional</option>
+                <option value="limited">Limited</option>
+                <option value="none">None</option>
+              </select>
+            </label>
+
+            <p id="participantError" class="form-error hidden" role="alert"></p>
+            <button class="primary-btn" type="submit">Continue to consent</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="consentView" class="view">
+        <div class="form-panel">
+          <div class="eyebrow">Consent form</div>
+          <h1>Consent to participate</h1>
+          <p class="lead">
+            Please review the consent information before beginning the study.
+          </p>
+
+          <div class="consent-list">
+            <p>The study uses synthetic calendar scheduling tasks.</p>
+            <p>Your decisions and questionnaire responses are stored locally in this browser.</p>
+            <p>You may stop at any time by closing the page.</p>
+            <p>No real calendar data, account data, or personal contacts are used.</p>
+          </div>
+
+          <form id="consentForm" class="study-form" novalidate>
+            <label class="checkbox-row">
+              <input id="consentCheck" name="consentCheck" type="checkbox" required />
+              <span>
+                I consent to participate. I understand that the study uses
+                synthetic calendar tasks, records my responses locally in this
+                browser, and that I may stop at any time.
+              </span>
+            </label>
+
+            <p id="consentError" class="form-error hidden" role="alert"></p>
+            <button class="primary-btn" type="submit">Continue to briefing</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="introView" class="view">
+        <div class="form-panel intro-panel">
+          <div class="eyebrow">Experiment briefing</div>
+          <h1>Intervene at the scheduling moment</h1>
+          <p class="lead">
+            Each task shows a simulated calendar agent working through a
+            multi-step trajectory with tool calls, availability checks, a
+            scheduling decision, room booking, and final verification.
+          </p>
+          <div class="brief-grid">
+            <div>
+              <strong>Watch</strong>
+              <span>The agent reads the task and gathers calendar data.</span>
+            </div>
+            <div>
+              <strong>Advise</strong>
+              <span>When paused, choose the meeting time you recommend.</span>
+            </div>
+            <div>
+              <strong>Compare</strong>
+              <span>The agent shows its own choice, then accepts or rejects yours.</span>
+            </div>
+          </div>
+          <button id="beginStudy" class="primary-btn" type="button">Continue to walkthrough</button>
+        </div>
+      </section>
+
+      <section id="walkthroughView" class="view walkthrough-view">
+        <div class="walkthrough-shell">
+          <header class="walkthrough-header">
+            <div>
+              <div class="eyebrow">Walkthrough</div>
+              <h1>Practice the intervention flow</h1>
+              <p class="lead">
+                This practice example uses a separate calendar task and is not
+                counted in the 20 formal tasks. Follow the highlighted areas to
+                see where to read, decide, and continue.
+              </p>
+            </div>
+          </header>
+
+          <div class="walkthrough-layout">
+            <div class="walkthrough-demo">
+              <div class="kanna-window walkthrough-window">
+                <aside class="kanna-sidebar">
+                  <div class="sidebar-brand"></div>
+                  <div class="sidebar-scroll">
+                    <div class="project-block">
+                      <div class="project-label">&gt; practice-task</div>
+                      <div class="chat-list">
+                        <div class="chat-row active" data-tour-target="sidebar">
+                          <span class="chat-dot running"></span>
+                          <span class="chat-name">Practice task</span>
+                          <span class="chat-age">demo</span>
+                        </div>
+                        <div class="chat-row subtle">Formal tasks unlock next</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sidebar-footer">
+                    <span>Settings</span>
+                    <span class="connection-dot">Connected</span>
+                  </div>
+                </aside>
+
+                <main class="kanna-chat">
+                  <header class="chat-navbar">
+                    <div class="chat-title-block">
+                      <button class="navbar-icon" type="button" aria-label="Edit title">Edit</button>
+                      <div>
+                        <div id="walkthroughTaskTitle" class="chat-title">Practice Scheduling</div>
+                        <div class="task-counter">Walkthrough example</div>
+                      </div>
+                    </div>
+                    <div class="navbar-actions">
+                      <button id="walkthroughTogglePlayback" class="kanna-action-btn" type="button">Pause</button>
+                      <button id="walkthroughReset" class="kanna-action-btn" type="button">Restart practice</button>
+                    </div>
+                  </header>
+
+                  <section class="chat-stage walkthrough-demo-stage">
+                    <div id="walkthroughTranscript" class="transcript walkthrough-transcript"></div>
+                    <div class="composer-dock walkthrough-composer-dock">
+                      <div id="walkthroughAgentReview" class="agent-review hidden" aria-hidden="true"></div>
+
+                      <div id="walkthroughWaitingCard" class="composer-shell waiting-card">
+                        <div>
+                          <strong>Practice trajectory running</strong>
+                          <span id="walkthroughCurrentStepLabel">The agent is gathering calendar information</span>
+                        </div>
+                        <div id="walkthroughRunStatus" class="run-status">Running</div>
+                      </div>
+
+                      <div id="walkthroughAdviceBox" class="composer-shell advice-box hidden" data-tour-target="composer">
+                        <form id="walkthroughAdviceForm" class="advice-form">
+                          <div class="advice-controls">
+                            <label>
+                              Day
+                              <select id="walkthroughAdviceDay" required></select>
+                            </label>
+                            <label>
+                              Start
+                              <select id="walkthroughAdviceStart" required></select>
+                            </label>
+                          </div>
+                          <button class="send-btn" type="submit" aria-label="Submit practice advice">Send</button>
+                        </form>
+                        <div class="composer-meta">Codex | GPT-5 | High | User checkpoint</div>
+                      </div>
+                    </div>
+                  </section>
+                </main>
+              </div>
+            </div>
+
+            <aside class="walkthrough-card" aria-live="polite">
+              <div class="walkthrough-step-count" id="walkthroughTourCount">Step 1 of 7</div>
+              <h2 id="walkthroughTourTitle">Formal tasks proceed in order</h2>
+              <p id="walkthroughTourText">
+                The left side shows progress only. During the study, tasks
+                unlock one by one and cannot be freely selected.
+              </p>
+              <div class="walkthrough-actions">
+                <button id="walkthroughTourBack" class="ghost-btn" type="button">Back</button>
+                <button id="walkthroughTourNext" class="primary-btn" type="button">Next</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="taskView" class="view task-view">
+        <div class="kanna-window">
+          <aside class="kanna-sidebar">
+            <div class="sidebar-brand">
+            </div>
+            <div class="sidebar-scroll">
+              <div class="project-block">
+                <div class="project-label">&gt; calendar-study</div>
+                <div id="sidebarTaskList" class="chat-list"></div>
+              </div>
+              <div class="project-block muted-projects">
+                <div class="project-label">&gt; experiment</div>
+                <div class="chat-row subtle">Participant info</div>
+                <div class="chat-row subtle">Consent form</div>
+                <div class="chat-row subtle">Briefing</div>
+                <div class="chat-row subtle">Questionnaire</div>
+                <div class="chat-row subtle">Response export</div>
+              </div>
+            </div>
+            <div class="sidebar-footer">
+              <span>Settings</span>
+              <span class="connection-dot">Connected</span>
+            </div>
+          </aside>
+
+          <main class="kanna-chat">
+            <header class="chat-navbar">
+              <div class="chat-title-block">
+                <button class="navbar-icon" type="button" aria-label="Edit title">Edit</button>
+                <div>
+                  <div id="currentChatTitle" class="chat-title">Calendar Scheduling</div>
+                  <div id="taskCounter" class="task-counter">Task 1 of 20</div>
+                </div>
+              </div>
+              <div class="navbar-actions">
+                <button id="togglePlayback" class="kanna-action-btn" type="button">Pause</button>
+                <button id="resetTask" class="kanna-action-btn" type="button">Restart task</button>
+              </div>
+            </header>
+
+            <section class="chat-stage">
+              <div id="transcript" class="transcript" aria-live="polite"></div>
+              <div id="nextArea" class="next-area hidden">
+                <button id="nextTask" class="next-floating-btn" type="button">Next task</button>
+              </div>
+            </section>
+
+            <footer class="composer-dock">
+              <div id="agentReview" class="agent-review hidden"></div>
+              <div id="waitingCard" class="composer-shell waiting-card">
+                <div>
+                  <strong>Waiting for decision checkpoint</strong>
+                  <span id="currentStepLabel">Running agent trajectory</span>
+                </div>
+                <div id="runStatus" class="run-status">Running</div>
+              </div>
+
+              <div id="adviceBox" class="composer-shell advice-box hidden">
+                <form id="adviceForm" class="advice-form">
+                  <div class="advice-controls">
+                    <label>
+                      Day
+                      <select id="adviceDay" required></select>
+                    </label>
+                    <label>
+                      Start
+                      <select id="adviceStart" required></select>
+                    </label>
+                  </div>
+                  <button class="send-btn" type="submit" aria-label="Submit advice">Send</button>
+                </form>
+                <div id="optionalDecisionActions" class="decision-actions hidden">
+                  <span>or</span>
+                  <button id="letAgentDecide" class="secondary-btn" type="button">Let the agent decide</button>
+                </div>
+                <div class="composer-meta">Codex | GPT-5 | High | User checkpoint</div>
+              </div>
+
+              <div id="finalReviewBox" class="composer-shell final-review-box hidden">
+                <div class="final-review-summary">
+                  <span>Final review</span>
+                  <div class="final-review-detail-grid">
+                    <div>
+                      <span>Time</span>
+                      <strong id="finalReviewSlot">Monday, 9:00 - 9:30</strong>
+                    </div>
+                    <div>
+                      <span>Room</span>
+                      <strong id="finalReviewRoom">Focus Room A</strong>
+                      <p id="finalReviewRoomMeta">Building 2 | capacity 6</p>
+                    </div>
+                  </div>
+                  <p id="finalReviewSource">The agent is ready to schedule this time.</p>
+                </div>
+                <div class="review-action-row">
+                  <button id="approveSchedule" class="primary-btn" type="button">Approve</button>
+                  <button id="showRejectSchedule" class="secondary-btn" type="button">Reject</button>
+                </div>
+                <form id="rejectScheduleForm" class="advice-form reject-form hidden">
+                  <div class="advice-controls">
+                    <label>
+                      Day
+                      <select id="rejectDay" required></select>
+                    </label>
+                    <label>
+                      Start
+                      <select id="rejectStart" required></select>
+                    </label>
+                  </div>
+                  <button class="send-btn" type="submit" aria-label="Submit replacement schedule">Send</button>
+                </form>
+                <div class="composer-meta">Review the proposed schedule before the agent finalizes it.</div>
+              </div>
+            </footer>
+          </main>
+        </div>
+      </section>
+
+      <section id="behaviorBriefView" class="view">
+        <div class="form-panel intro-panel">
+          <div class="eyebrow">Behavior phase</div>
+          <h1>Choose when to intervene</h1>
+          <p class="lead">
+            In the next 10 tasks, you are no longer required to give a scheduling
+            recommendation at the decision point. You may either recommend a time
+            or let the agent decide on its own.
+          </p>
+          <div class="brief-grid">
+            <div>
+              <strong>Optional input</strong>
+              <span>At the scheduling checkpoint, choose a time or click Let the agent decide.</span>
+            </div>
+            <div>
+              <strong>Final review</strong>
+              <span>Before scheduling, approve the proposed time or reject it.</span>
+            </div>
+            <div>
+              <strong>Replacement</strong>
+              <span>If you reject the proposal, provide the replacement schedule the agent should use.</span>
+            </div>
+          </div>
+          <button id="beginBehaviorTasks" class="primary-btn" type="button">Start behavior tasks</button>
+        </div>
+      </section>
+
+      <section id="surveyView" class="view">
+        <div class="form-panel survey-panel">
+          <div id="surveyEyebrow" class="eyebrow">Questionnaire</div>
+          <h1 id="surveyTitle">Post-task questionnaire</h1>
+          <p id="surveyLead" class="lead">
+            Please answer each item using the 7-point scale, where 1 means
+            strongly disagree and 7 means strongly agree.
+          </p>
+
+          <form id="surveyForm" class="survey-form" novalidate>
+            <div class="likert-legend" aria-hidden="true">
+              <span>1: Strongly disagree</span>
+              <span>7: Strongly agree</span>
+            </div>
+            <div id="surveyItems" class="survey-items"></div>
+            <p id="surveyError" class="form-error hidden" role="alert"></p>
+            <button id="surveySubmit" class="primary-btn" type="submit">Submit questionnaire</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="doneView" class="view">
+        <div class="form-panel">
+          <div class="eyebrow">Complete</div>
+          <h1>Study finished</h1>
+          <p class="lead">
+            Your responses have been saved in this browser session. Export the
+            response file before closing the page.
+          </p>
+          <div class="finish-actions">
+            <button id="exportResponses" class="primary-btn" type="button">Export responses</button>
+            <button id="restartStudy" class="ghost-btn" type="button">Restart</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="data/modified_example.js?v=calendar-study-20260708j"></script>
+    <script src="app.js?v=calendar-study-20260708j"></script>
+  </body>
+</html>
