@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Suspicious Link Security Agent Study</title>
+    <link rel="stylesheet" href="styles.css?v=phishing-study-20260722c" />
+  </head>
+  <body>
+    <div class="shell">
+      <section id="participantView" class="view active">
+        <div class="form-panel">
+          <div class="eyebrow">User study</div>
+          <h1>Working with an AI Security Agent</h1>
+          <p class="lead">
+            First, provide basic participant information. The next page explains
+            what an AI agent is and how you will investigate suspicious links together.
+          </p>
+
+          <form id="participantForm" class="study-form" novalidate>
+            <label>
+              Prolific ID
+              <input id="participantId" name="participantId" type="text" autocomplete="off" required />
+            </label>
+
+            <label>
+              Age range
+              <select id="ageRange" name="ageRange" required>
+                <option value="">Select one</option>
+                <option value="18-24">18-24</option>
+                <option value="25-34">25-34</option>
+                <option value="35-44">35-44</option>
+                <option value="45-54">45-54</option>
+                <option value="55+">55+</option>
+              </select>
+            </label>
+
+            <label>
+              Experience judging suspicious links
+              <select id="securityExperience" name="securityExperience" required>
+                <option value="">Select one</option>
+                <option value="frequent">Frequent</option>
+                <option value="occasional">Occasional</option>
+                <option value="limited">Limited</option>
+                <option value="none">None</option>
+              </select>
+            </label>
+
+            <label>
+              Experience with AI or agent tools
+              <select id="agentExperience" name="agentExperience" required>
+                <option value="">Select one</option>
+                <option value="frequent">Frequent</option>
+                <option value="occasional">Occasional</option>
+                <option value="limited">Limited</option>
+                <option value="none">None</option>
+              </select>
+            </label>
+
+            <p id="participantError" class="form-error hidden" role="alert"></p>
+            <button class="primary-btn" type="submit">Continue to consent</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="consentView" class="view">
+        <div class="form-panel">
+          <div class="eyebrow">Consent form</div>
+          <h1>Consent to participate</h1>
+          <p class="lead">Please review the information before beginning the study.</p>
+
+          <div class="consent-list">
+            <p>The study uses archived suspicious-link records; it never opens the recorded URLs.</p>
+            <p>Some records represent phishing sites, but all investigation tools are simulated from dataset snapshots.</p>
+            <p>Your decisions and questionnaire responses are stored only in this browser until you export them.</p>
+            <p>You may stop at any time by closing the page.</p>
+          </div>
+
+          <form id="consentForm" class="study-form" novalidate>
+            <label class="checkbox-row">
+              <input id="consentCheck" name="consentCheck" type="checkbox" required />
+              <span>
+                I consent to participate. I understand that the study records my
+                responses locally and does not navigate to the displayed links.
+              </span>
+            </label>
+            <p id="consentError" class="form-error hidden" role="alert"></p>
+            <button class="primary-btn" type="submit">Continue to briefing</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="introView" class="view">
+        <div class="form-panel intro-panel">
+          <div class="eyebrow">Experiment briefing</div>
+          <h1>Work with an AI agent on a security task</h1>
+          <p class="lead">
+            An AI agent is an AI system that can plan and carry out a sequence of
+            actions on its own, rather than only answering a single question. Agents
+            are already used for office work, software maintenance, cybersecurity,
+            and many other tasks.
+          </p>
+          <div class="agent-story">
+            <p>
+              In this study, you and a security agent will investigate suspicious
+              website URLs together. For each URL, the agent will automatically run
+              several information-gathering and analysis steps. It will inspect the
+              domain, redirects, page identity, forms, and other security features,
+              then summarize the evidence it found.
+            </p>
+            <p>
+              Your job is to read that evidence and give your own phishing-or-legitimate
+              judgment at the key decision point. In the first phase, your judgment is
+              advice: the agent will consider it carefully, but it may accept it or keep
+              its own judgment. You will always be shown what the agent chose before and
+              after receiving your input.
+            </p>
+          </div>
+          <div class="brief-grid">
+            <div>
+              <strong>Agent investigates</strong>
+              <span>Watch it call tools and collect security evidence step by step.</span>
+            </div>
+            <div>
+              <strong>You judge</strong>
+              <span>Read the evidence and choose either phishing or legitimate.</span>
+            </div>
+            <div>
+              <strong>Agent decides</strong>
+              <span>In Phase 1, the agent may accept your advice or retain its own judgment.</span>
+            </div>
+          </div>
+          <div class="study-safety-note">
+            <strong>Safety:</strong> Links are displayed as inert text. Do not copy or visit them.
+          </div>
+          <button id="beginStudy" class="primary-btn" type="button">Continue to walkthrough</button>
+        </div>
+      </section>
+
+      <section id="walkthroughView" class="view walkthrough-view">
+        <div class="walkthrough-shell">
+          <header class="walkthrough-header">
+            <div>
+              <div class="eyebrow">Walkthrough</div>
+              <h1>Practice the security decision flow</h1>
+              <p class="lead">
+                This archived practice record is not part of either 20-task phase.
+                Use Next to move the agent to each teaching point. The highlighted
+                component shows what to inspect or do.
+              </p>
+            </div>
+          </header>
+
+          <div class="walkthrough-layout guided-security-walkthrough">
+            <div class="walkthrough-demo">
+              <div class="kanna-window walkthrough-window">
+                <aside class="kanna-sidebar">
+                  <div class="sidebar-brand security-brand">
+                    <span class="shield-mark">S</span>
+                    <span>Security Agent</span>
+                  </div>
+                  <div class="sidebar-scroll">
+                    <div class="project-block">
+                      <div class="project-label">&gt; practice-investigation</div>
+                      <div class="chat-list">
+                        <div class="chat-row active">
+                          <span class="chat-dot running"></span>
+                          <span class="chat-name">Practice case</span>
+                          <span class="chat-age">demo</span>
+                        </div>
+                        <div class="chat-row subtle">Formal tasks unlock next</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sidebar-footer">
+                    <span>Archived evidence</span>
+                    <span class="connection-dot">Ready</span>
+                  </div>
+                </aside>
+
+                <main class="kanna-chat">
+                  <header class="chat-navbar">
+                    <div class="chat-title-block">
+                      <span class="navbar-icon shield-icon" aria-hidden="true">◆</span>
+                      <div>
+                        <div id="walkthroughTaskTitle" class="chat-title">Practice suspicious URL</div>
+                        <div class="task-counter">Guided walkthrough · reserve task</div>
+                      </div>
+                    </div>
+                  </header>
+
+                  <section class="chat-stage walkthrough-demo-stage">
+                    <div id="walkthroughTranscript" class="transcript walkthrough-transcript" aria-live="polite"></div>
+                  </section>
+
+                  <footer class="composer-dock walkthrough-composer-dock security-composer-dock">
+                    <div id="walkthroughAgentReview" class="agent-review hidden"></div>
+
+                    <div id="walkthroughWaitingCard" class="composer-shell waiting-card">
+                      <div>
+                        <strong>Guided investigation paused</strong>
+                        <span id="walkthroughStepLabel">Review the suspicious-link alert</span>
+                      </div>
+                      <div class="run-status paused">Teaching pause</div>
+                    </div>
+
+                    <div id="walkthroughAdviceBox" class="composer-shell advice-box security-advice-box hidden">
+                      <form id="walkthroughAdviceForm" class="phishing-advice-form walkthrough-advice-form" novalidate>
+                        <fieldset class="verdict-fieldset">
+                          <legend>Your practice judgment</legend>
+                          <div class="verdict-options binary-verdict-options">
+                            <label class="verdict-option phishing-option">
+                              <input type="radio" name="walkthroughAdviceVerdict" value="PHISHING" />
+                              <span><strong>Phishing</strong><small>Quarantine and block</small></span>
+                            </label>
+                            <label class="verdict-option legitimate-option">
+                              <input type="radio" name="walkthroughAdviceVerdict" value="LEGITIMATE" />
+                              <span><strong>Legitimate</strong><small>Release and allow</small></span>
+                            </label>
+                          </div>
+                        </fieldset>
+                        <label class="advice-rationale-label">
+                          Optional reason
+                          <textarea id="walkthroughAdviceRationale" rows="2" maxlength="500" placeholder="What evidence influenced your judgment?"></textarea>
+                        </label>
+                        <div class="advice-action-row">
+                          <button class="send-btn" type="submit">Submit practice advice</button>
+                        </div>
+                      </form>
+                      <p id="walkthroughAdviceError" class="form-error hidden" role="alert"></p>
+                    </div>
+                  </footer>
+                </main>
+              </div>
+            </div>
+
+            <aside class="walkthrough-card walkthrough-guide-card" aria-live="polite">
+              <div id="walkthroughGuideCount" class="walkthrough-step-count">Step 1 of 7</div>
+              <h2 id="walkthroughGuideTitle">Start with the archived alert</h2>
+              <p id="walkthroughGuideText">
+                Read the inert URL, domain, page title, transport, form, and redirect summary. The page is never opened live.
+              </p>
+              <div class="walkthrough-actions single-action">
+                <button id="walkthroughNext" class="primary-btn" type="button">Start this task</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="taskView" class="view task-view">
+        <div class="kanna-window">
+          <aside class="kanna-sidebar">
+            <div class="sidebar-brand security-brand">
+              <span class="shield-mark">S</span>
+              <span>Security Agent</span>
+            </div>
+            <div class="sidebar-scroll">
+              <div class="project-block">
+                <div id="phaseSidebarLabel" class="project-label">&gt; phase-1-mandatory-advice</div>
+                <div id="sidebarTaskList" class="chat-list"></div>
+              </div>
+              <div class="project-block muted-projects">
+                <div class="project-label">&gt; workflow</div>
+                <div class="chat-row subtle">URL investigation</div>
+                <div class="chat-row subtle">Human checkpoint</div>
+                <div class="chat-row subtle">Security response</div>
+                <div class="chat-row subtle">Outcome evaluation</div>
+              </div>
+            </div>
+            <div class="sidebar-footer">
+              <span>Archived evidence</span>
+              <span class="connection-dot">Ready</span>
+            </div>
+          </aside>
+
+          <main class="kanna-chat">
+            <header class="chat-navbar">
+              <div class="chat-title-block">
+                <span class="navbar-icon shield-icon" aria-hidden="true">◆</span>
+                <div>
+                  <div id="currentChatTitle" class="chat-title">Suspicious URL investigation</div>
+                  <div id="taskCounter" class="task-counter">Phase 1 · Task 1 of 20</div>
+                </div>
+              </div>
+              <div class="navbar-actions">
+                <button id="togglePlayback" class="kanna-action-btn" type="button">Pause</button>
+                <button id="resetTask" class="kanna-action-btn" type="button">Restart task</button>
+              </div>
+            </header>
+
+            <section class="chat-stage">
+              <div id="transcript" class="transcript" aria-live="polite"></div>
+              <div id="nextArea" class="next-area hidden">
+                <button id="nextTask" class="next-floating-btn" type="button">Next task</button>
+              </div>
+            </section>
+
+            <footer class="composer-dock security-composer-dock">
+              <div id="agentReview" class="agent-review hidden"></div>
+
+              <div id="waitingCard" class="composer-shell waiting-card">
+                <div>
+                  <strong>Investigation in progress</strong>
+                  <span id="currentStepLabel">The agent is collecting archived security evidence</span>
+                </div>
+                <div class="waiting-card-actions">
+                  <button id="startTaskButton" class="start-task-btn" type="button">Start this task</button>
+                  <div id="runStatus" class="run-status">Awaiting start</div>
+                </div>
+              </div>
+
+              <div id="adviceBox" class="composer-shell advice-box security-advice-box hidden">
+                <form id="adviceForm" class="phishing-advice-form" novalidate>
+                  <fieldset class="verdict-fieldset">
+                    <legend id="humanJudgmentLegend">Your security recommendation</legend>
+                    <div class="verdict-options binary-verdict-options">
+                      <label class="verdict-option phishing-option">
+                        <input type="radio" name="adviceVerdict" value="PHISHING" />
+                        <span><strong>Phishing</strong><small>Quarantine and block</small></span>
+                      </label>
+                      <label class="verdict-option legitimate-option">
+                        <input type="radio" name="adviceVerdict" value="LEGITIMATE" />
+                        <span><strong>Legitimate</strong><small>Release and allow</small></span>
+                      </label>
+                    </div>
+                  </fieldset>
+                  <label class="advice-rationale-label">
+                    Optional reason
+                    <textarea id="adviceRationale" rows="2" maxlength="500" placeholder="What evidence influenced your judgment?"></textarea>
+                  </label>
+                  <div class="advice-action-row">
+                    <button id="submitHumanInput" class="send-btn" type="submit">Send advice</button>
+                    <button id="letAgentDecide" class="secondary-btn hidden" type="button">Let the agent decide</button>
+                  </div>
+                </form>
+                <p id="adviceError" class="form-error hidden" role="alert"></p>
+                <div id="checkpointMeta" class="composer-meta">One advice checkpoint · Agent retains final authority</div>
+              </div>
+            </footer>
+          </main>
+        </div>
+      </section>
+
+      <section id="surveyView" class="view">
+        <div class="form-panel survey-panel">
+          <div class="eyebrow">Between-phase questionnaire</div>
+          <h1>How did the security agent use your advice?</h1>
+          <p class="lead">
+            Phase 1 is complete. Answer every item using the 7-point scale, where
+            1 means strongly disagree and 7 means strongly agree.
+          </p>
+          <form id="surveyForm" class="survey-form" novalidate>
+            <div class="likert-legend" aria-hidden="true">
+              <span>1: Strongly disagree</span>
+              <span>7: Strongly agree</span>
+            </div>
+            <div id="surveyItems" class="survey-items"></div>
+            <p id="surveyError" class="form-error hidden" role="alert"></p>
+            <button class="primary-btn" type="submit">Submit questionnaire</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="phaseTwoBriefView" class="view">
+        <div class="form-panel intro-panel">
+          <div class="eyebrow">Phase 2</div>
+          <h1>The agent now asks for your permission</h1>
+          <p class="lead">
+            You have just experienced an agent working autonomously: even when you
+            gave advice, the agent could still keep its own judgment. In Phase 2,
+            the agent must ask for your permission before it makes the key security
+            decision.
+          </p>
+          <div class="agent-story">
+            <p>
+              The agent will still investigate the URL and summarize the evidence
+              by itself. It will then show you the judgment it intends to use.
+            </p>
+            <p>
+              You can choose <strong>Let the agent decide</strong>, which authorizes
+              the agent to use that original judgment. Or you can submit your own
+              phishing-or-legitimate judgment. If you do, your judgment is binding:
+              the agent will follow it and execute the matching security actions.
+            </p>
+          </div>
+          <div class="brief-grid">
+            <div><strong>See the plan</strong><span>Review the agent's intended judgment before authorizing an action.</span></div>
+            <div><strong>Authorize it</strong><span>Choose “Let the agent decide” to keep its original judgment.</span></div>
+            <div><strong>Set the judgment</strong><span>Choose phishing or legitimate and the agent must follow your choice.</span></div>
+          </div>
+          <button id="startPhaseTwo" class="primary-btn" type="button">Start Phase 2 · 20 tasks</button>
+        </div>
+      </section>
+
+      <section id="doneView" class="view">
+        <div class="form-panel">
+          <div class="eyebrow">Complete</div>
+          <h1>Security agent study finished</h1>
+          <p class="lead">
+            Both 20-task phases are complete. Export the response file before closing the page.
+          </p>
+          <div id="completionSummary" class="completion-summary"></div>
+          <div class="finish-actions">
+            <button id="exportResponses" class="primary-btn" type="button">Export responses</button>
+            <button id="restartStudy" class="ghost-btn" type="button">Restart</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="data/phishing_study_100.js?v=phishing-study-20260722c"></script>
+    <script src="app.js?v=phishing-study-20260722c"></script>
+  </body>
+</html>
