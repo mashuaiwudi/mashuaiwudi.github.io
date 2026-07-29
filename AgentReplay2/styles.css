@@ -232,6 +232,59 @@ code {
   overflow-wrap: anywhere;
 }
 
+.trigger-taxonomy {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+}
+
+.trigger-taxonomy::before {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+  flex: 0 0 auto;
+}
+
+.trigger-taxonomy-label {
+  flex: 0 0 auto;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.trigger-taxonomy strong {
+  overflow: hidden;
+  min-width: 0;
+  color: var(--accent-strong);
+  font-size: 11px;
+  font-weight: 680;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trigger-taxonomy.success::before {
+  background: var(--green);
+}
+
+.trigger-taxonomy.success strong {
+  color: var(--green);
+}
+
+.trigger-taxonomy.unavailable::before {
+  background: var(--faint);
+}
+
+.trigger-taxonomy.unavailable strong {
+  color: var(--faint);
+}
+
 .run-tags {
   display: flex;
   min-width: 0;
@@ -1717,6 +1770,18 @@ button {
 .run-meta {
   font-size: 12px;
   line-height: 1.4;
+}
+
+.trigger-taxonomy {
+  gap: 8px;
+}
+
+.trigger-taxonomy-label {
+  font-size: 9.5px;
+}
+
+.trigger-taxonomy strong {
+  font-size: 12px;
 }
 
 .run-tags {

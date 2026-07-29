@@ -98,7 +98,7 @@ function buildShell() {
         </div>
         <label class="search-box">
           <span aria-hidden="true">⌕</span>
-          <input id="run-search" type="search" placeholder="Search tasks or models" autocomplete="off" />
+          <input id="run-search" type="search" placeholder="Search tasks, models, or triggers" autocomplete="off" />
         </label>
         <div class="list-heading">
           <span>Trajectories</span>
@@ -181,6 +181,9 @@ function renderRunList() {
       run.domain,
       run.ability_category,
       run.sample_id,
+      run.annotation?.trigger_mechanism,
+      run.annotation?.trigger_mechanism_other,
+      triggerTaxonomy(run).label,
     ]
       .filter(Boolean)
       .some((value) => String(value).toLowerCase().includes(query)),
@@ -191,6 +194,7 @@ function renderRunList() {
     filtered
       .map((run) => {
         const record = state.records[run.sample_id];
+        const trigger = triggerTaxonomy(run);
         const hasActivity =
           record &&
           (record.infoRequests?.length > 0 ||
@@ -208,6 +212,13 @@ function renderRunList() {
               <span class="score-pill">score ${formatScore(run.score)}</span>
             </span>
             <span class="run-meta">${escapeHtml(run.model_name)} · ${run.decision_step_count} steps</span>
+            <span
+              class="trigger-taxonomy ${escapeAttribute(trigger.state)}"
+              title="Trigger taxonomy: ${escapeAttribute(trigger.label)}"
+            >
+              <span class="trigger-taxonomy-label">Trigger</span>
+              <strong>${escapeHtml(trigger.label)}</strong>
+            </span>
             <span class="run-tags">
               <span>${escapeHtml(run.domain)}</span>
               <span>${escapeHtml(run.difficulty)}</span>
@@ -1521,6 +1532,31 @@ function outcomeLabel(value) {
   if (value === "failure") return "Failure trajectory";
   if (value === "success_control") return "Success control";
   return "Annotation unavailable";
+}
+
+function triggerTaxonomy(run) {
+  const annotation = run?.annotation || {};
+  const mechanism = annotation.trigger_mechanism;
+  if (mechanism) {
+    const otherDetail =
+      mechanism === "other" && annotation.trigger_mechanism_other
+        ? `Other · ${annotation.trigger_mechanism_other}`
+        : titleCase(mechanism);
+    return {
+      label: otherDetail,
+      state: "failure",
+    };
+  }
+  if (annotation.outcome_class === "success_control") {
+    return {
+      label: "Not applicable · success",
+      state: "success",
+    };
+  }
+  return {
+    label: "Unavailable",
+    state: "unavailable",
+  };
 }
 
 function titleCase(value) {
