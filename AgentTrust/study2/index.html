@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="submission-endpoint" content="/submit_log" />
+    <title>Study 2 · Working with a Strong Security Agent</title>
+    <link rel="stylesheet" href="styles.css?v=study2-20260726f" />
+  </head>
+  <body>
+    <div class="shell study2-shell">
+      <section id="participantView" class="view active">
+        <div class="form-panel">
+          <div class="eyebrow">Study 2 · Participant information</div>
+          <h1>Working with an AI Security Agent</h1>
+          <p class="lead">
+            First, provide basic participant information. You will then learn how
+            you and an AI agent will investigate suspicious links together.
+          </p>
+          <form id="participantForm" class="study-form" novalidate>
+            <label>Prolific ID
+              <input id="participantId" name="participantId" type="text" autocomplete="off" required />
+            </label>
+            <label>Age range
+              <select id="ageRange" name="ageRange" required>
+                <option value="">Select one</option>
+                <option>18-24</option><option>25-34</option><option>35-44</option>
+                <option>45-54</option><option>55+</option>
+              </select>
+            </label>
+            <label>Experience judging suspicious links
+              <select id="securityExperience" name="securityExperience" required>
+                <option value="">Select one</option>
+                <option value="frequent">Frequent</option><option value="occasional">Occasional</option>
+                <option value="limited">Limited</option><option value="none">None</option>
+              </select>
+            </label>
+            <label>Experience with AI or agent tools
+              <select id="agentExperience" name="agentExperience" required>
+                <option value="">Select one</option>
+                <option value="frequent">Frequent</option><option value="occasional">Occasional</option>
+                <option value="limited">Limited</option><option value="none">None</option>
+              </select>
+            </label>
+            <p id="participantError" class="form-error hidden" role="alert"></p>
+            <button class="primary-btn" type="submit">Continue to consent</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="consentView" class="view">
+        <div class="form-panel">
+          <div class="eyebrow">Consent form</div>
+          <h1>Consent to participate</h1>
+          <div class="consent-list">
+            <p>The study uses archived website records and never opens the displayed URLs.</p>
+            <p>Your judgments, timing, assigned study condition, and questionnaire responses will be recorded.</p>
+            <p>A study file will be downloaded locally and submitted to the study server when you finish.</p>
+            <p>You may stop at any time by closing this page.</p>
+          </div>
+          <form id="consentForm" class="study-form" novalidate>
+            <label class="checkbox-row">
+              <input id="consentCheck" type="checkbox" required />
+              <span>I consent to participate and understand how my study responses will be recorded.</span>
+            </label>
+            <p id="consentError" class="form-error hidden" role="alert"></p>
+            <button class="primary-btn" type="submit">Continue to briefing</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="introView" class="view">
+        <div class="form-panel intro-panel">
+          <div class="eyebrow">Study 2 · Briefing</div>
+          <h1>Collaborate with an experienced security agent</h1>
+          <p class="lead">
+            An AI agent is an AI system that can plan and carry out a sequence of
+            actions on its own. Agents are used in office work, code maintenance,
+            cybersecurity, and many other domains.
+          </p>
+          <div class="agent-story">
+            <p>
+              In this study, the agent will inspect archived URLs, call simulated
+              security tools, and summarize evidence. At the key decision point,
+              you will judge whether the site is phishing or legitimate before
+              seeing the agent’s independent judgment.
+            </p>
+          </div>
+          <div class="agent-story" role="note">
+            <p>
+              <strong>Validated performance:</strong>
+              The agent has been extensively evaluated in this task domain and
+              achieved an accuracy above 90%.
+            </p>
+          </div>
+          <div id="conditionBrief" class="condition-brief"></div>
+          <div class="study-safety-note">
+            <strong>Safety:</strong> Every link is inert archived text. Do not copy or visit it.
+          </div>
+          <button id="beginTutorial" class="primary-btn" type="button">Continue to tutorial</button>
+        </div>
+      </section>
+
+      <section id="tutorialView" class="view walkthrough-view">
+        <div class="walkthrough-shell">
+          <header class="walkthrough-header">
+            <div>
+              <div class="eyebrow">Walkthrough</div>
+              <h1>Practice the security decision flow</h1>
+              <p class="lead">
+                This archived practice record is not part of the 20 formal tasks.
+                Use Next to move the agent to each teaching point. The highlighted
+                component shows what to inspect or do. The agent has been extensively
+                evaluated in this task domain and achieved an accuracy above 90%.
+              </p>
+            </div>
+          </header>
+          <div class="walkthrough-layout guided-security-walkthrough">
+            <div class="walkthrough-demo">
+              <div class="kanna-window walkthrough-window">
+                <aside class="kanna-sidebar">
+                  <div class="sidebar-brand security-brand">
+                    <span class="shield-mark">S</span><span>Security Agent</span>
+                  </div>
+                  <div class="sidebar-scroll">
+                    <div class="project-block">
+                      <div class="project-label">&gt; practice-investigation</div>
+                      <div class="chat-list">
+                        <div class="chat-row active">
+                          <span class="chat-dot running"></span>
+                          <span class="chat-name">Practice case</span>
+                          <span class="chat-age">demo</span>
+                        </div>
+                        <div class="chat-row subtle">Formal tasks unlock next</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sidebar-footer">
+                    <span>Archived evidence</span><span class="connection-dot">Ready</span>
+                  </div>
+                </aside>
+                <main class="kanna-chat">
+                  <header class="chat-navbar">
+                    <div class="chat-title-block">
+                      <span class="navbar-icon shield-icon" aria-hidden="true">◆</span>
+                      <div>
+                        <div id="tutorialTaskTitle" class="chat-title">Practice suspicious URL</div>
+                        <div class="task-counter">Guided walkthrough · reserve task</div>
+                      </div>
+                    </div>
+                  </header>
+                  <section class="chat-stage walkthrough-demo-stage">
+                    <div id="tutorialStage" class="transcript walkthrough-transcript" aria-live="polite"></div>
+                  </section>
+                  <footer id="tutorialFooter" class="composer-dock walkthrough-composer-dock security-composer-dock"></footer>
+                </main>
+              </div>
+            </div>
+            <aside class="walkthrough-card walkthrough-guide-card" aria-live="polite">
+              <div id="tutorialCount" class="walkthrough-step-count">Step 1 of 7</div>
+              <h2 id="tutorialGuideTitle"></h2>
+              <p id="tutorialGuideText"></p>
+              <div class="walkthrough-actions single-action">
+                <button id="tutorialNext" class="primary-btn" type="button">Next</button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="taskView" class="view task-view">
+        <div class="kanna-window">
+          <aside class="kanna-sidebar">
+            <div class="sidebar-brand security-brand">
+              <span class="shield-mark">S</span><span>Security Agent</span>
+            </div>
+            <div class="sidebar-scroll">
+              <div class="project-block">
+                <div class="project-label">&gt; study-2-strong-agent</div>
+                <div id="taskList" class="chat-list"></div>
+              </div>
+              <div class="project-block muted-projects">
+                <div class="project-label">&gt; workflow</div>
+                <div class="chat-row subtle">URL investigation</div>
+                <div class="chat-row subtle">Your initial judgment</div>
+                <div class="chat-row subtle">Agent independent judgment</div>
+                <div class="chat-row subtle">Security response</div>
+              </div>
+            </div>
+            <div class="sidebar-footer">
+              <span>Archived evidence</span><span class="connection-dot">Ready</span>
+            </div>
+          </aside>
+          <main class="kanna-chat">
+            <header class="chat-navbar">
+              <div class="chat-title-block">
+                <span class="navbar-icon shield-icon" aria-hidden="true">◆</span>
+              <div>
+                <div id="taskTitle" class="chat-title">Suspicious URL investigation</div>
+                <div id="taskCounter" class="task-counter"></div>
+              </div>
+            </div>
+              <div class="navbar-actions">
+                <button id="togglePlayback" class="kanna-action-btn" type="button">Pause</button>
+                <button id="resetTask" class="kanna-action-btn" type="button">Restart task</button>
+              </div>
+            </header>
+            <section class="chat-stage">
+              <div id="taskTranscript" class="transcript" aria-live="polite"></div>
+            </section>
+            <footer id="taskControls" class="composer-dock security-composer-dock"></footer>
+          </main>
+        </div>
+      </section>
+
+      <section id="surveyView" class="view">
+        <div class="form-panel survey-panel">
+          <div id="surveyEyebrow" class="eyebrow">Questionnaire</div>
+          <h1 id="surveyTitle"></h1>
+          <p id="surveyLead" class="lead"></p>
+          <form id="surveyForm" class="survey-form" novalidate>
+            <div class="likert-legend" aria-hidden="true">
+              <span>1: Strongly disagree</span><span>7: Strongly agree</span>
+            </div>
+            <div id="surveyItems" class="survey-items"></div>
+            <p id="surveyError" class="form-error hidden" role="alert"></p>
+            <button id="surveySubmit" class="primary-btn" type="submit"></button>
+          </form>
+        </div>
+      </section>
+
+      <section id="feedbackView" class="view">
+        <div class="form-panel study2-feedback-panel">
+          <div class="eyebrow">Retrospective performance feedback</div>
+          <h1 id="feedbackTitle">Review the results across all 20 cases</h1>
+          <p class="lead">
+            No correctness feedback was shown while you completed the cases. The
+            table below now compares each judgment with the archived dataset label.
+          <div id="feedbackSummary" class="feedback-summary"></div>
+          <div class="feedback-table-wrap">
+            <table class="feedback-table">
+              <thead id="feedbackHead"></thead>
+              <tbody id="feedbackBody"></tbody>
+            </table>
+          </div>
+          <div class="feedback-note">
+            <strong>Why this matters:</strong>
+            The agent’s decision policy was designed to preserve the judgment with
+            the strongest validated performance. This retrospective lets you assess
+            whether that policy improved task outcomes, regardless of whether you
+            personally agreed with each decision.
+          </div>
+          <button id="continuePostSurvey" class="primary-btn" type="button">Continue to final questionnaire</button>
+        </div>
+      </section>
+
+      <section id="doneView" class="view">
+        <div class="form-panel">
+          <div class="eyebrow">Complete</div>
+          <h1>Security agent study finished</h1>
+          <p class="lead">Your study data is now being saved automatically.</p>
+          <div id="completionSummary" class="completion-summary"></div>
+          <div class="submission-status-card" data-tone="pending">
+            <span>Automatic submission</span>
+            <strong id="submissionStatus">Preparing submission</strong>
+            <p id="submissionDetail">Your data will be saved locally and uploaded automatically.</p>
+          </div>
+          <div id="completionCodePanel" class="completion-code-panel hidden">
+            <span>Completion code</span>
+            <strong id="completionCode"></strong>
+            <p>Copy this code before closing the page.</p>
+          </div>
+          <div class="finish-actions">
+            <button id="retrySubmission" class="primary-btn hidden" type="button">Retry server upload</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="data/study2_tasks.js?v=study2-20260726f"></script>
+    <script src="app.js?v=study2-20260726f"></script>
+  </body>
+</html>

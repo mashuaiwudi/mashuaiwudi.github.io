@@ -1,0 +1,225 @@
+@import url("base.css");
+
+/* Study 2 uses Study 1's complete visual system from base.css.
+   Only Study 2-specific content without a Study 1 counterpart is styled here. */
+
+.study2-two-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.verdict-option.selected > span {
+  border-color: color-mix(in srgb, var(--blue) 62%, var(--border));
+  background: color-mix(in srgb, var(--blue) 9%, white);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 10%, transparent);
+}
+
+.study2-case-explanation {
+  position: relative;
+  max-width: none;
+  margin-top: 12px;
+  border: 2px solid color-mix(in srgb, var(--blue) 72%, var(--border));
+  border-radius: 16px;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--blue) 12%, white),
+      color-mix(in srgb, var(--blue) 4%, white)
+    );
+  padding: 16px 18px 16px 22px;
+  box-shadow:
+    inset 6px 0 0 var(--blue),
+    0 10px 24px color-mix(in srgb, var(--blue) 14%, transparent);
+}
+
+.study2-case-explanation .result-kicker {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 9px;
+  border-radius: 999px;
+  background: var(--blue);
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.study2-case-explanation p {
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 620;
+  line-height: 1.6;
+}
+
+.study2-workflow-complete {
+  max-width: none;
+  margin-top: 10px;
+}
+
+.workflow-choice-item {
+  border-color: color-mix(in srgb, var(--blue) 42%, var(--border));
+  background: color-mix(in srgb, var(--blue) 3%, white);
+}
+
+.workflow-choice-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.workflow-choice-option {
+  cursor: pointer;
+}
+
+.workflow-choice-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.workflow-choice-option > span {
+  display: grid;
+  gap: 5px;
+  min-height: 92px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  padding: 13px 14px;
+  transition:
+    border-color 120ms ease,
+    background 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.workflow-choice-option strong,
+.workflow-choice-option small {
+  display: block;
+}
+
+.workflow-choice-option strong {
+  color: var(--foreground);
+  font-size: 14px;
+}
+
+.workflow-choice-option small {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.workflow-choice-option:has(input:checked) > span {
+  border-color: color-mix(in srgb, var(--blue) 70%, var(--border));
+  background: color-mix(in srgb, var(--blue) 9%, white);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 11%, transparent);
+}
+
+.study2-feedback-panel {
+  width: min(1180px, calc(100vw - 32px));
+}
+
+.feedback-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.feedback-summary > div {
+  display: grid;
+  gap: 5px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--muted);
+  padding: 14px;
+}
+
+.feedback-summary span,
+.feedback-summary small {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.feedback-summary strong {
+  color: var(--foreground);
+  font-size: 26px;
+}
+
+.feedback-table-wrap {
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.feedback-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.feedback-table th,
+.feedback-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 11px 13px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.feedback-table thead th {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.feedback-table tbody th {
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+
+.result-badge {
+  display: inline-grid;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 7px 9px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.result-badge small {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.result-badge.correct {
+  border-color: color-mix(in srgb, var(--green) 48%, var(--border));
+  background: color-mix(in srgb, var(--green) 8%, white);
+  color: var(--green);
+}
+
+.result-badge.incorrect {
+  border-color: color-mix(in srgb, var(--red) 48%, var(--border));
+  background: color-mix(in srgb, var(--red) 7%, white);
+  color: var(--red);
+}
+
+.feedback-note {
+  margin: 18px 0;
+  border: 1px solid color-mix(in srgb, var(--blue) 30%, var(--border));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--blue) 5%, white);
+  padding: 14px 16px;
+  color: var(--foreground);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+@media (max-width: 800px) {
+  .study2-two-card-grid,
+  .feedback-summary,
+  .workflow-choice-options {
+    grid-template-columns: 1fr;
+  }
+}
