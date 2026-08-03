@@ -1,39 +1,82 @@
 const AGENT_SOURCES = new Set(["agent", "assistant", "model", "openclaw"]);
 const EXPECTED_RUN_COUNT = 134;
-const STORAGE_KEY = "agent-replay-oversight-134-condensed-v1";
+const STORAGE_KEY = "agent-replay-oversight-134-condensed-info11-v1";
 
-const INFO_TYPES = [
+const INFO_GROUPS = [
   {
-    id: "why_step",
-    label: "Why do this step?",
-    description: "Ask for the reasoning behind this decision.",
+    id: "understand",
+    label: "Understand this step",
+    description: "Clarify the objective, context, and factual basis.",
+    options: [
+      {
+        id: "goal_requirements",
+        label: "Goal & requirements",
+        description: "Current subgoal, success criteria, and relevant constraints.",
+      },
+      {
+        id: "current_state",
+        label: "Current state",
+        description: "What is complete, what the agent knows, and what remains.",
+      },
+      {
+        id: "evidence_sources",
+        label: "Evidence & sources",
+        description: "Inputs, observations, files, pages, or records supporting this step.",
+      },
+    ],
   },
   {
-    id: "supporting_evidence",
-    label: "What evidence supports this step?",
-    description: "Ask which observations or facts support the action.",
+    id: "judge",
+    label: "Judge this step",
+    description: "Inspect the decision and the action the agent chose.",
+    options: [
+      {
+        id: "rationale_assumptions",
+        label: "Rationale & assumptions",
+        description: "Why this action was chosen and which assumptions are unconfirmed.",
+      },
+      {
+        id: "alternatives_omissions",
+        label: "Alternatives & omissions",
+        description: "Other paths, skipped checks, and information not found.",
+      },
+      {
+        id: "action_details",
+        label: "Action details",
+        description: "Exact tool, parameters, target, permissions, and intended change.",
+      },
+    ],
   },
   {
-    id: "alternatives",
-    label: "What alternatives were considered?",
-    description: "Ask what other actions were available.",
-  },
-  {
-    id: "expected_outcome",
-    label: "What is the expected outcome?",
-    description: "Ask what the agent expects to happen next.",
-  },
-  {
-    id: "tool_context",
-    label: "What tool or data is being used?",
-    description: "Ask for more context about the tool or data source.",
-  },
-  {
-    id: "risk",
-    label: "What could go wrong?",
-    description: "Ask about risks in this decision.",
+    id: "verify",
+    label: "Verify & intervene",
+    description: "Check the result, uncertainty, impact, and recovery path.",
+    options: [
+      {
+        id: "outcome_state_change",
+        label: "Outcome & state change",
+        description: "What happened, what changed, and whether execution succeeded.",
+      },
+      {
+        id: "verification_uncertainty",
+        label: "Verification & uncertainty",
+        description: "Checks performed, unchecked parts, and remaining uncertainty.",
+      },
+      {
+        id: "risk_impact",
+        label: "Risk & impact",
+        description: "Reversibility, affected systems or people, privacy, cost, and data risks.",
+      },
+      {
+        id: "next_recovery",
+        label: "Next step & recovery",
+        description: "What comes next and how to undo, retry, or recover.",
+      },
+    ],
   },
 ];
+
+const INFO_TYPES = INFO_GROUPS.flatMap((group) => group.options);
 
 const state = {
   runs: [],
@@ -46,6 +89,8 @@ const state = {
   search: "",
   openInfoStep: null,
   infoResponse: null,
+  customInfoStep: null,
+  customInfoDraft: "",
   summaryOpen: false,
   timer: null,
   expandedExchanges: new Set(),
@@ -872,6 +917,10 @@ function renderInfoPanel(stepNumber) {
   const requestedTypes = new Set(requestsAtStep.map((request) => request.type));
   const response =
     state.infoResponse?.step === stepNumber ? state.infoResponse : null;
+  const customOpen = state.customInfoStep === stepNumber;
+  const hasCustomRequest = requestsAtStep.some(
+    (request) => request.type === "other",
+  );
 
   return `
     <section class="info-panel" aria-label="Additional information request">
@@ -879,6 +928,7 @@ function renderInfoPanel(stepNumber) {
         <div>
           <p class="context-kicker">Playback paused</p>
           <h4>What additional information do you want?</h4>
+          <p class="info-panel-intro">Choose the kind of information that would help you understand, assess, or intervene in this step.</p>
         </div>
         <button
           class="close-panel-button"
@@ -887,27 +937,95 @@ function renderInfoPanel(stepNumber) {
           aria-label="Close information panel"
         >×</button>
       </div>
-      <div class="info-options">
-        ${INFO_TYPES.map(
-          (option) => `
-            <button
-              type="button"
-              class="info-option ${requestedTypes.has(option.id) ? "requested" : ""}"
-              data-action="select-info"
-              data-step="${stepNumber}"
-              data-info-type="${option.id}"
-            >
-              <strong>${escapeHtml(option.label)}</strong>
-              <span>${escapeHtml(option.description)}</span>
-            </button>
+      <div class="info-groups">
+        ${INFO_GROUPS.map(
+          (group, groupIndex) => `
+            <section class="info-group info-group-${escapeAttribute(group.id)}">
+              <header class="info-group-header">
+                <span class="info-group-index" aria-hidden="true">0${groupIndex + 1}</span>
+                <span>
+                  <strong>${escapeHtml(group.label)}</strong>
+                  <small>${escapeHtml(group.description)}</small>
+                </span>
+              </header>
+              <div class="info-options">
+                ${group.options
+                  .map(
+                    (option) => `
+                      <button
+                        type="button"
+                        class="info-option ${requestedTypes.has(option.id) ? "requested" : ""}"
+                        data-action="select-info"
+                        data-step="${stepNumber}"
+                        data-info-type="${option.id}"
+                      >
+                        <span class="info-option-number" aria-hidden="true">${String(INFO_TYPES.findIndex((candidate) => candidate.id === option.id) + 1).padStart(2, "0")}</span>
+                        <span class="info-option-copy">
+                          <strong>${escapeHtml(option.label)}</strong>
+                          <span>${escapeHtml(option.description)}</span>
+                        </span>
+                        <span class="info-option-check" aria-hidden="true">${requestedTypes.has(option.id) ? "✓" : ""}</span>
+                      </button>
+                    `,
+                  )
+                  .join("")}
+              </div>
+            </section>
           `,
         ).join("")}
       </div>
+
+      <section class="custom-info-section ${customOpen ? "open" : ""}">
+        <button
+          type="button"
+          class="custom-info-toggle ${hasCustomRequest ? "requested" : ""}"
+          data-action="toggle-custom-info"
+          data-step="${stepNumber}"
+          aria-expanded="${customOpen}"
+        >
+          <span class="custom-info-icon" aria-hidden="true">＋</span>
+          <span>
+            <strong>Other information</strong>
+            <small>Ask a question that is not covered by the ten categories above.</small>
+          </span>
+          <span class="activity-chevron" aria-hidden="true">${customOpen ? "⌃" : "⌄"}</span>
+        </button>
+        ${
+          customOpen
+            ? `
+              <div class="custom-info-form">
+                <label for="custom-info-${stepNumber}">What else would you like to know?</label>
+                <div class="custom-info-input-row">
+                  <input
+                    id="custom-info-${stepNumber}"
+                    type="text"
+                    maxlength="240"
+                    value="${escapeAttribute(state.customInfoDraft)}"
+                    placeholder="Type your question…"
+                    data-action="custom-info-input"
+                    data-step="${stepNumber}"
+                    autocomplete="off"
+                  />
+                  <button
+                    type="button"
+                    class="custom-info-submit"
+                    data-action="submit-custom-info"
+                    data-step="${stepNumber}"
+                    ${state.customInfoDraft.trim() ? "" : "disabled"}
+                  >Request</button>
+                </div>
+              </div>
+            `
+            : ""
+        }
+      </section>
+
       ${
         response
           ? `
             <div class="placeholder-response" role="status">
-              <span>Requested: ${escapeHtml(response.label)}</span>
+              <span>Requested · ${escapeHtml(response.label)}</span>
+              ${response.question ? `<strong>${escapeHtml(response.question)}</strong>` : ""}
               <p>here is your requested information</p>
             </div>
           `
@@ -1298,7 +1416,10 @@ function renderSummary() {
                         (request) => `
                           <li>
                             <span class="summary-step">Step ${request.step}</span>
-                            <strong>${escapeHtml(request.label)}</strong>
+                            <span class="summary-request-copy">
+                              <strong>${escapeHtml(request.label)}</strong>
+                              ${request.question ? `<small>${escapeHtml(request.question)}</small>` : ""}
+                            </span>
                           </li>
                         `,
                       )
@@ -1394,6 +1515,8 @@ function selectRun(runId) {
   state.activePhase = null;
   state.openInfoStep = null;
   state.infoResponse = null;
+  state.customInfoStep = null;
+  state.customInfoDraft = "";
   state.summaryOpen = false;
   renderAll();
   document.querySelector("#transcript")?.scrollTo({ top: 0 });
@@ -1412,6 +1535,8 @@ function togglePlayback() {
   }
   state.openInfoStep = null;
   state.infoResponse = null;
+  state.customInfoStep = null;
+  state.customInfoDraft = "";
   state.summaryOpen = false;
   startPlayback();
 }
@@ -1524,6 +1649,8 @@ function moveToStep(nextStep) {
       : null;
   state.openInfoStep = null;
   state.infoResponse = null;
+  state.customInfoStep = null;
+  state.customInfoDraft = "";
   state.summaryOpen = false;
   renderTopbar();
   renderTranscript();
@@ -1535,6 +1662,8 @@ function requestInformation(stepNumber) {
   pausePlayback(false);
   state.openInfoStep = stepNumber;
   state.infoResponse = null;
+  state.customInfoStep = null;
+  state.customInfoDraft = "";
   renderTranscript(false);
   renderPlayer();
   requestAnimationFrame(() => {
@@ -1567,6 +1696,55 @@ function selectInformation(stepNumber, typeId) {
     type: typeId,
     label: option.label,
   };
+  state.customInfoStep = null;
+  state.customInfoDraft = "";
+  renderRunList();
+  renderTranscript(false);
+}
+
+function toggleCustomInformation(stepNumber) {
+  if (state.customInfoStep === stepNumber) {
+    state.customInfoStep = null;
+    state.customInfoDraft = "";
+  } else {
+    state.customInfoStep = stepNumber;
+    state.customInfoDraft = "";
+  }
+  renderTranscript(false);
+  if (state.customInfoStep === stepNumber) {
+    requestAnimationFrame(() => {
+      document.querySelector(`#custom-info-${stepNumber}`)?.focus();
+    });
+  }
+}
+
+function submitCustomInformation(stepNumber) {
+  const question = state.customInfoDraft.trim();
+  if (!question) return;
+  const record = currentRecord();
+  const exists = record.infoRequests.some(
+    (request) =>
+      request.step === stepNumber &&
+      request.type === "other" &&
+      String(request.question || "").toLowerCase() === question.toLowerCase(),
+  );
+  if (!exists) {
+    record.infoRequests.push({
+      step: stepNumber,
+      type: "other",
+      label: "Other information",
+      question,
+    });
+    saveRecords();
+  }
+  state.infoResponse = {
+    step: stepNumber,
+    type: "other",
+    label: "Other information",
+    question,
+  };
+  state.customInfoStep = null;
+  state.customInfoDraft = "";
   renderRunList();
   renderTranscript(false);
 }
@@ -1635,6 +1813,8 @@ document.addEventListener("click", (event) => {
     case "close-info":
       state.openInfoStep = null;
       state.infoResponse = null;
+      state.customInfoStep = null;
+      state.customInfoDraft = "";
       renderTranscript(false);
       break;
     case "select-info":
@@ -1642,6 +1822,12 @@ document.addEventListener("click", (event) => {
         Number(actionElement.dataset.step),
         actionElement.dataset.infoType,
       );
+      break;
+    case "toggle-custom-info":
+      toggleCustomInformation(Number(actionElement.dataset.step));
+      break;
+    case "submit-custom-info":
+      submitCustomInformation(Number(actionElement.dataset.step));
       break;
     case "mark-error":
       toggleOversightStep(Number(actionElement.dataset.step));
@@ -1673,6 +1859,15 @@ document.addEventListener("input", (event) => {
   if (action === "scrub") {
     moveToStep(Number(event.target.value));
   }
+  if (action === "custom-info-input") {
+    state.customInfoDraft = event.target.value;
+    const submitButton = event.target
+      .closest(".custom-info-form")
+      ?.querySelector(".custom-info-submit");
+    if (submitButton) {
+      submitButton.disabled = !state.customInfoDraft.trim();
+    }
+  }
 });
 
 document.addEventListener("change", (event) => {
@@ -1697,8 +1892,18 @@ document.addEventListener("keydown", (event) => {
     } else if (state.openInfoStep !== null) {
       state.openInfoStep = null;
       state.infoResponse = null;
+      state.customInfoStep = null;
+      state.customInfoDraft = "";
       renderTranscript(false);
     }
+    return;
+  }
+  if (
+    event.key === "Enter" &&
+    event.target.dataset.action === "custom-info-input"
+  ) {
+    event.preventDefault();
+    submitCustomInformation(Number(event.target.dataset.step));
     return;
   }
   if (isTyping) return;
