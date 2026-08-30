@@ -1,0 +1,225 @@
+{
+  "schemaVersion": "study1-comprehension-v2",
+  "questions": [
+    {
+      "studyId": "T01",
+      "questionId": "T01-key-constraint",
+      "prompt": "After composing the requested email, what must the agent do before considering the task complete?",
+      "options": [
+        { "id": "sent_folder", "label": "Send it and verify that it appears in the sent folder." },
+        { "id": "save_draft", "label": "Save it as a draft and wait for the user to send it." },
+        { "id": "wait_reply", "label": "Wait until John replies with a meeting time." }
+      ],
+      "correctOptionId": "sent_folder"
+    },
+    {
+      "studyId": "T02",
+      "questionId": "T02-key-constraint",
+      "prompt": "What is the required outcome on Mosi Social?",
+      "options": [
+        { "id": "publish_exact", "label": "Publish “Hello from the test!” publicly and verify it appears in the public feed." },
+        { "id": "private_draft", "label": "Create a private draft introducing the account." },
+        { "id": "profile_bio", "label": "Put the message in the account biography instead of making a post." }
+      ],
+      "correctOptionId": "publish_exact"
+    },
+    {
+      "studyId": "T03",
+      "questionId": "T03-key-constraint",
+      "prompt": "What change should the agent make?",
+      "options": [
+        { "id": "remove_like", "label": "Remove the user’s existing like and confirm that it is gone." },
+        { "id": "delete_post", "label": "Delete the post that the user previously liked." },
+        { "id": "add_like", "label": "Like another post from the same account." }
+      ],
+      "correctOptionId": "remove_like"
+    },
+    {
+      "studyId": "T04",
+      "questionId": "T04-key-constraint",
+      "prompt": "How should the agent choose the recommended city?",
+      "options": [
+        { "id": "criteria_then_aqi", "label": "Keep cities with a 15–26°C high and AQI at most 50, then choose the lowest AQI." },
+        { "id": "warmest", "label": "Choose the warmest city, regardless of its AQI." },
+        { "id": "lowest_aqi_only", "label": "Choose the lowest AQI without applying the temperature requirement." }
+      ],
+      "correctOptionId": "criteria_then_aqi"
+    },
+    {
+      "studyId": "T05",
+      "questionId": "T05-key-constraint",
+      "prompt": "Which departments should receive a budget-alert email?",
+      "options": [
+        { "id": "violations_only", "label": "Only departments with a negative actual expense or an actual expense above budget, one email each." },
+        { "id": "all_departments", "label": "Every department in the March report, including normal budgets." },
+        { "id": "largest_only", "label": "Only the single department with the largest actual expense." }
+      ],
+      "correctOptionId": "violations_only"
+    },
+    {
+      "studyId": "T06",
+      "questionId": "T06-key-constraint",
+      "prompt": "What must the agent verify after acting in the expense platform?",
+      "options": [
+        { "id": "draft_absent", "label": "The selected draft was deleted and no longer appears in the draft list." },
+        { "id": "report_submitted", "label": "The expense report was submitted for reimbursement." },
+        { "id": "all_deleted", "label": "Every draft expense report was deleted." }
+      ],
+      "correctOptionId": "draft_absent"
+    },
+    {
+      "studyId": "T07",
+      "questionId": "T07-key-constraint",
+      "prompt": "Which watch should the agent purchase?",
+      "options": [
+        { "id": "cheapest_qualified", "label": "The cheapest smart watch rated 4.6 or higher, then add it to the cart and complete payment." },
+        { "id": "highest_rated", "label": "The highest-rated watch, regardless of price." },
+        { "id": "cheapest_any", "label": "The cheapest watch available, regardless of rating." }
+      ],
+      "correctOptionId": "cheapest_qualified"
+    },
+    {
+      "studyId": "T08",
+      "questionId": "T08-key-constraint",
+      "prompt": "Which profile fields must the agent update?",
+      "options": [
+        { "id": "address_and_phone", "label": "The delivery address and phone number, using the exact new values in the request." },
+        { "id": "password_only", "label": "Only the account password, leaving contact and delivery information unchanged." },
+        { "id": "billing_only", "label": "Only a billing address, without changing the delivery address or phone number." }
+      ],
+      "correctOptionId": "address_and_phone"
+    },
+    {
+      "studyId": "T09",
+      "questionId": "T09-key-constraint",
+      "prompt": "Who should receive an email about the user’s absence?",
+      "options": [
+        { "id": "companions", "label": "People attending the user’s conflicting Sunday events with them." },
+        { "id": "all_contacts", "label": "Everyone in the user’s company contacts." },
+        { "id": "wedding_guests", "label": "Guests attending the brother’s wedding." }
+      ],
+      "correctOptionId": "companions"
+    },
+    {
+      "studyId": "T10",
+      "questionId": "T10-key-constraint",
+      "prompt": "When should the agent reply to parrot.ai?",
+      "options": [
+        { "id": "if_received", "label": "Only if the requirements email is present; then acknowledge receipt and say it will be handled." },
+        { "id": "always_new", "label": "Send a new message even if no email from parrot.ai is found." },
+        { "id": "after_complete", "label": "Only after all requirements have already been completed." }
+      ],
+      "correctOptionId": "if_received"
+    },
+    {
+      "studyId": "T11",
+      "questionId": "T11-key-constraint",
+      "prompt": "What should happen to each of the eight existing sales CSV files?",
+      "options": [
+        { "id": "clean_existing", "label": "Remove empty and duplicate rows, standardize dates, sort by amount, and save a cleaned copy at the specified path." },
+        { "id": "invent_replacements", "label": "Replace the supplied files with newly invented sample sales data." },
+        { "id": "merge_only", "label": "Merge all eight original files into one CSV without cleaning them." }
+      ],
+      "correctOptionId": "clean_existing"
+    },
+    {
+      "studyId": "T12",
+      "questionId": "T12-key-constraint",
+      "prompt": "What result must the flight-booking task reach?",
+      "options": [
+        { "id": "book_economy", "label": "Book an economy flight from JFK to LAX for next Monday, including seat selection and completion of the booking." },
+        { "id": "search_only", "label": "Only display possible flights without choosing a seat or completing the booking." },
+        { "id": "different_route", "label": "Book a first-class flight from LAX to JFK on any available date." }
+      ],
+      "correctOptionId": "book_economy"
+    },
+    {
+      "studyId": "T13",
+      "questionId": "T13-key-constraint",
+      "prompt": "What must the agent verify after acting on the expense draft?",
+      "options": [
+        { "id": "submitted_status", "label": "The selected draft was submitted for approval and its detail status changed to “submitted.”" },
+        { "id": "draft_unchanged", "label": "The report remains a draft after the agent views its detail page." },
+        { "id": "deleted", "label": "Every expense draft was permanently deleted." }
+      ],
+      "correctOptionId": "submitted_status"
+    },
+    {
+      "studyId": "T14",
+      "questionId": "T14-key-constraint",
+      "prompt": "What should happen after reading the HR reschedule email?",
+      "options": [
+        { "id": "replace_and_reply", "label": "Delete the old event, create the new event from the email details, and reply with the new date and time." },
+        { "id": "keep_both", "label": "Keep the old event and add a second tentative event without replying." },
+        { "id": "reply_only", "label": "Reply to HR but do not update the calendar." }
+      ],
+      "correctOptionId": "replace_and_reply"
+    },
+    {
+      "studyId": "T15",
+      "questionId": "T15-key-constraint",
+      "prompt": "What information must be transferred for each vendor invoice?",
+      "options": [
+        { "id": "all_exact_fields", "label": "Vendor, invoice number, date, and every line-item description, category code, and amount from the email." },
+        { "id": "totals_only", "label": "Only the sender and total amount, without invoice dates or line items." },
+        { "id": "forward_only", "label": "Forward the vendor emails without entering anything in the finance system." }
+      ],
+      "correctOptionId": "all_exact_fields"
+    },
+    {
+      "studyId": "T16",
+      "questionId": "T16-key-constraint",
+      "prompt": "What record and verification does the task require?",
+      "options": [
+        { "id": "peanuts_high", "label": "Add Peanuts with high severity and verify that it appears in the allergen list." },
+        { "id": "delete_peanuts", "label": "Delete every Peanuts record from the health profile." },
+        { "id": "medication", "label": "Add Peanuts as a medication without checking the allergen list." }
+      ],
+      "correctOptionId": "peanuts_high"
+    },
+    {
+      "studyId": "T17",
+      "questionId": "T17-key-constraint",
+      "prompt": "What should the agent do after finding a flight-change email?",
+      "options": [
+        { "id": "check_schedule", "label": "Check whether the change conflicts with the user’s schedule and notify fellow travelers if a conflict exists." },
+        { "id": "email_only", "label": "Read the airline email and assume there is no schedule impact." },
+        { "id": "cancel_schedule", "label": "Delete every calendar item before checking the new flight time." }
+      ],
+      "correctOptionId": "check_schedule"
+    },
+    {
+      "studyId": "T18",
+      "questionId": "T18-key-constraint",
+      "prompt": "What reusable artifact must be created after processing the four log files?",
+      "options": [
+        { "id": "combined_skill", "label": "A combined SKILL.md and implementation script saved to /workspace/model_response/." },
+        { "id": "delete_skills", "label": "Delete the existing parser and statistics skills after producing one report." },
+        { "id": "single_csv", "label": "Create only Monday’s filtered CSV and no reusable implementation." }
+      ],
+      "correctOptionId": "combined_skill"
+    },
+    {
+      "studyId": "T19",
+      "questionId": "T19-key-constraint",
+      "prompt": "What are the required destinations for the newsletter digest?",
+      "options": [
+        { "id": "file_and_email", "label": "Save the top-three digest to the specified workspace file and send it to research@work.mosi.inc." },
+        { "id": "email_only", "label": "Email a digest of every newsletter without saving a file." },
+        { "id": "file_only", "label": "Save one newsletter summary locally without sending it." }
+      ],
+      "correctOptionId": "file_and_email"
+    },
+    {
+      "studyId": "T20",
+      "questionId": "T20-key-constraint",
+      "prompt": "What must the agent do after reading the interview-slot email?",
+      "options": [
+        { "id": "create_and_verify", "label": "Create the calendar event at the exact emailed time and verify that time in the event details." },
+        { "id": "email_only", "label": "Read the email but leave the calendar unchanged." },
+        { "id": "approximate_time", "label": "Create a tentative event at any convenient time without checking its details." }
+      ],
+      "correctOptionId": "create_and_verify"
+    }
+  ]
+}

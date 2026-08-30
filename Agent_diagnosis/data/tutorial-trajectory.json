@@ -1,0 +1,88 @@
+{
+  "studyId": "PRACTICE",
+  "domain": "Documents & Knowledge",
+  "ability_category": "reflective diagnosis",
+  "task_instruction": "[Mon 2026-05-25 07:44 UTC] Your workspace notes about speculative decoding contain stale claims. Review the local corpus in `corpus/` and use the browser portal in `tools/` to find stronger evidence, then repair your notes and write `~/.openclaw/output/result.json`.",
+  "decision_step_count": 8,
+  "decision_steps": [
+    {
+      "decision_step": 1,
+      "raw_step_ids": [2],
+      "agent_message": "I'll start by searching memory for context, then explore the workspace.",
+      "events": [],
+      "display_events": [
+        {"kind":"tool_exchange","tool":"memory_search","label":"memory_search","call_summary":"Searching for ‘speculative decoding’","observation_summary":"Tool observation recorded","status":"success","call_index":0,"result_index":0},
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"$ find /home/node/.openclaw/workspace/corpus/ -type f | head -50","observation_summary":"/home/node/.openclaw/workspace/corpus/source_03_article.html","status":"success","call_index":1,"result_index":1},
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"$ find /home/node/.openclaw/workspace/tools/ -type f | head -50","observation_summary":"/home/node/.openclaw/workspace/tools/README.md","status":"success","call_index":2,"result_index":2}
+      ]
+    },
+    {
+      "decision_step": 2,
+      "raw_step_ids": [3],
+      "agent_message": "",
+      "events": [],
+      "display_events": [
+        {"kind":"tool_exchange","tool":"read","label":"read","call_summary":"Reading /home/node/.openclaw/workspace/MEMORY.md","observation_summary":"5 lines · # Memory","status":"success","call_index":0,"result_index":0},
+        {"kind":"tool_exchange","tool":"read","label":"read","call_summary":"Reading corpus/source_01_paper.md","observation_summary":"25 lines · # source_id: source_01_paper","status":"success","call_index":1,"result_index":1},
+        {"kind":"tool_exchange","tool":"read","label":"read","call_summary":"Reading corpus/source_02_video_transcript.md","observation_summary":"27 lines · # source_id: source_02_video","status":"success","call_index":2,"result_index":2},
+        {"kind":"tool_exchange","tool":"read","label":"read","call_summary":"Reading corpus/source_03_article.html","observation_summary":"32 lines · source_03_article","status":"success","call_index":3,"result_index":3},
+        {"kind":"tool_exchange","tool":"read","label":"read","call_summary":"Reading tools/README.md","observation_summary":"The internal portal is available through tools/browser_mock_client.py","status":"success","call_index":4,"result_index":4}
+      ]
+    },
+    {
+      "decision_step": 3,
+      "raw_step_ids": [4],
+      "agent_message": "I've read the local corpus. The workspace notes contain stale claims that are contradicted by the available evidence. I'll use the browser portal to find stronger sources.",
+      "events": [],
+      "display_events": [
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"$ python3 tools/browser_mock_client.py home","observation_summary":"URL: http://127.0.0.1:8123/","status":"success","call_index":0,"result_index":0}
+      ]
+    },
+    {
+      "decision_step": 4,
+      "raw_step_ids": [5],
+      "agent_message": "",
+      "events": [],
+      "display_events": [
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"$ python3 tools/browser_mock_client.py search ‘exact decoding cache only’","observation_summary":"URL: http://127.0.0.1:8123/search?q=exact+decoding+cache+only","status":"success","call_index":0,"result_index":0}
+      ]
+    },
+    {
+      "decision_step": 5,
+      "raw_step_ids": [6],
+      "agent_message": "The search returned several validated sources. I'll open the most relevant results.",
+      "events": [],
+      "display_events": [
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"Visiting exact-decoding evidence","observation_summary":"speculative-decoding-exact-not-cache-only","status":"success","call_index":0,"result_index":0},
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"Visiting self-speculative-decoding evidence","observation_summary":"self-speculative-decoding-update","status":"success","call_index":1,"result_index":1},
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"Visiting speedup-condition evidence","observation_summary":"speculative-decoding-speedup-condition","status":"success","call_index":2,"result_index":2}
+      ]
+    },
+    {
+      "decision_step": 6,
+      "raw_step_ids": [7],
+      "agent_message": "I now have the core evidence. I'll also check the superseded ‘universal speedup’ claim because the existing notes implicitly repeat it.",
+      "events": [],
+      "display_events": [
+        {"kind":"tool_exchange","tool":"exec","label":"exec","call_summary":"Visiting the universal-speedup claim","observation_summary":"universal-speedup-claim · marked superseded","status":"success","call_index":0,"result_index":0}
+      ]
+    },
+    {
+      "decision_step": 7,
+      "raw_step_ids": [8],
+      "agent_message": "The evidence is now complete. I'll repair the notes and write the requested result file.",
+      "events": [],
+      "display_events": [
+        {"kind":"tool_exchange","tool":"edit","label":"edit","call_summary":"Editing /home/node/.openclaw/workspace/MEMORY.md","observation_summary":"Successfully replaced text in MEMORY.md","status":"success","call_index":0,"result_index":0},
+        {"kind":"tool_exchange","tool":"write","label":"write","call_summary":"Writing /home/node/.openclaw/output/result.json","observation_summary":"Successfully wrote 2290 bytes","status":"success","call_index":1,"result_index":1}
+      ]
+    },
+    {
+      "decision_step": 8,
+      "raw_step_ids": [9],
+      "agent_message": "Done. I repaired three stale claims in the workspace notes and wrote the requested result file with evidence mapping.",
+      "events": [],
+      "display_events": []
+    }
+  ]
+}
